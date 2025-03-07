@@ -1,0 +1,62 @@
+.Salon-section {
+    background: url("/public/images/salonbanner.jpg") no-repeat center center/cover;
+    height: 70vh;
+    position: relative;
+    color: white;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+}
+.text-effect {
+    position: relative;
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    z-index: 999;
+  }
+  
+  .text-effect::after {
+    content: "";
+    position: absolute;
+    bottom: 10px; 
+    left: 0;
+    width: 100%;
+    height: 20px; 
+    background: var(--primary-color); 
+    z-index: -1;
+  }
+  .Salonpartner_slider p{
+    font-size: 14px;
+    margin-top: 50px;
+  }
+  .partnerfrm{
+    margin-top: 70px;
+  }
+  .partnerfrm .FrmBg{
+    position: relative;
+    margin: 60px 0;
+    padding: 30px 50px 50px;
+    box-shadow: var(--thrid-color) 0px 3px 8px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  .partnerfrm .FrmBg input,  .partnerfrm .FrmBg textarea{
+    background: #000;
+    border: 1px solid #7a7979;
+    padding: 13px 30px;
+    color: #fff;
+  }
+  .cancelBtn{
+    background-color: var(--primary-color);
+    line-height: 42px;
+    color: #fff;
+    border-radius: 1px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    height: 42px;
+    padding: 0px 30px;
+  }
+  .cancelBtn:hover{
+    background-color: var(--secondary-color);
+  }
