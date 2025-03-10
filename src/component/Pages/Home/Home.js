@@ -9,16 +9,84 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
-import { EffectCoverflow, Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { EffectCoverflow, Autoplay, Pagination, Navigation, FreeMode } from 'swiper/modules';
 import SimpleParallax from "simple-parallax-js";
 import { Link } from "react-router-dom";
 import { Form, InputGroup, Dropdown, DropdownButton } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
-import { Card } from "react-bootstrap";
 import { FaMapMarkerAlt, FaClock, FaRoute } from "react-icons/fa";
-import { SlLocationPin } from "react-icons/sl";
-import { TbMarquee } from "react-icons/tb";
-
+const salonData = [
+    {
+        id: 1,
+        name: "Braids & Layers",
+        image: "https://d1ajkvxweygda7.cloudfront.net/1696063484114.png",
+        rating: 5,
+        reviews: 6,
+        address: "G-267, Sitapura Industrial Area, Jaipur, Rajasthan 302022, India",
+        distance: "15.27km",
+        time: "09:00 am to 07:00 pm",
+        startingPrice: 50,
+        service: "Shampoo/Conditioner",
+        duration: "30 min.",
+        link: "/salondetails"
+    },
+    {
+        id: 2,
+        name: "Elegant Cuts",
+        image: "https://d1ajkvxweygda7.cloudfront.net/1696063484114.png",
+        rating: 4.8,
+        reviews: 12,
+        address: "A-12, Malviya Nagar, Jaipur, Rajasthan 302017, India",
+        distance: "10.5km",
+        time: "10:00 am to 08:00 pm",
+        startingPrice: 80,
+        service: "Haircut & Styling",
+        duration: "45 min.",
+        link: "/salondetails"
+    },
+    {
+        id: 3,
+        name: "Luxury Salon",
+        image: "https://d1ajkvxweygda7.cloudfront.net/1696063484114.png",
+        rating: 4.9,
+        reviews: 20,
+        address: "B-56, Vaishali Nagar, Jaipur, Rajasthan 302021, India",
+        distance: "8.2km",
+        time: "09:30 am to 09:00 pm",
+        startingPrice: 100,
+        service: "Facial & Massage",
+        duration: "60 min.",
+        link: "/salondetails"
+    },
+    {
+        id: 4,
+        name: "Luxury Salon",
+        image: "https://d1ajkvxweygda7.cloudfront.net/1696063484114.png",
+        rating: 4.9,
+        reviews: 20,
+        address: "B-56, Vaishali Nagar, Jaipur, Rajasthan 302021, India",
+        distance: "8.2km",
+        time: "09:30 am to 09:00 pm",
+        startingPrice: 100,
+        service: "Facial & Massage",
+        duration: "60 min.",
+        link: "/salondetails"
+    },
+    {
+        id: 5,
+        name: "Luxury Salon",
+        image: "https://d1ajkvxweygda7.cloudfront.net/1696063484114.png",
+        rating: 4.9,
+        reviews: 20,
+        address: "B-56, Vaishali Nagar, Jaipur, Rajasthan 302021, India",
+        distance: "8.2km",
+        time: "09:30 am to 09:00 pm",
+        startingPrice: 100,
+        service: "Facial & Massage",
+        duration: "60 min.",
+        link: "/salondetails"
+    },
+];
 
 export default function Home() {
     useEffect(() => {
@@ -336,180 +404,73 @@ export default function Home() {
                                     <span>See their opening hours &amp; prices and read all reviews.</span>
                                 </div>
                             </div>
-                            <div className="col-lg-4 col-md-6">
-                                <a href="https://billu.co.in/salon-details/97961" className="cs-main__card-box">
-                                    {/* Image Section */}
-                                    <div className="cs-main__card-img">
-                                        <img
-                                            src="https://d1ajkvxweygda7.cloudfront.net/1696063484114.png"
-                                            className="img-fluid"
-                                            alt="Salon"
-                                        />
-                                        <div className="cs-main__card-rating-box">
-                                            <span className="cs-mcard-aR">5</span>
-                                            <span className="cs-mcard-aText">
-                                                <span>6</span> ratings
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    {/* Card Content */}
-                                    <div className="cs-main__card-content p-3">
-                                        <h3 className="cs-main__card-title text-truncate">Sanju Unisex Salon Test</h3>
-
-                                        {/* Location */}
-                                        <div className="cs-main__card-location">
-                                            <FaMapMarkerAlt className="icon" />
-                                            <p className="cs-main__card-location-text text-truncate">
-                                                G-267, Sitapura Industrial Area, Sitapura, Jaipur, Rajasthan 302022, India
-                                            </p>
-                                        </div>
-
-                                        {/* Info List */}
-                                        <ul className="cs-main__card-list">
-                                            <li className="cs-main__card-list-item">
-                                                <FaRoute className="icon" /> 15.27km
-                                            </li>
-                                            <li className="cs-main__card-list-item">
-                                                <FaClock className="icon" /> 09:00 am to 07:00 pm
-                                            </li>
-                                        </ul>
-
-                                        {/* Service Price */}
-                                        <div className="cs-main__card-serviceStarting">
-                                            <div className="serviceStarting-cont">
-                                                Service Starting from <strong>₹50</strong>
+                          
+                            <Swiper
+                                slidesPerView={3} 
+                                spaceBetween={20} 
+                                centeredSlides={false} 
+                                pagination={false} 
+                                navigation={true} 
+                                modules={[Navigation, FreeMode]}
+                                className="mySwiper"
+                            >
+                                {salonData.map((salon) => (
+                                    <SwiperSlide key={salon.id}>
+                                        <Link to={salon.link} className="cs-main__card-box">
+                                            {/* Image Section */}
+                                            <div className="cs-main__card-img">
+                                                <img src={salon.image} className="img-fluid" alt={salon.name} />
+                                                <div className="cs-main__card-rating-box">
+                                                    <span className="cs-mcard-aR">{salon.rating}</span>
+                                                    <span className="cs-mcard-aText">
+                                                        <span>{salon.reviews}</span> ratings
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        {/* Time & Price */}
-                                        <div className="cs-main__card-timePrice">
-                                            <span className="cs-main__card-time">
-                                                <strong>Shampoo/Conditioner</strong> 30 min.
-                                            </span>
-                                            <span className="cs-main__card-time">
-                                                <strong>₹ 50</strong>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className="col-lg-4 col-md-6">
-                                <a href="https://billu.co.in/salon-details/97961" className="cs-main__card-box">
-                                    {/* Image Section */}
-                                    <div className="cs-main__card-img">
-                                        <img
-                                            src="https://d1ajkvxweygda7.cloudfront.net/1696063484114.png"
-                                            className="img-fluid"
-                                            alt="Salon"
-                                        />
-                                        <div className="cs-main__card-rating-box">
-                                            <span className="cs-mcard-aR">5</span>
-                                            <span className="cs-mcard-aText">
-                                                <span>6</span> ratings
-                                            </span>
-                                        </div>
-                                    </div>
+                                            {/* Card Content */}
+                                            <div className="cs-main__card-content p-3">
+                                                <h3 className="cs-main__card-title text-truncate">{salon.name}</h3>
 
-                                    {/* Card Content */}
-                                    <div className="cs-main__card-content p-3">
-                                        <h3 className="cs-main__card-title text-truncate">Sanju Unisex Salon Test</h3>
+                                                {/* Location */}
+                                                <div className="cs-main__card-location">
+                                                    <FaMapMarkerAlt className="icon" />
+                                                    <p className="cs-main__card-location-text text-truncate">
+                                                        {salon.address}
+                                                    </p>
+                                                </div>
 
-                                        {/* Location */}
-                                        <div className="cs-main__card-location">
-                                            <FaMapMarkerAlt className="icon" />
-                                            <p className="cs-main__card-location-text text-truncate">
-                                                G-267, Sitapura Industrial Area, Sitapura, Jaipur, Rajasthan 302022, India
-                                            </p>
-                                        </div>
+                                                {/* Info List */}
+                                                <ul className="cs-main__card-list">
+                                                    <li className="cs-main__card-list-item">
+                                                        <FaRoute className="icon" /> {salon.distance}
+                                                    </li>
+                                                    <li className="cs-main__card-list-item">
+                                                        <FaClock className="icon" /> {salon.time}
+                                                    </li>
+                                                </ul>
 
-                                        {/* Info List */}
-                                        <ul className="cs-main__card-list">
-                                            <li className="cs-main__card-list-item">
-                                                <FaRoute className="icon" /> 15.27km
-                                            </li>
-                                            <li className="cs-main__card-list-item">
-                                                <FaClock className="icon" /> 09:00 am to 07:00 pm
-                                            </li>
-                                        </ul>
+                                                {/* Service Price */}
+                                                <div className="cs-main__card-serviceStarting">
+                                                    <div className="serviceStarting-cont">
+                                                        Service Starting from <strong>₹{salon.startingPrice}</strong>
+                                                    </div>
+                                                </div>
 
-                                        {/* Service Price */}
-                                        <div className="cs-main__card-serviceStarting">
-                                            <div className="serviceStarting-cont">
-                                                Service Starting from <strong>₹50</strong>
+                                                {/* Time & Price */}
+                                                <div className="cs-main__card-timePrice">
+                                                    <span className="cs-main__card-time">
+                                                        <strong>{salon.service}</strong> {salon.duration}
+                                                    </span>
+                                                    <span className="cs-main__card-time">
+                                                        <strong>₹ {salon.startingPrice}</strong>
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
-
-                                        {/* Time & Price */}
-                                        <div className="cs-main__card-timePrice">
-                                            <span className="cs-main__card-time">
-                                                <strong>Shampoo/Conditioner</strong> 30 min.
-                                            </span>
-                                            <span className="cs-main__card-time">
-                                                <strong>₹ 50</strong>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className="col-lg-4 col-md-6">
-                                <a href="https://billu.co.in/salon-details/97961" className="cs-main__card-box">
-                                    {/* Image Section */}
-                                    <div className="cs-main__card-img">
-                                        <img
-                                            src="https://d1ajkvxweygda7.cloudfront.net/1696063484114.png"
-                                            className="img-fluid"
-                                            alt="Salon"
-                                        />
-                                        <div className="cs-main__card-rating-box">
-                                            <span className="cs-mcard-aR">5</span>
-                                            <span className="cs-mcard-aText">
-                                                <span>6</span> ratings
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    {/* Card Content */}
-                                    <div className="cs-main__card-content p-3">
-                                        <h3 className="cs-main__card-title text-truncate">Sanju Unisex Salon Test</h3>
-
-                                        {/* Location */}
-                                        <div className="cs-main__card-location">
-                                            <FaMapMarkerAlt className="icon" />
-                                            <p className="cs-main__card-location-text text-truncate">
-                                                G-267, Sitapura Industrial Area, Sitapura, Jaipur, Rajasthan 302022, India
-                                            </p>
-                                        </div>
-
-                                        {/* Info List */}
-                                        <ul className="cs-main__card-list">
-                                            <li className="cs-main__card-list-item">
-                                                <FaRoute className="icon" /> 15.27km
-                                            </li>
-                                            <li className="cs-main__card-list-item">
-                                                <FaClock className="icon" /> 09:00 am to 07:00 pm
-                                            </li>
-                                        </ul>
-
-                                        {/* Service Price */}
-                                        <div className="cs-main__card-serviceStarting">
-                                            <div className="serviceStarting-cont">
-                                                Service Starting from <strong>₹50</strong>
-                                            </div>
-                                        </div>
-
-                                        {/* Time & Price */}
-                                        <div className="cs-main__card-timePrice">
-                                            <span className="cs-main__card-time">
-                                                <strong>Shampoo/Conditioner</strong> 30 min.
-                                            </span>
-                                            <span className="cs-main__card-time">
-                                                <strong>₹ 50</strong>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+                                        </Link>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
                         </div>
 
                     </div>

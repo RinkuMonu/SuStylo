@@ -104,15 +104,9 @@ export default function SalonPartner() {
                                                 <button className="custom-btn btn-8">Submit</button>
                                                 <button className="cancelBtn">Cancel</button>
                                             </div>
-
-
                                         </div>
-
                                     </div>
-
                                 </div>
-
-
                             </div>
                         </div>
                     </div>

@@ -28,7 +28,9 @@ body {
     text-align: center;
     transition: 0.3s ease-in-out;
 }
-
+.nav-link:hover {
+  color: #fff !important;
+}
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -798,4 +800,172 @@ body {
 }
 .logo_section .startLine hr{
     width: 100%;
+}
+/* .......................... Salon Deatils .......................... */
+.Salondetails-section{
+    background: url("/public/images/SalonDetails.jpg") no-repeat center center/cover;
+    height: 70vh;
+    position: relative;
+    color: white;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+}
+.Salondetails-section .hero-subtitle svg{
+  color: var(--primary-color);
+}
+.social-icon svg{
+  color: var(--primary-color);
+}
+.salon_description .salon_about h2{
+  font-size: 20px;
+    font-weight: 600;
+}
+.salon_description .salon_about p{
+  font-size: 14px;
+  font-weight: 500;
+}
+.salon_description .weekly-opening span {
+  font-size: 12px;
+}
+.salon_description .weekly-opening h4{
+  font-size: 20px !important;
+}
+.salon_description .salon_contact h3{
+  font-size: 20px;
+  font-weight: 500;
+}
+.salon_description .salon_contact a{
+  color: #fff;
+  text-decoration: none;
+  background-color: var(--primary-color);
+  padding: 8px 20px;
+  margin: 20px 0px;
+  border-radius: 30px;
+}
+.salon_description .salon_contact p{
+  font-size: 14px;
+  margin: 10px 0px;
+}
+.social-title{
+  font-size: 20px;
+  text-align: center;
+}
+.salon_name h2, .aboutSalon h3{
+  font-size: 20px;
+  font-weight: 500;
+}
+.salon_name p, .aboutSalon p{
+  font-size: 13px;
+  color: #aaa;
+}
+.salon_description .right_side h2{
+  font-size: 20px;
+  font-weight: 600;
+}
+.salon_description .right_side h2 span{
+  font-size: 11px;
+  font-weight: 400;
+  color: #aaa;
+}
+.salon-tabs .nav-tabs .nav-link.active {
+  color: #fff;
+  background: black;
+}
+.salon-tabs .nav-tabs .nav-link {
+  font-size: 14px;
+  color: #fff;
+}
+.salon-tabs .nav-tabs .nav-link:hover {
+  isolation: isolate;
+  color:var(--primary-color) !important;
+}
+.salon_description .tab-content h4{
+  font-size: 16px;
+}
+.service_category h4{
+  font-size: 16px;
+}
+.facilities_section ul{
+  padding-left: 0px;
+  list-style-type: none;
+  border-top: 1px dashed;
+  margin: 20px 0px;
+}
+.facilities_section ul li{
+  line-height: 20px;
+  margin-top: 25px;
+}
+.facilities_section ul li a{
+  text-decoration: none;
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, var(--primary-color) 0%, var(--secondary-color) 46%, #FFCC70 100%);
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #fff;
+}
+.salonservices{
+  border-right: 1px dashed;
+}
+.Service_tab h5{
+  font-size: 16px;
+  font-weight: 600;
+}
+.Service_tab p{
+  font-size: 14px;
+  color: #aaa !important;
+}
+.bg-rating{
+  background-color: var(--primary-color) !important;
+}
+/* ...................... Book Now ..................... */
+.bookAppoinment-section{
+  background: url("/public/images/2149229743.jpg") no-repeat center center/cover;
+  height: 70vh;
+  position: relative;
+  color: white;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+.content-section .bg-brown{
+  background-color: var(--primary-color);
+  margin-bottom: 16px;
+}
+.additional_services ul li{
+  line-height: 30px;
+}
+.content-section .bg-dark {
+  background-color: #111;
+}
+
+.content-section .border-brown {
+  border: 1px solid #b37a50;
+}
+.vertical {
+  width: 2px;  
+  height: 170px; 
+  background-color:var(--primary-color); 
+  border: none;
+}
+.bookingfrm input, .bookingfrm textarea{
+  background: #000;
+  border: 1px solid #7a7979;
+  padding: 13px 30px;
+  color: #fff;
+}
+.bookingfrm{
+  position: relative;
+  margin: 60px 0;
+  padding: 30px 50px 50px;
+  box-shadow: var(--thrid-color) 0px 3px 8px;
+  border-radius: 5px;
+  transition: all 0.3sease;
+  padding: 40px;
+}
+.about-section{
+  background: url("/public/images/2149229743.jpg") no-repeat center center/cover;
+  height: 70vh;
+  position: relative;
+  color: white;
+  text-align: center;
+  transition: 0.3s ease-in-out;
 }

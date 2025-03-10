@@ -79,7 +79,8 @@ export default function Footer() {
                         </div>
                         <div className='col-md-5'>
                             <div className='rightSide'>
-                                <span className="logo">BLA<span className="text-warning">X</span>CUT</span>
+                                {/* <span className="logo">BLA<span className="text-warning">X</span>CUT</span> */}
+                                <img src='./images/stylo_Logo.png' className='img-fluid mb-3' width={100} />
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
                                 <label for="subscribeMAil" class="form-label">Email address</label>
 
