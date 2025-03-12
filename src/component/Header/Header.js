@@ -34,8 +34,10 @@ export default function Header() {
         <div className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`} id="navbarNav">
           <ul className="navbar-nav ms-auto menu-items">
             <li className="nav-item"><Link className="nav-link" href="#">Home</Link></li>
-            <li className="nav-item"><Link className="nav-link" href="#">Services</Link></li>
-            <li className="nav-item"><Link className="nav-link" href="#">About</Link></li>
+            <li className="nav-item"><Link className="nav-link" to={'/services'}>Services</Link></li>
+            <li className="nav-item"><Link className="nav-link" to={'/about'}>About</Link></li>
+            <li className="nav-item"><Link className="nav-link" to={'/blog'}>Blog</Link></li>
+            <li className="nav-item"><Link className="nav-link" to={'/contact'}>Contact</Link></li>
             <li className="nav-item"><Link className="nav-link" to={'/salonpartner'}>Salon Partner</Link></li>
           </ul>
         </div>

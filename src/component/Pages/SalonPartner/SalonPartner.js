@@ -30,6 +30,7 @@ export default function SalonPartner() {
             <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
                 <section className="Salon-section d-flex align-items-center">
                     <div className="hero-overlay"></div>
+                    <div class="de-gradient-edge-bottom" style={{backgroundSize:"100%", backgroundRepeat:"no-repeat"}}></div>
                     <div className="container text-center position-relative">
                         <h2 className="hero-title">SALON PARTNER</h2>
                         <p className="hero-subtitle">
@@ -95,8 +96,8 @@ export default function SalonPartner() {
                                         </div>
                                         <div className="col-md-12">
                                             <div class="mb-3">
-                                                <label for="email" class="form-label">With textarea</label>
-                                                <textarea class="form-control" aria-label="With textarea" rows={4}></textarea>
+                                                <label for="email" class="form-label">Address</label>
+                                                <textarea class="form-control" aria-label="Address" placeholder="Address" rows={4}></textarea>
                                             </div>
                                         </div>
                                         <div className="col-md-12">

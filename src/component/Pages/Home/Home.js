@@ -121,8 +121,9 @@ export default function Home() {
         { src: "./images/7.jpg", name: "Undercut", number: "#7" },
         { src: "./images/8.jpg", name: "Undercut", number: "#8" },
         { src: "./images/9.jpg", name: "Undercut", number: "#9" },
+        { src: "./images/9.jpg", name: "Undercut", number: "#10" },
     ];
-    const numSlides = 5;
+    const numSlides = 10;
     const middleSlideIndex = Math.floor(numSlides / 2);
     // search dropdown
     return (
@@ -130,6 +131,7 @@ export default function Home() {
             <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
                 <section className="hero-section d-flex align-items-center">
                     <div className="hero-overlay"></div>
+                    <div class="de-gradient-edge-bottom" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
                     <div className="container text-center position-relative">
                         <h2 className="hero-title">THE GENTLEMEN'S CHOICE</h2>
                         <p className="hero-subtitle">
@@ -171,8 +173,12 @@ export default function Home() {
                                 modifier: 1,
                                 slideShadows: true,
                             }}
+                            autoplay={{
+                                delay: 3000, 
+                                disableOnInteraction: false, 
+                            }}
                             pagination={false}
-                            modules={[EffectCoverflow, Pagination]}
+                            modules={[EffectCoverflow, Pagination, Autoplay]} 
                             className="mySwiper"
                             initialSlide={middleSlideIndex}
                         >
@@ -404,13 +410,13 @@ export default function Home() {
                                     <span>See their opening hours &amp; prices and read all reviews.</span>
                                 </div>
                             </div>
-                          
+
                             <Swiper
-                                slidesPerView={3} 
-                                spaceBetween={20} 
-                                centeredSlides={false} 
-                                pagination={false} 
-                                navigation={true} 
+                                slidesPerView={3}
+                                spaceBetween={20}
+                                centeredSlides={false}
+                                pagination={false}
+                                navigation={true}
                                 modules={[Navigation, FreeMode]}
                                 className="mySwiper"
                             >

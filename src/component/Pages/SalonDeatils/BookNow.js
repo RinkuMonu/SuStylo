@@ -71,6 +71,7 @@ export default function BookNow() {
         <> <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
             <section className="bookAppoinment-section d-flex align-items-center">
                 <div className="hero-overlay"></div>
+                <div class="de-gradient-edge-bottom" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
                 <div className="container text-center position-relative">
                     <h2 className="hero-title">BOOK APPOINMENT</h2>
                 </div>
@@ -149,29 +150,35 @@ export default function BookNow() {
                         <div className='col-md-12'>
                             <h2 className='mb-4'>Appoinment Form</h2>
                         </div>
-                        <div className="col-md-6">
-                            <div class="mb-3">
-                                <label for="username" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="username" placeholder="Your Full Name" />
+                        <form>
+                            <div className="row">
+
+                                <div className="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Name</label>
+                                        <input type="text" class="form-control" id="username" placeholder="Your Full Name" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="mobile" class="form-label">Mobile</label>
+                                        <input type="number" class="form-control" id="mobile" placeholder="01234567896" />
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="usermsg" class="form-label">Your Message</label>
+                                        <textarea class="form-control" id="usermsg" rows="9" placeholder="Type Here.."></textarea>
+                                    </div>
+                                </div>
+                                <div className="col-md-12">
+                                    <button className="btn-8 custom-btn ms-0 mt-5"><span>Submit</span></button>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
-                            </div>
-                            <div class="mb-3">
-                                <label for="mobile" class="form-label">Mobile</label>
-                                <input type="number" class="form-control" id="mobile" placeholder="01234567896" />
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div class="mb-3">
-                                <label for="usermsg" class="form-label">Your Message</label>
-                                <textarea class="form-control" id="usermsg" rows="9" placeholder="Type Here.."></textarea>
-                            </div>
-                        </div>
-                        <div className="col-md-12">
-                            <button className="btn-8 custom-btn ms-0 mt-5"><span>Submit</span></button>
-                        </div>
+                        </form>
+
                     </div>
 
                 </div>

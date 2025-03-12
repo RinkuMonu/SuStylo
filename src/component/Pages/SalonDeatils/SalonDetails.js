@@ -78,6 +78,7 @@ export default function SalonDetails() {
             <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
                 <section className="Salondetails-section d-flex align-items-center">
                     <div className="hero-overlay"></div>
+                    <div class="de-gradient-edge-bottom" style={{backgroundSize:"100%", backgroundRepeat:"no-repeat"}}></div>
                     <div className="container text-center position-relative" data-aos="zoom-in">
                         <h2 className="hero-title">Braids & Layers</h2>
                         <p className="hero-subtitle">

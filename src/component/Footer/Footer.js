@@ -101,6 +101,13 @@ export default function Footer() {
                         </div>
                     </div>
                     <hr style={{borderColor:"#fff"}} />
+                    <div className='row'>
+                        <div className='col-md-12'>
+                            <p className='mb-0 text-white position-relative text-center' style={{zIndex:"99"}}>© 2025 SU Stylo pvt ltd. All rights reserved.</p>
+
+                        </div>
+
+                    </div>
                 </div>
             </footer>
 
