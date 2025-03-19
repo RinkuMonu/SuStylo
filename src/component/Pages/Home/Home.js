@@ -92,7 +92,7 @@ export default function Home() {
     useEffect(() => {
         new WOW().init();
     }, []);
-    useEffect(() => {
+    useEffect(() => { 
         AOS.init({ duration: 1000 });
     }, []);
     const [isVisible, setVisible] = useState(false);
@@ -135,8 +135,7 @@ export default function Home() {
                     <div className="container text-center position-relative">
                         <h2 className="hero-title">THE GENTLEMEN'S CHOICE</h2>
                         <p className="hero-subtitle">
-                            Established with a passion for the art of barbering, we take great pride in our craft
-                            and strive to create an atmosphere that feels like home.
+                            At SuStylo, we are dedicated to the timeless art of barbering. Our passion drives us to deliver precision, style, and an unmatched grooming experience. We take great pride in our craft, ensuring that every client leaves looking sharp and feeling confident.
                         </p>
                     </div>
                     <div className="marquee-container">
@@ -153,8 +152,7 @@ export default function Home() {
                         <div className="row">
                             <div className="col-md-12">
                                 <p>
-                                    Established with a passion for the art of barbering, we take great pride in our craft and strive to create an atmosphere that feels like home.
-                                    From the moment you walk through our doors, you'll be greeted by friendly smiles and a warm ambiance that instantly puts you at ease.
+                                    Established with a deep passion for the art of barbering, Su Stylo is more than just a grooming destination—it’s an experience. We take great pride in our craft, blending traditional techniques with modern trends to deliver exceptional results.
                                 </p>
                             </div>
                         </div>
@@ -174,11 +172,11 @@ export default function Home() {
                                 slideShadows: true,
                             }}
                             autoplay={{
-                                delay: 3000, 
-                                disableOnInteraction: false, 
+                                delay: 3000,
+                                disableOnInteraction: false,
                             }}
                             pagination={false}
-                            modules={[EffectCoverflow, Pagination, Autoplay]} 
+                            modules={[EffectCoverflow, Pagination, Autoplay]}
                             className="mySwiper"
                             initialSlide={middleSlideIndex}
                         >
@@ -265,7 +263,9 @@ export default function Home() {
                                     <h2 className="wow fadeInRight animated" data-wow-delay=".3s">
                                         We’ll Crafting <span className="id-color">Confidence</span> Through Sharp Style
                                     </h2>
-                                    <p>We take pride in providing top-notch grooming services that blend classic techniques with modern trends. Step into our warm and inviting space, where you'll find a team of skilled barbers dedicated to enhancing your style and confidence.</p>
+                                    <p>At Su Stylo, we believe that grooming is more than just a routine—it’s an art. Our expert barbers blend classic techniques with modern trends to give you a sharp, stylish, and confident look.
+                                        Step into our warm and inviting space, where precision meets perfection. Whether it’s a clean shave, a stylish haircut, or a well-groomed beard, we ensure every service is tailored to enhance your personality and style.
+                                    </p>
                                     <Link className='btn-8 custom-btn'><span>Book Now</span></Link>
                                 </div>
                             </div>
@@ -289,7 +289,7 @@ export default function Home() {
                                         <h3>SHAVING</h3>
                                     </div>
                                     <div className="services_content">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        <p>Experience a irritation-free shave with experts and premium aftercare.</p>
                                     </div>
                                     <div className="bookBtn">
                                         <Link className="custom-btn btn-8"><span>Book Now</span></Link>
@@ -305,7 +305,7 @@ export default function Home() {
                                         <h3>STYLING</h3>
                                     </div>
                                     <div className="services_content">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        <p>Upgrade your look with personalized styling for hair and beard.</p>
                                     </div>
                                     <div className="bookBtn">
                                         <Link className="custom-btn btn-8"><span>Book Now</span></Link>
@@ -321,7 +321,7 @@ export default function Home() {
                                         <h3>TRIMMING</h3>
                                     </div>
                                     <div className="services_content">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        <p>Get precise beard and hair trims for a sharp, well-groomed look.</p>
                                     </div>
                                     <div className="bookBtn">
                                         <Link className="custom-btn btn-8"><span>Book Now</span></Link>
@@ -337,7 +337,7 @@ export default function Home() {
                                         <h3>HAIRCUT</h3>
                                     </div>
                                     <div className="services_content">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        <p>From classic cuts to modern styles, get a haircut that complements your look.</p>
                                     </div>
                                     <div className="bookBtn">
                                         <Link className="custom-btn btn-8"><span>Book Now</span></Link>
@@ -501,7 +501,7 @@ export default function Home() {
                                     <img src="./images/gallery/R3.jpg" />
                                     <div className="hero-overlay"></div>
                                     <div className="review_text text-center p-5">
-                                        <h2>Randell Dragos</h2>
+                                        <h2>Chandan Sharma</h2>
                                         <div className="d-flex gap-2">
                                             <i class="bi bi-star-fill"></i>
                                             <i class="bi bi-star-fill"></i>
@@ -509,7 +509,7 @@ export default function Home() {
                                             <i class="bi bi-star-fill"></i>
                                             <i class="bi bi-star-half"></i>
                                         </div>
-                                        <p>I have to say, this barbershop has the best customer service I've ever experienced. From the moment I walked in, I was greeted with a smile and offered a beverage while I waited. The barbers are not only talented but also incredibly attentive.</p>
+                                        <p>Su Stylo is my go-to salon for the perfect haircut. The staff is professional, and the atmosphere is so welcoming. Highly recommend!</p>
 
                                     </div>
                                 </SwiperSlide>
@@ -517,7 +517,7 @@ export default function Home() {
                                     <img src="./images/gallery/R2.jpg" />
                                     <div className="hero-overlay"></div>
                                     <div className="review_text text-center p-5">
-                                        <h2>Randell Dragos</h2>
+                                        <h2> Neha Kapoor</h2>
                                         <div className="d-flex gap-2">
                                             <i class="bi bi-star-fill"></i>
                                             <i class="bi bi-star-fill"></i>
@@ -525,7 +525,7 @@ export default function Home() {
                                             <i class="bi bi-star-fill"></i>
                                             <i class="bi bi-star-half"></i>
                                         </div>
-                                        <p>I have to say, this barbershop has the best customer service I've ever experienced. From the moment I walked in, I was greeted with a smile and offered a beverage while I waited. The barbers are not only talented but also incredibly attentive.</p>
+                                        <p>Loved my styling experience! The team knows exactly what suits you best. The service was top-notch, and I left feeling fabulous!</p>
 
                                     </div>
                                 </SwiperSlide>
@@ -533,7 +533,7 @@ export default function Home() {
                                     <img src="./images/gallery/R4.jpg" />
                                     <div className="hero-overlay"></div>
                                     <div className="review_text text-center p-5">
-                                        <h2>Randell Dragos</h2>
+                                        <h2>Rahul kumar</h2>
                                         <div className="d-flex gap-2">
                                             <i class="bi bi-star-fill"></i>
                                             <i class="bi bi-star-fill"></i>
@@ -541,7 +541,7 @@ export default function Home() {
                                             <i class="bi bi-star-fill"></i>
                                             <i class="bi bi-star-half"></i>
                                         </div>
-                                        <p>I have to say, this barbershop has the best customer service I've ever experienced. From the moment I walked in, I was greeted with a smile and offered a beverage while I waited. The barbers are not only talented but also incredibly attentive.</p>
+                                        <p>Excellent grooming services! I tried their beard trimming, and it was done with so much precision. Great experience!</p>
 
                                     </div>
                                 </SwiperSlide>
@@ -549,7 +549,7 @@ export default function Home() {
                                     <img src="./images/gallery/R1.jpg" />
                                     <div className="hero-overlay"></div>
                                     <div className="review_text text-center p-5">
-                                        <h2>Randell Dragos</h2>
+                                        <h2> Vikash singh</h2>
                                         <div className="d-flex gap-2">
                                             <i class="bi bi-star-fill"></i>
                                             <i class="bi bi-star-fill"></i>
@@ -557,7 +557,7 @@ export default function Home() {
                                             <i class="bi bi-star-fill"></i>
                                             <i class="bi bi-star-half"></i>
                                         </div>
-                                        <p>I have to say, this barbershop has the best customer service I've ever experienced. From the moment I walked in, I was greeted with a smile and offered a beverage while I waited. The barbers are not only talented but also incredibly attentive.</p>
+                                        <p>Best haircut I've ever had! The barbers are highly skilled and listen to exactly what you want. Five-star service!</p>
 
                                     </div>
                                 </SwiperSlide>
@@ -617,11 +617,8 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </section>
-
             </div>
         </>
     )

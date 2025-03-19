@@ -94,22 +94,22 @@ const services = [
     {
         icon: "./images/services/AromaTherapy.jpg",
         title: "Aroma Therapy",
-        description: "We also offer private rooms for more intimate treatments and couples."
+        description: "Relax with essential oils and expert techniques in a private, calming space."
     },
     {
         icon: "./images/services/Waxing.jpg",
         title: "Waxing",
-        description: "Relax in our serene lounge area, sip on herbal teas, and immerse yourself."
+        description: "Enjoy smooth, flawless skin with a painless and hygienic waxing experience."
     },
     {
         icon: "./images/services/NailManicure.jpg",
         title: "Nail Manicure",
-        description: "Relax in our serene lounge area, sip on herbal teas, and immerse yourself."
+        description: "Get perfectly groomed nails with classic finishes or trendy nail art."
     },
     {
         icon: "./images/services/BodyMassages.jpg",
         title: "Body Massages",
-        description: "Whether you're seeking a rejuvenating facial, a soothing massage body treatment."
+        description: "Rejuvenate with a soothing facial or full-body massage for deep relaxation."
     }
 ];
 
@@ -151,7 +151,7 @@ export default function Services() {
                     <div class="de-gradient-edge-bottom" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
                     <div className="container text-center position-relative">
                         <h2 className="hero-title">Services & Categories</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                        <p>At Su Stylo, we offer a wide range of premium grooming and beauty services designed to enhance your style and confidence. Whether you’re looking for a sharp haircut, a relaxing spa treatment, or expert beard grooming, we’ve got you covered!</p>
                     </div>
                 </section>
                 <div className="content-section">

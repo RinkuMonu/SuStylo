@@ -1226,3 +1226,67 @@ align-items: center;
   font-size: 20px;
   margin-top: 30px;
 }
+/* ....................... Hair Cut Css ......................... */
+.haircut-section{
+  background: url("/public/images/4433 (1).jpg") no-repeat center center/cover;
+  height: 70vh;
+  position: relative;
+  color: white;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+/* ......................... Terms And Condition ................... */
+.termscondition-section{
+  background: url("/public/images/terms-01.jpg") no-repeat center center/cover;
+  height: 70vh;
+  position: relative;
+  color: white;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+.definition_list ul li{
+  display: flex;
+  line-height: 40px;
+}
+.definition_list ul{
+  padding-left: 0px;
+}
+.dropdown-toggle::after{
+ border: none !important;
+}
+/* ..................... Privacy Policy ................... */
+.privacy-section{
+  background: url("/public/images/privacy.jpg") no-repeat center center/cover;
+  height: 70vh;
+  position: relative;
+  color: white;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+/* ........................... CancellationRefund ...................... */
+.cancellationRefund-section{
+  background: url("/public/images/refund.jpg") no-repeat center center/cover;
+  height: 70vh;
+  position: relative;
+  color: white;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+/* .......................... Men Services ...................... */
+.menservices-section{
+  background: url("/public/images/20710.jpg") no-repeat center center/cover;
+  height: 70vh;
+  position: relative;
+  color: white;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+/* ........................ Women Services ........................... */
+.womenservices-section{
+  background: url("/public/images/gallery/woman.jpg") no-repeat center center/cover;
+  height: 70vh;
+  position: relative;
+  color: white;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}

@@ -27,13 +27,13 @@ export default function Footer() {
                                         <Link data-replace="Our Services"><span>Our Services</span></Link>
                                     </li>
                                     <li>
-                                        <Link data-replace="Terms and Conditions"><span>Terms and Conditions</span></Link>
+                                        <Link to={'/termsandcondition'} data-replace="Terms and Conditions"><span>Terms and Conditions</span></Link>
                                     </li>
                                     <li>
-                                        <Link data-replace="Cancellation/Refund Policy"><span>Cancellation/Refund Policy</span></Link>
+                                        <Link to={'/cancellationrefundpolicy'} data-replace="Cancellation/Refund Policy"><span>Cancellation/Refund Policy</span></Link>
                                     </li>
                                     <li>
-                                        <Link data-replace="Privacy Policy"><span>Privacy Policy</span></Link>
+                                        <Link to={'/privacypolicy'} data-replace="Privacy Policy"><span>Privacy Policy</span></Link>
                                     </li>
                                 </ul>
                             </div>
@@ -66,7 +66,7 @@ export default function Footer() {
                                     </li>
                                     <li className='d-flex gap-3 align-items-center'>
                                         <CiMail style={{ color: "#fff", fontWeight: "500" }} />
-                                        <a href="mailto:info@finuniquerummy.com" data-replace="info@finuniquerummy.com"><span>info@finuniquerummy.com</span></a>
+                                        <a href="mailto:info@sustylo.com" data-replace="info@sustylo.com"><span>info@sustylo.com</span></a>
                                     </li>
                                     <li className='d-flex gap-3 align-items-center'>
                                         <GoClock style={{ color: "#fff", fontWeight: "500" }} />
@@ -81,9 +81,8 @@ export default function Footer() {
                             <div className='rightSide'>
                                 {/* <span className="logo">BLA<span className="text-warning">X</span>CUT</span> */}
                                 <img src='./images/stylo_Logo.png' className='img-fluid mb-3' width={100} />
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
+                                <p>Su Stylo revolutionizes salon bookings with seamless, premium grooming services. Effortlessly book top-tier salons, enjoy hassle free appointments, and experience luxury self care all at your convenience. Redefine beauty and grooming with just a tap!</p>
                                 <label for="subscribeMAil" class="form-label">Email address</label>
-
                                 <div class="mb-3 d-flex align-items-center">
                                     <input type="email" class="form-control" id="subscribeMAil" placeholder="Your Mail..." />
                                     <Link className='SendBtn'><IoIosSend /></Link>
@@ -103,7 +102,7 @@ export default function Footer() {
                     <hr style={{borderColor:"#fff"}} />
                     <div className='row'>
                         <div className='col-md-12'>
-                            <p className='mb-0 text-white position-relative text-center' style={{zIndex:"99"}}>© 2025 SU Stylo pvt ltd. All rights reserved.</p>
+                            <p className='mb-0 text-white position-relative text-center' style={{zIndex:"99"}}>© 2025 Su Stylo. All Rights Reserved.</p>
 
                         </div>
 

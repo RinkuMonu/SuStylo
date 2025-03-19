@@ -33,7 +33,8 @@ export default function Blog() {
                     <div class="de-gradient-edge-bottom" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
                     <div className="container text-center position-relative">
                         <h2 className="hero-title">Blog</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                        <p>Welcome to the Su Stylo Blog, your go-to source for the latest trends, expert grooming tips, and salon industry insights. Whether you're looking for hairstyling inspiration, skincare advice, or the best self-care routines, we’ve got you covered. Stay updated, stay stylish!
+                        </p>
                     </div>
                 </section>
                 <div className="content-section">
@@ -41,7 +42,7 @@ export default function Blog() {
                         <div className="row">
                             <div className="col-md-12" data-aos="fade-up">
                                 <div className="heading text-center">
-                                    <h2>Salon Blogs</h2>
+                                    <h2>Blog – Stay Ahead in Style & Grooming</h2>
                                 </div>
                                 <div className="de-separator" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
                             </div>
@@ -69,9 +70,9 @@ export default function Blog() {
                             </div>
                             <div className="col-md-6" data-aos="fade-left">
                                 <div className="blog_content">
-                                    <h3>Unraveling the Enduring Charm and Evolution of Barbershops as Societal and Cultural Hubs</h3>
-                                     <p>Lorem ipsum labore aliqua tempor quis amet dolor duis reprehenderit exercitation in mollit esse anim reprehenderit velit voluptate consequat nisi in occaecat veniam enim officia sit et excepteur ullamco veniam quis aute voluptate tempor officia qui.</p>
-                                     <Link className='custom-btn btn-8 mt-5 ms-1'><span>READ MORE</span></Link>
+                                    <h3> Top Hair Trends of the Year – Styles You Need to Try!</h3>
+                                     <p>Stay ahead of the fashion game with this year’s hottest hair trends! From bold colors and textured layers to sleek, minimalist cuts, discover styles that suit every personality. Whether you prefer a classic look or an edgy transformation, these trends will keep you looking stylish and confident all year long.</p>
+                                     <Link to={'/blogdetail'} className='custom-btn btn-8 mt-5 ms-1'><span>READ MORE</span></Link>
                                 </div>
                             </div>
                         </div>
@@ -98,9 +99,9 @@ export default function Blog() {
                             </div>
                             <div className="col-md-6" data-aos="fade-left">
                                 <div className="blog_content">
-                                    <h3>Unraveling the Enduring Charm and Evolution of Barbershops as Societal and Cultural Hubs</h3>
-                                     <p>Lorem ipsum labore aliqua tempor quis amet dolor duis reprehenderit exercitation in mollit esse anim reprehenderit velit voluptate consequat nisi in occaecat veniam enim officia sit et excepteur ullamco veniam quis aute voluptate tempor officia qui.</p>
-                                     <Link className='custom-btn btn-8 mt-5 ms-1'><span>READ MORE</span></Link>
+                                    <h3>The Ultimate Guide to Beard Grooming & Maintenance</h3>
+                                     <p>A well-groomed beard enhances your overall appearance and confidence. Learn the secrets to maintaining a healthy, stylish beard with expert trimming techniques, the right beard care products, and proper hygiene routines. Whether you prefer a rugged or refined look, this guide will help you keep your beard in perfect shape.</p>
+                                     <Link to={'/blogdetail'} className='custom-btn btn-8 mt-5 ms-1'><span>READ MORE</span></Link>
                                 </div>
                             </div>
                         </div>
@@ -127,9 +128,9 @@ export default function Blog() {
                             </div>
                             <div className="col-md-6" data-aos="fade-left">
                                 <div className="blog_content">
-                                    <h3>Unraveling the Enduring Charm and Evolution of Barbershops as Societal and Cultural Hubs</h3>
-                                     <p>Lorem ipsum labore aliqua tempor quis amet dolor duis reprehenderit exercitation in mollit esse anim reprehenderit velit voluptate consequat nisi in occaecat veniam enim officia sit et excepteur ullamco veniam quis aute voluptate tempor officia qui.</p>
-                                     <Link className='custom-btn btn-8 mt-5 ms-1'><span>READ MORE</span></Link>
+                                    <h3>Why Regular Salon Visits Are Essential for Self-Care</h3>
+                                     <p>Self-care isn’t just a luxury—it’s a necessity! Regular salon visits not only enhance your appearance but also contribute to your overall well-being. From professional haircuts and skincare treatments to relaxing massages, discover how routine salon care can boost your confidence, improve hair health, and promote relaxation in your busy life.</p>
+                                     <Link to={'/blogdetail'} className='custom-btn btn-8 mt-5 ms-1'><span>READ MORE</span></Link>
                                 </div>
                             </div>
                         </div>
@@ -156,9 +157,9 @@ export default function Blog() {
                             </div>
                             <div className="col-md-6" data-aos="fade-left">
                                 <div className="blog_content">
-                                    <h3>Unraveling the Enduring Charm and Evolution of Barbershops as Societal and Cultural Hubs</h3>
-                                     <p>Lorem ipsum labore aliqua tempor quis amet dolor duis reprehenderit exercitation in mollit esse anim reprehenderit velit voluptate consequat nisi in occaecat veniam enim officia sit et excepteur ullamco veniam quis aute voluptate tempor officia qui.</p>
-                                     <Link className='custom-btn btn-8 mt-5 ms-1'><span>READ MORE</span></Link>
+                                    <h3>Skincare Secrets: Best Facial Treatments for a Radiant Glow</h3>
+                                     <p>Healthy, glowing skin starts with the right facial treatments! From deep cleansing facials to hydrating masks and anti-aging solutions, learn about the best treatments tailored to your skin type. Regular facials not only refresh your skin but also help in reducing blemishes, fine lines, and dullness, leaving you looking radiant.</p>
+                                     <Link to={'/blogdetail'} className='custom-btn btn-8 mt-5 ms-1'><span>READ MORE</span></Link>
                                 </div>
                             </div>
                         </div>

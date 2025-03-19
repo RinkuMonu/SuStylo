@@ -14,6 +14,12 @@ import Services from './component/Pages/Services/Services.js';
 import Contact from './component/Pages/Contact/Contact.js';
 import Profile from './component/Pages/Contact/Profile.js';
 import Blog from './component/Pages/Blog/Blog.js';
+import BlogsDetails from './component/Pages/Blog/BlogDetails.js';
+import TermsandCondition from './component/Pages/Conditions/TermsandCondition.js';
+import CancellationRefund from './component/Pages/Conditions/CancellationRefund.js';
+import PrivacyPolicy from './component/Pages/Conditions/PrivacyPolicy.js';
+import MenServices from './component/Pages/ServicesType/MenServices.js';
+import WomenServices from './component/Pages/ServicesType/WomenServices.js';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +35,12 @@ const router = createBrowserRouter([
       { path: "/contact", element: <Contact /> }, 
       { path: "/profile", element: <Profile /> }, 
       { path: "/blog", element: <Blog /> }, 
+      { path: "/blogdetail", element: <BlogsDetails/> }, 
+      { path: "/menservices", element: <MenServices/> }, 
+      { path: "/termsandcondition", element: <TermsandCondition /> }, 
+      { path: "/cancellationrefundpolicy", element: <CancellationRefund /> }, 
+      { path: "/privacypolicy", element: <PrivacyPolicy /> }, 
+      { path: "/womenservices", element: <WomenServices /> }, 
     ],
   },
 ]);

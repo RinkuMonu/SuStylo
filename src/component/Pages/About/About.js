@@ -48,7 +48,7 @@ export default function About() {
                         <p>Book Your Salon Appoinment Today</p>
                     </div>
                 </section>
-                <div class="de-gradient-edge-bottom" style={{backgroundSize:"100%", backgroundRepeat:"no-repeat"}}></div>
+                <div class="de-gradient-edge-bottom" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
             </div>
             <div className="content-section">
                 <div className="container">
@@ -67,9 +67,11 @@ export default function About() {
                                     alt="policy img"
                                 />
                                 <h2 className="my-3">SU STYLO</h2>
-                                <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                <p className="mb-3"> Su Stylo is your last destination for spontaneous salon appointments and premium grooming services. We are bringing revolution in the salon industry with a commitment to style, convenience, and top-notch customer care. Our goal is to provide an extraordinary grooming experience where luxury fulfills, ensuring that each customer enjoys harass -free booking and world-class beauty services under one roof. We understand that modern lifestyle can be busy, and finding time for self-care can often take a backseat. That is why we have created a platform that prioritizes your convenience, which makes it easier to maintain your routine without disrupting your busy schedule.
                                 </p>
+                                <p className="mb-3">Founded in 2025, our mission is to transform the way you experience grooming by offering effortless booking and high-quality salon services with just a few clicks. Our expert team consists of highly skilled professionals who are passionate about delivering outstanding results, ensuring that every haircut, shave, and beauty treatment is executed with precision, creativity, and the latest trends in mind. We take pride in staying ahead of industry innovations, constantly upgrading our techniques and technology to give our customers a truly premium experience. Whether you’re seeking a classic look or something bold and contemporary, our professionals are equipped with the expertise to bring your vision to life.</p>
+                                    <p>At Su Stylo, we believe that self-care should be a luxurious yet stress-free experience. Our platform is designed to eliminate the traditional challenges of salon visits, allowing customers to easily book appointments at their preferred salons without any inconvenience. No more long queues, no more uncertainty regarding availability, and no more compromises when it comes to quality service. Our cutting-edge technology ensures that you get the service you need at the time that suits you best, making beauty and grooming a seamless part of your routine. With just a few taps on your phone, you can secure an appointment and indulge in a pampering session that leaves you feeling refreshed and confident.</p>
+
                             </div>
                         </div>
                         <hr className="mt-5" />
@@ -88,7 +90,8 @@ export default function About() {
                         </div>
                         <div className="col-md-6 mb-3 about_mission ps-5" data-aos="zoom-in-right">
                             <h2 className="mt-5">OUR MISSION</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+                            <p>At Su Stylo, we strive to empower both salon owners and customers by making grooming services seamless, accessible, and hassle-free. Our platform helps salons expand their reach while offering customers an effortless way to book premium services. We aim to redefine self-care by blending innovation with convenience, ensuring beauty and grooming are not just services but an experience. With a focus on quality, reliability, and customer satisfaction, Su Stylo is transforming the salon industry one appointment at a time.
+                            </p>
                         </div>
                     </div>
                     {/* Our Vision */}
@@ -97,7 +100,8 @@ export default function About() {
 
                         <div className="col-md-6 mb-3 about_mission ps-5" data-aos="zoom-out-up">
                             <h2 className="mt-5">OUR VISION</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+                            <p>At Su Stylo, we envision transforming the way India experiences salon services. Our goal is to make every salon visit seamless, ensuring customers can easily discover and book their favorite salons with ease. By embracing technology-driven solutions, we empower salon owners to expand their reach and grow their businesses. We strive to set new industry standards, making beauty and grooming effortlessly accessible while supporting local salons and enhancing customer experiences.
+                            </p>
                         </div>
                         <div className="col-md-6 mt-5 mb-3" data-aos="zoom-out-down">
                             <SimpleParallax
@@ -124,8 +128,9 @@ export default function About() {
                             </SimpleParallax>
                         </div>
                         <div className="col-md-6 mb-3 about_mission ps-5" data-aos="zoom-out-up">
-                            <h2 className="mt-5">Your Favorite Salon at Your Fingertips</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+                            <h2 className="mt-5">Style & Grooming, Just a Tap Away</h2>
+                            <p>Discover the ease of booking with Su Stylo – your go-to destination for effortless salon appointments. In just 30 seconds, unlock a world of grooming possibilities from your smartphone. Browse nearby salons, explore exclusive deals, and book no-wait appointments instantly. With Su Stylo, beauty and self-care are just a tap away—making every salon visit seamless, convenient, and stress-free!
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -190,31 +195,31 @@ export default function About() {
 
 
                 </div>
-                <hr className="mx-5"/>
+                <hr className="mx-5" />
                 <div className="container">
-                        <div className="row">
-                            <div className="col-md-12">
-                                <div className="marquee-container-bottom">
-                                    <div className="marquees">
-                                        <div className="marquee-container">
-                                            <div className="marquee-content">
-                                                <span> HAIR DRY <i class="d-item-block"></i></span>
-                                                <span> FACIAL  <i class="d-item-block"></i></span>
-                                                <span> HAIR WASH  <i class="d-item-block"></i></span>
-                                                <span> FADED  <i class="d-item-block"></i></span>
-                                                {/* Duplicate content for smooth looping */}
-                                                <span> HAIR DRY <i class="d-item-block"></i></span>
-                                                <span> FACIAL  <i class="d-item-block"></i></span>
-                                                <span> HAIR WASH  <i class="d-item-block"></i></span>
-                                                <span> FADED  <i class="d-item-block"></i></span>
-                                            </div>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="marquee-container-bottom">
+                                <div className="marquees">
+                                    <div className="marquee-container">
+                                        <div className="marquee-content">
+                                            <span> HAIR DRY <i class="d-item-block"></i></span>
+                                            <span> FACIAL  <i class="d-item-block"></i></span>
+                                            <span> HAIR WASH  <i class="d-item-block"></i></span>
+                                            <span> FADED  <i class="d-item-block"></i></span>
+                                            {/* Duplicate content for smooth looping */}
+                                            <span> HAIR DRY <i class="d-item-block"></i></span>
+                                            <span> FACIAL  <i class="d-item-block"></i></span>
+                                            <span> HAIR WASH  <i class="d-item-block"></i></span>
+                                            <span> FADED  <i class="d-item-block"></i></span>
                                         </div>
-
                                     </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
 
         </>
