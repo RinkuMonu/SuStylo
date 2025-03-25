@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './Layout.js';
 import Home from "./component/Pages/Home/Home";
@@ -24,28 +24,32 @@ import WomenServices from './component/Pages/ServicesType/WomenServices.js';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />, // ✅ Ensure Layout wraps all routes
+    element: <Layout />, 
     children: [
-      { path: "/", element: <Home /> },
-      { path: "/salonpartner", element: <SalonPartner /> },
-      { path: "/salondetails", element: <SalonDetails /> },
-      { path: "/bookappoinment", element: <BookNow /> },
-      { path: "/about", element: <About /> },
-      { path: "/services", element: <Services /> },
-      { path: "/contact", element: <Contact /> },
-      { path: "/profile", element: <Profile /> },
-      { path: "/blog", element: <Blog /> },
-      { path: "/blogdetail", element: <BlogsDetails /> },
-      { path: "/menservices", element: <MenServices /> },
-      { path: "/termsandcondition", element: <TermsandCondition /> },
-      { path: "/cancellationrefundpolicy", element: <CancellationRefund /> },
-      { path: "/privacypolicy", element: <PrivacyPolicy /> },
-      { path: "/womenservices", element: <WomenServices /> },
+
+      { path: "/", element: <Home /> }, 
+      { path: "/salonpartner", element: <SalonPartner /> }, 
+      { path: "/salondetails/:id", element: <SalonDetails /> },
+      { path: "/bookappoinment", element: <BookNow /> }, 
+      { path: "/about", element: <About /> }, 
+      { path: "/services", element: <Services /> }, 
+      { path: "/contact", element: <Contact /> }, 
+      { path: "/profile", element: <Profile /> }, 
+      { path: "/blog", element: <Blog /> }, 
+      { path: "/blogdetail", element: <BlogsDetails/> }, 
+      { path: "/menservices", element: <MenServices/> }, 
+      { path: "/termsandcondition", element: <TermsandCondition /> }, 
+      { path: "/cancellationrefundpolicy", element: <CancellationRefund /> }, 
+      { path: "/privacypolicy", element: <PrivacyPolicy /> }, 
+      { path: "/womenservices", element: <WomenServices /> }, 
     ],
   },
 ]);
 
 function App() {
+
+
+
   return <RouterProvider router={router} />;
 }
 
