@@ -321,7 +321,7 @@ body {
 .right_content p{
     font-size: 16px;
     padding: 0px 17px 20px 20px;
-    
+
 }
 .right_content .fadeInRight{
     padding: 36px 17px 20px 20px;
@@ -466,7 +466,7 @@ body {
 .switchBtn #toggle_checkbox {
     display: none;
   }
-  
+
 .switchBtn  label {
     top: 50%;
     right: 0;
@@ -479,7 +479,7 @@ body {
     cursor: pointer;
     margin-top: 35px;
   }
-  
+
  .switchBtn label:before {
     top: 8px;
     left: 8px;
@@ -487,7 +487,7 @@ body {
     height: 33px;
     border: 3px solid red;
   }
-  
+
  .switchBtn label:after {
     top: 0;
     right: 0;
@@ -495,7 +495,7 @@ body {
     height: 49px;
     border: 3px solid #143240;
   }
-  
+
  .switchBtn label:before,
  .switchBtn label:after {
     content: "";
@@ -505,7 +505,7 @@ body {
     transition: 0.5s ease top, 0.5s ease left, 0.5s ease right, 0.5s ease width,
       0.5s ease height, 0.5s ease border-color;
   }
-  
+
  .switchBtn #toggle_checkbox:checked + label:before {
     top: 0;
     left: 0;
@@ -513,7 +513,7 @@ body {
     height: 49px;
     border-color: var(--thrid-color);
   }
-  
+
  .switchBtn #toggle_checkbox:checked + label:after {
     top: 8px;
     right: 8px;
@@ -521,7 +521,7 @@ body {
     height: 33px;
     border-color: var(--primary-color);
   }
-  
+
   .hr-bar {
     position: absolute;
     content: "";
@@ -551,21 +551,21 @@ body {
     height: unset !important;
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
-  
+
   .bcw-nearby__search .form-select {
     padding: 24px 72px 24px 4px !important;
   }
-  
+
   .bcw-nearby__search .form-control::placeholder {
     color: #000000 !important;
   }
-  
+
   .bcw-nearby__search .form-control:focus,
   .bcw-nearby__search .form-select:focus {
     border-color: #fff !important;
     box-shadow: unset !important;
   }
-  
+
   .bcw-nearby__search .form-select {
     background-position: right 1.75rem center;
     background-size: 22px 22px;
@@ -608,15 +608,15 @@ body {
     box-shadow: rgb(255 255 255 / 35%) -1px -7px 36px 0px, rgba(0, 0, 0, 0.06) 0px -18px 0px 1px;
     transition: transform 0.2s;
   }
-  
+
   .cs-main__card-box:hover {
     transform: scale(1.02);
   }
-  
+
   .cs-main__card-img {
     position: relative;
   }
-  
+
   .cs-main__card-rating-box {
     position: absolute;
     top: 10px;
@@ -627,13 +627,13 @@ body {
     font-size: 12px;
     border-radius: 4px;
   }
-  
+
   .cs-main__card-title {
     font-size: 18px;
     font-weight: bold;
     margin-top: 10px;
   }
-  
+
   .cs-main__card-location {
     display: flex;
     align-items: baseline;
@@ -642,7 +642,7 @@ body {
     color: gray;
     gap: 3px;
   }
-  
+
   .cs-main__card-list {
     list-style: none;
     padding: 0;
@@ -658,14 +658,14 @@ body {
   .icon {
     margin-right: 5px;
   }
-  
+
   .cs-main__card-serviceStarting {
     font-size: 14px;
     font-weight: bold;
     color: #333;
     margin-top: 5px;
   }
-  
+
   .cs-main__card-timePrice {
     display: flex;
     justify-content: space-between;
@@ -706,7 +706,7 @@ body {
     justify-content: center;
     align-items: center;
   }
-  
+
  .review_section  .swiper-slide img {
     display: block;
     width: 100%;
@@ -759,9 +759,9 @@ body {
     display: flex;
     gap: 50px;
     animation: marqueeScroll 20s linear infinite;
-    width: max-content; 
+    width: max-content;
   }
-  
+
   @keyframes marqueeScroll {
     from {
       transform: translateX(0%);
@@ -770,7 +770,7 @@ body {
       transform: translateX(-50%);
     }
   }
-  
+
   .marquee-content .d-item-block {
     width: 80px;
     height: 3px;
@@ -941,9 +941,9 @@ body {
   border: 1px solid #b37a50;
 }
 .vertical {
-  width: 2px;  
-  height: 170px; 
-  background-color:var(--primary-color); 
+  width: 2px;
+  height: 170px;
+  background-color:var(--primary-color);
   border: none;
 }
 .bookingfrm input, .bookingfrm textarea{
@@ -968,4 +968,15 @@ body {
   color: white;
   text-align: center;
   transition: 0.3s ease-in-out;
+}
+.dropdown-toggle::after{
+display: none !important;
+}
+.dropdown-menu.show {
+  display: block;
+  background-color: grey;
+}
+.slotBookBtn .dropdown-item:focus, .dropdown-item:hover{
+  background-color: transparent !important;
+  border: none !important;
 }
