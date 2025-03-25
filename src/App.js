@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './Layout.js';
 import Home from "./component/Pages/Home/Home";
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> }, 
       { path: "/salonpartner", element: <SalonPartner /> }, 
-      { path: "/salondetails", element: <SalonDetails /> }, 
+      { path: "/salondetails/:id", element: <SalonDetails /> },
       { path: "/bookappoinment", element: <BookNow /> }, 
       { path: "/about", element: <About /> }, 
       { path: "/services", element: <Services /> }, 
@@ -46,6 +46,9 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+
+
+
   return <RouterProvider router={router} />;
 }
 

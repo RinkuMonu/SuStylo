@@ -3,7 +3,6 @@ import AOS from "aos";
 import WOW from "wow.js";
 import "../style/style.css";
 import { FaRegCalendarAlt } from "react-icons/fa";
-
 import { IoPerson } from "react-icons/io5";
 
 export default function BookNow() {
@@ -268,6 +267,9 @@ export default function BookNow() {
           </div>
         </div>
       </div>
+
     </>
   );
 }
+
+
