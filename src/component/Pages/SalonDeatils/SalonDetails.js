@@ -34,9 +34,6 @@ export default function SalonDetails() {
     fetchData();
   }, [id]);
 
-  // console.log("salon", salonDetails?.salon?.salonName);
-  // console.log("salon", salonDetails?.salon?.salonAddress);
-  // console.log("Salon Details:-",salon.salon.salonName)
 
   useEffect(() => {
     new WOW().init();

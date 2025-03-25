@@ -7,6 +7,9 @@ ul {
   position: relative;
   background-image: url(../../../public/images/gallery/R3.jpg);
   background-attachment: fixed;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .footer-section .FooterTop{
   padding: 50px 0px;

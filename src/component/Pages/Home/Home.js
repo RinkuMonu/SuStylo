@@ -22,7 +22,6 @@ import { Form, InputGroup, Dropdown, DropdownButton } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
 import { FaMapMarkerAlt, FaClock, FaRoute } from "react-icons/fa";
 import axiosInstance from "../../config/axiosInstance";
-
 const salonData = [
   {
     id: 1,
@@ -98,14 +97,20 @@ const salonData = [
 
 export default function Home() {
   const [location, setLocation] = useState({
-    latitude:"" ||2871.24324252,
-    longitude:""||2871.24324252
+    latitude: "" || 2871.24324252,
+    longitude: "" || 2871.24324252,
   });
   const [address, setAddress] = useState("Fetching address...");
-const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [salonData, setSalonData] = useState([]);
   const [fulladdress, setfulladdress] = useState("");
+
+  const [data, setData] = useState({
+    location: "",
+    category: "",
+    gender: "female",
+  });
 
   useEffect(() => {
     getLocation();
@@ -145,8 +150,8 @@ const [loading, setLoading] = useState(true);
       const data = await response.json();
 
       if (data.status === "OK" && data.results.length > 0) {
-        const address = data.results[0].formatted_address;  // ✅ Correct field
-setfulladdress(address)
+        const address = data.results[0].formatted_address; // ✅ Correct field
+        setfulladdress(address);
         console.log("Address:", address);
         return address;
       } else {
@@ -158,12 +163,6 @@ setfulladdress(address)
       return null;
     }
   };
-  const [data, setData] = useState({
-    location: "",
-    category: "",
-    gender: "female",
-  });
-
 
   const handleChange = (e) => {
     setData((prevData) => ({
@@ -178,7 +177,6 @@ setfulladdress(address)
       gender: prevData.gender === "male" ? "female" : "male",
     }));
   };
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -193,16 +191,14 @@ setfulladdress(address)
         });
 
         setSalonData(response.data.salons);
-console.log("Salon Data:-",response.data.salons)
+        console.log("Salon Data:-", response.data.salons);
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchData();
-  }, [data.gender, data.category]); //dependency array
-
-
+  }, [data.gender, data.category]);
 
   useEffect(() => {
     new WOW().init();
@@ -236,8 +232,9 @@ console.log("Salon Data:-",response.data.salons)
     { src: "./images/7.jpg", name: "Undercut", number: "#7" },
     { src: "./images/8.jpg", name: "Undercut", number: "#8" },
     { src: "./images/9.jpg", name: "Undercut", number: "#9" },
+    { src: "./images/9.jpg", name: "Undercut", number: "#10" },
   ];
-  const numSlides = 5;
+  const numSlides = 10;
   const middleSlideIndex = Math.floor(numSlides / 2);
   // search dropdown
   return (
@@ -248,12 +245,17 @@ console.log("Salon Data:-",response.data.salons)
       >
         <section className="hero-section d-flex align-items-center">
           <div className="hero-overlay"></div>
+          <div
+            class="de-gradient-edge-bottom"
+            style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}
+          ></div>
           <div className="container text-center position-relative">
             <h2 className="hero-title">THE GENTLEMEN'S CHOICE</h2>
             <p className="hero-subtitle">
-              Established with a passion for the art of barbering, we take great
-              pride in our craft and strive to create an atmosphere that feels
-              like home.
+              At SuStylo, we are dedicated to the timeless art of barbering. Our
+              passion drives us to deliver precision, style, and an unmatched
+              grooming experience. We take great pride in our craft, ensuring
+              that every client leaves looking sharp and feeling confident.
             </p>
           </div>
           <div className="marquee-container">
@@ -270,11 +272,11 @@ console.log("Salon Data:-",response.data.salons)
             <div className="row">
               <div className="col-md-12">
                 <p>
-                  Established with a passion for the art of barbering, we take
-                  great pride in our craft and strive to create an atmosphere
-                  that feels like home. From the moment you walk through our
-                  doors, you'll be greeted by friendly smiles and a warm
-                  ambiance that instantly puts you at ease.
+                  Established with a deep passion for the art of barbering, Su
+                  Stylo is more than just a grooming destination—it’s an
+                  experience. We take great pride in our craft, blending
+                  traditional techniques with modern trends to deliver
+                  exceptional results.
                 </p>
               </div>
             </div>
@@ -293,8 +295,12 @@ console.log("Salon Data:-",response.data.salons)
                 modifier: 1,
                 slideShadows: true,
               }}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
               pagination={false}
-              modules={[EffectCoverflow, Pagination]}
+              modules={[EffectCoverflow, Pagination, Autoplay]}
               className="mySwiper"
               initialSlide={middleSlideIndex}
             >
@@ -406,10 +412,14 @@ console.log("Salon Data:-",response.data.salons)
                     Through Sharp Style
                   </h2>
                   <p>
-                    We take pride in providing top-notch grooming services that
-                    blend classic techniques with modern trends. Step into our
-                    warm and inviting space, where you'll find a team of skilled
-                    barbers dedicated to enhancing your style and confidence.
+                    At Su Stylo, we believe that grooming is more than just a
+                    routine—it’s an art. Our expert barbers blend classic
+                    techniques with modern trends to give you a sharp, stylish,
+                    and confident look. Step into our warm and inviting space,
+                    where precision meets perfection. Whether it’s a clean
+                    shave, a stylish haircut, or a well-groomed beard, we ensure
+                    every service is tailored to enhance your personality and
+                    style.
                   </p>
                   <Link className="btn-8 custom-btn">
                     <span>Book Now</span>
@@ -443,13 +453,12 @@ console.log("Salon Data:-",response.data.salons)
                   </div>
                   <div className="services_content">
                     <p>
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s
+                      Experience a irritation-free shave with experts and
+                      premium aftercare.
                     </p>
                   </div>
                   <div className="bookBtn">
-                    <Link className="custom-btn btn-8">
+                    <Link to={"/bookappoinment"} className="custom-btn btn-8">
                       <span>Book Now</span>
                     </Link>
                   </div>
@@ -465,13 +474,12 @@ console.log("Salon Data:-",response.data.salons)
                   </div>
                   <div className="services_content">
                     <p>
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s
+                      Upgrade your look with personalized styling for hair and
+                      beard.
                     </p>
                   </div>
                   <div className="bookBtn">
-                    <Link className="custom-btn btn-8">
+                    <Link to={"/bookappoinment"} className="custom-btn btn-8">
                       <span>Book Now</span>
                     </Link>
                   </div>
@@ -487,13 +495,12 @@ console.log("Salon Data:-",response.data.salons)
                   </div>
                   <div className="services_content">
                     <p>
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s
+                      Get precise beard and hair trims for a sharp, well-groomed
+                      look.
                     </p>
                   </div>
                   <div className="bookBtn">
-                    <Link className="custom-btn btn-8">
+                    <Link to={"/bookappoinment"} className="custom-btn btn-8">
                       <span>Book Now</span>
                     </Link>
                   </div>
@@ -509,13 +516,12 @@ console.log("Salon Data:-",response.data.salons)
                   </div>
                   <div className="services_content">
                     <p>
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s
+                      From classic cuts to modern styles, get a haircut that
+                      complements your look.
                     </p>
                   </div>
                   <div className="bookBtn">
-                    <Link className="custom-btn btn-8">
+                    <Link to={"/bookappoinment"} className="custom-btn btn-8">
                       <span>Book Now</span>
                     </Link>
                   </div>
@@ -539,18 +545,22 @@ console.log("Salon Data:-",response.data.salons)
                 ></div>
               </div>
               <div className="col-md-12">
-                <div className="position-relative switchBtn">
+                <div className="position-relative switchBtn d-flex align-items-center">
                   <p className="me-3">Male</p>
                   <input
                     type="checkbox"
                     id="toggle_checkbox"
-                    checked={data.gender === "Female"}
+                    checked={data.gender === "female"}
                     onChange={handleGenderChange}
                   />
-                  <label for="toggle_checkbox"></label>
+                  <label
+                    htmlFor="toggle_checkbox"
+                    className="custom-toggle"
+                  ></label>
                   <p className="ms-3">Female</p>
                 </div>
               </div>
+
               <div className="col-md-12">
                 <div className="row gy-1 gy-md-0 bcw-nearby__search">
                   {/* Search Input Field */}
@@ -606,6 +616,7 @@ console.log("Salon Data:-",response.data.salons)
                   </div>
                 </div>
               </div>
+
               <div className="col-md-12 mb-5">
                 <div className="service_title">
                   <h3>Mani Pedi &amp; Hygiene near you in Jaipur (5)</h3>
@@ -626,7 +637,10 @@ console.log("Salon Data:-",response.data.salons)
               >
                 {salonData.map((salon) => (
                   <SwiperSlide key={salon?._id}>
-                    <Link to={`/salondetails/${salon?._id}`} className="cs-main__card-box">
+                    <Link
+                      to={`/salondetails/${salon?._id}`}
+                      className="cs-main__card-box"
+                    >
                       {/* Image Section */}
                       <div className="cs-main__card-img">
                         <img
@@ -669,14 +683,16 @@ console.log("Salon Data:-",response.data.salons)
                             <FaRoute className="icon" /> {salon.distance}
                           </li>
                           <li className="cs-main__card-list-item">
-                            <FaClock className="icon" />{salon.services[0].duration}
+                            <FaClock className="icon" />
+                            {salon.services[0].duration}
                           </li>
                         </ul>
 
                         {/* Service Price */}
                         <div className="cs-main__card-serviceStarting">
                           <div className="serviceStarting-cont">
-                            Service Starting from <strong>₹ {salon.services[0].rate}</strong>
+                            Service Starting from{" "}
+                            <strong>₹ {salon.services[0].rate}</strong>
                           </div>
                         </div>
 
@@ -717,7 +733,7 @@ console.log("Salon Data:-",response.data.salons)
                   <img src="./images/gallery/R3.jpg" />
                   <div className="hero-overlay"></div>
                   <div className="review_text text-center p-5">
-                    <h2>Randell Dragos</h2>
+                    <h2>Chandan Sharma</h2>
                     <div className="d-flex gap-2">
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
@@ -726,11 +742,9 @@ console.log("Salon Data:-",response.data.salons)
                       <i class="bi bi-star-half"></i>
                     </div>
                     <p>
-                      I have to say, this barbershop has the best customer
-                      service I've ever experienced. From the moment I walked
-                      in, I was greeted with a smile and offered a beverage
-                      while I waited. The barbers are not only talented but also
-                      incredibly attentive.
+                      Su Stylo is my go-to salon for the perfect haircut. The
+                      staff is professional, and the atmosphere is so welcoming.
+                      Highly recommend!
                     </p>
                   </div>
                 </SwiperSlide>
@@ -738,7 +752,7 @@ console.log("Salon Data:-",response.data.salons)
                   <img src="./images/gallery/R2.jpg" />
                   <div className="hero-overlay"></div>
                   <div className="review_text text-center p-5">
-                    <h2>Randell Dragos</h2>
+                    <h2> Neha Kapoor</h2>
                     <div className="d-flex gap-2">
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
@@ -747,11 +761,9 @@ console.log("Salon Data:-",response.data.salons)
                       <i class="bi bi-star-half"></i>
                     </div>
                     <p>
-                      I have to say, this barbershop has the best customer
-                      service I've ever experienced. From the moment I walked
-                      in, I was greeted with a smile and offered a beverage
-                      while I waited. The barbers are not only talented but also
-                      incredibly attentive.
+                      Loved my styling experience! The team knows exactly what
+                      suits you best. The service was top-notch, and I left
+                      feeling fabulous!
                     </p>
                   </div>
                 </SwiperSlide>
@@ -759,7 +771,7 @@ console.log("Salon Data:-",response.data.salons)
                   <img src="./images/gallery/R4.jpg" />
                   <div className="hero-overlay"></div>
                   <div className="review_text text-center p-5">
-                    <h2>Randell Dragos</h2>
+                    <h2>Rahul kumar</h2>
                     <div className="d-flex gap-2">
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
@@ -768,11 +780,8 @@ console.log("Salon Data:-",response.data.salons)
                       <i class="bi bi-star-half"></i>
                     </div>
                     <p>
-                      I have to say, this barbershop has the best customer
-                      service I've ever experienced. From the moment I walked
-                      in, I was greeted with a smile and offered a beverage
-                      while I waited. The barbers are not only talented but also
-                      incredibly attentive.
+                      Excellent grooming services! I tried their beard trimming,
+                      and it was done with so much precision. Great experience!
                     </p>
                   </div>
                 </SwiperSlide>
@@ -780,7 +789,7 @@ console.log("Salon Data:-",response.data.salons)
                   <img src="./images/gallery/R1.jpg" />
                   <div className="hero-overlay"></div>
                   <div className="review_text text-center p-5">
-                    <h2>Randell Dragos</h2>
+                    <h2> Vikash singh</h2>
                     <div className="d-flex gap-2">
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>
@@ -789,11 +798,8 @@ console.log("Salon Data:-",response.data.salons)
                       <i class="bi bi-star-half"></i>
                     </div>
                     <p>
-                      I have to say, this barbershop has the best customer
-                      service I've ever experienced. From the moment I walked
-                      in, I was greeted with a smile and offered a beverage
-                      while I waited. The barbers are not only talented but also
-                      incredibly attentive.
+                      Best haircut I've ever had! The barbers are highly skilled
+                      and listen to exactly what you want. Five-star service!
                     </p>
                   </div>
                 </SwiperSlide>

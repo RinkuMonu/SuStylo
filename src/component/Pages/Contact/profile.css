@@ -1,0 +1,45 @@
+.employee-dashboard {
+    background-color: #f9f9f9;
+  }
+  
+  .profile-card {
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .info-card {
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .activity-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .activity-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .activity-list img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .view-all {
+    color: red;
+    cursor: pointer;
+    text-align: right;
+  }
+  

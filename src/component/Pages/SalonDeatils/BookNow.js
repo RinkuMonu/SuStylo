@@ -22,6 +22,7 @@ export default function BookNow() {
 
     if (domRef.current) observer.observe(domRef.current);
 
+
     return () => {
       if (domRef.current) observer.unobserve(domRef.current);
     };
@@ -68,6 +69,7 @@ export default function BookNow() {
 
   const bookButton = ["Book Now"];
 
+
   return (
     <>
       {" "}
@@ -94,6 +96,7 @@ export default function BookNow() {
                   }}
                 ></div>
               </div>
+
             </div>
           </div>
           <div

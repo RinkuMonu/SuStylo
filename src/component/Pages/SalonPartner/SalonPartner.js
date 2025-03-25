@@ -50,6 +50,7 @@ export default function SalonPartner() {
     }
 };
 
+
 const handleCancel =()=>{
     setFormData({
         ownerName: "",
