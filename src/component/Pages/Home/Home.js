@@ -292,7 +292,7 @@ export default function Home() {
                                         <p>Experience a irritation-free shave with experts and premium aftercare.</p>
                                     </div>
                                     <div className="bookBtn">
-                                        <Link className="custom-btn btn-8"><span>Book Now</span></Link>
+                                        <Link to={'/bookappoinment'} className="custom-btn btn-8"><span>Book Now</span></Link>
                                     </div>
                                 </div>
                             </div>
@@ -308,7 +308,7 @@ export default function Home() {
                                         <p>Upgrade your look with personalized styling for hair and beard.</p>
                                     </div>
                                     <div className="bookBtn">
-                                        <Link className="custom-btn btn-8"><span>Book Now</span></Link>
+                                        <Link to={'/bookappoinment'} className="custom-btn btn-8"><span>Book Now</span></Link>
                                     </div>
                                 </div>
                             </div>
@@ -324,7 +324,7 @@ export default function Home() {
                                         <p>Get precise beard and hair trims for a sharp, well-groomed look.</p>
                                     </div>
                                     <div className="bookBtn">
-                                        <Link className="custom-btn btn-8"><span>Book Now</span></Link>
+                                        <Link to={'/bookappoinment'} className="custom-btn btn-8"><span>Book Now</span></Link>
                                     </div>
                                 </div>
                             </div>
@@ -340,7 +340,7 @@ export default function Home() {
                                         <p>From classic cuts to modern styles, get a haircut that complements your look.</p>
                                     </div>
                                     <div className="bookBtn">
-                                        <Link className="custom-btn btn-8"><span>Book Now</span></Link>
+                                        <Link to={'/bookappoinment'} className="custom-btn btn-8"><span>Book Now</span></Link>
                                     </div>
                                 </div>
                             </div>
@@ -384,7 +384,7 @@ export default function Home() {
                                                     id="locationfield"
                                                     autoComplete="off"
                                                     className="form-control pac-target-input"
-                                                    style={{ paddingLeft: "50px" }} // Adjust padding for icon spacing
+                                                    style={{ paddingLeft: "50px" }} 
                                                 />
                                                 <div className="hr-bar"></div>
                                             </InputGroup>
@@ -393,7 +393,7 @@ export default function Home() {
 
                                     {/* Category Select Field */}
                                     <div className="col-md-6 px-0">
-                                        <div className="input-form">
+                                        <div className="input-form select_saloncategorys">
                                             <Form.Select name="category" id="servicecategory" required>
                                                 <option value="">Select Category</option>
                                                 <option value="category1">Category 1</option>

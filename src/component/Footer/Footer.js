@@ -21,10 +21,10 @@ export default function Footer() {
                                 <h2>Pages</h2>
                                 <ul>
                                     <li>
-                                        <Link data-replace="About"><span>About</span></Link>
+                                        <Link to={'/about'} data-replace="About" className='mt-3'><span>About</span></Link>
                                     </li>
                                     <li>
-                                        <Link data-replace="Our Services"><span>Our Services</span></Link>
+                                        <Link to={'/services'} data-replace="Our Services"><span>Our Services</span></Link>
                                     </li>
                                     <li>
                                         <Link to={'/termsandcondition'} data-replace="Terms and Conditions"><span>Terms and Conditions</span></Link>
@@ -41,19 +41,19 @@ export default function Footer() {
                                 <h2>Services</h2>
                                 <ul>
                                     <li>
-                                        <Link data-replace="Shaving"><span>Shaving</span></Link>
+                                        <Link to={'/services'} data-replace="Shaving" className='mt-3'><span>Shaving</span></Link>
                                     </li>
                                     <li>
-                                        <Link data-replace="Hair Spa"><span>Hair Spa</span></Link>
+                                        <Link to={'/services'} data-replace="Hair Spa"><span>Hair Spa</span></Link>
                                     </li>
                                     <li>
-                                        <Link data-replace="AboHair Cutut"><span>Hair Cut</span></Link>
+                                        <Link to={'/services'} data-replace="AboHair Cutut"><span>Hair Cut</span></Link>
                                     </li>
                                     <li>
-                                        <Link data-replace="Facial"><span>Facial</span></Link>
+                                        <Link to={'/services'} data-replace="Facial"><span>Facial</span></Link>
                                     </li>
                                     <li>
-                                        <Link data-replace="Trimming"><span>Trimming</span></Link>
+                                        <Link to={'/services'} data-replace="Trimming"><span>Trimming</span></Link>
                                     </li>
                                 </ul>
                             </div>
@@ -92,7 +92,7 @@ export default function Footer() {
 
                                     <div className=' d-flex gap-3'>
                                         <FaFacebook />
-                                        <FaInstagram />
+                                        <Link to={'https://www.instagram.com/?hl=en'}><FaInstagram /></Link>
                                         <FaYoutube />
                                     </div>
                                 </div>

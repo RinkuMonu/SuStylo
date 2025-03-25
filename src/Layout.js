@@ -1,27 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "./component/Header/Header";
 import Footer from "./component/Footer/Footer";
-import Loader from "./component/Loder/Loder"; 
 
 export default function Layout() {
-  const location = useLocation();
-  const [loading, setLoading] = useState(false);
+  const { pathname } = useLocation(); // Detect route changes
 
   useEffect(() => {
-    setLoading(true);
-    const timeout = setTimeout(() => setLoading(false), 5000); 
-    return () => clearTimeout(timeout); 
-  }, [location]);
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top on route change
+  }, [pathname]); // Runs whenever the route changes
 
   return (
     <>
       <Header />
-      {loading && (
-        <div className="fixed inset-0 flex justify-center items-center bg-gray-200 bg-opacity-50">
-          <Loader />
-        </div>
-      )}
+
+      <div className="fixed inset-0 flex justify-center items-center bg-gray-200 bg-opacity-50">
+        {/* This seems like a modal overlay; ensure it's properly handled */}
+      </div>
+
       <Outlet />
       <Footer />
     </>

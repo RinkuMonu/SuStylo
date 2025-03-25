@@ -546,14 +546,15 @@ body {
     padding: 24px 30px 24px 72px !important;
     font: normal normal normal 20px/24px Inter;
     color: #000000 !important;
-    border-radius: 43px 0 0 43px !important;
+    border-top-left-radius: 43px !important;
+    border-bottom-left-radius: 43px !important;
     border: none !important;
     height: unset !important;
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
   
   .bcw-nearby__search .form-select {
-    padding: 24px 72px 24px 4px !important;
+    padding: 24px 72px 24px 32px !important;
   }
   
   .bcw-nearby__search .form-control::placeholder {
@@ -1289,4 +1290,24 @@ align-items: center;
   color: white;
   text-align: center;
   transition: 0.3s ease-in-out;
+}
+/* ...................... Media quary ....................... */
+@media (max-width: 768px) {
+  .bcw-nearby__search .form-control{
+    border-radius: 43px !important;
+    margin: 10px 20px;
+  }
+  .bcw-nearby__search .form-select{
+    border-radius: 43px !important;
+    
+  }
+  .select_saloncategorys{
+    margin-right: 14px;
+  }
+  .hr-bar{
+    display: none;
+  }
+  .hero-title{
+    margin-top: 100px;
+  }
 }
