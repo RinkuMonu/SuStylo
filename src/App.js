@@ -25,8 +25,9 @@ import Login from './component/Pages/login/Login.js';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: <Layout />, 
     children: [
+
       { path: "/", element: <Home /> }, 
       { path: "/salonpartner", element: <SalonPartner /> }, 
       { path: "/salondetails/:id", element: <SalonDetails /> },

@@ -29,14 +29,14 @@ export default function About() {
     }, []);
     // Cities
     const cities = [
-        { name: "Malviya Nagar", url: "https://billu.co.in/city/ludhiana" },
-        { name: "Jhotwarda", url: "https://billu.co.in/city/faridabad" },
-        { name: "Civil Lines", url: "https://billu.co.in/city/delhi" },
-        { name: "New Delhi", url: "https://billu.co.in/city/new-delhi" },
-        { name: "Gurugram", url: "https://billu.co.in/city/gurugram" },
-        { name: "Noida", url: "https://billu.co.in/city/noida" },
-        { name: "Ghaziabad", url: "https://billu.co.in/city/ghaziabad" },
-        { name: "Gautam Buddha Nagar", url: "https://billu.co.in/city/gautam-buddha-nagar" },
+        { name: "Malviya Nagar", url: "#" },
+        { name: "Jhotwarda", url: "#" },
+        { name: "Civil Lines", url: "#" },
+        { name: "New Delhi", url: "#" },
+        { name: "Mansarover", url: "#" },
+        { name: "Jagatpura", url: "#" },
+        { name: "MI Road", url: "#" },
+        { name: "Ashok Nagar", url: "#" },
     ];
     return (
         <>

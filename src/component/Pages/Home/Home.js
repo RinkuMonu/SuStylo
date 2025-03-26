@@ -200,6 +200,7 @@ export default function Home() {
     fetchData();
   }, [data.gender, data.category]);
 
+
   useEffect(() => {
     new WOW().init();
   }, []);
