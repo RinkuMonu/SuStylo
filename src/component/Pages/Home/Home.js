@@ -733,7 +733,7 @@ export default function Home() {
                   <img src="./images/gallery/R3.jpg" />
                   <div className="hero-overlay"></div>
                   <div className="review_text text-center p-5">
-                    <h2>Chandan Sharma</h2>
+                    <h2>Devika Gehlot</h2>
                     <div className="d-flex gap-2">
                       <i class="bi bi-star-fill"></i>
                       <i class="bi bi-star-fill"></i>

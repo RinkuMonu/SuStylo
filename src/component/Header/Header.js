@@ -25,7 +25,7 @@ export default function Header() {
       <nav className={`navbar navbar-expand-lg fixed-top ${isScrolled ? "scrolled" : ""}`}>
         <div className="container">
           <Link to={'/'} className="navbar-brand">
-            <img src='./images/stylo_Logo.png' className='img-fluid' width={70} />
+            <img src='public/images/stylo_Logo.png.png' alt="logooo" className='img-fluid' width={70} />
           </Link>
           <button className="navbar-toggler" type="button" onClick={toggleMenu}>
             <span className="navbar-toggler-icon"></span>

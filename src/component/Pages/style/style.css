@@ -1301,3 +1301,11 @@ display: none !important;
   background-color: transparent !important;
   border: none !important;
 }
+
+.chair-icon{
+height: 30px;
+width: 30px;
+}
+.dropdown-menu.show{
+  min-width: 100%;
+}

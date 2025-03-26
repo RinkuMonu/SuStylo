@@ -20,6 +20,7 @@ import CancellationRefund from './component/Pages/Conditions/CancellationRefund.
 import PrivacyPolicy from './component/Pages/Conditions/PrivacyPolicy.js';
 import MenServices from './component/Pages/ServicesType/MenServices.js';
 import WomenServices from './component/Pages/ServicesType/WomenServices.js';
+import Login from './component/Pages/login/Login.js';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> }, 
       { path: "/salonpartner", element: <SalonPartner /> }, 
       { path: "/salondetails/:id", element: <SalonDetails /> },
-      { path: "/bookappoinment", element: <BookNow /> }, 
+      { path: "/bookappoinment/:id", element: <BookNow /> },
       { path: "/about", element: <About /> }, 
       { path: "/services", element: <Services /> }, 
       { path: "/contact", element: <Contact /> }, 
@@ -41,6 +42,7 @@ const router = createBrowserRouter([
       { path: "/cancellationrefundpolicy", element: <CancellationRefund /> }, 
       { path: "/privacypolicy", element: <PrivacyPolicy /> }, 
       { path: "/womenservices", element: <WomenServices /> }, 
+      { path: "/login", element: <Login /> },
     ],
   },
 ]);

@@ -17,6 +17,10 @@ import { FaPercentage } from "react-icons/fa";
 import { TbHours24 } from "react-icons/tb";
 import { BiSolidOffer } from "react-icons/bi";
 import { Container, Row, Col } from "react-bootstrap";
+
+
+
+
 const salonData = [
     {
         id: 1,
@@ -365,7 +369,7 @@ export default function Services() {
                             </div>
                             <div className="col-md-6">
                                 <div className="sidecontent">
-                                    <img src="./images/stylo_Logo.png" className="img-fluid" width={100} />
+                                    <img src="" className="img-fluid" width={100} />
                                     <h2 className="mt-3">Find & Book Appoinment</h2>
                                     <p>Find your next appointment and book instantly anytime, anywhere.</p>
                                     <div className="row mt-5">
@@ -416,7 +420,7 @@ export default function Services() {
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
 
                                     </div>
 

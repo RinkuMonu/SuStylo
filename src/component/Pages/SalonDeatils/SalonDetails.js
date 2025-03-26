@@ -263,7 +263,7 @@ export default function SalonDetails() {
                                   </p>
                                 </div>
                                 <Link
-                                  to={"/bookappoinment"}
+                                  to={`/bookappoinment/${id}`}
                                   className="BookAppBtn custom-btn btn-8"
                                 >
                                   Book
