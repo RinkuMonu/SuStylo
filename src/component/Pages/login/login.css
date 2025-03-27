@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+ .login_container{
+    margin-top: -70px;
+} 
+
+.login_container .form_heading h2{
+    font-size: 30px;
+    margin-top: 40px;
+    font-weight: 500;
+}
+.login_container .form_heading p{
+    font-weight: 500;
+    color: rgb(148, 147, 147);
+    font-size: 14px;
+}
+.login_container .login_form  label{
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    margin-left: 10px;
+}
+.login_container .login_form input{
+    /* background-color: #ffffff59; */
+    background-color: #eeebc0;
+    background-image: linear-gradient(315deg, #eeebc0 0%, #ffffff 102%);
+    border-radius: 22px;
+    font-size: 14px;
+    height: 40px;
+    padding: 10px 20px;
+}
+.login_container .login_form .input-group-text{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-left: 0px;
+    background: #ffffff4d;
+}
+.login_container .login_form .SubmitBtn{
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    font-size: 14px;
+    width: -webkit-fill-available;
+    border-radius: 20px;
+    margin-top: 25px;
+
+}
+.login_container .login_form .SubmitBtn:hover{
+    background-color: #272727;
+}
+/*.login_container .side_img img{
+     height: 500px;
+    background-size: contain;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 30px;
+    clip-path: path("M 0 0 H 100% V 100% H 0 Z M 100% 0 Q 80% 20% 100% 40% V 0 Z"); */
+    /* margin-top: -70px;
+} */
+.login_container .side_img{
+    position: relative;
+}
+/* .login_container .side_img .cancelBtn{
+    position: absolute;
+    padding: 20px;
+    font-size: 16px;
+    font-weight:500;
+    top: 0px;
+    right: 0px;
+} */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+  }
+  
+  .shake {
+    animation: shake 0.5s ease-in-out;
+  }
+  .error-message {
+  color: red !important;
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: 600 !important;
+  text-align: center;
+}
