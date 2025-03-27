@@ -22,6 +22,19 @@ import MenServices from './component/Pages/ServicesType/MenServices.js';
 import WomenServices from './component/Pages/ServicesType/WomenServices.js';
 import Login from './component/Pages/login/Login.js';
 
+
+
+const seoData = {
+  "/": {
+    title: "Book Salons & Beauty Services | Grow Your Business",
+    description:
+      "Book top-rated salons and beauty services near you. Salon owners, register now to grow your business with easy bookings and verified professionals.",
+  },
+};
+
+
+
+
 const router = createBrowserRouter([
   {
     path: "/",

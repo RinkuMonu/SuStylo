@@ -109,7 +109,7 @@ export default function About() {
                                 scale={1.8}
                                 delay={1}
                             >
-                                <img src="./images/2149975504.jpg" className="img-fluid" />
+                                <img src="./images/about-2.jpg" className="img-fluid" />
                             </SimpleParallax>
                         </div>
                     </div>
@@ -124,7 +124,7 @@ export default function About() {
                                 scale={1.8}
                                 delay={1}
                             >
-                                <img src="./images/2149975504.jpg" className="img-fluid" />
+                                <img src="./images/about-3.jpg" className="img-fluid" />
                             </SimpleParallax>
                         </div>
                         <div className="col-md-6 mb-3 about_mission ps-5" data-aos="zoom-out-up">

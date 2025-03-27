@@ -183,15 +183,15 @@ export default function BookNow() {
                         {time}
                       </button>
 
-                      <div className="row">
+                      <div className="row ">
                         {slot[time].map((seat, idx) => (
                           <div key={idx} className="col-md-4">
                             <div
-                              className={`card p-3 mb-3 text-white text-center btn btn-secondary dropdown-toggle ${getSeatClass(seat.status)}`}
+                              className={`card p-3 mb-3 text-white text-center  ${getSeatClass(seat.status)}`}
                               style={{ cursor: "pointer" , backgroundColor:"grey"}}
                             >
                               <MdOutlineChair className="chair-icon mb-2 align-self-center" />
-                              <p className="m-0">Seat {seat.seatNumber}</p>
+                              <p className="m-0 fs-6">Seat {seat.seatNumber}</p>
                               <button
                                 className={`btn w-100 ${
                                   seat.status === "available" ? "btn-primary" : "btn-secondary"

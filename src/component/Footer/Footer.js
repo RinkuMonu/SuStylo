@@ -16,7 +16,7 @@ export default function Footer() {
             <div className="hero-overlay"></div>
                 <div className="container FooterTop">
                     <div className='row'>
-                        <div className='col-md-7 d-flex gap-5'>
+                        <div className='col-md-6 d-flex gap-5'>
                             <div className='navLinks'>
                                 <h2>Pages</h2>
                                 <ul>
@@ -77,11 +77,11 @@ export default function Footer() {
 
 
                         </div>
-                        <div className='col-md-5'>
+                        <div className='col-md-6'>
                             <div className='rightSide'>
                                 {/* <span className="logo">BLA<span className="text-warning">X</span>CUT</span> */}
                                 <img src='./images/stylo_Logo.png' className='img-fluid mb-3' width={100} />
-                                <p>Su Stylo revolutionizes salon bookings with seamless, premium grooming services. Effortlessly book top-tier salons, enjoy hassle free appointments, and experience luxury self care all at your convenience. Redefine beauty and grooming with just a tap!</p>
+                                <p className='w-100'>Su Stylo revolutionizes salon bookings with seamless, premium grooming services. Effortlessly book top-tier salons, enjoy hassle free appointments, and experience luxury self care all at your convenience. Redefine beauty and grooming with just a tap!</p>
                                 <label for="subscribeMAil" class="form-label">Email address</label>
                                 <div class="mb-3 d-flex align-items-center">
                                     <input type="email" class="form-control" id="subscribeMAil" placeholder="Your Mail..." />
@@ -92,7 +92,7 @@ export default function Footer() {
 
                                     <div className=' d-flex gap-3'>
                                         <FaFacebook />
-                                        <Link to={'https://www.instagram.com/?hl=en'}><FaInstagram /></Link>
+                                        <Link to={'https://www.instagram.com/?hl=en'}><FaInstagram /></Link>
                                         <FaYoutube />
                                     </div>
                                 </div>
