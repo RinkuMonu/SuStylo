@@ -37,7 +37,7 @@ export default function MenServices() {
                     <div class="de-gradient-edge-bottom" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
                     <div className="container text-center position-relative">
                         <h2 className="hero-title">Mens Services</h2>
-                        <p>Experience expert haircuts, luxury facials, skin treatments, and relaxing massages designed to enhance your natural beauty. From hair coloring to organic skincare, we offer personalized services for a flawless look. Pamper yourself with premium care and step out with confidence!</p>
+                        <p className="text-white fw-bold">Experience expert haircuts, luxury facials, skin treatments, and relaxing massages designed to enhance your natural beauty. From hair coloring to organic skincare, we offer personalized services for a flawless look. Pamper yourself with premium care and step out with confidence!</p>
                     </div>
                 </section>
                 <div className="content-section">
@@ -246,6 +246,42 @@ export default function MenServices() {
                                 </Swiper>
                             </div>
                         </div>
+
+
+
+                    <div className="container mb-5">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="marquee-container-bottom">
+                                    <div className="marquees">
+                                        <div className="marquee-container">
+                                            <div className="marquee-content">
+                                                <span> HAIR DRY <i class="d-item-block"></i></span>
+                                                <span> FACIAL  <i class="d-item-block"></i></span>
+                                                <span> HAIR WASH  <i class="d-item-block"></i></span>
+                                                <span> FADED  <i class="d-item-block"></i></span>
+                                                {/* Duplicate content for smooth looping */}
+                                                <span> HAIR DRY <i class="d-item-block"></i></span>
+                                                <span> FACIAL  <i class="d-item-block"></i></span>
+                                                <span> HAIR WASH  <i class="d-item-block"></i></span>
+                                                <span> FADED  <i class="d-item-block"></i></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
                         <hr className="my-5" />
                         <div className="row align-items-center">
                             <div className="col-md-6 mt-5 mb-3" data-aos="zoom-in-left">
@@ -259,9 +295,9 @@ export default function MenServices() {
                             </div>
                             <div className="col-md-6 mb-3 about_mission right_content fadeInRight  ps-5" data-aos="zoom-in-right">
                                 <h2 className="wow fadeInRight animated" data-wow-delay=".3s">
-                                    Discover The <span className="id-color">Experties</span> And <span className="text-effect">Passion</span> behind our Salon
+                                    Discover The <span className="id-color fw-bold">Experties</span> And <span className="id-color fw-bold">Passion</span> behind our Salon
                                 </h2>
-                                <p>At our salon, we combine expertise with passion to deliver exceptional grooming experiences. Our skilled professionals specialize in precision haircuts, beard styling, luxury facials, and organic treatments. Using premium products and the latest trends, we personalize every service to match your style and personality. Whether it's a relaxing massage, deep pore cleansing, or a royal shave, we ensure top-notch care and attention. Step into a world of sophistication where your grooming needs are met with perfection. Elevate your confidence with our expert touch!
+                                <p className="text-muted">At our salon, we combine expertise with passion to deliver exceptional grooming experiences. Our skilled professionals specialize in precision haircuts, beard styling, luxury facials, and organic treatments. Using premium products and the latest trends, we personalize every service to match your style and personality. Whether it's a relaxing massage, deep pore cleansing, or a royal shave, we ensure top-notch care and attention. Step into a world of sophistication where your grooming needs are met with perfection. Elevate your confidence with our expert touch!
                                 </p>
                                 <Link className='btn-8 custom-btn'><span>Book Now</span></Link>
                             </div>
@@ -271,9 +307,9 @@ export default function MenServices() {
 
                             <div className="col-md-6 mb-3 about_mission right_content fadeInRight  ps-5" data-aos="zoom-in-right">
                                 <h2 className="wow fadeInRight animated" data-wow-delay=".3s">
-                                    Step <span className="id-color">Inside</span> our Salon<span className="text-effect">experience</span> The Magic of Transfomation
+                                    Step <span className="id-color fw-bold">Inside</span> our Salon<span className="id-color fw-bold">experience</span> The Magic of Transfomation
                                 </h2>
-                                <p>Enter a world where style meets sophistication! Our salon offers expert grooming, luxury facials, precision haircuts, and rejuvenating treatments tailored to enhance your look. From beard grooming to deep cleansing facials, our skilled professionals use premium products and advanced techniques to bring out your best. Indulge in a relaxing massage, organic hair treatment, or royal shave designed to refresh and revitalize. Whether you seek a bold new look or subtle refinement, we ensure a seamless transformation that boosts confidence. Visit us today and redefine your style!
+                                <p className="text-muted">Enter a world where style meets sophistication! Our salon offers expert grooming, luxury facials, precision haircuts, and rejuvenating treatments tailored to enhance your look. From beard grooming to deep cleansing facials, our skilled professionals use premium products and advanced techniques to bring out your best. Indulge in a relaxing massage, organic hair treatment, or royal shave designed to refresh and revitalize. Whether you seek a bold new look or subtle refinement, we ensure a seamless transformation that boosts confidence. Visit us today and redefine your style!
                                 </p>
                                 <Link to={'/bookappoinment'} className='btn-8 custom-btn'><span>Book Now</span></Link>
                             </div>
@@ -288,32 +324,53 @@ export default function MenServices() {
                             </div>
                         </div>
                     </div>
+
+
                     <div className="container-fluid ps-0">
                         <div className="aboutBG">
                             <div className="hero-overlay"></div>
                             <div className="row">
                                 <div className="col-md-12 position-relative" style={{ zIndex: "999" }}>
-                                    <h2 className="my-5">Get In Touch</h2>
+                                    <h2 className="my-5 text-white fw-bold">Get In Touch</h2>
                                     <div className="hstack gap-3">
-                                        <div class="row">
-                                            <div class="col" style={{ textAlign: "justify" }}>
-                                                <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Name</label>
+                                    <div className="row">
+    <div className="col" style={{ textAlign: "justify" }}>
+        <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Name</label>
+        <input
+            type="text"
+            className="form-control placeholder-white border-white"
+            placeholder="Name"
+            aria-label="First name"
+        />
+    </div>
 
-                                                <input type="text" class="form-control" placeholder="Name" aria-label="First name" />
-                                            </div>
-                                            <div class="col" style={{ textAlign: "justify" }}>
-                                                <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Email</label>
+    <div className="col" style={{ textAlign: "justify" }}>
+        <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Email</label>
+        <input
+            type="email"
+            className="form-control placeholder-white border-white"
+            placeholder="Email"
+            aria-label="Last name"
+        />
+    </div>
 
-                                                <input type="email" class="form-control" placeholder="Email" aria-label="Last name" />
-                                            </div>
-                                            <div class="col" style={{ textAlign: "justify" }}>
-                                                <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Mobile</label>
-                                                <input type="number" class="form-control" placeholder="Number" aria-label="Last name" />
-                                            </div>
-                                            <div class="col">
-                                                <buttion className='btn-8 custom-btn' style={{ marginTop: "40px" }}><span>Get In Touch</span></buttion>
-                                            </div>
-                                        </div>
+    <div className="col" style={{ textAlign: "justify" }}>
+        <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Mobile</label>
+        <input
+            type="number"
+            className="form-control placeholder-white border-white"
+            placeholder="Number"
+            aria-label="Last name"
+        />
+    </div>
+
+    <div className="col">
+        <button className="btn-8 custom-btn" style={{ marginTop: "40px" }}>
+            <span>Get In Touch</span>
+        </button>
+    </div>
+</div>
+
                                     </div>
 
                                 </div>
@@ -323,7 +380,7 @@ export default function MenServices() {
                         </div>
 
                     </div>
-                    <div className="container review_section" data-aos="zoom-in">
+                    {/* <div className="container review_section" data-aos="zoom-in">
                         <div className="col-md-12">
                             <Swiper
                                 spaceBetween={30}
@@ -408,36 +465,8 @@ export default function MenServices() {
                         </div>
 
 
-                    </div>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-12">
-                                <div className="marquee-container-bottom">
-                                    <div className="marquees">
-                                        <div className="marquee-container">
-                                            <div className="marquee-content">
-                                                <span> HAIR DRY <i class="d-item-block"></i></span>
-                                                <span> FACIAL  <i class="d-item-block"></i></span>
-                                                <span> HAIR WASH  <i class="d-item-block"></i></span>
-                                                <span> FADED  <i class="d-item-block"></i></span>
-                                                {/* Duplicate content for smooth looping */}
-                                                <span> HAIR DRY <i class="d-item-block"></i></span>
-                                                <span> FACIAL  <i class="d-item-block"></i></span>
-                                                <span> HAIR WASH  <i class="d-item-block"></i></span>
-                                                <span> FADED  <i class="d-item-block"></i></span>
-                                            </div>
-                                        </div>
+                    </div> */}
 
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
                 </div>
             </div>
 

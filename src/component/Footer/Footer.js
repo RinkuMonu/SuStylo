@@ -13,7 +13,7 @@ export default function Footer() {
     return (
         <>
             <footer className="footer-section">
-            <div className="hero-overlay"></div>
+            <div className="footer-overlay"></div>
                 <div className="container FooterTop">
                     <div className='row'>
                         <div className='col-md-6 d-flex gap-5'>
@@ -21,19 +21,19 @@ export default function Footer() {
                                 <h2>Pages</h2>
                                 <ul>
                                     <li>
-                                        <Link to={'/about'} data-replace="About" className='mt-3'><span>About</span></Link>
+                                        <Link to={'/about'} data-replace="About" className='mt-3 fw-bold'><span>About</span></Link>
                                     </li>
                                     <li>
-                                        <Link to={'/services'} data-replace="Our Services"><span>Our Services</span></Link>
+                                        <Link to={'/services'} data-replace="Our Services" className='mt-3 fw-bold'><span>Our Services</span></Link>
                                     </li>
                                     <li>
-                                        <Link to={'/termsandcondition'} data-replace="Terms and Conditions"><span>Terms and Conditions</span></Link>
+                                        <Link to={'/termsandcondition'} data-replace="Terms and Conditions" className='mt-3 fw-bold'><span>Terms and Conditions</span></Link>
                                     </li>
                                     <li>
-                                        <Link to={'/cancellationrefundpolicy'} data-replace="Cancellation/Refund Policy"><span>Cancellation/Refund Policy</span></Link>
+                                        <Link to={'/cancellationrefundpolicy'} data-replace="Cancellation/Refund Policy" className='mt-3 fw-bold'><span>Cancellation/Refund Policy</span></Link>
                                     </li>
                                     <li>
-                                        <Link to={'/privacypolicy'} data-replace="Privacy Policy"><span>Privacy Policy</span></Link>
+                                        <Link to={'/privacypolicy'} data-replace="Privacy Policy" className='mt-3 fw-bold'><span>Privacy Policy</span></Link>
                                     </li>
                                 </ul>
                             </div>
@@ -41,19 +41,19 @@ export default function Footer() {
                                 <h2>Services</h2>
                                 <ul>
                                     <li>
-                                        <Link to={'/services'} data-replace="Shaving" className='mt-3'><span>Shaving</span></Link>
+                                        <Link to={'/services'} data-replace="Shaving" className='mt-3'><span className='fw-bold'>Shaving</span></Link>
                                     </li>
                                     <li>
-                                        <Link to={'/services'} data-replace="Hair Spa"><span>Hair Spa</span></Link>
+                                        <Link to={'/services'} data-replace="Hair Spa"><span className='fw-bold'>Hair Spa</span></Link>
                                     </li>
                                     <li>
-                                        <Link to={'/services'} data-replace="AboHair Cutut"><span>Hair Cut</span></Link>
+                                        <Link to={'/services'} data-replace="AboHair Cutut"><span className='fw-bold'>Hair Cut</span></Link>
                                     </li>
                                     <li>
-                                        <Link to={'/services'} data-replace="Facial"><span>Facial</span></Link>
+                                        <Link to={'/services'} data-replace="Facial"><span className='fw-bold'>Facial</span></Link>
                                     </li>
                                     <li>
-                                        <Link to={'/services'} data-replace="Trimming"><span>Trimming</span></Link>
+                                        <Link to={'/services'} data-replace="Trimming"><span className='fw-bold'>Trimming</span></Link>
                                     </li>
                                 </ul>
                             </div>
@@ -61,16 +61,16 @@ export default function Footer() {
                                 <h2>Contact</h2>
                                 <ul>
                                     <li className='d-flex gap-3 align-items-center'>
-                                        <IoCallOutline style={{ color: "#fff", fontWeight: "500" }} />
-                                        <a href="tel:+917297026119" data-replace="+91 72970 26119"><span>+91 72970 26119</span></a>
+                                        <IoCallOutline  style={{ color: "#fff", fontWeight: "500" }} />
+                                        <a href="tel:+917297026119" data-replace="+91 72970 26119"><span className='fw-bold'>+91 72970 26119</span></a>
                                     </li>
                                     <li className='d-flex gap-3 align-items-center'>
                                         <CiMail style={{ color: "#fff", fontWeight: "500" }} />
-                                        <a href="mailto:info@sustylo.com" data-replace="info@sustylo.com"><span>info@sustylo.com</span></a>
+                                        <a href="mailto:info@sustylo.com" data-replace="info@sustylo.com"><span className='fw-bold'>info@sustylo.com</span></a>
                                     </li>
                                     <li className='d-flex gap-3 align-items-center'>
                                         <GoClock style={{ color: "#fff", fontWeight: "500" }} />
-                                        <a href='#' data-replace="Mon-Sun : 08:00 - 17:00">Mon-Sun : 08:00 - 17:00</a>
+                                        <a href='#' data-replace="Mon-Sun : 08:00 - 17:00" className='fw-bold'>Mon-Sun : 08:00 - 17:00</a>
                                     </li>
                                 </ul>
                             </div>
