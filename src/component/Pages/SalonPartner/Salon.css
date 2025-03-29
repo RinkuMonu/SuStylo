@@ -15,6 +15,11 @@
     z-index: 999;
   }
   
+.id-color{
+  color: var(--primary-color);
+}
+
+
   .text-effect::after {
     content: "";
     position: absolute;
@@ -41,7 +46,7 @@
     transition: all 0.3s ease;
   }
   .partnerfrm .FrmBg input,  .partnerfrm .FrmBg textarea{
-    background: #000;
+    background: #fefefe;
     border: 1px solid #7a7979;
     padding: 13px 30px;
     color: #fff;

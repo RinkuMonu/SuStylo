@@ -27,13 +27,13 @@ li {
   }
   
   .navbar.scrolled {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(210, 61, 20, 0.8);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   }
   
   @media (max-width: 992px) {
     .navbar {
-      background: black !important;
+      background: rgba(210, 61, 20, 0.8) !important;
     }
   }
   .navbar-toggler{

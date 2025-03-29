@@ -117,7 +117,7 @@ export default function SalonDetails() {
             data-aos="zoom-in"
           >
             <h2 className="hero-title">{salonDetails?.salon?.salonName}</h2>
-            <p className="hero-subtitle">
+            <p className="hero-subtitle-det text-white fw-bold">
               <FaRoute className="icon" />
               {salonDetails?.salon?.salonAddress}
 
@@ -263,7 +263,7 @@ export default function SalonDetails() {
                                   </p>
                                 </div>
                                 <Link
-                                  to={"/bookappoinment"}
+                                  to={`/bookappoinment/${id}`}
                                   className="BookAppBtn custom-btn btn-8"
                                 >
                                   Book

@@ -93,7 +93,7 @@ const handleCancel =()=>{
           <div className="hero-overlay"></div>
           <div className="container text-center position-relative">
             <h2 className="hero-title">SALON PARTNER</h2>
-            <p className="hero-subtitle">
+            <p className="hero-subtitle-partner fw-bold">
               Established with a passion for the art of barbering, we take great
               pride in our craft and strive to create an atmosphere that feels
               like home.
@@ -106,7 +106,7 @@ const handleCancel =()=>{
               <div className="col-md-6">
                 <h1>
                   Barbershop is More Than Hobby, It's Our{" "}
-                  <span class="text-effect">Destiny!</span>{" "}
+                  <span class="id-color fw-bold">Destiny!</span>{" "}
                 </h1>
                 <p>
                   {" "}
@@ -127,7 +127,7 @@ const handleCancel =()=>{
           <div className="container partnerfrm">
             <div className="row">
               <div className="col-md-12">
-                <div className="heading mb-4 text-center">
+                <div className="heading mb-4 text-center id-color">
                   <h2>
                     Stop Waiting for Customers – Start Generating Business!
                   </h2>
