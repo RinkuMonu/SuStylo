@@ -5,6 +5,8 @@ import "../style/style.css";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { MdOutlineChair } from "react-icons/md";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+import Swal from 'sweetalert2'
 
 export default function BookNow() {
   const { id } = useParams();
@@ -88,18 +90,63 @@ export default function BookNow() {
       console.error("Error fetching data:", error);
     }
   };
-  const handleBooking = () => {
-    const user = localStorage.getItem("user"); // Retrieve user data from localStorage
+  const handleBooking = async (seatNumber) => {
+    const storedUserId = localStorage.getItem("id") // Retrieve user ID from localStorage
+  
+    if (!storedUserId) {
+      // If user is not logged in, redirect to login page
+      window.location.href = "/login";
+      return;
+    }
+  
+    try {
+      const response = await axios.post(
+        "https://sustylo-web.onrender.com/api/booking/create",
+        {
+          salonId: "67dbe4a6fbe65a40a1ae3769",
+          userId: "67e6705e7f0f0082469cd26f", // Corrected userId
+          date: date, // Ensure 'date' is defined in your component
+          timeSlot: selectedTime, // Ensure 'selectedTime' is defined
+          seatNumber: seatNumber, // Pass the correct seat number
+          serviceDuration: 60,
+        }
 
-    if (user) {
-      // User is logged in, proceed with booking logic
-      console.log("User is logged in:", JSON.parse(user));
-      // Add your booking logic here
-    } else {
-      // User not logged in, redirect to the login page
-      window.location.href = "/login"; // Redirect to login page
+     
+      );
+      console.log("ress",response)
+      console.log("ress",response.data)
+      console.log("ress",response.data.data)
+
+      if(response.status===201){
+        Swal.fire({
+          title: "Booking Successfull",
+          icon: "success",
+          draggable: true
+        });
+
+        // setSlot((prevSeats) =>
+        //   prevSeats.map((seat) =>
+        //     seat.seatNumber === seatNumber ? { ...seat, status: "booked" } : seat
+        //   )
+        // );
+      }
+  
+      console.log("Booking Successful:", response.data);
+  
+    } catch (error) {
+      console.error("Booking failed:", error.response?.data || error.message);
+      console.error("Booking failed:", error.response?.data?.error  );
+      console.error("Booking failed:", error);
+
+
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: error.response?.data?.error   ,
+      });
     }
   };
+  
 
   const getSeatClass = (status) => {
     return status === "available" ? "btn-success" : "btn-danger";
@@ -191,9 +238,8 @@ export default function BookNow() {
                   {Object.keys(slot).map((time, index) => (
                     <div key={index} className="col-md-12 mb-4">
                       <button
-                        className={`btn btn-lg mb-2 w-100 ${
-                          selectedTime === time ? "btn-brown" : "btn-dark"
-                        }`}
+                        className={`btn btn-lg mb-2 w-100 ${selectedTime === time ? "btn-brown" : "btn-dark"
+                          }`}
                         onClick={() => setSelectedTime(time)}
                       >
                         {time}
@@ -209,12 +255,10 @@ export default function BookNow() {
                               <MdOutlineChair className="chair-icon mb-2 align-self-center" />
                               <p className="m-0">Seat {seat.seatNumber}</p>
                               <button
-                                className={`btn w-100 ${
-                                  seat.status === "available" ? "btn-primary" : "btn-secondary"
-                                }`}
+                                className={`btn w-100 ${seat.status === "available" ? "btn-primary" : "btn-secondary"
+                                  }`}
                                 disabled={seat.status !== "available"}
-                                onClick={handleBooking}
-
+                                onClick={() => handleBooking(seat.seatNumber)}                      
                               >
                                 {seat.status === "available" ? "Reserve" : "Booked"}
                               </button>

@@ -84,7 +84,7 @@ const Login = () => {
           icon: "success",
           draggable: true,
         }).then(() => {
-          navigate("/dashboard");
+          navigate("/");
         });
       }
     } catch (error) {
