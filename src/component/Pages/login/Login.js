@@ -27,7 +27,7 @@ const Login = () => {
     setLoading(true);
     try {
       const response = await axiosInstance.post("/user/send-otp", {
-        phone: formData.mobileNumber,
+        mobileNumber: formData.mobileNumber,
       });
 
       if (response.status === 200) {
@@ -70,7 +70,7 @@ const Login = () => {
     setLoading(true);
     try {
       const response = await axiosInstance.post("/user/verify-otp", {
-        phone: formData.mobileNumber,
+        mobileNumber: formData.mobileNumber,
         otp,
       });
       // console.log("Response:-",response.data.user.token)
@@ -84,7 +84,7 @@ const Login = () => {
           icon: "success",
           draggable: true,
         }).then(() => {
-          navigate("/dashboard");
+          navigate("/");
         });
       }
     } catch (error) {
