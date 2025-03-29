@@ -137,12 +137,23 @@ body {
 
 /* .................. Slider Section ................. */
 .styles_slider .swiper {
-    width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background: rgba(215, 81, 24, 0.7);
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: rgba(215, 81, 24, 0.7);
+  /* border: 2px solid rgb(42, 40, 39); */
+  border-radius: 10px; /* Optional: rounded corners */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effect */
 
 }
+
+/* Hover effect */
+.styles_slider .swiper:hover {
+  background: rgba(215, 81, 24, 1); /* Slightly darker background on hover */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Adding shadow on hover */
+  transform: translateY(-5px); /* Slightly move the container up on hover */
+}
+
 
 .star{
 color: rgb(255, 170, 0);
@@ -1360,9 +1371,18 @@ align-items: center;
 display: none !important;
 }
 .dropdown-menu.show {
-  display: block;
-  background-color:rgba(234, 107, 61, 0.7);
+  /* display: block; */
+  /* background-color:rgba(234, 107, 61, 0.7); */
 }
+.dropdown-menu {
+  position: relative !important; /* Ensures proper positioning */
+  width: 100% !important; /* Matches button width */
+  max-width: 600px; /* Limits excessive width */
+  margin: 0 auto;
+}
+
+
+
 .slotBookBtn .dropdown-item:focus, .dropdown-item:hover{
   background-color: transparent !important;
   border: none !important;
