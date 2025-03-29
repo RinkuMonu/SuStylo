@@ -45,7 +45,7 @@ export default function About() {
                     <div className="hero-overlay"></div>
                     <div className="container text-center position-relative">
                         <h2 className="hero-title">About</h2>
-                        <p className="text-white fw-bold">Book Your Salon Appoinment Today</p>
+                        <p className="text-white fw-bold fs-4">Book Your Salon Appoinment Today</p>
                     </div>
                 </section>
                 <div class="de-gradient-edge-bottom" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>

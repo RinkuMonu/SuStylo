@@ -140,12 +140,16 @@ body {
     width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
-    background: rgba(255, 165, 132, 0.7);
+    background: rgba(215, 81, 24, 0.7);
 
 }
 
+.star{
+color: rgb(255, 170, 0);
+}
+
 .bg-transit{
-  background: rgba(255, 165, 132, 0.7);
+  background: rgba(215, 81, 24, 0.7);
 }
 
 .styles_slider .swiper-slide {
@@ -1021,7 +1025,7 @@ box-shadow: var(--thrid-color);
   font-size: 16px;
 }
 .aboutBG{
-  background: url("/public/images/1.1.jpg") no-repeat center center/cover;
+  background: url("/public/images/rating-3.jpg") no-repeat center center/cover;
   height: 70vh;
   position: relative;
   color: rgb(10, 10, 10);
@@ -1441,3 +1445,9 @@ background: rgba(242, 163, 135, 0.7);
     flex: 1 1 100%; /* 1 item per row on extra small screens */
   }
 }
+
+
+.book-checkbox{
+font-weight: 300;
+}
+

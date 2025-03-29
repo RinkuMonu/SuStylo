@@ -498,7 +498,7 @@ export default function Home() {
                   </div>
                   <div className="services_content">
                     <p>
-                      Get precise beard and hair trims for a sharp, well-groomed
+                      Get precise beard trims and hair trims for a sharp, well-groomed
                       look.
                     </p>
                   </div>
@@ -738,11 +738,11 @@ export default function Home() {
                   <div className="review_text text-center p-5">
                     <h2 className="fw-bold">Devika Gehlot</h2>
                     <div className="d-flex gap-2">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-half"></i>
+                      <i className="star bi bi-star-fill"></i>
+                      <i className="star bi bi-star-fill"></i>
+                      <i className="star bi bi-star-fill"></i>
+                      <i className="star bi bi-star-fill"></i>
+                      <i className="star bi bi-star-half"></i>
                     </div>
                     <p className="text-muted fw-bold">
                       Su Stylo is my go-to salon for the perfect haircut. The
@@ -757,11 +757,11 @@ export default function Home() {
                   <div className="review_text text-center p-5">
                     <h2 className="fw-bold"> Neha Kapoor</h2>
                     <div className="d-flex gap-2">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-half"></i>
+                      <i className="star bi bi-star-fill"></i>
+                      <i className="star bi bi-star-fill"></i>
+                      <i className="star bi bi-star-fill"></i>
+                      <i className="star bi bi-star-fill"></i>
+                      <i className="star bi bi-star-half"></i>
                     </div>
                     <p className="text-muted fw-bold">
                       Loved my styling experience! The team knows exactly what
@@ -776,11 +776,11 @@ export default function Home() {
                   <div className="review_text text-center p-5">
                     <h2 className="fw-bold">Rahul kumar</h2>
                     <div className="d-flex gap-2">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-half"></i>
+                      <i className="star bi bi-star-fill"></i>
+                      <i className="star bi bi-star-fill"></i>
+                      <i className="star bi bi-star-fill"></i>
+                      <i className="star bi bi-star-fill"></i>
+                      <i className="star bi bi-star-half"></i>
                     </div>
                     <p className="text-muted fw-bold">
                       Excellent grooming services! I tried their beard trimming,
@@ -794,11 +794,11 @@ export default function Home() {
                   <div className="review_text text-center p-5">
                     <h2 className="fw-bold"> Vikash singh</h2>
                     <div className="d-flex gap-2">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-half"></i>
+                      <i className="star bi bi-star-fill"></i>
+                      <i className="star bi bi-star-fill"></i>
+                      <i className="star bi bi-star-fill"></i>
+                      <i className="star bi bi-star-fill"></i>
+                      <i className="star bi bi-star-half"></i>
                     </div>
                     <p className="text-muted fw-bold">
                       Best haircut I've ever had! The barbers are highly skilled

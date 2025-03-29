@@ -89,18 +89,17 @@ export default function BookNow() {
     }
   };
   const handleBooking = () => {
-    const user = localStorage.getItem('user');  // Retrieve user data from localStorage
+    const user = localStorage.getItem("user"); // Retrieve user data from localStorage
 
     if (user) {
       // User is logged in, proceed with booking logic
-      console.log('User is logged in:', JSON.parse(user));
+      console.log("User is logged in:", JSON.parse(user));
       // Add your booking logic here
     } else {
       // User not logged in, redirect to the login page
-      window.location.href = '/login';  // Redirect to login page
+      window.location.href = "/login"; // Redirect to login page
     }
   };
-
 
   const getSeatClass = (status) => {
     return status === "available" ? "btn-success" : "btn-danger";
@@ -108,7 +107,10 @@ export default function BookNow() {
 
   return (
     <>
-      <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
+      <div
+        className={`fade-in-section ${isVisible ? "is-visible" : ""}`}
+        ref={domRef}
+      >
         <section className="bookAppoinment-section d-flex align-items-center">
           <div className="hero-overlay"></div>
           <div className="container text-center position-relative">
@@ -121,21 +123,36 @@ export default function BookNow() {
             <div className="row">
               <div className="col-md-12 text-center">
                 <h2 className="mb-4">Add Additional Services</h2>
-                <div className="de-separator" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
+                <div
+                  className="de-separator"
+                  style={{
+                    backgroundSize: "100%",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                ></div>
               </div>
             </div>
           </div>
 
-          <div className="container mt-4 additional_services" data-aos="fade-up">
-            <div className="row text-white">
+          <div
+            className="container mt-4 additional_services"
+            data-aos="fade-up"
+          >
+            <div className="row text-black">
               {services.map((service, index) => (
                 <div key={index} className="col-md-3">
-                  <h5 className="text-uppercase bg-brown p-2 text-white">{service.category}</h5>
+                  <h5 className="text-uppercase bg-brown p-2 text-white">
+                    {service.category}
+                  </h5>
                   <ul className="list-unstyled">
                     {service.options.map((option, idx) => (
                       <li key={idx} className="d-flex align-items-center">
                         <div className="form-check">
-                          <input className="form-check-input" type="checkbox" value="" />
+                          <input
+                            className="form-check-input book-checkbox"
+                            type="checkbox"
+                            value=""
+                          />
                           <label className="form-check-label">{option}</label>
                         </div>
                       </li>
@@ -145,7 +162,6 @@ export default function BookNow() {
               ))}
             </div>
           </div>
-
           <div className="container mt-4 text-white" data-aos="zoom-in-up">
             <div className="row">
               <div className="col-md-5">
@@ -183,15 +199,15 @@ export default function BookNow() {
                         {time}
                       </button>
 
-                      <div className="row ">
+                      <div className="row">
                         {slot[time].map((seat, idx) => (
                           <div key={idx} className="col-md-4">
                             <div
-                              className={`card p-3 mb-3 text-white text-center  ${getSeatClass(seat.status)}`}
+                              className={`card p-3 mb-3 text-white text-center btn btn-secondary dropdown-toggle ${getSeatClass(seat.status)}`}
                               style={{ cursor: "pointer" , backgroundColor:"grey"}}
                             >
                               <MdOutlineChair className="chair-icon mb-2 align-self-center" />
-                              <p className="m-0 fs-6">Seat {seat.seatNumber}</p>
+                              <p className="m-0">Seat {seat.seatNumber}</p>
                               <button
                                 className={`btn w-100 ${
                                   seat.status === "available" ? "btn-primary" : "btn-secondary"
@@ -213,33 +229,70 @@ export default function BookNow() {
             </div>
           </div>
 
-          <div className="container" data-aos="zoom-in" style={{ marginTop: "70px" }}>
+          <div
+            className="container"
+            data-aos="zoom-in"
+            style={{ marginTop: "70px" }}
+          >
             <div className="row bookingfrm">
               <div className="col-md-12">
                 <h2 className="mb-4">Appointment Form</h2>
               </div>
               <div className="col-md-6">
                 <div className="mb-3">
-                  <label htmlFor="username" className="form-label">Name</label>
-                  <input type="text" className="form-control" id="username" placeholder="Your Full Name" />
+                  <label htmlFor="username" className="form-label">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="username"
+                    placeholder="Your Full Name"
+                  />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="exampleFormControlInput1" className="form-label">Email</label>
-                  <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+                  <label
+                    htmlFor="exampleFormControlInput1"
+                    className="form-label"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="name@example.com"
+                  />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="mobile" className="form-label">Mobile</label>
-                  <input type="number" className="form-control" id="mobile" placeholder="01234567896" />
+                  <label htmlFor="mobile" className="form-label">
+                    Mobile
+                  </label>
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="mobile"
+                    placeholder="01234567896"
+                  />
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="mb-3">
-                  <label htmlFor="usermsg" className="form-label">Your Message</label>
-                  <textarea className="form-control" id="usermsg" rows="9" placeholder="Type Here.."></textarea>
+                  <label htmlFor="usermsg" className="form-label">
+                    Your Message
+                  </label>
+                  <textarea
+                    className="form-control"
+                    id="usermsg"
+                    rows="9"
+                    placeholder="Type Here.."
+                  ></textarea>
                 </div>
               </div>
               <div className="col-md-12">
-                <button className="btn-8 custom-btn ms-0 mt-5"><span>Submit</span></button>
+                <button className="btn-8 custom-btn ms-0 mt-5">
+                  <span>Submit</span>
+                </button>
               </div>
             </div>
           </div>
