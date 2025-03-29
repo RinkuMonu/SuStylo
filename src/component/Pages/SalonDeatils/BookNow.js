@@ -6,7 +6,7 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { MdOutlineChair } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 export default function BookNow() {
   const { id } = useParams();
@@ -91,14 +91,15 @@ export default function BookNow() {
     }
   };
   const handleBooking = async (seatNumber) => {
-    const storedUserId = localStorage.getItem("id") // Retrieve user ID from localStorage
-  
+    const storedUserId = localStorage.getItem("id");
+    // Retrieve user ID from localStorage
+
     if (!storedUserId) {
       // If user is not logged in, redirect to login page
       window.location.href = "/login";
       return;
     }
-  
+
     try {
       const response = await axios.post(
         "https://sustylo-web.onrender.com/api/booking/create",
@@ -110,18 +111,16 @@ export default function BookNow() {
           seatNumber: seatNumber, // Pass the correct seat number
           serviceDuration: 60,
         }
-
-     
       );
-      console.log("ress",response)
-      console.log("ress",response.data)
-      console.log("ress",response.data.data)
+      console.log("ress", response);
+      console.log("ress", response.data);
+      console.log("ress", response.data.data);
 
-      if(response.status===201){
+      if (response.status === 201) {
         Swal.fire({
           title: "Booking Successfull",
           icon: "success",
-          draggable: true
+          draggable: true,
         });
 
         // setSlot((prevSeats) =>
@@ -130,23 +129,19 @@ export default function BookNow() {
         //   )
         // );
       }
-  
       console.log("Booking Successful:", response.data);
-  
     } catch (error) {
       console.error("Booking failed:", error.response?.data || error.message);
-      console.error("Booking failed:", error.response?.data?.error  );
+      console.error("Booking failed:", error.response?.data?.error);
       console.error("Booking failed:", error);
-
 
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: error.response?.data?.error   ,
+        text: error.response?.data?.error,
       });
     }
   };
-  
 
   const getSeatClass = (status) => {
     return status === "available" ? "btn-success" : "btn-danger";
@@ -219,7 +214,6 @@ export default function BookNow() {
                     className="form-control  border-brown "
                     placeholder="dd-mm-yyyy"
                     onChange={handleDateChange}
-
                   />
                   {/* <span className="input-group-text bg-dark border-brown text-white" value={date}
                     >
@@ -233,39 +227,70 @@ export default function BookNow() {
               </div>
 
               <div className="col-md-6">
-                <h5 className="text-uppercase mb-2">Select Time</h5>
+                <h5 className="text-uppercase mb-2 text-black">Select Time</h5>
                 <div className="row">
                   {Object.keys(slot).map((time, index) => (
-                    <div key={index} className="col-md-12 mb-4">
+                    <div
+                      key={index}
+                      className="col-md-12 mb-4 p-4 rounded "
+                      // style={{ backgroundColor: "rgba(246, 176, 132, 0.5)" }}
+                    >
+                      <div className="dropdown">
                       <button
-                        className={`btn btn-lg mb-2 w-100 ${selectedTime === time ? "btn-brown" : "btn-dark"
-                          }`}
+                        className={` btn btn-secondary dropdown-toggle btn-lg mb-2 w-100 ${
+                          selectedTime === time ? "btn-brown" : "btn-dark"
+                        }`}
                         onClick={() => setSelectedTime(time)}
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
                       >
                         {time}
                       </button>
 
-                      <div className="row">
-                        {slot[time].map((seat, idx) => (
-                          <div key={idx} className="col-md-4">
-                            <div
-                              className={`card p-3 mb-3 text-white text-center btn btn-secondary dropdown-toggle ${getSeatClass(seat.status)}`}
-                              style={{ cursor: "pointer" , backgroundColor:"grey"}}
-                            >
-                              <MdOutlineChair className="chair-icon mb-2 align-self-center" />
-                              <p className="m-0">Seat {seat.seatNumber}</p>
-                              <button
-                                className={`btn w-100 ${seat.status === "available" ? "btn-primary" : "btn-secondary"
-                                  }`}
-                                disabled={seat.status !== "available"}
-                                onClick={() => handleBooking(seat.seatNumber)}                      
-                              >
-                                {seat.status === "available" ? "Reserve" : "Booked"}
-                              </button>
+                      <ul class="dropdown-menu w-50 ">
+                        <li>
+                          <a class="dropdown-item">
+                            <div className="row">
+                              {slot[time].map((seat, idx) => (
+                                <div key={idx} className="col-md-4">
+                                  <div
+                                    className={`card p-3 mb-3 text-white text-center ${getSeatClass(
+                                      seat.status
+                                    )}`}
+                                    style={{
+                                      cursor: "pointer",
+                                      backgroundColor: "#a92d04",
+                                    }}
+                                  >
+                                    <MdOutlineChair className="chair-icon mb-2 align-self-center" />
+                                    <p className="m-0 fs-6">
+                                      Seat {seat.seatNumber}
+                                    </p>
+                                    <button
+                                      className={`btn w-auto ${
+                                        seat.status === "available"
+                                          ? "btn-light"
+                                          : "btn-secondary"
+                                      }`}
+                                      disabled={seat.status !== "available"}
+                                      onClick={() =>
+                                        handleBooking(seat.seatNumber)
+                                      }
+                                    >
+                                      {seat.status === "available"
+                                        ? "Reserve"
+                                        : "Booked"}
+                                    </button>
+                                  </div>
+                                </div>
+                              ))}
                             </div>
-                          </div>
-                        ))}
+                          </a>
+                        </li>
+                      </ul>
                       </div>
+
                     </div>
                   ))}
                 </div>
@@ -273,9 +298,10 @@ export default function BookNow() {
             </div>
           </div>
 
-          <div
-            className="container"
-            data-aos="zoom-in"
+
+          {/* <div
+            className="container "
+            // data-aos="zoom-in"
             style={{ marginTop: "70px" }}
           >
             <div className="row bookingfrm">
@@ -339,7 +365,7 @@ export default function BookNow() {
                 </button>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

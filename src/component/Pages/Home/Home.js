@@ -224,13 +224,13 @@ export default function Home() {
 
   // Slider
   const slidesData = [
-    { src: "./images/1.jpg", name: "Pompadour", number: "#1" },
-    { src: "./images/2.jpg", name: "Fade Cut", number: "#2" },
-    { src: "./images/3.jpg", name: "Buzz Cut", number: "#3" },
-    { src: "./images/4.jpg", name: "Crew Cut", number: "#4" },
+    { src: "./images/women-1.jpg", name: "Pompadour", number: "#1" },
+    { src: "./images/men-1.jpg", name: "Fade Cut", number: "#2" },
+    { src: "./images/women-2.jpg", name: "Buzz Cut", number: "#3" },
+    { src: "./images/slider-4.jpg", name: "Crew Cut", number: "#4" },
     { src: "./images/5.jpg", name: "Undercut", number: "#5" },
-    { src: "./images/6.jpg", name: "Undercut", number: "#6" },
-    { src: "./images/7.jpg", name: "Undercut", number: "#7" },
+    { src: "./images/women-3.jpg", name: "Undercut", number: "#6" },
+    { src: "./images/men-3.jpg", name: "Undercut", number: "#7" },
     { src: "./images/8.jpg", name: "Undercut", number: "#8" },
     { src: "./images/9.jpg", name: "Undercut", number: "#9" },
     { src: "./images/9.jpg", name: "Undercut", number: "#10" },
