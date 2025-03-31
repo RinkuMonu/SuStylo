@@ -30,13 +30,13 @@ export default function About() {
     // Cities
     const cities = [
         { name: "Malviya Nagar", url: "#" },
-        { name: "Jhotwarda", url: "#" },
+        { name: "Jhotwara", url: "#" },
         { name: "Civil Lines", url: "#" },
-        { name: "New Delhi", url: "#" },
+        { name: "Sitapura", url: "#" },
         { name: "Mansarover", url: "#" },
         { name: "Jagatpura", url: "#" },
         { name: "MI Road", url: "#" },
-        { name: "Ashok Nagar", url: "#" },
+        { name: "Vivek Vihar", url: "#" },
     ];
     return (
         <>
@@ -66,7 +66,7 @@ export default function About() {
                                     className="img-fluid col-md-6 float-md-end mb-3 ms-md-3 img-width mt-5 "
                                     alt="policy img"
                                 />
-                                <h2 className="my-3 third-color">SU STYLO</h2>
+                                <h2 className="my-3 third-color fs-3 fw-bold">SU STYLO</h2>
                                 <p className="mb-3"> Su Stylo is your last destination for spontaneous salon appointments and premium grooming services. We are bringing revolution in the salon industry with a commitment to style, convenience, and top-notch customer care. Our goal is to provide an extraordinary grooming experience where luxury fulfills, ensuring that each customer enjoys harass -free booking and world-class beauty services under one roof. We understand that modern lifestyle can be busy, and finding time for self-care can often take a backseat. That is why we have created a platform that prioritizes your convenience, which makes it easier to maintain your routine without disrupting your busy schedule.
                                 </p>
                                 <p className="mb-3">Founded in 2025, our mission is to transform the way you experience grooming by offering effortless booking and high-quality salon services with just a few clicks. Our expert team consists of highly skilled professionals who are passionate about delivering outstanding results, ensuring that every haircut, shave, and beauty treatment is executed with precision, creativity, and the latest trends in mind. We take pride in staying ahead of industry innovations, constantly upgrading our techniques and technology to give our customers a truly premium experience.</p>

@@ -59,13 +59,13 @@ export default function Header() {
             <ul className="navbar-nav ms-auto menu-items">
               <li className="nav-item"><Link className="nav-link" to={'/'} onClick={handleLinkClick}>Home</Link></li>
 
-              <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle" to={'/services'} id="navbarDropdown" onClick={handleLinkClick}>
+              <li className="nav-item dropdown ">
+                <Link className="nav-link dropdown-toggle service-toggle" to={'/services'} id="navbarDropdown" onClick={handleLinkClick}>
                   Services
                 </Link>
-                <ul className="dropdown-menu">
-                  <li><Link className="dropdown-item" to={'/menservices'} onClick={handleLinkClick}>Men's Services</Link></li>
-                  <li><Link className="dropdown-item" to={'/womenservices'} onClick={handleLinkClick}>Women's Services</Link></li>
+                <ul className="dropdown-menu service-menu">
+                  <li><Link className="dropdown-item service-item" to={'/menservices'} onClick={handleLinkClick}>Men's Services</Link></li>
+                  <li><Link className="dropdown-item service-item" to={'/womenservices'} onClick={handleLinkClick}>Women's Services</Link></li>
                 </ul>
               </li>
 

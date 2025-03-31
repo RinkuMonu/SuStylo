@@ -9,6 +9,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import { RxCross2 } from "react-icons/rx";
+
+
+
 import {
   EffectCoverflow,
   Autoplay,
@@ -201,6 +205,7 @@ export default function Home() {
   }, [data.gender, data.category]);
 
 
+
   useEffect(() => {
     new WOW().init();
   }, []);
@@ -224,16 +229,16 @@ export default function Home() {
 
   // Slider
   const slidesData = [
-    { src: "./images/women-1.jpg", name: "Pompadour", number: "#1" },
-    { src: "./images/men-1.jpg", name: "Fade Cut", number: "#2" },
-    { src: "./images/women-2.jpg", name: "Buzz Cut", number: "#3" },
+    { src: "./images/women-1.jpg", name: "Layer Cut", number: "#1" },
+    { src: "./images/men-1.jpg", name: "Beard Trim", number: "#2" },
+    { src: "./images/women-2.jpg", name: "Blow Dry", number: "#3" },
     { src: "./images/slider-4.jpg", name: "Crew Cut", number: "#4" },
     { src: "./images/5.jpg", name: "Undercut", number: "#5" },
-    { src: "./images/women-3.jpg", name: "Undercut", number: "#6" },
-    { src: "./images/men-3.jpg", name: "Undercut", number: "#7" },
-    { src: "./images/8.jpg", name: "Undercut", number: "#8" },
-    { src: "./images/9.jpg", name: "Undercut", number: "#9" },
-    { src: "./images/9.jpg", name: "Undercut", number: "#10" },
+    { src: "./images/women-3.jpg", name: "Hair Styling", number: "#6" },
+    { src: "./images/men-3.jpg", name: "HAIR trimming", number: "#7" },
+    { src: "./images/8.jpg", name: "Kid's Haircut", number: "#8" },
+    { src: "./images/men-4.jpg", name: "Men Facial", number: "#9" },
+    { src: "./images/men-5.jpg", name: "Hair Wash", number: "#10" },
   ];
   const numSlides = 10;
   const middleSlideIndex = Math.floor(numSlides / 2);
@@ -283,7 +288,10 @@ export default function Home() {
             </div>
           </div>
           {/* Slider Section */}
-          <section className="container-fluid styles_slider " data-aos="zoom-in">
+          <section
+            className="container-fluid styles_slider "
+            data-aos="zoom-in"
+          >
             <Swiper
               effect={"coverflow"}
               grabCursor={true}
@@ -394,42 +402,46 @@ export default function Home() {
           </div>
           {/* About Content */}
           <section className="bg-transit p-5">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-6">
-                <div className="side_img">
-                  <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
-                    <img
-                      src="./images/10.jpg"
-                      className="img-fluid"
-                      style={{ height: "600px" }}
-                    />
-                  </SimpleParallax>
+            <div className="container">
+              <div className="row">
+                <div className="col-md-6">
+                  <div className="side_img">
+                    <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
+                      <img
+                        src="./images/10.jpg"
+                        className="img-fluid"
+                        style={{ height: "600px" }}
+                      />
+                    </SimpleParallax>
+                  </div>
                 </div>
-              </div>
-              <div className="col-md-6">
-                <div className="right_content fadeInRight ">
-                  <h2 className="wow fadeInRight animated" data-wow-delay=".3s">
-                    We’ll Crafting <span className="third-color">Confidence</span>{" "}
-                    Through Sharp Style
-                  </h2>
-                  <p className="text-muted fw-bold">
-                    At Su Stylo, we believe that grooming is more than just a
-                    routine—it’s an art. Our expert barbers blend classic
-                    techniques with modern trends to give you a sharp, stylish,
-                    and confident look. Step into our warm and inviting space,
-                    where precision meets perfection. Whether it’s a clean
-                    shave, a stylish haircut, or a well-groomed beard, we ensure
-                    every service is tailored to enhance your personality and
-                    style.
-                  </p>
-                  <Link className="btn-8 custom-btn">
-                    <span>Book Now</span>
-                  </Link>
+                <div className="col-md-6">
+                  <div className="right_content fadeInRight ">
+                    <h2
+                      className="wow fadeInRight animated"
+                      data-wow-delay=".3s"
+                    >
+                      We’ll Crafting{" "}
+                      <span className="third-color">Confidence</span> Through
+                      Sharp Style
+                    </h2>
+                    <p className="text-muted fw-bold">
+                      At Su Stylo, we believe that grooming is more than just a
+                      routine—it’s an art. Our expert barbers blend classic
+                      techniques with modern trends to give you a sharp,
+                      stylish, and confident look. Step into our warm and
+                      inviting space, where precision meets perfection. Whether
+                      it’s a clean shave, a stylish haircut, or a well-groomed
+                      beard, we ensure every service is tailored to enhance your
+                      personality and style.
+                    </p>
+                    <Link className="btn-8 custom-btn">
+                      <span>Book Now</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
           </section>
           {/* Services */}
           <div className="container service_section">
@@ -449,7 +461,10 @@ export default function Home() {
               <div className="col-md-3">
                 <div className="servicesBx">
                   <div className="icon_center">
-                    <img src="./images/shave.svg" className="img-fluid fw-bold mt-5" />
+                    <img
+                      src="./images/shave.svg"
+                      className="img-fluid fw-bold mt-5"
+                    />
                   </div>
                   <div className="service_title">
                     <h3>SHAVING</h3>
@@ -491,15 +506,18 @@ export default function Home() {
               <div className="col-md-3">
                 <div className="servicesBx">
                   <div className="icon_center">
-                    <img src="./images/trim.svg" className="img-fluid fw-bold mt-5" />
+                    <img
+                      src="./images/trim.svg"
+                      className="img-fluid fw-bold mt-5"
+                    />
                   </div>
                   <div className="service_title">
                     <h3>TRIMMING</h3>
                   </div>
                   <div className="services_content">
                     <p>
-                      Get precise beard trims and hair trims for a sharp, well-groomed
-                      look.
+                      Get precise beard trims and hair trims for a sharp,
+                      well-groomed look.
                     </p>
                   </div>
                   <div className="bookBtn">
@@ -512,7 +530,10 @@ export default function Home() {
               <div className="col-md-3">
                 <div className="servicesBx">
                   <div className="icon_center">
-                    <img src="./images/hair-cut.svg" className="img-fluid mt-5"/>
+                    <img
+                      src="./images/hair-cut.svg"
+                      className="img-fluid mt-5"
+                    />
                   </div>
                   <div className="service_title">
                     <h3>HAIRCUT</h3>
@@ -565,10 +586,10 @@ export default function Home() {
               </div>
 
               <div className="col-md-12">
-                <div className="row gy-1 gy-md-0 bcw-nearby__search">
-                  {/* Search Input Field */}
-                  <div className="col-md-6 position-relative px-0">
-                    <div className="input-form">
+                <div className="row">
+                  {/* Location Input Field */}
+                  <div className="col-md-4 position-relative px-0 ">
+                    <div className="input-form ">
                       <InputGroup>
                         <span
                           className="position-absolute"
@@ -579,8 +600,11 @@ export default function Home() {
                             zIndex: "10",
                           }}
                         >
+
                           <FaSearch style={{ color: "#000" }} />
+
                         </span>
+
                         <Form.Control
                           type="search"
                           placeholder="Where"
@@ -589,31 +613,58 @@ export default function Home() {
                           onChange={handleChange}
                           id="locationfield"
                           autoComplete="off"
-                          className=" form-control pac-target-input"
-                          style={{ paddingLeft: "50px" }} // Adjust padding for icon spacing
+                          className=" pac-target-input fw-bold"
+                          style={{
+                            paddingLeft: "50px",
+                            borderRadius: "10px 0 0 10px",
+                            backgroundColor: "rgba(234, 107, 61, 0.7)",
+                          }}
+
                         />
-                        <div className="hr-bar near-by"></div>
+
+
                       </InputGroup>
+
                     </div>
                   </div>
 
-                  {/* Category Select Field */}
-                  <div className="col-md-6 px-0">
+                  {/* Service Category Select Field */}
+                  <div className="col-md-4 px-0">
                     <div className="input-form">
                       <Form.Select
-                        name="category"
-                        type="search"
-                        value={data.category}
+                      className=" fw-bold"
+                        name="serviceCategory"
+                        value={data.serviceCategory}
                         onChange={handleChange}
-                        id="servicecategory"
+                        id="serviceCategory"
                         required
+                        style={{ borderRadius: "0",backgroundColor: "rgba(234, 107, 61, 0.7)" }} // No rounding, sharp edges
                       >
-                        <option value="">Select Category</option>
-                        <option value="Hair Cut">Hair cut </option>
-                        <option value="hairspa">Hair Spa</option>
-                        <option value="haircolor">Hair Color</option>
-                        <option value="hairwash">Hair wash</option>
+                        <option value="">Select Service Category</option>
+                        <option value="Hair Cut">Hair Cut</option>
+                        <option value="Hair Spa">Hair Spa</option>
+                        <option value="Hair Color">Hair Color</option>
+                        <option value="Hair Wash">Hair Wash</option>
                         <option value="Facial">Facial</option>
+                      </Form.Select>
+                    </div>
+                  </div>
+
+                  {/* Type Selection (General or Premium) */}
+                  <div className="col-md-4 px-0">
+                    <div className="input-form text-white">
+                      <Form.Select
+                      className=" fw-bold"
+                        name="serviceType"
+                        value={data.serviceType}
+                        onChange={handleChange}
+                        id="serviceType"
+                        required
+                        style={{ borderRadius: "0 10px 10px 0" ,backgroundColor: "rgba(234, 107, 61, 0.7)" }} // No rounding, sharp edges
+                      >
+                        <option value="">Select Type</option>
+                        <option value="General">General</option>
+                        <option value="Premium">Premium</option>
                       </Form.Select>
                     </div>
                   </div>
@@ -622,7 +673,9 @@ export default function Home() {
 
               <div className="col-md-12 mb-5">
                 <div className="service_title">
-                  <h3 className=" fw-bold">Mani Pedi Hygiene near you in Jaipur (5)</h3>
+                  <h3 className=" fw-bold">
+                    Mani Pedi Hygiene near you in Jaipur (5)
+                  </h3>
                   <span className="third-color">
                     See their opening hours &amp; prices and read all reviews.
                   </span>
