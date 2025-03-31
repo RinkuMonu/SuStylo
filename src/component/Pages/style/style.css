@@ -141,7 +141,7 @@ body {
   padding-top: 50px;
   padding-bottom: 50px;
   background: rgba(215, 81, 24, 0.7);
-  /* border: 2px solid rgb(42, 40, 39); */
+
   border-radius: 10px; /* Optional: rounded corners */
   transition: all 0.3s ease-in-out; /* Smooth transition for hover effect */
 
@@ -579,7 +579,9 @@ box-shadow: var(--thrid-color);
     transform: translateY(-50%);
     right: 0;
   }
-  .bcw-nearby__search .form-select {
+
+
+  /* .bcw-nearby__search .form-select {
     padding: 24px 30px 24px 72px !important;
     font: normal normal normal 20px/24px Inter;
     color: #000000 !important;
@@ -619,7 +621,7 @@ box-shadow: var(--thrid-color);
   .bcw-nearby__search .form-select {
     background-position: right 1.75rem center;
     background-size: 22px 22px;
-  }
+  } */
   .search_result .service_title  span {
     font-size: 16px;
     color: #070707;
@@ -1367,23 +1369,14 @@ align-items: center;
     margin-top: 100px;
   }
 }
-.dropdown-toggle::after{
+.service-toggle::after{
 display: none !important;
 }
-.dropdown-menu.show {
-  /* display: block; */
-  /* background-color:rgba(234, 107, 61, 0.7); */
+.service-menu.show {
+  display: block;
+  background-color:rgba(234, 107, 61, 0.7);
 }
-.dropdown-menu {
-  position: relative !important; /* Ensures proper positioning */
-  width: 100% !important; /* Matches button width */
-  max-width: 600px; /* Limits excessive width */
-  margin: 0 auto;
-}
-
-
-
-.slotBookBtn .dropdown-item:focus, .dropdown-item:hover{
+.slotBookBtn .service-item:focus, .service-item:hover{
   background-color: transparent !important;
   border: none !important;
 }
@@ -1392,9 +1385,37 @@ display: none !important;
 height: 30px;
 width: 30px;
 }
-.dropdown-menu.show{
+.service-menu.show{
   min-width: 100%;
 }
+
+
+
+
+.dpbook-toggle::after{
+  display: none !important;
+  }
+  /* .dpbook-menu.show {
+    display: block;
+     background-color:rgba(234, 107, 61, 0.7);
+  } */
+  .dpbook-menu {
+    position: relative !important; /* Ensures proper positioning */
+    width: 100% !important; /* Matches button width */
+    max-width: 600px; /* Limits excessive width */
+    margin: 0 auto;
+  }
+
+
+
+  .slotBookBtn .dpbook-item:focus, .dpbook-item:hover{
+    background-color: transparent !important;
+    border: none !important;
+  }
+
+
+
+
 
 .near-by{
 background: rgba(242, 163, 135, 0.7);
@@ -1471,3 +1492,9 @@ background: rgba(242, 163, 135, 0.7);
 font-weight: 300;
 }
 
+#servicecategory {
+  border-radius: 0; /* Removes rounded corners */
+}
+/* .input-color{
+background-color: rgba(234, 107, 61, 0.7);
+} */

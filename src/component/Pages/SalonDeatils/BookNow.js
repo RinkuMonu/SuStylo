@@ -237,7 +237,7 @@ export default function BookNow() {
                     >
                       <div className="dropdown">
                       <button
-                        className={` btn btn-secondary dropdown-toggle btn-lg mb-2 w-100 ${
+                        className={` btn btn-secondary dropdown-toggle dpbook-toggle btn-lg mb-2 w-100 ${
                           selectedTime === time ? "btn-brown" : "btn-dark"
                         }`}
                         onClick={() => setSelectedTime(time)}
@@ -248,9 +248,9 @@ export default function BookNow() {
                         {time}
                       </button>
 
-                      <ul class="dropdown-menu w-50 ">
+                      <ul class="dropdown-menu  dpbook-menu ">
                         <li>
-                          <a class="dropdown-item">
+                          <a class="dropdown-item  dpbook-item">
                             <div className="row">
                               {slot[time].map((seat, idx) => (
                                 <div key={idx} className="col-md-4">
@@ -260,7 +260,7 @@ export default function BookNow() {
                                     )}`}
                                     style={{
                                       cursor: "pointer",
-                                      backgroundColor: "#a92d04",
+                                      backgroundColor: "rgba(210, 61, 20, 0.8)",
                                     }}
                                   >
                                     <MdOutlineChair className="chair-icon mb-2 align-self-center" />

@@ -91,7 +91,7 @@ export default function Footer() {
                                     <h3>Social Media</h3>
 
                                     <div className=' d-flex gap-3'>
-                                    <img src='./images/facebook-logo.png' className='social-logo'  width={34}  />
+                                    <Link to={'https://www.facebook.com/Sustylosalon/'}><img src='./images/facebook-logo.png' className='social-logo'  width={34}  /></Link>
                                         <Link to={'https://www.instagram.com/?hl=en'}><img src='./images/insta-logo.png' className='social-logo' width={34} /></Link>
                                         <img src='./images/youtube-logo.png' className='social-logo' width={34} />
                                     </div>
