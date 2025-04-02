@@ -38,7 +38,7 @@ export default function WomenServices() {
                     <div class="de-gradient-edge-bottom" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
                     <div className="container text-center position-relative">
                         <h2 className="hero-title">Woman Services</h2>
-                        <p>Experience expert haircuts, luxury facials, skin treatments, and relaxing massages designed to enhance your natural beauty. From hair coloring to organic skincare, we offer personalized services for a flawless look. Pamper yourself with premium care and step out with confidence!</p>
+                        <p className="text-white fw-bold">Experience expert haircuts, luxury facials, skin treatments, and relaxing massages designed to enhance your natural beauty. From hair coloring to organic skincare, we offer personalized services for a flawless look. Pamper yourself with premium care and step out with confidence!</p>
                     </div>
                 </section>
                 <div className="content-section">
@@ -260,9 +260,9 @@ export default function WomenServices() {
                             </div>
                             <div className="col-md-6 mb-3 about_mission right_content fadeInRight  ps-5" data-aos="zoom-in-right">
                                 <h2 className="wow fadeInRight animated" data-wow-delay=".3s">
-                                    Discover The <span className="id-color">Experties</span> And <span className="text-effect">Passion</span> behind our Women's Salon
+                                    Discover The <span className="id-color fw-bold">Experties</span> And <span className="id-color fw-bold">Passion</span> behind our Women's Salon
                                 </h2>
-                                <p>Step into a world of beauty and elegance, where our expert professionals bring years of experience and passion to every service. From luxurious facials to organic hair treatments, and deep cleansing to relaxing body massages, we personalize every treatment to enhance your natural beauty. Our salon offers expert waxing, nail care, aroma therapy, and advanced skincare solutions, ensuring a flawless and radiant glow. Using premium products and the latest techniques, we craft an experience that refreshes, revitalizes, and transforms. Visit us and embrace the beauty you deserve!
+                                <p className="text-muted ">Step into a world of beauty and elegance, where our expert professionals bring years of experience and passion to every service. From luxurious facials to organic hair treatments, and deep cleansing to relaxing body massages, we personalize every treatment to enhance your natural beauty. Our salon offers expert waxing, nail care, aroma therapy, and advanced skincare solutions, ensuring a flawless and radiant glow. Using premium products and the latest techniques, we craft an experience that refreshes, revitalizes, and transforms. Visit us and embrace the beauty you deserve!
 
                                 </p>
                                 <Link className='btn-8 custom-btn'><span>Book Now</span></Link>
@@ -273,9 +273,9 @@ export default function WomenServices() {
 
                             <div className="col-md-6 mb-3 about_mission right_content fadeInRight  ps-5" data-aos="zoom-in-right">
                                 <h2 className="wow fadeInRight animated" data-wow-delay=".3s">
-                                    Step <span className="id-color">Inside</span> our Salon<span className="text-effect">experience</span> The Magic of Transfomation
+                                    Step <span className="id-color fw-bold">Inside</span> our Salon<span className="id-color fw-bold">experience</span> The Magic of Transfomation
                                 </h2>
-                                <p>Indulge in a world of beauty and relaxation, where expert care meets elegance. Our salon offers personalized hair treatments, rejuvenating facials, deep cleansing therapies, and soothing body massages to refresh your look and spirit. From precision waxing and nail care to advanced skincare solutions like glycolic peels and European facials, we bring out your natural glow. Using premium products and the latest techniques, we ensure a luxurious, confidence-boosting experience. Step in for a transformation that enhances your beauty and leaves you feeling radiant and refreshed!
+                                <p className="text-muted">Indulge in a world of beauty and relaxation, where expert care meets elegance. Our salon offers personalized hair treatments, rejuvenating facials, deep cleansing therapies, and soothing body massages to refresh your look and spirit. From precision waxing and nail care to advanced skincare solutions like glycolic peels and European facials, we bring out your natural glow. Using premium products and the latest techniques, we ensure a luxurious, confidence-boosting experience. Step in for a transformation that enhances your beauty and leaves you feeling radiant and refreshed!
                                 </p>
                                 <Link to={'/bookappoinment'} className='btn-8 custom-btn'><span>Book Now</span></Link>
                             </div>
@@ -295,27 +295,46 @@ export default function WomenServices() {
                             <div className="hero-overlay"></div>
                             <div className="row">
                                 <div className="col-md-12 position-relative" style={{ zIndex: "999" }}>
-                                    <h2 className="my-5">Get In Touch</h2>
+                                    <h2 className="my-5 text-white fw-bold">Get In Touch</h2>
                                     <div className="hstack gap-3">
-                                        <div class="row">
-                                            <div class="col" style={{ textAlign: "justify" }}>
-                                                <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Name</label>
+                                    <div className="row">
+    <div className="col" style={{ textAlign: "justify" }}>
+        <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Name</label>
+        <input
+            type="text"
+            className="form-control placeholder-white border-white"
+            placeholder="Name"
+            aria-label="First name"
+        />
+    </div>
 
-                                                <input type="text" class="form-control" placeholder="Name" aria-label="First name" />
-                                            </div>
-                                            <div class="col" style={{ textAlign: "justify" }}>
-                                                <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Email</label>
+    <div className="col" style={{ textAlign: "justify" }}>
+        <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Email</label>
+        <input
+            type="email"
+            className="form-control placeholder-white border-white"
+            placeholder="Email"
+            aria-label="Last name"
+        />
+    </div>
 
-                                                <input type="email" class="form-control" placeholder="Email" aria-label="Last name" />
-                                            </div>
-                                            <div class="col" style={{ textAlign: "justify" }}>
-                                                <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Mobile</label>
-                                                <input type="number" class="form-control" placeholder="Number" aria-label="Last name" />
-                                            </div>
-                                            <div class="col">
-                                                <buttion className='btn-8 custom-btn' style={{ marginTop: "40px" }}><span>Get In Touch</span></buttion>
-                                            </div>
-                                        </div>
+    <div className="col" style={{ textAlign: "justify" }}>
+        <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Mobile</label>
+        <input
+            type="number"
+            className="form-control placeholder-white border-white"
+            placeholder="Number"
+            aria-label="Last name"
+        />
+    </div>
+
+    <div className="col">
+        <button className="btn-8 custom-btn" style={{ marginTop: "40px" }}>
+            <span>Get In Touch</span>
+        </button>
+    </div>
+</div>
+
                                     </div>
 
                                 </div>
@@ -325,7 +344,7 @@ export default function WomenServices() {
                         </div>
 
                     </div>
-                    <div className="container review_section" data-aos="zoom-in">
+                    {/* <div className="container review_section" data-aos="zoom-in">
                         <div className="col-md-12">
                             <Swiper
                                 spaceBetween={30}
@@ -410,7 +429,7 @@ export default function WomenServices() {
                         </div>
 
 
-                    </div>  
+                    </div>   */}
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
