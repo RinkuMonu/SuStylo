@@ -33,7 +33,7 @@ export default function Blog() {
                     <div class="de-gradient-edge-bottom" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
                     <div className="container text-center position-relative">
                         <h2 className="hero-title">Blog</h2>
-                        <p>Welcome to the Su Stylo Blog, your go-to source for the latest trends, expert grooming tips, and salon industry insights. Whether you're looking for hairstyling inspiration, skincare advice, or the best self-care routines, we’ve got you covered. Stay updated, stay stylish!
+                        <p className="text-white fw-bold">Welcome to the Su Stylo Blog, your go-to source for the latest trends, expert grooming tips, and salon industry insights. Whether you're looking for hairstyling inspiration, skincare advice, or the best self-care routines, we’ve got you covered. Stay updated, stay stylish!
                         </p>
                     </div>
                 </section>

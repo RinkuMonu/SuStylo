@@ -76,7 +76,17 @@ ul {
 .footer-section .rightSide{
   color: #fff;
   position: relative;
+
 }
+@media only screen and (max-width: 1004px) and (min-width: 767px) {
+
+  .footer-section .rightSide {
+      margin-left: 140px;
+  }
+}
+
+
+
 .footer-section .rightSide #subscribeMAil {
   background: #000;
   border: 1px solid #7a7979;
@@ -107,4 +117,11 @@ ul {
   font-size: 16px;
   font-weight: 500;
   margin: 16px 0px;
+}
+
+@media only screen and (max-width: 573px) {
+
+  .footer-section {
+      padding: 70px;
+  }
 }
