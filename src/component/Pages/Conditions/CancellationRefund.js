@@ -35,7 +35,7 @@ export default function CancellationRefund() {
                         </h2> */}
                     </div>
                 </section>
-                <div class="de-gradient-edge-bottom" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
+                
             </div>
             <div className="content-section">
                 <div className="container">

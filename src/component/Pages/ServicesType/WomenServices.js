@@ -35,7 +35,7 @@ export default function WomenServices() {
             <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
                 <section className="womenservices-section d-flex align-items-center">
                     <div className="hero-overlay"></div>
-                    <div class="de-gradient-edge-bottom" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
+                    
                     <div className="container text-center position-relative">
                         <h2 className="hero-title">Woman Services</h2>
                         <p className="text-white fw-bold">Experience expert haircuts, luxury facials, skin treatments, and relaxing massages designed to enhance your natural beauty. From hair coloring to organic skincare, we offer personalized services for a flawless look. Pamper yourself with premium care and step out with confidence!</p>
@@ -249,7 +249,7 @@ export default function WomenServices() {
                         </div>
                         <hr className="my-5" />
                         <div className="row align-items-center">
-                            <div className="col-md-6 mt-5 mb-3" data-aos="zoom-in-left">
+                            <div className="col-md-6 mt-5 mb-3">
                                 <SimpleParallax
                                     orientation={"down"}
                                     scale={1.8}
@@ -258,7 +258,7 @@ export default function WomenServices() {
                                     <img src="./images/gallery/womwn1.jpg" className="img-fluid" />
                                 </SimpleParallax>
                             </div>
-                            <div className="col-md-6 mb-3 about_mission right_content fadeInRight  ps-5" data-aos="zoom-in-right">
+                            <div className="col-md-6 mb-3 about_mission right_content fadeInRight  ps-5">
                                 <h2 className="wow fadeInRight animated" data-wow-delay=".3s">
                                     Discover The <span className="id-color fw-bold">Experties</span> And <span className="id-color fw-bold">Passion</span> behind our Women's Salon
                                 </h2>
@@ -271,7 +271,7 @@ export default function WomenServices() {
                         <hr className="my-5" />
                         <div className="row align-items-center">
 
-                            <div className="col-md-6 mb-3 about_mission right_content fadeInRight  ps-5" data-aos="zoom-in-right">
+                            <div className="col-md-6 mb-3 about_mission right_content fadeInRight  ps-5">
                                 <h2 className="wow fadeInRight animated" data-wow-delay=".3s">
                                     Step <span className="id-color fw-bold">Inside</span> our Salon<span className="id-color fw-bold">experience</span> The Magic of Transfomation
                                 </h2>
@@ -279,7 +279,7 @@ export default function WomenServices() {
                                 </p>
                                 <Link to={'/bookappoinment'} className='btn-8 custom-btn'><span>Book Now</span></Link>
                             </div>
-                            <div className="col-md-6 mt-5 mb-3" data-aos="zoom-in-left">
+                            <div className="col-md-6 mt-5 mb-3">
                                 <SimpleParallax
                                     orientation={"down"}
                                     scale={1.8}

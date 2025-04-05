@@ -30,7 +30,7 @@ function BlogsDetails() {
       <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
         <section className="blog-section d-flex align-items-center">
           <div className="hero-overlay"></div>
-          <div class="de-gradient-edge-bottom" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
+          
           <div className="container text-center position-relative">
             <h2 className="hero-title">Blog</h2>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>

@@ -24,78 +24,6 @@ import { TbHours24 } from "react-icons/tb";
 import { BiSolidOffer } from "react-icons/bi";
 import { Container, Row, Col } from "react-bootstrap";
 
-const salonData = [
-  {
-    id: 1,
-    name: "Braids & Layers",
-    image: "https://d1ajkvxweygda7.cloudfront.net/1696063484114.png",
-    rating: 5,
-    reviews: 6,
-    address: "G-267, Sitapura Industrial Area, Jaipur, Rajasthan 302022, India",
-    distance: "15.27km",
-    time: "09:00 am to 07:00 pm",
-    startingPrice: 50,
-    service: "Shampoo/Conditioner",
-    duration: "30 min.",
-    link: "/salondetails",
-  },
-  {
-    id: 2,
-    name: "Elegant Cuts",
-    image: "https://d1ajkvxweygda7.cloudfront.net/1696063484114.png",
-    rating: 4.8,
-    reviews: 12,
-    address: "A-12, Malviya Nagar, Jaipur, Rajasthan 302017, India",
-    distance: "10.5km",
-    time: "10:00 am to 08:00 pm",
-    startingPrice: 80,
-    service: "Haircut & Styling",
-    duration: "45 min.",
-    link: "/salondetails",
-  },
-  {
-    id: 3,
-    name: "Luxury Salon",
-    image: "https://d1ajkvxweygda7.cloudfront.net/1696063484114.png",
-    rating: 4.9,
-    reviews: 20,
-    address: "B-56, Vaishali Nagar, Jaipur, Rajasthan 302021, India",
-    distance: "8.2km",
-    time: "09:30 am to 09:00 pm",
-    startingPrice: 100,
-    service: "Facial & Massage",
-    duration: "60 min.",
-    link: "/salondetails",
-  },
-  {
-    id: 4,
-    name: "Luxury Salon",
-    image: "https://d1ajkvxweygda7.cloudfront.net/1696063484114.png",
-    rating: 4.9,
-    reviews: 20,
-    address: "B-56, Vaishali Nagar, Jaipur, Rajasthan 302021, India",
-    distance: "8.2km",
-    time: "09:30 am to 09:00 pm",
-    startingPrice: 100,
-    service: "Facial & Massage",
-    duration: "60 min.",
-    link: "/salondetails",
-  },
-  {
-    id: 5,
-    name: "Luxury Salon",
-    image: "https://d1ajkvxweygda7.cloudfront.net/1696063484114.png",
-    rating: 4.9,
-    reviews: 20,
-    address: "B-56, Vaishali Nagar, Jaipur, Rajasthan 302021, India",
-    distance: "8.2km",
-    time: "09:30 am to 09:00 pm",
-    startingPrice: 100,
-    service: "Facial & Massage",
-    duration: "60 min.",
-    link: "/salondetails",
-  },
-];
 // More Services
 const services = [
   {
@@ -154,6 +82,19 @@ export default function Services() {
     { icon: <TbHours24 />, text: "Best hours of the day" },
     { icon: <FaPercentage />, text: "Save Big" },
   ];
+
+  const Sideservices = [
+    { name: "Packages", img: "./images/services/AromaTherapy.jpg" },
+    { name: "Make your package", img: "./images/services/Waxing.jpg" },
+    { name: "Waxing", img: "./images/services/NailManicure.jpg" },
+    { name: "Facial & cleanup", img: "./images/services/BodyMassages.jpg" },
+    { name: "Pedicure", img: "./images/services/AromaTherapy.jpg" },
+    { name: "Manicure", img: "./images/services/Waxing.jpg" },
+    { name: "Hair care", img: "./images/services/NailManicure.jpg" },
+    { name: "Bleach & detan", img: "./images/services/BodyMassages.jpg" },
+    { name: "Threading & face waxing", img: "./images/services/AromaTherapy.jpg" },
+  ];
+
   return (
     <>
       <div
@@ -162,10 +103,6 @@ export default function Services() {
       >
         <section className="services-section d-flex align-items-center">
           <div className="hero-overlay"></div>
-          <div
-            class="de-gradient-edge-bottom"
-            style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}
-          ></div>
           <div className="container text-center position-relative">
             <h2 className="hero-title">Services & Categories</h2>
             <p className="text-white fw-bold">
@@ -176,326 +113,138 @@ export default function Services() {
             </p>
           </div>
         </section>
-        <div className="content-section">
-
-          {/* <div className="container search_result">
-            <div className="row">
-              <div className="col-md-12" data-aos="fade-up">
-                <div className="heading">
-                  <h2>Services & Categories</h2>
-                </div>
-                <div
-                  className="de-separator"
-                  style={{
-                    backgroundSize: "100%",
-                    backgroundRepeat: "no-repeat",
-                  }}
-                ></div>
+      </div>
+      <div className="content-section">
+        <div className="container-fluid px-3">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="heading">
+                <h2 className="third-color fw-bold text-center">Professional Spa And Beauty Services</h2>
               </div>
-              <div className="col-md-12" data-aos="fade-up">
-                <div className="position-relative switchBtn">
-                  <p className="me-3">Female</p>
-                  <input type="checkbox" id="toggle_checkbox" />
-                  <label for="toggle_checkbox"></label>
-                  <p className="ms-3">Male</p>
-                </div>
+              <div
+                className="de-separator"
+                style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}
+              ></div>
+
+            </div>
+            <div className="col-md-3">
+
+              <div className="row text-center sideservices">
+                {Sideservices.map((services, index) => (
+                  <div className="col-4 col-md-4 mb-4  text-center" key={index}>
+                    <div className=" d-flex flex-column align-items-center justify-content-center">
+                      <div
+                        className="rounded shadow-sm"
+                        style={{
+                          cursor: "pointer", border: index === 2 ? "2px solid #000" : "1px solid #ddd", backgroundImage: `url(${services.img})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                          backgroundRepeat: "no-repeat",
+                          height: "80px", 
+                          width: "80px",
+                        }}
+                      >
+                      </div>
+                      <small>{services.name}</small>
+                    </div>
+
+                  </div>
+                ))}
               </div>
+            </div>
+            {/* <div className="col-md-1">
+            <hr className="vr p-0 ps-1 rounded-5" />
 
-              <div className="col-md-12" data-aos="fade-down">
-                <div className="row gy-1 gy-md-0 bcw-nearby__search">
-
-                  <div className="col-md-6 position-relative px-0">
-                    <div className="input-form">
-                      <input
-                        type="hidden"
-                        name="cr_latitude"
-                        id="cr_latitude"
-                      />
-                      <input
-                        type="hidden"
-                        name="cr_longitude"
-                        id="cr_longitude"
-                      />
-                      <input
-                        type="hidden"
-                        name="location_city"
-                        id="location_city"
-                        value=""
-                      />
-
-                      <InputGroup>
-                        <span
-                          className="position-absolute"
-                          style={{
-                            left: "20px",
-                            top: "50%",
-                            transform: "translateY(-50%)",
-                            zIndex: "10",
-                          }}
-                        >
-                          <FaSearch style={{ color: "#000" }} />
-                        </span>
-                        <Form.Control
-                          type="search"
-                          placeholder="Where"
-                          name="location"
-                          id="locationfield"
-                          autoComplete="off"
-                          className="form-control pac-target-input"
-                          style={{ paddingLeft: "50px" }}
-                        />
-                        <div className="hr-bar"></div>
-                      </InputGroup>
-                    </div>
-                  </div>
-
-
-                  <div className="col-md-6 px-0">
-                    <div className="input-form">
-                      <Form.Select
-                        name="category"
-                        id="servicecategory"
-                        required
-                      >
-                        <option value="">Select Category</option>
-                        <option value="category1">Category 1</option>
-                        <option value="category2">Category 2</option>
-                      </Form.Select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="container mt-4">
-                <div className="d-flex gap-3 ps-5">
-                  {links.map((link, index) => (
-                    <div className="col-md-3" key={index}>
-                      <Link
-                        className={`dealsBx ${
-                          activeLink === index ? "active" : ""
-                        }`}
-                        onClick={() => setActiveLink(index)}
-                      >
-                        {link.icon}
-                        {link.text}
-                      </Link>
-                    </div>
-                  ))}
-                </div>
-              </div> */}
-              <section className="bg-transit px-5 mt-4 rounded ">
-                <div className="col-md-12 mb-5 ">
-                  <div className=" d-flex justify-content-between align-items-center">
-                    <div className="service_title">
-                      <h3 className="text-muted fw-bold">
-                        Mani Pedi &amp; Hygiene near you in Jaipur (5)
-                      </h3>
-                      <span>
-                        See their opening hours &amp; prices and read all
-                        reviews.
-                      </span>
-                    </div>
-                    <div class="btn-group mt-5">
-                      <button
-                        className="btn btn-secondary top_ratingBtn btn-sm dropdown-toggle"
-                        type="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        Top Rating
-                      </button>
-                      <ul class="dropdown-menu">
-                        <li>
-                          <Link class="dropdown-item">Name A to Z</Link>
-                        </li>
-                        <li>
-                          <Link class="dropdown-item">Name Z to A</Link>
-                        </li>
-                        <li>
-                          <Link class="dropdown-item">Top Rating</Link>
-                        </li>
-                        <li>
-                          <Link class="dropdown-item">Near Me</Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <Swiper
-                  slidesPerView={3}
-                  spaceBetween={20}
-                  centeredSlides={false}
-                  pagination={false}
-                  navigation={true}
-                  modules={[Navigation, FreeMode]}
-                  className="mySwiper"
-                  data-aos="zoom-in-up"
-                >
-                  {salonData.map((salon) => (
-                    <SwiperSlide key={salon.id}>
-                      <Link to={salon.link} className="cs-main__card-box">
-
-                        <div className="cs-main__card-img ">
-                          <img
-                            src={salon.image}
-                            className="img-fluid "
-                            alt={salon.name}
-                          />
-                          <div className="cs-main__card-rating-box ">
-                            <span className="cs-mcard-aR">{salon.rating}</span>
-                            <span className="cs-mcard-aText">
-                              <span>{salon.reviews}</span> ratings
-                            </span>
-                          </div>
+            </div> */}
+            <div className="col-md-9">
+              <Container className="text-center pb-5">
+                <Row className="mb-4" >
+                  {services.map((service, index) => (
+                    <Col md={3} sm={6} key={index}>
+                      <Link to={'/salondetails/:id'} className="service-card mb-3">
+                        <div className="service-icon">
+                          <img className="img-fluid rounded" src={service.icon} />
                         </div>
-
-
-                        <div className="cs-main__card-content p-3 ">
-                          <h3 className="cs-main__card-title text-truncate">
-                            {salon.name}
-                          </h3>
-
-
-                          <div className="cs-main__card-location">
-                            <FaMapMarkerAlt className="icon" />
-                            <p className="cs-main__card-location-text text-truncate">
-                              {salon.address}
-                            </p>
-                          </div>
-
-
-                          <ul className="cs-main__card-list">
-                            <li className="cs-main__card-list-item">
-                              <FaRoute className="icon" /> {salon.distance}
-                            </li>
-                            <li className="cs-main__card-list-item">
-                              <FaClock className="icon" /> {salon.time}
-                            </li>
-                          </ul>
-
-
-                          <div className="cs-main__card-serviceStarting">
-                            <div className="serviceStarting-cont">
-                              Service Starting from{" "}
-                              <strong>₹{salon.startingPrice}</strong>
-                            </div>
-                          </div>
-
-
-                          <div className="cs-main__card-timePrice">
-                            <span className="cs-main__card-time">
-                              <strong>{salon.service}</strong> {salon.duration}
-                            </span>
-                            <span className="cs-main__card-time">
-                              <strong>₹ {salon.startingPrice}</strong>
-                            </span>
-                          </div>
-                        </div>
+                        <h5 className="service-title mt-4">{service.title}</h5>
+                        <p className="service-text">{service.description}</p>
                       </Link>
-                    </SwiperSlide>
+                    </Col>
                   ))}
-                </Swiper>
-              </section>
+                </Row>
+              </Container>
             </div>
           </div>
-          {/* More Services */}
-          <Container className="text-center py-5 mt-5">
-            <div className="heading">
-              <h2 className="third-color fw-bold">Professional Spa And Beauty Services</h2>
-            </div>
-            <div
-              className="de-separator"
-              style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}
-            ></div>
 
-            <Row className="mt-4" data-aos="flip-up">
-              {services.map((service, index) => (
-                <Col md={3} sm={6} key={index}>
-                  <div className="service-card">
-                    <div className="service-icon">
-                      <img className="img-fluid rounded" src={service.icon} />
-                    </div>
-                    <h5 className="service-title mt-4">{service.title}</h5>
-                    <p className="service-text">{service.description}</p>
-                  </div>
-                </Col>
-              ))}
-            </Row>
-          </Container>
-          {/* Main Banner */}
-          <div className="container px-0 contactus">
-            {/* <div className="main_banner">
+        </div>
 
-                        </div> */}
-            <div className="row px-5" data-aos="fade-up">
-              <div className="col-md-6" style={{ alignSelf: "center" }}>
-                <div className="sideImg">
-                  <img src="./images/V1.png" className="img-fluid" />
-                </div>
+        {/* <div className="container px-0 contactus mb-5 pb-5">
+          <div className="row px-5">
+            <div className="col-md-6" style={{ alignSelf: "center" }}>
+              <div className="sideImg">
+                <img src="./images/V1.png" className="img-fluid" />
               </div>
-              <div className="col-md-6">
-                <div className="sidecontent">
-                  <img src="" className="img-fluid" width={100} />
-                  <h2 className="mt-3">Find & Book Appoinment</h2>
-                  <p>
-                    Find your next appointment and book instantly anytime,
-                    anywhere.
-                  </p>
-                  <div className="row mt-5">
-                    <div className="col-md-6 mb-3">
-                      <div className="contentImg">
-                        <div className="imgBx">
-                          <img src="./images/woman.svg" width={50} />
-                        </div>
-                        <div class="su__box-cont">
-                          <h5>
-                            <strong>100</strong>+
-                          </h5>
-                          <p className="my-2">Male & Female Services</p>
-                        </div>
+            </div>
+            <div className="col-md-6">
+              <div className="sidecontent">
+                <img src="" className="img-fluid" width={100} />
+                <h2 className="mt-3">Find & Book Appoinment</h2>
+                <p>
+                  Find your next appointment and book instantly anytime,
+                  anywhere.
+                </p>
+                <div className="row mt-5">
+                  <div className="col-md-6 mb-3">
+                    <div className="contentImg">
+                      <div className="imgBx">
+                        <img src="./images/woman.svg" width={50} />
                       </div>
-                    </div>
-                    <div className="col-md-6 mb-3">
-                      <div className="contentImg">
-                        <div className="imgBx">
-                          <img src="./images/cut.svg" width={50} />
-                        </div>
-                        <div class="su__box-cont">
-                          <h5>
-                            <strong>20</strong>k+
-                          </h5>
-                          <p className="my-2">Stylists and Professionals</p>
-                        </div>
+                      <div class="su__box-cont">
+                        <h5>
+                          <strong>100</strong>+
+                        </h5>
+                        <p className="my-2">Male & Female Services</p>
                       </div>
                     </div>
                   </div>
-                  <hr />
-                  <div className="row">
-                    <div className="col-md-6 mb-3">
-                      <div className="contentImg">
-                        <div className="imgBx">
-                          <img src="./images/woman.svg" width={50} />
-                        </div>
-                        <div class="su__box-cont">
-                          <h5>
-                            <strong>100</strong>+
-                          </h5>
-                          <p className="my-2">Male & Female Services</p>
-                        </div>
+                  <div className="col-md-6 mb-3">
+                    <div className="contentImg">
+                      <div className="imgBx">
+                        <img src="./images/cut.svg" width={50} />
+                      </div>
+                      <div class="su__box-cont">
+                        <h5>
+                          <strong>20</strong>k+
+                        </h5>
+                        <p className="my-2">Stylists and Professionals</p>
                       </div>
                     </div>
-                    <div className="col-md-6 mb-3">
-                      <div className="contentImg">
-                        <div className="imgBx">
-                          <img src="./images/woman.svg" width={50} />
-                        </div>
-                        <div class="su__box-cont">
-                          <h5>
-                            <strong>100</strong>+
-                          </h5>
-                          <p className="my-2">Male & Female Services</p>
-                        </div>
+                  </div>
+                </div>
+                <hr />
+                <div className="row">
+                  <div className="col-md-6 mb-3">
+                    <div className="contentImg">
+                      <div className="imgBx">
+                        <img src="./images/woman.svg" width={50} />
+                      </div>
+                      <div class="su__box-cont">
+                        <h5>
+                          <strong>100</strong>+
+                        </h5>
+                        <p className="my-2">Male & Female Services</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6 mb-3">
+                    <div className="contentImg">
+                      <div className="imgBx">
+                        <img src="./images/woman.svg" width={50} />
+                      </div>
+                      <div class="su__box-cont">
+                        <h5>
+                          <strong>100</strong>+
+                        </h5>
+                        <p className="my-2">Male & Female Services</p>
                       </div>
                     </div>
                   </div>
@@ -503,8 +252,9 @@ export default function Services() {
               </div>
             </div>
           </div>
-        {/* </div>
-      </div> */}
+        </div> */}
+      </div>
+
     </>
   );
 }
