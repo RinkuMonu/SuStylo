@@ -34,7 +34,7 @@ export default function MenServices() {
             <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
                 <section className="menservices-section d-flex align-items-center">
                     <div className="hero-overlay"></div>
-                    <div class="de-gradient-edge-bottom" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
+                    
                     <div className="container text-center position-relative">
                         <h2 className="hero-title">Mens Services</h2>
                         <p className="text-white fw-bold">Experience expert haircuts, luxury facials, skin treatments, and relaxing massages designed to enhance your natural beauty. From hair coloring to organic skincare, we offer personalized services for a flawless look. Pamper yourself with premium care and step out with confidence!</p>

@@ -16,7 +16,7 @@ export default function Footer() {
             <div className="footer-overlay"></div>
                 <div className="container FooterTop">
                     <div className='row'>
-                        <div className='col-md-6 d-flex gap-5'>
+                        <div className='col-md-6 col-sm-12 d-md-flex gap-5'>
                             <div className='navLinks'>
                                 <h2>Pages</h2>
                                 <ul>
@@ -24,19 +24,20 @@ export default function Footer() {
                                         <Link to={'/about'} data-replace="About" className='mt-3 fw-bold'><span>About</span></Link>
                                     </li>
                                     <li>
-                                        <Link to={'/services'} data-replace="Our Services" className='mt-3 fw-bold'><span>Our Services</span></Link>
+                                        <Link to={'/services'} data-replace="Our Services" className='fw-bold'><span>Our Services</span></Link>
                                     </li>
                                     <li>
-                                        <Link to={'/termsandcondition'} data-replace="Terms and Conditions" className='mt-3 fw-bold'><span>Terms and Conditions</span></Link>
+                                        <Link to={'/termsandcondition'} data-replace="Terms and Conditions" className='fw-bold'><span>Terms and Conditions</span></Link>
                                     </li>
                                     <li>
-                                        <Link to={'/cancellationrefundpolicy'} data-replace="Cancellation/Refund Policy" className='mt-3 fw-bold'><span>Cancellation/Refund Policy</span></Link>
+                                        <Link to={'/cancellationrefundpolicy'} data-replace="Cancellation/Refund Policy" className='fw-bold'><span>Cancellation/Refund Policy</span></Link>
                                     </li>
                                     <li>
-                                        <Link to={'/privacypolicy'} data-replace="Privacy Policy" className='mt-3 fw-bold'><span>Privacy Policy</span></Link>
+                                        <Link to={'/privacypolicy'} data-replace="Privacy Policy" className='fw-bold'><span>Privacy Policy</span></Link>
                                     </li>
                                 </ul>
                             </div>
+                            
                             <div className='navLinks'>
                                 <h2>Services</h2>
                                 <ul>
@@ -80,7 +81,7 @@ export default function Footer() {
                         <div className='col-md-6'>
                             <div className='rightSide'>
                                 {/* <span className="logo">BLA<span className="text-warning">X</span>CUT</span> */}
-                                <img src='./images/stylo_Logo.png' className='img-fluid mb-3' width={100} />
+                                <img src='/images/stylo_Logo.png' className='img-fluid mb-3' width={100} />
                                 <p className='w-100'>Su Stylo revolutionizes salon bookings with seamless, premium grooming services. Effortlessly book top-tier salons, enjoy hassle free appointments, and experience luxury self care all at your convenience. Redefine beauty and grooming with just a tap!</p>
                                 <label for="subscribeMAil" class="form-label">Email address</label>
                                 <div class="mb-3 d-flex align-items-center">
@@ -91,9 +92,9 @@ export default function Footer() {
                                     <h3>Social Media</h3>
 
                                     <div className=' d-flex gap-3'>
-                                    <Link to={'https://www.facebook.com/Sustylosalon/'}><img src='./images/facebook-logo.png' className='social-logo'  width={34}  /></Link>
-                                        <Link to={'https://www.instagram.com/?hl=en'}><img src='./images/insta-logo.png' className='social-logo' width={34} /></Link>
-                                        <img src='./images/youtube-logo.png' className='social-logo' width={34} />
+                                    <Link to={'https://www.facebook.com/Sustylosalon/'}><img src='/images/facebook-logo.png' className='social-logo'  width={34}  /></Link>
+                                        <Link to={'https://www.instagram.com/?hl=en'}><img src='/images/insta-logo.png' className='social-logo' width={34} /></Link>
+                                        <img src='/images/youtube-logo.png' className='social-logo' width={34} />
                                     </div>
                                 </div>
                             </div>
