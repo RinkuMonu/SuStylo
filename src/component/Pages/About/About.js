@@ -48,7 +48,7 @@ export default function About() {
                         <p className="text-white fw-bold fs-4">Book Your Salon Appoinment Today</p>
                     </div>
                 </section>
-                <div class="de-gradient-edge-bottom" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
+
             </div>
             <div className="content-section">
                 <div className="container">
@@ -70,7 +70,7 @@ export default function About() {
                                 <p className="mb-3"> Su Stylo is your last destination for spontaneous salon appointments and premium grooming services. We are bringing revolution in the salon industry with a commitment to style, convenience, and top-notch customer care. Our goal is to provide an extraordinary grooming experience where luxury fulfills, ensuring that each customer enjoys harass -free booking and world-class beauty services under one roof. We understand that modern lifestyle can be busy, and finding time for self-care can often take a backseat. That is why we have created a platform that prioritizes your convenience, which makes it easier to maintain your routine without disrupting your busy schedule.
                                 </p>
                                 <p className="mb-3">Founded in 2025, our mission is to transform the way you experience grooming by offering effortless booking and high-quality salon services with just a few clicks. Our expert team consists of highly skilled professionals who are passionate about delivering outstanding results, ensuring that every haircut, shave, and beauty treatment is executed with precision, creativity, and the latest trends in mind. We take pride in staying ahead of industry innovations, constantly upgrading our techniques and technology to give our customers a truly premium experience.</p>
-                                    {/* <p>At Su Stylo, we believe that self-care should be a luxurious yet stress-free experience. Our platform is designed to eliminate the traditional challenges of salon visits, allowing customers to easily book appointments at their preferred salons without any inconvenience. No more long queues, no more uncertainty regarding availability, and no more compromises when it comes to quality service. Our cutting-edge technology ensures that you get the service you need at the time that suits you best, making beauty and grooming a seamless part of your routine. With just a few taps on your phone, you can secure an appointment and indulge in a pampering session that leaves you feeling refreshed and confident.</p> */}
+                                {/* <p>At Su Stylo, we believe that self-care should be a luxurious yet stress-free experience. Our platform is designed to eliminate the traditional challenges of salon visits, allowing customers to easily book appointments at their preferred salons without any inconvenience. No more long queues, no more uncertainty regarding availability, and no more compromises when it comes to quality service. Our cutting-edge technology ensures that you get the service you need at the time that suits you best, making beauty and grooming a seamless part of your routine. With just a few taps on your phone, you can secure an appointment and indulge in a pampering session that leaves you feeling refreshed and confident.</p> */}
 
                             </div>
                         </div>
@@ -79,16 +79,16 @@ export default function About() {
                     </div>
                     {/* Our Mission */}
                     <div className="row align-items-center">
-                        <div className="col-md-6 mt-5 mb-3" data-aos="zoom-in-left">
+                        <div className="col-md-6 mt-5 mb-3">
                             <SimpleParallax
                                 orientation={"down"}
                                 scale={1.8}
                                 delay={1}
                             >
-                                <img src="./images/2149975504.jpg" className="img-fluid" />
+                                <img src="./images/women-2.jpg" className="img-fluid" />
                             </SimpleParallax>
                         </div>
-                        <div className="col-md-6 mb-3 about_mission ps-5" data-aos="zoom-in-right">
+                        <div className="col-md-6 mb-3 about_mission ps-5">
                             <h2 className="mt-5 third-color">OUR MISSION</h2>
                             <p>At Su Stylo, we strive to empower both salon owners and customers by making grooming services seamless, accessible, and hassle-free. Our platform helps salons expand their reach while offering customers an effortless way to book premium services. We aim to redefine self-care by blending innovation with convenience, ensuring beauty and grooming are not just services but an experience. With a focus on quality, reliability, and customer satisfaction, Su Stylo is transforming the salon industry one appointment at a time.
                             </p>
@@ -98,12 +98,12 @@ export default function About() {
                     <hr className="mt-5" />
                     <div className="row align-items-center">
 
-                        <div className="col-md-6 mb-3 about_mission ps-5" data-aos="zoom-out-up">
+                        <div className="col-md-6 mb-3 about_mission ps-5">
                             <h2 className="mt-5 third-color">OUR VISION</h2>
                             <p>At Su Stylo, we envision transforming the way India experiences salon services. Our goal is to make every salon visit seamless, ensuring customers can easily discover and book their favorite salons with ease. By embracing technology-driven solutions, we empower salon owners to expand their reach and grow their businesses. We strive to set new industry standards, making beauty and grooming effortlessly accessible while supporting local salons and enhancing customer experiences.
                             </p>
                         </div>
-                        <div className="col-md-6 mt-5 mb-3" data-aos="zoom-out-down">
+                        <div className="col-md-6 mt-5 mb-3">
                             <SimpleParallax
                                 orientation={"down"}
                                 scale={1.8}
@@ -118,7 +118,7 @@ export default function About() {
                     <div className="row align-items-center">
 
 
-                        <div className="col-md-6 mt-5 mb-3" data-aos="zoom-out-down">
+                        <div className="col-md-6 mt-5 mb-3">
                             <SimpleParallax
                                 orientation={"down"}
                                 scale={1.8}
@@ -127,7 +127,7 @@ export default function About() {
                                 <img src="./images/about-3.jpg" className="img-fluid" />
                             </SimpleParallax>
                         </div>
-                        <div className="col-md-6 mb-3 about_mission ps-5" data-aos="zoom-out-up">
+                        <div className="col-md-6 mb-3 about_mission ps-5">
                             <h2 className="mt-5 third-color">Style & Grooming, Just a Tap Away</h2>
                             <p>Discover the ease of booking with Su Stylo – your go-to destination for effortless salon appointments. In just 30 seconds, unlock a world of grooming possibilities from your smartphone. Browse nearby salons, explore exclusive deals, and book no-wait appointments instantly. With Su Stylo, beauty and self-care are just a tap away—making every salon visit seamless, convenient, and stress-free!
                             </p>
@@ -135,50 +135,48 @@ export default function About() {
                     </div>
                 </div>
                 <div className="container-fluid ps-0">
-                        <div className="aboutBG">
-                            <div className="hero-overlay"></div>
-                            <div className="row">
-                                <div className="col-md-12 position-relative" style={{ zIndex: "999" }}>
-                                    <h2 className="my-5 text-white fw-bold">Get In Touch</h2>
-                                    <div className="hstack gap-3">
+                    <div className="aboutBG">
+                        <div className="hero-overlay"></div>
+                        <div className="row">
+                            <div className="col-md-12 position-relative" style={{ zIndex: "999" }}>
+                                <h2 className="my-5 text-white fw-bold">Get In Touch</h2>
+                                <div className="hstack gap-3">
                                     <div className="row">
-    <div className="col" style={{ textAlign: "justify" }}>
-        <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Name</label>
-        <input
-            type="text"
-            className="form-control placeholder-white border-white"
-            placeholder="Name"
-            aria-label="First name"
-        />
-    </div>
+                                        <div className="col" style={{ textAlign: "justify" }}>
+                                            <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Name</label>
+                                            <input
+                                                type="text"
+                                                className="form-control placeholder-white border-white"
+                                                placeholder="Name"
+                                                aria-label="First name"
+                                            />
+                                        </div>
 
-    <div className="col" style={{ textAlign: "justify" }}>
-        <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Email</label>
-        <input
-            type="email"
-            className="form-control placeholder-white border-white"
-            placeholder="Email"
-            aria-label="Last name"
-        />
-    </div>
+                                        <div className="col" style={{ textAlign: "justify" }}>
+                                            <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Email</label>
+                                            <input
+                                                type="email"
+                                                className="form-control placeholder-white border-white"
+                                                placeholder="Email"
+                                                aria-label="Last name"
+                                            />
+                                        </div>
 
-    <div className="col" style={{ textAlign: "justify" }}>
-        <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Mobile</label>
-        <input
-            type="number"
-            className="form-control placeholder-white border-white"
-            placeholder="Number"
-            aria-label="Last name"
-        />
-    </div>
+                                        <div className="col" style={{ textAlign: "justify" }}>
+                                            <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Mobile</label>
+                                            <input
+                                                type="number"
+                                                className="form-control placeholder-white border-white"
+                                                placeholder="Number"
+                                                aria-label="Last name"
+                                            />
+                                        </div>
 
-    <div className="col">
-        <button className="btn-8 custom-btn" style={{ marginTop: "40px" }}>
-            <span>Get In Touch</span>
-        </button>
-    </div>
-</div>
-
+                                        <div className="col">
+                                            <button className="btn-8 custom-btn" style={{ marginTop: "40px" }}>
+                                                <span>Get In Touch</span>
+                                            </button>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -188,6 +186,8 @@ export default function About() {
                         </div>
 
                     </div>
+
+                </div>
                 {/* Browse Cities */}
                 <div className="container my-5">
                     <div className="row">
@@ -198,16 +198,16 @@ export default function About() {
                             <div className="de-separator" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
                         </div>
                         <div className="row">
-    <div className="col-md-12">
-        <ul className="cities-container">
-            {cities.map((city, index) => (
-                <li key={index} className="cities-lists">
-                    <Link to={city.url}>{city.name}</Link>
-                </li>
-            ))}
-        </ul>
-    </div>
-</div>
+                            <div className="col-md-12">
+                                <ul className="cities-container">
+                                    {cities.map((city, index) => (
+                                        <li key={index} className="cities-lists">
+                                            <Link to={city.url}>{city.name}</Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
 
 
                     </div>
