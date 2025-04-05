@@ -37,7 +37,7 @@ const salons = [
     reviews: 6,
     address: "G-267, Sitapura Industrial Area, Jaipur, Rajasthan 302022, India",
     distance: "15.27km",
-    link: "/salondetails",
+    link: "#",
   },
   {
     id: 2,
@@ -47,7 +47,7 @@ const salons = [
     reviews: 12,
     address: "A-12, Malviya Nagar, Jaipur, Rajasthan 302017, India",
     distance: "10.5km",
-    link: "/salondetails",
+    link: "#",
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ const salons = [
     reviews: 20,
     address: "B-56, Vaishali Nagar, Jaipur, Rajasthan 302021, India",
     distance: "8.2km",
-    link: "/salondetails",
+    link: "#",
   },
   {
     id: 4,
@@ -67,7 +67,7 @@ const salons = [
     reviews: 20,
     address: "B-56, Vaishali Nagar, Jaipur, Rajasthan 302021, India",
     distance: "8.2km",
-    link: "/salondetails",
+    link: "#",
   },
   {
     id: 5,
@@ -77,7 +77,7 @@ const salons = [
     reviews: 20,
     address: "B-56, Vaishali Nagar, Jaipur, Rajasthan 302021, India",
     distance: "8.2km",
-    link: "/salondetails",
+    link: "#",
   },
 ];
 
