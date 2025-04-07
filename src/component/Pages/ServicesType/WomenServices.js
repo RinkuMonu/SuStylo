@@ -35,7 +35,7 @@ export default function WomenServices() {
             <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
                 <section className="womenservices-section d-flex align-items-center">
                     <div className="hero-overlay"></div>
-                    
+
                     <div className="container text-center position-relative">
                         <h2 className="hero-title">Woman Services</h2>
                         <p className="text-white fw-bold">Experience expert haircuts, luxury facials, skin treatments, and relaxing massages designed to enhance your natural beauty. From hair coloring to organic skincare, we offer personalized services for a flawless look. Pamper yourself with premium care and step out with confidence!</p>
@@ -79,7 +79,7 @@ export default function WomenServices() {
                                             <div className="card-img-overlay d-flex flex-column justify-content-end p-4">
                                                 <h4 className="fw-bold">Organic Hair Treatment</h4>
                                                 <p className="mb-0 fs-6">
-                                                Nourishes, strengthens, and repairs hair with natural ingredients.
+                                                    Nourishes, strengthens, and repairs hair with natural ingredients.
                                                 </p>
                                             </div>
                                         </div>
@@ -99,7 +99,7 @@ export default function WomenServices() {
                                             <div className="card-img-overlay d-flex flex-column justify-content-end p-4">
                                                 <h4 className="fw-bold">Aroma Therapy</h4>
                                                 <p className="mb-0 fs-6">
-                                                Soothing essential oils for relaxation and skin rejuvenation.
+                                                    Soothing essential oils for relaxation and skin rejuvenation.
                                                 </p>
                                             </div>
                                         </div>
@@ -119,7 +119,7 @@ export default function WomenServices() {
                                             <div className="card-img-overlay d-flex flex-column justify-content-end p-4">
                                                 <h4 className="fw-bold">Waxing</h4>
                                                 <p className="mb-0 fs-6">
-                                                Smooth, hair-free skin with gentle and effective hair removal.
+                                                    Smooth, hair-free skin with gentle and effective hair removal.
                                                 </p>
                                             </div>
                                         </div>
@@ -139,7 +139,7 @@ export default function WomenServices() {
                                             <div className="card-img-overlay d-flex flex-column justify-content-end p-4">
                                                 <h4 className="fw-bold">Nail Manicure</h4>
                                                 <p className="mb-0 fs-6">
-                                                Manicure and pedicure for healthy, beautiful hands and feet.
+                                                    Manicure and pedicure for healthy, beautiful hands and feet.
                                                 </p>
                                             </div>
                                         </div>
@@ -159,7 +159,7 @@ export default function WomenServices() {
                                             <div className="card-img-overlay d-flex flex-column justify-content-end p-4">
                                                 <h4 className="fw-bold">Body Massages</h4>
                                                 <p className="mb-0 fs-6">
-                                                Relaxing therapy to relieve stress and rejuvenate the body.
+                                                    Relaxing therapy to relieve stress and rejuvenate the body.
                                                 </p>
                                             </div>
                                         </div>
@@ -179,7 +179,7 @@ export default function WomenServices() {
                                             <div className="card-img-overlay d-flex flex-column justify-content-end p-4">
                                                 <h4 className="fw-bold">Deep Pore Cleansing</h4>
                                                 <p className="mb-0 fs-6">
-                                                Removes dirt, oil, and impurities for fresh, glowing skin.
+                                                    Removes dirt, oil, and impurities for fresh, glowing skin.
                                                 </p>
                                             </div>
                                         </div>
@@ -199,7 +199,7 @@ export default function WomenServices() {
                                             <div className="card-img-overlay d-flex flex-column justify-content-end p-4">
                                                 <h4 className="fw-bold">Acne Problem Facial</h4>
                                                 <p className="mb-0 fs-6">
-                                                Targeted treatment to reduce acne, scars, and blemishes.
+                                                    Targeted treatment to reduce acne, scars, and blemishes.
                                                 </p>
                                             </div>
                                         </div>
@@ -219,7 +219,7 @@ export default function WomenServices() {
                                             <div className="card-img-overlay d-flex flex-column justify-content-end p-4">
                                                 <h4 className="fw-bold">Glycolic Peel Facial</h4>
                                                 <p className="mb-0 fs-6">
-                                                Exfoliating treatment for bright, smooth, and youthful skin.
+                                                    Exfoliating treatment for bright, smooth, and youthful skin.
                                                 </p>
                                             </div>
                                         </div>
@@ -239,7 +239,7 @@ export default function WomenServices() {
                                             <div className="card-img-overlay d-flex flex-column justify-content-end p-4">
                                                 <h4 className="fw-bold">European Facial</h4>
                                                 <p className="mb-0 fs-6">
-                                                Hydrating and revitalizing facial for a radiant, healthy glow.
+                                                    Hydrating and revitalizing facial for a radiant, healthy glow.
                                                 </p>
                                             </div>
                                         </div>
@@ -290,50 +290,50 @@ export default function WomenServices() {
                             </div>
                         </div>
                     </div>
-                    <div className="container-fluid ps-0">
+                    {/* <div className="container-fluid ps-0">
                         <div className="aboutBG">
                             <div className="hero-overlay"></div>
                             <div className="row">
                                 <div className="col-md-12 position-relative" style={{ zIndex: "999" }}>
                                     <h2 className="my-5 text-white fw-bold">Get In Touch</h2>
                                     <div className="hstack gap-3">
-                                    <div className="row">
-    <div className="col" style={{ textAlign: "justify" }}>
-        <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Name</label>
-        <input
-            type="text"
-            className="form-control placeholder-white border-white"
-            placeholder="Name"
-            aria-label="First name"
-        />
-    </div>
+                                        <div className="row">
+                                            <div className="col" style={{ textAlign: "justify" }}>
+                                                <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Name</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control placeholder-white border-white"
+                                                    placeholder="Name"
+                                                    aria-label="First name"
+                                                />
+                                            </div>
 
-    <div className="col" style={{ textAlign: "justify" }}>
-        <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Email</label>
-        <input
-            type="email"
-            className="form-control placeholder-white border-white"
-            placeholder="Email"
-            aria-label="Last name"
-        />
-    </div>
+                                            <div className="col" style={{ textAlign: "justify" }}>
+                                                <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Email</label>
+                                                <input
+                                                    type="email"
+                                                    className="form-control placeholder-white border-white"
+                                                    placeholder="Email"
+                                                    aria-label="Last name"
+                                                />
+                                            </div>
 
-    <div className="col" style={{ textAlign: "justify" }}>
-        <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Mobile</label>
-        <input
-            type="number"
-            className="form-control placeholder-white border-white"
-            placeholder="Number"
-            aria-label="Last name"
-        />
-    </div>
+                                            <div className="col" style={{ textAlign: "justify" }}>
+                                                <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Mobile</label>
+                                                <input
+                                                    type="number"
+                                                    className="form-control placeholder-white border-white"
+                                                    placeholder="Number"
+                                                    aria-label="Last name"
+                                                />
+                                            </div>
 
-    <div className="col">
-        <button className="btn-8 custom-btn" style={{ marginTop: "40px" }}>
-            <span>Get In Touch</span>
-        </button>
-    </div>
-</div>
+                                            <div className="col">
+                                                <button className="btn-8 custom-btn" style={{ marginTop: "40px" }}>
+                                                    <span>Get In Touch</span>
+                                                </button>
+                                            </div>
+                                        </div>
 
                                     </div>
 
@@ -343,7 +343,7 @@ export default function WomenServices() {
 
                         </div>
 
-                    </div>
+                    </div> */}
                     {/* <div className="container review_section" data-aos="zoom-in">
                         <div className="col-md-12">
                             <Swiper

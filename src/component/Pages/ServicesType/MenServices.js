@@ -34,7 +34,7 @@ export default function MenServices() {
             <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
                 <section className="menservices-section d-flex align-items-center">
                     <div className="hero-overlay"></div>
-                    
+
                     <div className="container text-center position-relative">
                         <h2 className="hero-title">Mens Services</h2>
                         <p className="text-white fw-bold">Experience expert haircuts, luxury facials, skin treatments, and relaxing massages designed to enhance your natural beauty. From hair coloring to organic skincare, we offer personalized services for a flawless look. Pamper yourself with premium care and step out with confidence!</p>
@@ -249,35 +249,35 @@ export default function MenServices() {
 
 
 
-                    <div className="container mb-5">
-                        <div className="row">
-                            <div className="col-md-12">
-                                <div className="marquee-container-bottom">
-                                    <div className="marquees">
-                                        <div className="marquee-container">
-                                            <div className="marquee-content">
-                                                <span> HAIR DRY <i class="d-item-block"></i></span>
-                                                <span> FACIAL  <i class="d-item-block"></i></span>
-                                                <span> HAIR WASH  <i class="d-item-block"></i></span>
-                                                <span> FADED  <i class="d-item-block"></i></span>
-                                                {/* Duplicate content for smooth looping */}
-                                                <span> HAIR DRY <i class="d-item-block"></i></span>
-                                                <span> FACIAL  <i class="d-item-block"></i></span>
-                                                <span> HAIR WASH  <i class="d-item-block"></i></span>
-                                                <span> FADED  <i class="d-item-block"></i></span>
+                        <div className="container mb-5">
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="marquee-container-bottom">
+                                        <div className="marquees">
+                                            <div className="marquee-container">
+                                                <div className="marquee-content">
+                                                    <span> HAIR DRY <i class="d-item-block"></i></span>
+                                                    <span> FACIAL  <i class="d-item-block"></i></span>
+                                                    <span> HAIR WASH  <i class="d-item-block"></i></span>
+                                                    <span> FADED  <i class="d-item-block"></i></span>
+                                                    {/* Duplicate content for smooth looping */}
+                                                    <span> HAIR DRY <i class="d-item-block"></i></span>
+                                                    <span> FACIAL  <i class="d-item-block"></i></span>
+                                                    <span> HAIR WASH  <i class="d-item-block"></i></span>
+                                                    <span> FADED  <i class="d-item-block"></i></span>
+                                                </div>
                                             </div>
-                                        </div>
 
+                                        </div>
                                     </div>
+
                                 </div>
+
 
                             </div>
 
 
                         </div>
-
-
-                    </div>
 
 
 
@@ -326,50 +326,50 @@ export default function MenServices() {
                     </div>
 
 
-                    <div className="container-fluid ps-0">
+                    {/* <div className="container-fluid ps-0">
                         <div className="aboutBG">
                             <div className="hero-overlay"></div>
                             <div className="row">
                                 <div className="col-md-12 position-relative" style={{ zIndex: "999" }}>
                                     <h2 className="my-5 text-white fw-bold">Get In Touch</h2>
                                     <div className="hstack gap-3">
-                                    <div className="row">
-    <div className="col" style={{ textAlign: "justify" }}>
-        <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Name</label>
-        <input
-            type="text"
-            className="form-control placeholder-white border-white"
-            placeholder="Name"
-            aria-label="First name"
-        />
-    </div>
+                                        <div className="row">
+                                            <div className="col" style={{ textAlign: "justify" }}>
+                                                <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Name</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control placeholder-white border-white"
+                                                    placeholder="Name"
+                                                    aria-label="First name"
+                                                />
+                                            </div>
 
-    <div className="col" style={{ textAlign: "justify" }}>
-        <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Email</label>
-        <input
-            type="email"
-            className="form-control placeholder-white border-white"
-            placeholder="Email"
-            aria-label="Last name"
-        />
-    </div>
+                                            <div className="col" style={{ textAlign: "justify" }}>
+                                                <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Email</label>
+                                                <input
+                                                    type="email"
+                                                    className="form-control placeholder-white border-white"
+                                                    placeholder="Email"
+                                                    aria-label="Last name"
+                                                />
+                                            </div>
 
-    <div className="col" style={{ textAlign: "justify" }}>
-        <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Mobile</label>
-        <input
-            type="number"
-            className="form-control placeholder-white border-white"
-            placeholder="Number"
-            aria-label="Last name"
-        />
-    </div>
+                                            <div className="col" style={{ textAlign: "justify" }}>
+                                                <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Mobile</label>
+                                                <input
+                                                    type="number"
+                                                    className="form-control placeholder-white border-white"
+                                                    placeholder="Number"
+                                                    aria-label="Last name"
+                                                />
+                                            </div>
 
-    <div className="col">
-        <button className="btn-8 custom-btn" style={{ marginTop: "40px" }}>
-            <span>Get In Touch</span>
-        </button>
-    </div>
-</div>
+                                            <div className="col">
+                                                <button className="btn-8 custom-btn" style={{ marginTop: "40px" }}>
+                                                    <span>Get In Touch</span>
+                                                </button>
+                                            </div>
+                                        </div>
 
                                     </div>
 
@@ -378,92 +378,6 @@ export default function MenServices() {
                             </div>
 
                         </div>
-
-                    </div>
-                    {/* <div className="container review_section" data-aos="zoom-in">
-                        <div className="col-md-12">
-                            <Swiper
-                                spaceBetween={30}
-                                centeredSlides={false}
-                                autoplay={{
-                                    delay: 2500,
-                                    disableOnInteraction: false,
-                                }}
-                                pagination={{
-                                    clickable: true,
-                                }}
-                                navigation={false}
-                                modules={[Autoplay, Pagination, Navigation]}
-                                className="mySwiper"
-                            >
-                                <SwiperSlide>
-                                    <img src="./images/gallery/R3.jpg" />
-                                    <div className="hero-overlay"></div>
-                                    <div className="review_text text-center p-5">
-                                        <h2>Chandan Sharma</h2>
-                                        <div className="d-flex gap-2">
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-half"></i>
-                                        </div>
-                                        <p>Su Stylo is my go-to salon for the perfect haircut. The staff is professional, and the atmosphere is so welcoming. Highly recommend!</p>
-
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <img src="./images/gallery/R2.jpg" />
-                                    <div className="hero-overlay"></div>
-                                    <div className="review_text text-center p-5">
-                                        <h2> Neha Kapoor</h2>
-                                        <div className="d-flex gap-2">
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-half"></i>
-                                        </div>
-                                        <p>Loved my styling experience! The team knows exactly what suits you best. The service was top-notch, and I left feeling fabulous!</p>
-
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <img src="./images/gallery/R4.jpg" />
-                                    <div className="hero-overlay"></div>
-                                    <div className="review_text text-center p-5">
-                                        <h2>Rahul kumar</h2>
-                                        <div className="d-flex gap-2">
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-half"></i>
-                                        </div>
-                                        <p>Excellent grooming services! I tried their beard trimming, and it was done with so much precision. Great experience!</p>
-
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <img src="./images/gallery/R1.jpg" />
-                                    <div className="hero-overlay"></div>
-                                    <div className="review_text text-center p-5">
-                                        <h2> Vikash singh</h2>
-                                        <div className="d-flex gap-2">
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-half"></i>
-                                        </div>
-                                        <p>Best haircut I've ever had! The barbers are highly skilled and listen to exactly what you want. Five-star service!</p>
-
-                                    </div>
-                                </SwiperSlide>
-                            </Swiper>
-
-                        </div>
-
 
                     </div> */}
 
