@@ -26,7 +26,6 @@ export default function Blog() {
       console.log(error);
     }
   };
-
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => setVisible(entry.isIntersecting));
