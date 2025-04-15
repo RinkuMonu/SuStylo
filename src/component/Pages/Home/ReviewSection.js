@@ -5,9 +5,6 @@ import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { RxCross2 } from "react-icons/rx";
-
-
-
 import {
     EffectCoverflow,
     Autoplay,

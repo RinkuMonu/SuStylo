@@ -84,14 +84,17 @@ const salons = [
 
 export default function Home() {
   const [location, setLocation] = useState({
-    latitude: "" || 2871.24324252,
-    longitude: "" || 2871.24324252,
+    latitude: "",
+    longitude: ""
   });
+
+ console.log("lllllllll",location.latitude)
   const [address, setAddress] = useState("Fetching address...");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [salonData, setSalonData] = useState([]);
   const [fulladdress, setfulladdress] = useState("");
+  const [popularSalonData, setpopularSalonData] = useState([])
 
   const [data, setData] = useState({
     location: "",
@@ -109,11 +112,13 @@ export default function Home() {
       navigator.geolocation.getCurrentPosition(
         async (position) => {
           const { latitude, longitude } = position.coords;
-          console.log("Location found:", latitude, longitude);
+          console.log("Location found.....:", latitude, longitude);
+
+
 
           // Set location state
-          setLocation({ latitude, longitude });
-
+          setLocation({ latitude:latitude, longitude:longitude });
+          
           // Fetch and set address
           const addr = await getAddressFromCoords(latitude, longitude);
           setAddress(addr);
@@ -131,11 +136,11 @@ export default function Home() {
   };
   const getAddressFromCoords = async (latitude, longitude) => {
     const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDZW0zTKDKdxBG1eC5ACKsR1Gp9PcduvKo`;
-
+    
     try {
       const response = await fetch(url);
       const data = await response.json();
-
+      
       if (data.status === "OK" && data.results.length > 0) {
         const address = data.results[0].formatted_address; // ✅ Correct field
         setfulladdress(address);
@@ -150,33 +155,36 @@ export default function Home() {
       return null;
     }
   };
-
+  
   const handleChange = (e) => {
     setData((prevData) => ({
       ...prevData,
       [e.target.name]: e.target.value,
     }));
   };
-
+  
   const handleGenderChange = () => {
     setData((prevData) => ({
       ...prevData,
       gender: prevData.gender === "male" ? "female" : "male",
     }));
   };
-  useEffect(() => {
-    const fetchData = async () => {
+  console.log("lllllllll",location.latitude)
+
+    const fetchData = async (lat,lng) => {
+      console.log("dfghjhgfdsdfg",lat,lng);
+      
       try {
         const response = await axiosInstance.get("/salon/nearby", {
           params: {
-            latitude: location.latitude,
-            longitude: location.longitude,
-            maxDistance: "5000",
-            gender: data.gender,
-            category: data.category,
+            latitude: lat,
+            longitude: lng,
+        
           },
         });
-
+        console.log("ressssppp",response)
+        console.log("ressssppp",response.data)
+        console.log("ressssppp",response.data.salons)
         setSalonData(response.data.salons);
         console.log("Salon Data:-", response.data.salons);
       } catch (error) {
@@ -185,9 +193,23 @@ export default function Home() {
     };
 
     fetchData();
-  }, [data.gender, data.category]);
+ 
 
 
+
+  useEffect(() => {
+    const mostPopularData = async () => {
+      try {
+        const response = await axiosInstance.get("/salon/mostreview")
+      
+        setpopularSalonData(response.data?.salons);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    mostPopularData();
+  }, []);
 
   useEffect(() => {
     new WOW().init();
@@ -208,6 +230,11 @@ export default function Home() {
     return () => {
       if (domRef.current) observer.unobserve(domRef.current);
     };
+  }, []);
+  useEffect(() => {
+    if (location.latitude && location.longitude) {
+      fetchData(location.latitude, location.longitude);
+    }
   }, []);
 
   // search dropdown
@@ -260,34 +287,34 @@ export default function Home() {
                   modules={[Navigation, FreeMode]}
                   className="mySwiper"
                 >
-                  {salons.map((salon) => (
-                    <SwiperSlide key={salon.id} className="">
+                  {popularSalonData.map((salon) => (
+                    <SwiperSlide key={salon._id} className="">
                       <Link to={salon.link} className="cs-main__card-box text-decoration-none">
                         <div className="cs-main__card-img">
                           <img
-                            src={salon.image}
+                            src={salon.salonPhotos[0]}
                             className="img-fluid"
                             alt={salon.name}
                           />
                           <div className="cs-main__card-rating-box">
-                            <span className="cs-mcard-aR">{salon.rating}</span>
-                            <span className="cs-mcard-aText">
+                            {/* <span className="cs-mcard-aR">{salon.rating}</span> */}
+                            {/* <span className="cs-mcard-aText">
                               <span>{salon.reviews}</span> ratings
-                            </span>
+                            </span> */}
                           </div>
                         </div>
                         <div className="cs-main__card-content p-3">
                           <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
-                            {salon.name}
-                            <p style={{ fontSize: "12px" }}>
+                            {salon.salonName}
+                            {/* <p style={{ fontSize: "12px" }}>
                               <i className="bi bi-star me-1"></i>
                               {salon.rating} Review
-                            </p>
+                            </p> */}
                           </h3>
                           <div className="cs-main__card-location d-flex align-items-start">
                             <FaMapMarkerAlt className="icon mt-1 me-2" />
                             <p className="cs-main__card-location-text text-truncate">
-                              {salon.address}
+                              {salon.salonAddress}
                             </p>
                           </div>
                           <ul className="cs-main__card-list my-0 list-unstyled">
@@ -417,7 +444,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <ReviewSection />
+          <ReviewSection/>
           <div className="container">
             <div className="row">
               <div className="col-md-12">
