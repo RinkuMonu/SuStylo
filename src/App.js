@@ -21,6 +21,7 @@ import PrivacyPolicy from './component/Pages/Conditions/PrivacyPolicy.js';
 import MenServices from './component/Pages/ServicesType/MenServices.js';
 import WomenServices from './component/Pages/ServicesType/WomenServices.js';
 import Login from './component/Pages/login/Login.js';
+import Hair from './component/Pages/Services/Hair.js';
 
 
 
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
 
       { path: "/", element: <Home /> }, 
       { path: "/salonpartner", element: <SalonPartner /> }, 
-      { path: "/salondetails/:id", element: <SalonDetails /> },
+      { path: "/salondetails", element: <SalonDetails /> },
       { path: "/bookappoinment/:id", element: <BookNow /> },
       { path: "/about", element: <About /> }, 
       { path: "/services", element: <Services /> }, 
@@ -57,6 +58,7 @@ const router = createBrowserRouter([
       { path: "/privacypolicy", element: <PrivacyPolicy /> }, 
       { path: "/womenservices", element: <WomenServices /> }, 
       { path: "/login", element: <Login /> },
+      { path: "/hair", element: <Hair /> },
     ],
   },
 ]);
