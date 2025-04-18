@@ -6,21 +6,24 @@ import { FaRoute } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { FaYoutube } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams ,useLocation } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import axiosInstance from "../../config/axiosInstance";
 
 export default function SalonDetails() {
-  const { id } = useParams();
+  const location = useLocation();
+  const { userId } = location.state || {};
+
   const [salonDetails, setSalonDetails] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axiosInstance.get(`/salon/view/${id}`);
+        const response = await axiosInstance.get(`/salon/view/${userId}`);
 
         setSalonDetails(response?.data);
+        console.log("salonData:-", response);
         console.log("salonData:-", response.data);
         console.log("data:- ", response?.data?.salon?.salonName);
         console.log("Address:- ", response?.data?.salon?.salonAddress);
@@ -32,7 +35,7 @@ export default function SalonDetails() {
     };
 
     fetchData();
-  }, [id]);
+  }, [userId]);
 
 
   useEffect(() => {
@@ -263,7 +266,7 @@ export default function SalonDetails() {
                                   </p>
                                 </div>
                                 <Link
-                                  to={`/bookappoinment/${id}`}
+                                  to={`/bookappoinment/${userId}`}
                                   className="BookAppBtn custom-btn btn-8"
                                 >
                                   Book
