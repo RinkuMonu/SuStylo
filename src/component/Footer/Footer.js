@@ -36,8 +36,7 @@ export default function Footer() {
                                         <Link to={'/privacypolicy'} data-replace="Privacy Policy" className='fw-bold'><span>Privacy Policy</span></Link>
                                     </li>
                                 </ul>
-                            </div>
-                            
+                            </div>                          
                             <div className='navLinks'>
                                 <h2>Services</h2>
                                 <ul>
