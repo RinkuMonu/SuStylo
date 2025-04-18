@@ -140,6 +140,7 @@ export default function SalonDetails() {
                 <FaYoutube className="fs-4" />
               </Link>
             </div>
+            
           </div>
         </section>
         <div className="container-fluid content-section">
