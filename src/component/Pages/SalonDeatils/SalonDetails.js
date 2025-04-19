@@ -6,13 +6,15 @@ import { FaRoute } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { FaYoutube } from "react-icons/fa";
-import { Link, useParams ,useLocation } from "react-router-dom";
+import { Link ,useLocation } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import axiosInstance from "../../config/axiosInstance";
 
 export default function SalonDetails() {
   const location = useLocation();
   const { userId } = location.state || {};
+  const { salonId } = location.state || {};
+
 
   const [salonDetails, setSalonDetails] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -20,7 +22,14 @@ export default function SalonDetails() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axiosInstance.get(`/salon/view/${userId}`);
+        const idToUse = salonId?._id || userId;
+      
+      if (!idToUse) {
+        console.error("No ID available for fetching salon data");
+        setLoading(false);
+        return;
+      }
+        const response = await axiosInstance.get(`/salon/view/${idToUse}`);
 
         setSalonDetails(response?.data);
         console.log("salonData:-", response);
@@ -35,7 +44,7 @@ export default function SalonDetails() {
     };
 
     fetchData();
-  }, [userId]);
+  }, [userId,salonId?._id]);
 
 
   useEffect(() => {
