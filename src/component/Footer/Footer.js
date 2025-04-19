@@ -61,7 +61,8 @@ export default function Footer() {
                                         <Link to={'/privacypolicy'} data-replace="Privacy Policy" className='fw-bold'><span>Privacy Policy</span></Link>
                                     </li>
                                 </ul>
-                            </div>
+
+                            </div>                          
 
                             <div className='navLinks'>
                                 <h2>Services</h2>
@@ -120,7 +121,7 @@ export default function Footer() {
                                     <h3>Social Media</h3>
 
                                     <div className=' d-flex gap-3'>
-                                        <Link to={'https://www.facebook.com/Sustylosalon/'}><img src='/images/facebook-logo.png' className='social-logo' width={34} /></Link>
+
                                         <Link to={'https://www.instagram.com/?hl=en'}><img src='/images/insta-logo.png' className='social-logo' width={34} /></Link>
                                         <img src='/images/youtube-logo.png' className='social-logo' width={34} />
                                     </div>

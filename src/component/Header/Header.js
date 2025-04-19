@@ -73,6 +73,8 @@ export default function Header() {
               <li className="nav-item"><Link className="nav-link" to={'/blog'} onClick={handleLinkClick}>Blog</Link></li>
               <li className="nav-item"><Link className="nav-link" to={'/contact'} onClick={handleLinkClick}>Contact</Link></li>
               <li className="nav-item"><Link className="nav-link" to={'/salonpartner'} onClick={handleLinkClick}>Salon Partner</Link></li>
+              <li className="nav-item"><Link className="nav-link" to={'/login'} onClick={handleLinkClick}>Login →</Link></li>
+
             </ul>
           </div>
         </div>
