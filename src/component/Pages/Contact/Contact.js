@@ -1,10 +1,41 @@
 import React, { useState, useEffect, useRef } from "react";
 import AOS from "aos";
 import WOW from "wow.js";
+import Swal from 'sweetalert2'
 import '../style/style.css';
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import axiosInstance from "../../config/axiosInstance";
 export default function Contact() {
+    // formHendler start
+    const [loading, setLoading] = useState(false);
+    const formHendler = async (event) => {
+        event.preventDefault();
+        setLoading(true)
+        const userData = {
+            fullName: event.target.username.value,
+            email: event.target.email.value,
+            mobile: event.target.mobile.value,
+            message: event.target.message.value
+        }
+        try {
+            const response = await axiosInstance.post('/contact', userData)
+            if (response.status === 201) {
+                Swal.fire({
+                    title: "God job !",
+                    text: response.data.message,
+                    icon: "success"
+                });
+                setLoading(false)
+                event.target.reset();
+            }
+        } catch (error) {
+            console.log('error', error);
+            setLoading(false)
+        }
+
+    }
+
     useEffect(() => {
         new WOW().init();
     }, []);
@@ -30,7 +61,7 @@ export default function Contact() {
             <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
                 <section className="contact-section d-flex align-items-center">
                     <div className="hero-overlay"></div>
-                    
+
                     <div className="container text-center position-relative">
                         <h2 className="hero-title">Contact Us</h2>
                         <div className="de-separator" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
@@ -77,31 +108,37 @@ export default function Contact() {
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="contact_frm bookingfrm" >
-                                    <form>
+                                    <form onSubmit={formHendler}>
                                         <div className="row">
 
                                             <div className="col-md-6">
                                                 <div class="mb-3">
                                                     <label for="username" class="form-label">Name</label>
-                                                    <input type="text" class="form-control" id="username" placeholder="Your Full Name" />
+                                                    <input name="username" type="text" class="form-control" id="username" placeholder="Your Full Name" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlInput1" class="form-label">Email</label>
-                                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+                                                    <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="mobile" class="form-label">Mobile</label>
-                                                    <input type="number" class="form-control" id="mobile" placeholder="01234567896" />
+                                                    <input name="mobile" type="number" class="form-control" id="mobile" placeholder="01234567896" />
                                                 </div>
                                             </div>
                                             <div className="col-md-6">
                                                 <div class="mb-3">
                                                     <label for="usermsg" class="form-label">Your Message</label>
-                                                    <textarea class="form-control" id="usermsg" rows="9" placeholder="Type Here.."></textarea>
+                                                    <textarea name="message" class="form-control" id="usermsg" rows="9" placeholder="Type Here.."></textarea>
                                                 </div>
                                             </div>
                                             <div className="col-md-12">
-                                                <button className="btn-8 custom-btn ms-0 mt-5"><span>Submit</span></button>
+                                                {
+                                                    loading
+                                                        ?
+                                                        <div className="btn-8 custom-btn ms-0 mt-5 ">Please Wait...</div>
+                                                        :
+                                                        <button className="btn-8 custom-btn ms-0 mt-5" type="submit"><span>Submit</span></button>
+                                                }
                                             </div>
                                         </div>
                                     </form>
@@ -131,4 +168,3 @@ export default function Contact() {
         </>
     )
 }
-

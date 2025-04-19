@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom';
 import { IoCallOutline } from "react-icons/io5";
 import { CiMail } from "react-icons/ci";
@@ -8,12 +9,36 @@ import { IoIosSend } from "react-icons/io";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
+import axiosInstance from '../config/axiosInstance';
 
 export default function Footer() {
+    const emailHendler = async (event) => {
+        event.preventDefault();
+        const emailData = {
+            email: event.target.email.value
+        }
+        try {
+            const response = await axiosInstance.post('/subscribe', emailData)
+            if (response.status === 200) {
+                Swal.fire({
+                    text: response.data.message,
+                    icon: "success"
+                });
+                event.target.reset();
+            }
+        } catch (error) {
+            console.log('error', error);
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+            });
+        }
+    }
     return (
         <>
             <footer className="footer-section">
-            <div className="footer-overlay"></div>
+                <div className="footer-overlay"></div>
                 <div className="container FooterTop">
                     <div className='row'>
                         <div className='col-md-6 col-sm-12 d-md-flex gap-5'>
@@ -36,8 +61,9 @@ export default function Footer() {
                                         <Link to={'/privacypolicy'} data-replace="Privacy Policy" className='fw-bold'><span>Privacy Policy</span></Link>
                                     </li>
                                 </ul>
-                            </div>
-                            
+
+                            </div>                          
+
                             <div className='navLinks'>
                                 <h2>Services</h2>
                                 <ul>
@@ -62,7 +88,7 @@ export default function Footer() {
                                 <h2>Contact</h2>
                                 <ul>
                                     <li className='d-flex gap-3 align-items-center'>
-                                        <IoCallOutline  style={{ color: "#fff", fontWeight: "500" }} />
+                                        <IoCallOutline style={{ color: "#fff", fontWeight: "500" }} />
                                         <a href="tel:+917297026119" data-replace="+91 72970 26119"><span className='fw-bold'>+91 72970 26119</span></a>
                                     </li>
                                     <li className='d-flex gap-3 align-items-center'>
@@ -84,15 +110,18 @@ export default function Footer() {
                                 <img src='/images/stylo_Logo.png' className='img-fluid mb-3' width={100} />
                                 <p className='w-100'>Su Stylo revolutionizes salon bookings with seamless, premium grooming services. Effortlessly book top-tier salons, enjoy hassle free appointments, and experience luxury self care all at your convenience. Redefine beauty and grooming with just a tap!</p>
                                 <label for="subscribeMAil" class="form-label">Email address</label>
-                                <div class="mb-3 d-flex align-items-center">
-                                    <input type="email" class="form-control" id="subscribeMAil" placeholder="Your Mail..." />
-                                    <Link className='SendBtn'><IoIosSend /></Link>
-                                </div>
+                                <form class="mb-3 d-flex align-items-center" onSubmit={emailHendler}>
+                                    <input type="email" name='email' class="form-control" id="subscribeMAil" placeholder="Your Mail..." />
+                                    <button type='submit' className='SendBtn'>
+                                        <IoIosSend />
+                                        {/* <Link className='SendBtn'><IoIosSend /></Link> */}
+                                    </button>
+                                </form>
                                 <div className='social_media'>
                                     <h3>Social Media</h3>
 
                                     <div className=' d-flex gap-3'>
-                                    <Link to={'https://www.facebook.com/Sustylosalon/'}><img src='/images/facebook-logo.png' className='social-logo'  width={34}  /></Link>
+
                                         <Link to={'https://www.instagram.com/?hl=en'}><img src='/images/insta-logo.png' className='social-logo' width={34} /></Link>
                                         <img src='/images/youtube-logo.png' className='social-logo' width={34} />
                                     </div>
@@ -100,10 +129,10 @@ export default function Footer() {
                             </div>
                         </div>
                     </div>
-                    <hr style={{borderColor:"#fff"}} />
+                    <hr style={{ borderColor: "#fff" }} />
                     <div className='row'>
                         <div className='col-md-12'>
-                            <p className='mb-0 text-white position-relative text-center' style={{zIndex:"99"}}>© 2025 Su Stylo. All Rights Reserved.</p>
+                            <p className='mb-0 text-white position-relative text-center' style={{ zIndex: "99" }}>© 2025 Su Stylo. All Rights Reserved.</p>
 
                         </div>
 
