@@ -9,7 +9,7 @@ export default function Blog() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const domRef = useRef(null);
- 
+  
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
     handleBlog();
