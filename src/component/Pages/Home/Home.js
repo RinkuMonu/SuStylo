@@ -81,20 +81,19 @@ const salons = [
   },
 ];
 
-
 export default function Home() {
   const [location, setLocation] = useState({
     latitude: "",
-    longitude: ""
+    longitude: "",
   });
 
-  console.log("lllllllll", location.latitude)
+  console.log("lllllllll", location.latitude);
   const [address, setAddress] = useState("Fetching address...");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [salonData, setSalonData] = useState([]);
   const [fulladdress, setfulladdress] = useState("");
-  const [popularSalonData, setpopularSalonData] = useState([])
+  const [popularSalonData, setpopularSalonData] = useState([]);
 
   const [data, setData] = useState({
     location: "",
@@ -113,8 +112,6 @@ export default function Home() {
         async (position) => {
           const { latitude, longitude } = position.coords;
           console.log("Location found.....:", latitude, longitude);
-
-
 
           // Set location state
           setLocation({ latitude: latitude, longitude: longitude });
@@ -169,7 +166,7 @@ export default function Home() {
       gender: prevData.gender === "male" ? "female" : "male",
     }));
   };
-  console.log("lllllllll", location.latitude)
+  console.log("lllllllll", location.latitude);
 
   const fetchData = async (lat, lng) => {
     console.log("dfghjhgfdsdfg", lat, lng);
@@ -179,12 +176,11 @@ export default function Home() {
         params: {
           latitude: lat,
           longitude: lng,
-
         },
       });
-      console.log("ressssppp", response)
-      console.log("ressssppp", response.data)
-      console.log("ressssppp", response.data.salons)
+      console.log("ressssppp", response);
+      console.log("ressssppp", response.data);
+      console.log("ressssppp", response.data.salons);
       setSalonData(response.data.salons);
       console.log("Salon Data:-", response.data.salons);
     } catch (error) {
@@ -195,7 +191,7 @@ export default function Home() {
   useEffect(() => {
     const mostPopularData = async () => {
       try {
-        const response = await axiosInstance.get("/salon/mostreview")
+        const response = await axiosInstance.get("/salon/mostreview");
 
         setpopularSalonData(response.data?.salons);
       } catch (error) {
@@ -232,12 +228,19 @@ export default function Home() {
     }
   }, [location.latitude, location.longitude]);
 
-
   // search dropdown
   return (
     <>
-      <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef} >
+      <div
+        className={`fade-in-section ${isVisible ? "is-visible" : ""}`}
+        ref={domRef}
+      >
         <HeroSection />
+        <img
+          style={{ height: "200px", width: "200px" }}
+          src="https://sustylo-web.onrender.com/uploads/salonPhotos/1745226689557-142713653.jpeg"
+          alt="ududd"
+        />
         <section className="content-section">
           <ServicesSlider />
           <GallerySection />
@@ -249,12 +252,16 @@ export default function Home() {
           */}
           {/* Near By Search */}
           <div className="search_result">
-            <div className='container-fluid'>
+            <div className="container-fluid">
               <div className="row">
                 <div className="col-md-12">
                   <div className="gallery_heading w-50 mx-auto">
-                    <h2 className='text-center'>Services & Categories</h2>
-                    <p>Book your appointment now using the best salon app in India or the barber appointment app to redefine your style!</p>
+                    <h2 className="text-center">Services & Categories</h2>
+                    <p>
+                      Book your appointment now using the best salon app in
+                      India or the barber appointment app to redefine your
+                      style!
+                    </p>
                   </div>
                   <div
                     className="de-separator"
@@ -268,8 +275,17 @@ export default function Home() {
             </div>
             <div className="container">
               <div className="row mb-4">
-                <div className="deals_heading mb-4 d-flex gap-2" style={{ alignItems: "flex-start" }}>
-                  <div style={{ background: "#fb8807", padding: '6px 10px', borderRadius: "8px", }}>
+                <div
+                  className="deals_heading mb-4 d-flex gap-2"
+                  style={{ alignItems: "flex-start" }}
+                >
+                  <div
+                    style={{
+                      background: "#fb8807",
+                      padding: "6px 10px",
+                      borderRadius: "8px",
+                    }}
+                  >
                     <i class="bi bi-graph-up" style={{ color: "#fff" }}></i>
                   </div>
                   <h3>Most Popular Salon</h3>
@@ -285,15 +301,30 @@ export default function Home() {
                 >
                   {popularSalonData.map((salon) => (
                     <SwiperSlide key={salon._id} className="">
-                      <Link  to={`/salondetails`}
+                      <Link
+                        to={`/salondetails`}
                         state={{ userId: salon._id }}
-                         className="cs-main__card-box text-decoration-none">
+                        className="cs-main__card-box text-decoration-none"
+                      >
                         <div className="cs-main__card-img">
-                          <img
-                            src={salon.salonPhotos[0]}
-                            className="img-fluid"
-                            alt={salon.name}
-                          />
+                        <img
+  src={`https://sustylo-web.onrender.com/${salon.salonPhotos[0]}`}
+  className="img-fluid"
+  alt={salon.salonName}
+ 
+/>
+                          {/* <img
+                            src="https://sustylo-web.onrender.com/uploads/salonPhotos/1745230383388-73864633.jpg"
+                            alt="Salon"
+                            style={{
+                              width: "300px",
+                              height: "auto",
+                              border: "2px solid red", // helpful for debugging
+                              display: "block",
+                            }}
+                          /> */}
+
+                          {/* {console.log("saloon photos", salon.salonPhotos[0])} */}
                           <div className="cs-main__card-rating-box">
                             {/* <span className="cs-mcard-aR">{salon.rating}</span> */}
                             {/* <span className="cs-mcard-aText">
@@ -327,8 +358,17 @@ export default function Home() {
                 </Swiper>
               </div>
               <div className="row mb-4">
-                <div className="deals_heading mb-4 d-flex gap-2" style={{ alignItems: "flex-start" }}>
-                  <div style={{ background: "#fb8807", padding: '6px 10px', borderRadius: "8px", }}>
+                <div
+                  className="deals_heading mb-4 d-flex gap-2"
+                  style={{ alignItems: "flex-start" }}
+                >
+                  <div
+                    style={{
+                      background: "#fb8807",
+                      padding: "6px 10px",
+                      borderRadius: "8px",
+                    }}
+                  >
                     <i class="bi bi-pin-map" style={{ color: "#fff" }}></i>
                   </div>
                   <h3>Near By Salon</h3>
@@ -349,7 +389,6 @@ export default function Home() {
                         state={{ userId: salon._id }}
                         className="cs-main__card-box text-decoration-none"
                       >
-
                         <div className="cs-main__card-img">
                           <img
                             src={salon.salonPhotos[0]}
@@ -357,7 +396,9 @@ export default function Home() {
                             alt={salon.salonName}
                           />
                           <div className="cs-main__card-rating-box">
-                            <span className="cs-mcard-aR">{salon.reviewCount}</span>
+                            <span className="cs-mcard-aR">
+                              {salon.reviewCount}
+                            </span>
                             <span className="cs-mcard-aText">
                               <span>{salon.reviewCount}</span> ratings
                             </span>
@@ -379,8 +420,8 @@ export default function Home() {
                           </div>
                           <ul className="cs-main__card-list my-0 list-unstyled">
                             <li className="cs-main__card-list-item d-flex align-items-center">
-                              <FaRoute className="icon me-2" /> {parseFloat(salon.distance).toFixed(2)} km
-
+                              <FaRoute className="icon me-2" />{" "}
+                              {parseFloat(salon.distance).toFixed(2)} km
                             </li>
                           </ul>
                         </div>

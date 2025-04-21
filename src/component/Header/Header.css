@@ -113,3 +113,18 @@ li {
 .dropdown-menu .dropdown-item:hover {
   background-color: #f8f9fa;
 }
+
+.profile-hover-wrapper {
+  position: relative;
+}
+
+.logout-btn {
+  display: none;
+  margin-left: 8px;
+  font-size: 0.9rem;
+  color: red;
+}
+
+.profile-hover-wrapper:hover .logout-btn {
+  display: inline;
+}
