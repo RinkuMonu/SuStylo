@@ -16,7 +16,7 @@ export default function SearchResults() {
     <div className="container my-4">
       {/* Search header with breadcrumb */}
       <div className="d-flex align-items-center mb-4">
-        <nav aria-label="breadcrumb">
+        {/* <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
               <Link to="/">Home</Link>
@@ -25,7 +25,7 @@ export default function SearchResults() {
               Search Results
             </li>
           </ol>
-        </nav>
+        </nav> */}
       </div>
 
       {/* Search summary */}

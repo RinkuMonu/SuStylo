@@ -391,6 +391,11 @@ export default function Home() {
                             className="img-fluid"
                             alt={salon.salonName}
                           />
+                       
+                          <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
+                            {salon.salonName}
+                            
+                          </h3>
                           <div className="cs-main__card-rating-box">
                             <span className="cs-mcard-aR">
                               {salon.reviewCount}
