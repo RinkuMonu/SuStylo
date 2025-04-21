@@ -13,7 +13,7 @@ export default function SalonPartner() {
     mobile: "",
     email: "",
     salonAddress: "",
-  });
+  }); 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -29,7 +29,7 @@ export default function SalonPartner() {
           });
           console.log('Success:', response.data);
 
-          // Clear the form data after successful submission
+       
           setFormData({
               ownerName: "",
               salonName: "",
