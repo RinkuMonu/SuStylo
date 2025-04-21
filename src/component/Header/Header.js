@@ -171,48 +171,51 @@ export default function Header() {
                 </Link>
               </li>
               {isLoggedIn ? (
-                <li className="nav-item dropdown">
-                  <div className="nav-link dropdown-toggle service-toggle">
-                    <CgProfile />
-                    <span className="user-name">{userName}</span>
-                  
-                    <ul className="dropdown-menu service-menu">
-                  <li>
-                    <Link
-                      className="dropdown-item service-item"
-                      onClick={() => {
-                        localStorage.removeItem("token");
-                        localStorage.removeItem("id");
-                        setIsLoggedIn(false);
-                      }}
-                    >
-                      Logout <TbLogout className="mr-4"/>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className="dropdown-item service-item"
-                     
-                    >
-                    Wallet Balance:- {walletBalance}<BsWallet2 className="mr-4"/>
-                    </Link>
-                  </li>
-                  
-                </ul>
-                  </div>
-                </li>
-              ) : (
-                <li className="nav-item">
-                  <Link
-                    className="nav-link"
-                    to="/login"
-                    onClick={handleLinkClick}
-                  >
-                    Login →
-                  </Link>
-                </li>
-              )}
-             
+  <li className="nav-item dropdown">
+    <a 
+      className="nav-link dropdown-toggle d-flex align-items-center" 
+      href="#" 
+      role="button" 
+      data-bs-toggle="dropdown" 
+      aria-expanded="false"
+    >
+      <CgProfile className="me-2" />
+      <span className="user-name">{userName}</span>
+    </a>
+    <ul className="dropdown-menu dropdown-menu-end">
+      <li>
+        <Link
+          className="dropdown-item d-flex justify-content-between align-items-center"
+          to="#"
+          onClick={() => {
+            localStorage.removeItem("token");
+            localStorage.removeItem("id");
+            setIsLoggedIn(false);
+          }}
+        >
+          Logout
+          <TbLogout />
+        </Link>
+      </li>
+      <li>
+        <div className="dropdown-item d-flex justify-content-between align-items-center">
+          Wallet: {walletBalance}
+          <BsWallet2 />
+        </div>
+      </li>
+    </ul>
+  </li>
+) : (
+  <li className="nav-item">
+    <Link
+      className="nav-link d-flex align-items-center"
+      to="/login"
+      onClick={handleLinkClick}
+    >
+      Login <span className="ms-1">→</span>
+    </Link>
+  </li>
+)}
             </ul>
           </div>
         </div>

@@ -236,11 +236,7 @@ export default function Home() {
         ref={domRef}
       >
         <HeroSection />
-        <img
-          style={{ height: "200px", width: "200px" }}
-          src="https://sustylo-web.onrender.com/uploads/salonPhotos/1745226689557-142713653.jpeg"
-          alt="ududd"
-        />
+       
         <section className="content-section">
           <ServicesSlider />
           <GallerySection />
@@ -308,7 +304,7 @@ export default function Home() {
                       >
                         <div className="cs-main__card-img">
                         <img
-  src={`https://sustylo-web.onrender.com/${salon.salonPhotos[0]}`}
+  src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg"
   className="img-fluid"
   alt={salon.salonName}
  
@@ -391,7 +387,7 @@ export default function Home() {
                       >
                         <div className="cs-main__card-img">
                           <img
-                            src={salon.salonPhotos[0]}
+                            src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg"
                             className="img-fluid"
                             alt={salon.salonName}
                           />
