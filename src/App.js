@@ -58,11 +58,13 @@ const router = createBrowserRouter([
       { path: "/cancellationrefundpolicy", element: <CancellationRefund /> },
       { path: "/privacypolicy", element: <PrivacyPolicy /> },
       { path: "/womenservices", element: <WomenServices /> },
-      { path: "/login", element: <Login /> },
+   
       { path: "/hair", element: <Hair /> },
       { path: "/search-results", element: <SearchResults /> },
     ],
+    
   },
+  { path: "/login", element: <Login /> },
 ]);
  
 function App() {

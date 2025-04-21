@@ -8,22 +8,31 @@ const Login = () => {
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
   const [showOtpField, setShowOtpField] = useState(false);
-  const [error, setError] = useState()
+  const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
     mobileNumber: "",
   });
 
   const navigate = useNavigate();
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-
   const sendOtp = async (e) => {
     e.preventDefault();
+    
+    // Validate mobile number
+    if (!formData.mobileNumber || !/^\d{10}$/.test(formData.mobileNumber)) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Mobile Number",
+        text: "Please enter a valid 10-digit mobile number",
+      });
+      return;
+    }
+    
     setLoading(true);
     try {
       const response = await axiosInstance.post("/user/send-otp", {
@@ -33,27 +42,22 @@ const Login = () => {
       if (response.status === 200) {
         Swal.fire({
           title: "OTP Sent Successfully",
+          text: `OTP has been sent to ${formData.mobileNumber}`,
           icon: "success",
-          draggable: true,
+          timer: 3000,
+          showConfirmButton: false,
         });
         setShowOtpField(true);
+        setError(null);
       }
     } catch (error) {
       let errorMessage = "Something went wrong! Please try again.";
-
       if (error.response) {
-        console.log("error", error.response)
-        console.log("error", error.response.data?.message)
-        console.log("error", error.response.data?.data)
-        // API ne response diya but error status ke saath
-        errorMessage =  error.response.data?.message || "An error occurred";
-        setLoading(false)
+        errorMessage = error.response.data?.message || "An error occurred";
       } else if (error.request) {
-        // Network down hone ki wajah se response nahi aaya
         errorMessage = "Network Error! Please check your internet connection.";
-        setLoading(false)
       }
-
+      setError(errorMessage);
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -64,156 +68,184 @@ const Login = () => {
     }
   };
 
-
   const verifyOtp = async (e) => {
     e.preventDefault();
+    
+    // Validate OTP
+    if (!otp || !/^\d{4}$/.test(otp)) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid OTP",
+        text: "Please enter a valid 4-digit OTP",
+      });
+      return;
+    }
+    
     setLoading(true);
     try {
       const response = await axiosInstance.post("/user/verify-otp", {
         mobileNumber: formData.mobileNumber,
-        otp,
+        otp:otp,
       });
-      // console.log("Response:-",response.data.user.token)
+console.log("Login data",response.data)
       if (response.status === 200) {
-        const token = response.data.user.token;
-        const id = response.data.user.id;
+        const { token, user } = response.data;
         localStorage.setItem("token", token);
-        localStorage.setItem("id", id);
-        Swal.fire({
+        localStorage.setItem("id", user._id);
+        localStorage.setItem("gender", user.gender);
+        
+        await Swal.fire({
           title: "Login Successful",
           icon: "success",
-          draggable: true,
-        }).then(() => {
-          navigate("/");
+          timer: 1500,
+          showConfirmButton: false,
         });
+        navigate("/");
       }
     } catch (error) {
-
-
+      let errorMessage = "Something went wrong!";
       if (error.response) {
-        console.log("error", error.response)
-        console.log("error", error.response.data?.message)
-        console.log("error", error.response.data?.data)
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: error.response?.data?.message || "User not Register`",
-        });
-        setError(error.response?.data?.message);
+        errorMessage = error.response.data?.message || "Invalid OTP";
       } else if (error.request) {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Network Error! Please try again." || "An error occurred",
-        });
-        setError("Network Error! Please try again.");
-      } else {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Network Error! Please try again." || "An error occurred",
-        });
-        setError("Something went wrong!");
+        errorMessage = "Network Error! Please check your internet connection.";
       }
+      setError(errorMessage);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: errorMessage,
+      });
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <>
-      <div className="container-fluid p-0 login_container">
-        <div className="login_bg">
-          <div className="row">
-            <div className="col-md-6">
-              <div className="side_img">
-              <div
-  className="d-flex justify-content-center align-items-center"
-  style={{ height: "100vh", marginTop: "70px" }}
->
-  <img
-    src="./images/gallery/login-salon.png"
-    className="img-fluid"
-    alt="salon"
-    style={{ height: "70vh", objectFit: "cover" }}
-  />
-</div>
-
-              </div>
+    <div className="login-container">
+      <div className="login-wrapper">
+        <div className="login-image-section">
+          <img
+            src="./images/gallery/login-salon.png"
+            className="login-image"
+            alt="Salon"
+          />
+        </div>
+        
+        <div className="login-form-section">
+          <div className="login-form-container">
+            <img 
+              src="/images/stylo_Logo.png" 
+              alt="logo" 
+              className="img-fluid" 
+              width={70} 
+            />
+            <div className="login-header">
+              <h2 className="mt-3">Welcome Back!</h2>
+              <p>Please enter your login details</p>
             </div>
-            <div className="col-md-6 pe-5 my-auto">
-              <div className="login-control ps-2">
-
-
-
-                <div className="form_heading text-left">
-                  <h2>Welcome Back!</h2>
-                  <p>Please Enter Your Login Details</p>
-                </div>
-
-                <div className="login_form">
-                  <form>
-                    <div className="row">
-                      {/* Mobile Number Field */}
-                      <div className="col-md-12">
-                        <div className="mb-3">
-                          <label htmlFor="mobileNumber" className="form-label">Mobile Number</label>
-                          <input
-                            type="tel"
-                            className="form-control w-75"
-                            id="mobileNumber"
-                            placeholder="Enter Mobile Number"
-                            name="mobileNumber"
-                            value={formData.mobileNumber}
-                            onChange={handleChange}
-                            required
-                            disabled={showOtpField} // Disable after sending OTP
-                          />
-                        </div>
-                        {!showOtpField && (
-                          <button type="button" className="btn btn-primary w-75" onClick={sendOtp} disabled={loading}>
-                            {loading ? "Sending..." : "Send OTP"}
-                          </button>
-                        )}
-                      </div>
-
-                      {/* OTP Field (Shown After Sending OTP) */}
-                      {showOtpField && (
-                        <div className="col-md-12">
-                          <div className="mb-3">
-                            <label htmlFor="otp" className="form-label">OTP</label>
-                            <input
-                              type="number"
-                              className="form-control"
-                              id="otp"
-                              placeholder="Enter OTP"
-                              name="otp"
-                              value={otp}
-                              onChange={(e) => setOtp(e.target.value)}
-                              required
-                            />
-                          </div>
-                          <button type="button" className="btn btn-success w-100" onClick={verifyOtp} disabled={loading}>
-                            {loading ? "Verifying..." : "Login"}
-                          </button>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Register Link */}
-                    <div className="mt-3 ">
-                      <p style={{ fontSize: "13px" }}>
-                        Don't have an account? <a href="/register">Register</a>
-                      </p>
-                    </div>
-                  </form>
-                </div>
+            
+            <form className="login-form">
+              <div className="form-group">
+                <label htmlFor="mobileNumber">Mobile Number</label>
+                <input
+                  type="tel"
+                  id="mobileNumber"
+                  placeholder="Enter 10-digit mobile number"
+                  name="mobileNumber"
+                  value={formData.mobileNumber}
+                  onChange={handleChange}
+                  required
+                  maxLength="10"
+                  pattern="\d{10}"
+                  disabled={showOtpField}
+                  className={error ? "error-input" : ""}
+                />
+                {error && <div className="error-message">{error}</div>}
               </div>
-            </div>
+              
+              {!showOtpField ? (
+                <button
+                  type="submit"
+                  className="btn-primary"
+                  style={{
+                    backgroundColor: "#ffdecc",
+                    backgroundImage: "linear-gradient(225deg, #ffdecc 0%, #f35200 100%)",
+                  }}
+                  onClick={sendOtp}
+                  disabled={loading || !formData.mobileNumber}
+                >
+                  {loading ? (
+                    <>
+                      <span 
+                        className="spinner-border spinner-border-sm me-2" 
+                        role="status" 
+                        aria-hidden="true"
+                      ></span>
+                      Sending OTP...
+                    </>
+                  ) : (
+                    "Send OTP"
+                  )}
+                </button>
+              ) : (
+                <>
+                  <div className="form-group">
+                    <label htmlFor="otp">OTP</label>
+                    <input
+                      type="text"
+                      id="otp"
+                      placeholder="Enter 4-digit OTP"
+                      name="otp"
+                      value={otp}
+                      onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 4))}
+                      required
+                      maxLength="4"
+                      pattern="\d{4}"
+                      inputMode="numeric"
+                    />
+                    <div className="otp-resend">
+                      Didn't receive OTP? 
+                      <button 
+                        type="button" 
+                        className="resend-link"
+                        onClick={sendOtp}
+                        disabled={loading}
+                      >
+                        Resend
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    className="btn-primary"
+                    style={{
+                      backgroundColor: "#ffdecc",
+                      backgroundImage: "linear-gradient(225deg, #ffdecc 0%, #f35200 100%)",
+                    }}
+                    onClick={verifyOtp}
+                    disabled={loading || !otp}
+                  >
+                    {loading ? (
+                      <>
+                        <span 
+                          className="spinner-border spinner-border-sm me-2" 
+                          role="status" 
+                          aria-hidden="true"
+                        ></span>
+                        Verifying...
+                      </>
+                    ) : (
+                      "Login"
+                    )}
+                  </button>
+                </>
+              )}
+            </form>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
