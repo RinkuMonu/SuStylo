@@ -199,8 +199,8 @@ export default function Header() {
       </li>
       <li>
         <div className="dropdown-item d-flex justify-content-between align-items-center">
-          Wallet: {walletBalance}
           <BsWallet2 />
+        {walletBalance}
         </div>
       </li>
     </ul>

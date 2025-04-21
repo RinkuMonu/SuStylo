@@ -159,10 +159,12 @@ export default function SalonDetails() {
                 <div className="col-md-7">
                   <div className="salon-img">
                     <img
-                      src={salonDetails?.salon?.salonPhotos[0]}
+                    src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg"
                       className="img-fluid rounded"
+                      alt=""
                     />
                   </div>
+                      {/* src={salonDetails?.salon?.salonPhotos[0]} */}
                   <div className="salon_name my-4 d-flex justify-content-between">
                     <div className="left_side">
                       <h2>{salonDetails?.salon?.salonName}</h2>
