@@ -133,7 +133,7 @@ function BlogsDetails() {
             <div className="row">
               <div className="col-md-8 col-sm-12 mb-3">
                 <div className="title-img">
-                  <img src={blog.image || "./images/9052.jpg"} className="img-fluid" alt={blog.title} />
+                  <img src={blog.image || "https://framerusercontent.com/images/y6h3MUMisOe3SS8MABsJ8tKikA.jpeg"} className="img-fluid" alt={blog.title} />
                 </div>
                 <div className="blog-user">
                   <a href="#"><i className="bi bi-person me-2"></i>by {blog.author || 'admin'}</a>

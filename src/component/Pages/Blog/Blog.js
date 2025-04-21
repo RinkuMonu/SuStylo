@@ -82,11 +82,12 @@ export default function Blog() {
                 <div className="col-md-5">
                   <div className="blog_img">
                     <img
-                      src={blog.imageUrl}
+                    src="https://framerusercontent.com/images/y6h3MUMisOe3SS8MABsJ8tKikA.jpeg"
                       className="img-fluid"
                       alt={blog.title}
                      
                     />
+                      {/* src={blog.imageUrl} */}
                   </div>
                 </div>
                 <div className="col-md-6">

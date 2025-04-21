@@ -66,13 +66,14 @@ export default function SearchResults() {
               >
                 <div className="card-img-top overflow-hidden" style={{ height: "200px" }}>
                   <img
-                    src={salon.salonPhotos?.[0] || "/placeholder.jpg"}
+                  src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg"
                     className="img-fluid h-100 w-100 object-fit-cover"
                     alt={salon.salonName}
                     onError={(e) => {
                       e.target.src = "/placeholder.jpg";
                     }}
                   />
+                    {/* src={salon.salonPhotos?.[0] || "/placeholder.jpg"} */}
                 </div>
                 <div className="card-body">
                   <h3 className="h5 card-title text-truncate">{salon.salonName}</h3>
