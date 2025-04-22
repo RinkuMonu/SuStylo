@@ -6,21 +6,33 @@ import { FaRoute } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { FaYoutube } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
+import { Link ,useLocation } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import axiosInstance from "../../config/axiosInstance";
 
 export default function SalonDetails() {
-  const { id } = useParams();
+  const location = useLocation();
+  const { userId } = location.state || {};
+  const { salonId } = location.state || {};
+
+
   const [salonDetails, setSalonDetails] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axiosInstance.get(`/salon/view/${id}`);
+        const idToUse = salonId?._id || userId;
+      
+      if (!idToUse) {
+        console.error("No ID available for fetching salon data");
+        setLoading(false);
+        return;
+      }
+        const response = await axiosInstance.get(`/salon/view/${idToUse}`);
 
         setSalonDetails(response?.data);
+        console.log("salonData:-", response);
         console.log("salonData:-", response.data);
         console.log("data:- ", response?.data?.salon?.salonName);
         console.log("Address:- ", response?.data?.salon?.salonAddress);
@@ -32,7 +44,7 @@ export default function SalonDetails() {
     };
 
     fetchData();
-  }, [id]);
+  }, [userId,salonId?._id]);
 
 
   useEffect(() => {
@@ -137,6 +149,7 @@ export default function SalonDetails() {
                 <FaYoutube className="fs-4" />
               </Link>
             </div>
+            
           </div>
         </section>
         <div className="container-fluid content-section">
@@ -146,10 +159,12 @@ export default function SalonDetails() {
                 <div className="col-md-7">
                   <div className="salon-img">
                     <img
-                      src={salonDetails?.salon?.salonPhotos[0]}
+                    src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg"
                       className="img-fluid rounded"
+                      alt=""
                     />
                   </div>
+                      {/* src={salonDetails?.salon?.salonPhotos[0]} */}
                   <div className="salon_name my-4 d-flex justify-content-between">
                     <div className="left_side">
                       <h2>{salonDetails?.salon?.salonName}</h2>
@@ -263,7 +278,7 @@ export default function SalonDetails() {
                                   </p>
                                 </div>
                                 <Link
-                                  to={`/bookappoinment/${id}`}
+                                  to={`/bookappoinment/${userId}`}
                                   className="BookAppBtn custom-btn btn-8"
                                 >
                                   Book

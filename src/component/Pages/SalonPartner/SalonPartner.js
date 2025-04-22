@@ -4,7 +4,7 @@ import WOW from "wow.js";
 import "./Salon.css";
 import SimpleParallax from "simple-parallax-js";
 import axiosInstance from "../../config/axiosInstance";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 export default function SalonPartner() {
   const [formData, setFormData] = useState({
@@ -13,54 +13,53 @@ export default function SalonPartner() {
     mobile: "",
     email: "",
     salonAddress: "",
-  });
+  }); 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async () => {
-    try {
-        const response = await axiosInstance.post('/salon/register', formData);
-        Swal.fire({
-            icon: 'success',
-            title: 'Success!',
-            text: 'Your form has been filled successfully!'
-        });
-        console.log('Success:', response.data);
+    const handleSubmit = async () => {
+      try {
+          const response = await axiosInstance.post('/salon/lead', formData);
+          Swal.fire({
+              icon: 'success',
+              title: 'Success!',
+              text: 'Your form has been filled successfully!'
+          });
+          console.log('Success:', response.data);
 
-        // Clear the form data after successful submission
-        setFormData({
-            ownerName: "",
-            salonName: "",
-            mobile: "",
-            email: "",
-            salonAddress: ""
-        });
-    } catch (error) {
-        if (error.response && error.response.status === 400) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Duplicate Entry',
-                text: 'Your email ID or phone number already exists!'
-            });
-        } else {
-            console.error('Error submitting form:', error);
-        }
-    }
-};
+       
+          setFormData({
+              ownerName: "",
+              salonName: "",
+              mobile: "",
+              email: "",
+              salonAddress: ""
+          });
+      } catch (error) {
+          if (error.response && error.response.status === 400) {
+              Swal.fire({
+                  icon: 'error',
+                  title: 'Duplicate Entry',
+                  text: 'Your email ID or phone number already exists!'
+              });
+          } else {
+              console.error('Error submitting form:', error);
+          }
+      }
+  };
 
-
-const handleCancel =()=>{
+ 
+  const handleCancel = () => {
     setFormData({
-        ownerName: "",
-        salonName: "",
-        mobile: "",
-        email: "",
-        salonAddress: ""
+      ownerName: "",
+      salonName: "",
+      mobile: "",
+      email: "",
+      salonAddress: "",
     });
-}
-
+  };
 
   useEffect(() => {
     new WOW().init();
@@ -230,7 +229,9 @@ const handleCancel =()=>{
                         >
                           Submit
                         </button>
-                        <button className="cancelBtn" onClick={handleCancel}>Cancel</button>
+                        <button className="cancelBtn" onClick={handleCancel}>
+                          Cancel
+                        </button>
                       </div>
                     </div>
                   </div>

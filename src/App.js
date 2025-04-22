@@ -22,52 +22,57 @@ import MenServices from './component/Pages/ServicesType/MenServices.js';
 import WomenServices from './component/Pages/ServicesType/WomenServices.js';
 import Login from './component/Pages/login/Login.js';
 import Hair from './component/Pages/Services/Hair.js';
-
-
-
+import SearchResults from './component/Pages/Home/SearchResults.js';
+ 
+ 
+ 
 const seoData = {
   "/": {
     title: "Book Salons & Beauty Services | Grow Your Business",
     description:
-      "Book top-rated salons and beauty services near you. Salon owners, register now to grow your business with easy bookings and verified professionals.",
+      "Book top-rated salons and beauty services near you. Salon owners, register now to grow your business with easy bookings and verified professionals.",
   },
 };
-
-
-
-
+ 
+ 
+ 
+ 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />, 
+    element: <Layout />,
     children: [
-
-      { path: "/", element: <Home /> }, 
-      { path: "/salonpartner", element: <SalonPartner /> }, 
+ 
+      { path: "/", element: <Home /> },
+      { path: "/salonpartner", element: <SalonPartner /> },
       { path: "/salondetails", element: <SalonDetails /> },
-      { path: "/bookappoinment", element: <BookNow /> },
-      { path: "/about", element: <About /> }, 
-      { path: "/services", element: <Services /> }, 
-      { path: "/contact", element: <Contact /> }, 
-      { path: "/profile", element: <Profile /> }, 
-      { path: "/blog", element: <Blog /> }, 
-      { path: "/blogdetail", element: <BlogsDetails/> }, 
-      { path: "/menservices", element: <MenServices/> }, 
-      { path: "/termsandcondition", element: <TermsandCondition /> }, 
-      { path: "/cancellationrefundpolicy", element: <CancellationRefund /> }, 
-      { path: "/privacypolicy", element: <PrivacyPolicy /> }, 
-      { path: "/womenservices", element: <WomenServices /> }, 
-      { path: "/login", element: <Login /> },
+      { path: "/bookappoinment/:id", element: <BookNow /> },
+      { path: "/about", element: <About /> },
+      { path: "/services", element: <Services /> },
+      { path: "/contact", element: <Contact /> },
+      { path: "/profile", element: <Profile /> },
+      { path: "/blog", element: <Blog /> },
+      { path: "/blogdetail/:id", element: <BlogsDetails/> },
+      { path: "/menservices", element: <MenServices/> },
+      { path: "/termsandcondition", element: <TermsandCondition /> },
+      { path: "/cancellationrefundpolicy", element: <CancellationRefund /> },
+      { path: "/privacypolicy", element: <PrivacyPolicy /> },
+      { path: "/womenservices", element: <WomenServices /> },
       { path: "/hair", element: <Hair /> },
+      { path: "/search-results", element: <SearchResults /> },
     ],
+    
   },
+  { path: "/login", element: <Login /> },
 ]);
-
+ 
 function App() {
-
-
-
+ 
+ 
+ 
   return <RouterProvider router={router} />;
 }
-
+ 
 export default App;
+ 
+ 

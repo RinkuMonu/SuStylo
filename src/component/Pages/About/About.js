@@ -1,12 +1,42 @@
 import React, { useState, useEffect, useRef } from "react";
 import AOS from "aos";
 import WOW from "wow.js";
+import Swal from 'sweetalert2'
 import '../style/style.css'
 import SimpleParallax from "simple-parallax-js";
 import { Link } from "react-router-dom";
+import axiosInstance from "../../config/axiosInstance";
+
 
 
 export default function About() {
+    const [loading, setLoading] = useState(false);
+    // formHendler part start
+    const formHendler = async (event) => {
+        event.preventDefault();
+        setLoading(true)
+        const { name, email, number } = event.target;
+        const userData = {
+            name: name.value,
+            email: email.value,
+            mobile: number.value,
+        }
+        try {
+            const response = await axiosInstance.post('/get-in-touch', userData);
+            if (response.status == 200) {
+                Swal.fire({
+                    title: "God job !",
+                    text: response.data.message,
+                    icon: "success"
+                });
+                setLoading(false)
+                event.target.reset();
+            }
+        } catch (error) {
+            console.log('error', error);
+            setLoading(false)
+        }
+    }
     useEffect(() => {
         new WOW().init();
     }, []);
@@ -141,11 +171,12 @@ export default function About() {
                             <div className="col-md-12 position-relative" style={{ zIndex: "999" }}>
                                 <h2 className="my-5 text-white fw-bold">Get In Touch</h2>
                                 <div className="hstack gap-3">
-                                    <div className="row">
+                                    <form className="row" onSubmit={formHendler}>
                                         <div className="col" style={{ textAlign: "justify" }}>
                                             <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Name</label>
                                             <input
                                                 type="text"
+                                                name="name"
                                                 className="form-control placeholder-white border-white"
                                                 placeholder="Name"
                                                 aria-label="First name"
@@ -156,6 +187,7 @@ export default function About() {
                                             <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Email</label>
                                             <input
                                                 type="email"
+                                                name="email"
                                                 className="form-control placeholder-white border-white"
                                                 placeholder="Email"
                                                 aria-label="Last name"
@@ -166,6 +198,7 @@ export default function About() {
                                             <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Mobile</label>
                                             <input
                                                 type="number"
+                                                name="number"
                                                 className="form-control placeholder-white border-white"
                                                 placeholder="Number"
                                                 aria-label="Last name"
@@ -173,11 +206,19 @@ export default function About() {
                                         </div>
 
                                         <div className="col">
-                                            <button className="btn-8 custom-btn" style={{ marginTop: "40px" }}>
-                                                <span>Get In Touch</span>
-                                            </button>
+                                            {
+                                                loading
+                                                    ?
+                                                    <button className="btn-8 custom-btn" style={{ marginTop: "40px" }}>
+                                                        <span>Please wait..</span>
+                                                    </button>
+                                                    :
+                                                    <button className="btn-8 custom-btn" style={{ marginTop: "40px" }} type="submit">
+                                                        <span>Get In Touch</span>
+                                                    </button>
+                                            }
                                         </div>
-                                    </div>
+                                    </form>
 
                                 </div>
 

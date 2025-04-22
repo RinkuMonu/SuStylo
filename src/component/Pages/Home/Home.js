@@ -81,18 +81,20 @@ const salons = [
   },
 ];
 
-
 export default function Home() {
   const [location, setLocation] = useState({
-    latitude: "" || 2871.24324252,
-    longitude: "" || 2871.24324252,
+    latitude: "",
+    longitude: "",
   });
+
+  console.log("lllllllll", location.latitude);
   const [address, setAddress] = useState("Fetching address...");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [salonData, setSalonData] = useState([]);
   const [fulladdress, setfulladdress] = useState("");
   const [nearbySalons, setNearbySalons] = useState([]);
+  const [popularSalonData, setpopularSalonData] = useState([]);
 
   const [data, setData] = useState({
     location: "",
@@ -112,7 +114,7 @@ export default function Home() {
       navigator.geolocation.getCurrentPosition(
         async (position) => {
           const { latitude, longitude } = position.coords;
-          console.log("Location found:", latitude, longitude);
+          console.log("Location found.....:", latitude, longitude);
 
           fetchData(latitude,longitude);
 
@@ -186,8 +188,23 @@ export default function Home() {
       gender: prevData.gender === "male" ? "female" : "male",
     }));
   };
-  
+  console.log("lllllllll", location.latitude);
 
+
+
+  useEffect(() => {
+    const mostPopularData = async () => {
+      try {
+        const response = await axiosInstance.get("/salon/mostreview");
+
+        setpopularSalonData(response.data?.salons);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    mostPopularData();
+  }, []);
 
 
   useEffect(() => {
@@ -210,12 +227,21 @@ export default function Home() {
       if (domRef.current) observer.unobserve(domRef.current);
     };
   }, []);
+  useEffect(() => {
+    if (location.latitude && location.longitude) {
+      fetchData(location.latitude, location.longitude);
+    }
+  }, [location.latitude, location.longitude]);
 
   // search dropdown
   return (
     <>
-      <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef} >
+      <div
+        className={`fade-in-section ${isVisible ? "is-visible" : ""}`}
+        ref={domRef}
+      >
         <HeroSection />
+       
         <section className="content-section">
           <ServicesSlider />
           <GallerySection />
@@ -227,12 +253,16 @@ export default function Home() {
           */}
           {/* Near By Search */}
           <div className="search_result">
-            <div className='container-fluid'>
+            <div className="container-fluid">
               <div className="row">
                 <div className="col-md-12">
                   <div className="gallery_heading w-50 mx-auto">
-                    <h2 className='text-center'>Services & Categories</h2>
-                    <p>Book your appointment now using the best salon app in India or the barber appointment app to redefine your style!</p>
+                    <h2 className="text-center">Services & Categories</h2>
+                    <p>
+                      Book your appointment now using the best salon app in
+                      India or the barber appointment app to redefine your
+                      style!
+                    </p>
                   </div>
                   <div
                     className="de-separator"
@@ -246,9 +276,18 @@ export default function Home() {
             </div>
             <div className="container">
               <div className="row mb-4">
-                <div className="deals_heading mb-4 d-flex gap-2" style={{alignItems:"flex-start"}}>
-                  <div style={{ background: "#fb8807", padding: '6px 10px', borderRadius: "8px", }}>
-                    <i class="bi bi-graph-up" style={{color:"#fff"}}></i>
+                <div
+                  className="deals_heading mb-4 d-flex gap-2"
+                  style={{ alignItems: "flex-start" }}
+                >
+                  <div
+                    style={{
+                      background: "#fb8807",
+                      padding: "6px 10px",
+                      borderRadius: "8px",
+                    }}
+                  >
+                    <i class="bi bi-graph-up" style={{ color: "#fff" }}></i>
                   </div>
                   <h3>Most Popular Salon</h3>
                 </div>
@@ -261,34 +300,51 @@ export default function Home() {
                   modules={[Navigation, FreeMode]}
                   className="mySwiper"
                 >
-                  {salons.map((salon) => (
-                    <SwiperSlide key={salon.id} className="">
-                      <Link to={salon.link} className="cs-main__card-box text-decoration-none">
+                  {popularSalonData.map((salon) => (
+                    <SwiperSlide key={salon._id} className="">
+                      <Link
+                        to={`/salondetails`}
+                        state={{ userId: salon._id }}
+                        className="cs-main__card-box text-decoration-none"
+                      >
                         <div className="cs-main__card-img">
-                          <img
-                            src={salon.image}
-                            className="img-fluid"
-                            alt={salon.name}
-                          />
+                        <img
+  src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg"
+  className="img-fluid"
+  alt={salon.salonName}
+ 
+/>
+                          {/* <img
+                            src="https://sustylo-web.onrender.com/uploads/salonPhotos/1745230383388-73864633.jpg"
+                            alt="Salon"
+                            style={{
+                              width: "300px",
+                              height: "auto",
+                              border: "2px solid red", // helpful for debugging
+                              display: "block",
+                            }}
+                          /> */}
+
+                          {/* {console.log("saloon photos", salon.salonPhotos[0])} */}
                           <div className="cs-main__card-rating-box">
-                            <span className="cs-mcard-aR">{salon.rating}</span>
-                            <span className="cs-mcard-aText">
+                            {/* <span className="cs-mcard-aR">{salon.rating}</span> */}
+                            {/* <span className="cs-mcard-aText">
                               <span>{salon.reviews}</span> ratings
-                            </span>
+                            </span> */}
                           </div>
                         </div>
                         <div className="cs-main__card-content p-3">
                           <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
-                            {salon.name}
-                            <p style={{ fontSize: "12px" }}>
+                            {salon.salonName}
+                            {/* <p style={{ fontSize: "12px" }}>
                               <i className="bi bi-star me-1"></i>
                               {salon.rating} Review
-                            </p>
+                            </p> */}
                           </h3>
                           <div className="cs-main__card-location d-flex align-items-start">
                             <FaMapMarkerAlt className="icon mt-1 me-2" />
                             <p className="cs-main__card-location-text text-truncate">
-                              {salon.address}
+                              {salon.salonAddress}
                             </p>
                           </div>
                           <ul className="cs-main__card-list my-0 list-unstyled">
@@ -303,9 +359,18 @@ export default function Home() {
                 </Swiper>
               </div>
               <div className="row mb-4">
-                <div className="deals_heading mb-4 d-flex gap-2" style={{alignItems:"flex-start"}}>
-                  <div style={{ background: "#fb8807", padding: '6px 10px', borderRadius: "8px", }}>
-                    <i class="bi bi-pin-map" style={{color:"#fff"}}></i>
+                <div
+                  className="deals_heading mb-4 d-flex gap-2"
+                  style={{ alignItems: "flex-start" }}
+                >
+                  <div
+                    style={{
+                      background: "#fb8807",
+                      padding: "6px 10px",
+                      borderRadius: "8px",
+                    }}
+                  >
+                    <i class="bi bi-pin-map" style={{ color: "#fff" }}></i>
                   </div>
                   <h3>Near By Salon</h3>
                 </div>
@@ -318,19 +383,30 @@ export default function Home() {
                   modules={[Navigation, FreeMode]}
                   className="mySwiper"
                 >
-                  {salons.map((salon) => (
+                  {salonData.map((salon) => (
                     <SwiperSlide key={salon.id} className="">
-                      <Link to={salon.link} className="cs-main__card-box text-decoration-none">
+                      <Link
+                        to={`/salondetails`}
+                        state={{ userId: salon._id }}
+                        className="cs-main__card-box text-decoration-none"
+                      >
                         <div className="cs-main__card-img">
                           <img
-                            src={salon.image}
+                            src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg"
                             className="img-fluid"
-                            alt={salon.name}
+                            alt={salon.salonName}
                           />
+                       
+                          <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
+                            {salon.salonName}
+                            
+                          </h3>
                           <div className="cs-main__card-rating-box">
-                            <span className="cs-mcard-aR">{salon.rating}</span>
+                            <span className="cs-mcard-aR">
+                              {salon.reviewCount}
+                            </span>
                             <span className="cs-mcard-aText">
-                              <span>{salon.reviews}</span> ratings
+                              <span>{salon.reviewCount}</span> ratings
                             </span>
                           </div>
                         </div>
@@ -339,18 +415,19 @@ export default function Home() {
                             {salon.name}
                             <p style={{ fontSize: "12px" }}>
                               <i className="bi bi-star me-1"></i>
-                              {salon.rating} Review
+                              {salon.reviewCount} Review
                             </p>
                           </h3>
                           <div className="cs-main__card-location d-flex align-items-start">
                             <FaMapMarkerAlt className="icon mt-1 me-2" />
                             <p className="cs-main__card-location-text text-truncate">
-                              {salon.address}
+                              {salon.salonAddress}
                             </p>
                           </div>
                           <ul className="cs-main__card-list my-0 list-unstyled">
                             <li className="cs-main__card-list-item d-flex align-items-center">
-                              <FaRoute className="icon me-2" /> {salon.distance}
+                              <FaRoute className="icon me-2" />{" "}
+                              {parseFloat(salon.distance).toFixed(2)} km
                             </li>
                           </ul>
                         </div>
@@ -359,10 +436,10 @@ export default function Home() {
                   ))}
                 </Swiper>
               </div>
-              <div className="row">
-                <div className="deals_heading mb-4 d-flex gap-2" style={{alignItems:"flex-start"}}>
+              {/* <div className="row">
+                <div className="deals_heading mb-4 d-flex gap-2" style={{ alignItems: "flex-start" }}>
                   <div style={{ background: "#fb8807", padding: '6px 10px', borderRadius: "8px", }}>
-                    <i class="bi bi-tags" style={{color:"#fff"}}></i>
+                    <i class="bi bi-tags" style={{ color: "#fff" }}></i>
                   </div>
                   <h3>Top Deals</h3>
                 </div>
@@ -415,7 +492,7 @@ export default function Home() {
                     </SwiperSlide>
                   ))}
                 </Swiper>
-              </div>
+              </div> */}
             </div>
           </div>
           <ReviewSection />
