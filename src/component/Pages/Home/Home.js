@@ -93,6 +93,7 @@ export default function Home() {
   const [error, setError] = useState(null);
   const [salonData, setSalonData] = useState([]);
   const [fulladdress, setfulladdress] = useState("");
+  const [nearbySalons, setNearbySalons] = useState([]);
   const [popularSalonData, setpopularSalonData] = useState([]);
 
   const [data, setData] = useState({
@@ -105,6 +106,8 @@ export default function Home() {
     getLocation();
   }, []);
 
+
+
   const getLocation = () => {
     console.log("Getting location...");
     if (navigator.geolocation) {
@@ -112,6 +115,8 @@ export default function Home() {
         async (position) => {
           const { latitude, longitude } = position.coords;
           console.log("Location found.....:", latitude, longitude);
+
+          fetchData(latitude,longitude);
 
           // Set location state
           setLocation({ latitude: latitude, longitude: longitude });
@@ -129,6 +134,23 @@ export default function Home() {
     } else {
       console.error("Geolocation is not supported by this browser.");
       setAddress("Geolocation not supported.");
+    }
+  };
+
+  const fetchData = async (latitude,longitude) => {
+    try {
+      const response = await axiosInstance.get("/salon/nearby", {
+        params: {
+          latitude: latitude,
+          longitude: longitude,
+         
+        },
+      });
+
+      setSalonData(response.data.salons);
+      console.log("Salon Data:-", response.data.salons);
+    } catch (error) {
+      console.error(error);
     }
   };
   const getAddressFromCoords = async (latitude, longitude) => {
@@ -168,25 +190,7 @@ export default function Home() {
   };
   console.log("lllllllll", location.latitude);
 
-  const fetchData = async (lat, lng) => {
-    console.log("dfghjhgfdsdfg", lat, lng);
 
-    try {
-      const response = await axiosInstance.get("/salon/nearby", {
-        params: {
-          latitude: lat,
-          longitude: lng,
-        },
-      });
-      console.log("ressssppp", response);
-      console.log("ressssppp", response.data);
-      console.log("ressssppp", response.data.salons);
-      setSalonData(response.data.salons);
-      console.log("Salon Data:-", response.data.salons);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   useEffect(() => {
     const mostPopularData = async () => {
@@ -201,6 +205,7 @@ export default function Home() {
 
     mostPopularData();
   }, []);
+
 
   useEffect(() => {
     new WOW().init();
