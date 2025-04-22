@@ -92,6 +92,7 @@ export default function Home() {
   const [error, setError] = useState(null);
   const [salonData, setSalonData] = useState([]);
   const [fulladdress, setfulladdress] = useState("");
+  const [nearbySalons, setNearbySalons] = useState([]);
 
   const [data, setData] = useState({
     location: "",
@@ -103,6 +104,8 @@ export default function Home() {
     getLocation();
   }, []);
 
+
+
   const getLocation = () => {
     console.log("Getting location...");
     if (navigator.geolocation) {
@@ -111,8 +114,10 @@ export default function Home() {
           const { latitude, longitude } = position.coords;
           console.log("Location found:", latitude, longitude);
 
+          fetchData(latitude,longitude);
+
           // Set location state
-          setLocation({ latitude, longitude });
+          setLocation({ latitude: latitude, longitude: longitude });
 
           // Fetch and set address
           const addr = await getAddressFromCoords(latitude, longitude);
@@ -127,6 +132,23 @@ export default function Home() {
     } else {
       console.error("Geolocation is not supported by this browser.");
       setAddress("Geolocation not supported.");
+    }
+  };
+
+  const fetchData = async (latitude,longitude) => {
+    try {
+      const response = await axiosInstance.get("/salon/nearby", {
+        params: {
+          latitude: latitude,
+          longitude: longitude,
+         
+        },
+      });
+
+      setSalonData(response.data.salons);
+      console.log("Salon Data:-", response.data.salons);
+    } catch (error) {
+      console.error(error);
     }
   };
   const getAddressFromCoords = async (latitude, longitude) => {
@@ -164,28 +186,7 @@ export default function Home() {
       gender: prevData.gender === "male" ? "female" : "male",
     }));
   };
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axiosInstance.get("/salon/nearby", {
-          params: {
-            latitude: location.latitude,
-            longitude: location.longitude,
-            maxDistance: "5000",
-            gender: data.gender,
-            category: data.category,
-          },
-        });
-
-        setSalonData(response.data.salons);
-        console.log("Salon Data:-", response.data.salons);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, [data.gender, data.category]);
+  
 
 
 
