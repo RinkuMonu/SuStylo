@@ -58,6 +58,7 @@ const router = createBrowserRouter([
       { path: "/cancellationrefundpolicy", element: <CancellationRefund /> },
       { path: "/privacypolicy", element: <PrivacyPolicy /> },
       { path: "/womenservices", element: <WomenServices /> },
+   
       { path: "/hair", element: <Hair /> },
       { path: "/search-results", element: <SearchResults /> },
     ],
@@ -74,5 +75,3 @@ function App() {
 }
  
 export default App;
- 
- 

@@ -252,7 +252,10 @@ p.slider_content {
 .service_section {
   margin: 70px auto;
 }
-.Gallery_section .gallery_heading h2, .service_section .gallery_heading ,  .review_section .gallery_heading h2{
+
+.Gallery_section .gallery_heading h2,
+.service_section .gallery_heading,
+.review_section .gallery_heading h2 {
   font-size: 45px;
   font-weight: 600;
   color: #FB8807;
@@ -1724,40 +1727,4 @@ p.service-text {
 
 .form-control:focus {
   box-shadow: none !important;
-}
-/* ............................. Hair Service ....................... */
-.Hair-section{
-  background: url("/public/images/Newimages/117727.jpg") no-repeat center center/cover;
-  height: 80vh;
-  position: relative;
-  color: rgb(11, 11, 11);
-  text-align: center;
-  transition: 0.3s ease-in-out;
-}
-.Haircut-section a.bookingBtn{
-  background: #ab3207;
-  color: #fff;
-  justify-content: flex-start;
-  display: flex;
-  width: fit-content;
-  padding: 8px 16px;
-  border-radius: 28px;
-}
-.hairSlider 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hairSlider  .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }

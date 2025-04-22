@@ -142,7 +142,7 @@ export default function SalonDetails() {
                 <FaFacebook className="fs-4" />
               </Link>
               <Link>
-                {" "}
+               
                 <BsInstagram className="fs-4" />
               </Link>
               <Link>

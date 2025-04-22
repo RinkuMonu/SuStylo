@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaSearch, FaMapMarkerAlt } from "react-icons/fa";
 import axiosInstance from "../../config/axiosInstance";
 import { useNavigate } from "react-router-dom";
-
+ 
 export default function HeroSection() {
   const [location, setLocation] = useState({
     latitude: "",
@@ -15,21 +15,21 @@ export default function HeroSection() {
   });
   const [isSearching, setIsSearching] = useState(false);
   const navigate = useNavigate();
-
+ 
   useEffect(() => {
     getLocation();
   }, []);
-
+ 
   const getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         async (position) => {
           const { latitude, longitude } = position.coords;
           setLocation({ latitude, longitude });
-
+ 
           const addr = await getAddressFromCoords(latitude, longitude);
           setAddress(addr);
-          setSearchInput((prev) => ({ ...prev, address: addr }));
+          setSearchInput(prev => ({ ...prev, address: addr }));
         },
         (error) => {
           console.error("Error getting location:", error);
@@ -40,14 +40,14 @@ export default function HeroSection() {
       setAddress("Geolocation not supported");
     }
   };
-
+ 
   const getAddressFromCoords = async (latitude, longitude) => {
     try {
       const response = await fetch(
         `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDZW0zTKDKdxBG1eC5ACKsR1Gp9PcduvKo`
       );
       const data = await response.json();
-
+ 
       if (data.status === "OK" && data.results.length > 0) {
         return data.results[0].formatted_address;
       }
@@ -57,7 +57,7 @@ export default function HeroSection() {
       return "Error fetching address";
     }
   };
-
+ 
   const getCoordsFromAddress = async (address) => {
     try {
       const response = await fetch(
@@ -74,25 +74,28 @@ export default function HeroSection() {
       return null;
     }
   };
-
+ 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setSearchInput((prev) => ({ ...prev, [name]: value }));
+    setSearchInput(prev => ({ ...prev, [name]: value }));
   };
-
+ 
   const handleSearch = async (e) => {
     e.preventDefault();
     setIsSearching(true);
-
+ 
     try {
       const params = {
         service: searchInput.service
       };
-
+ 
+      // Use current location if available
       if (location.latitude && location.longitude) {
         params.latitude = location.latitude;
         params.longitude = location.longitude;
-      } else if (searchInput.address) {
+      }
+      // Otherwise get coordinates from address
+      else if (searchInput.address) {
         const coords = await getCoordsFromAddress(searchInput.address);
         if (coords) {
           params.latitude = coords.latitude;
@@ -102,9 +105,9 @@ export default function HeroSection() {
           return;
         }
       }
-
+ 
       const response = await axiosInstance.get("/salon/nearby", { params });
-
+ 
       navigate("/search-results", {
         state: {
           salons: response.data.salons,
@@ -112,7 +115,7 @@ export default function HeroSection() {
           location: searchInput.address
         }
       });
-
+ 
     } catch (error) {
       console.error("Search error:", error);
       alert("Error searching for salons. Please try again.");
@@ -120,7 +123,7 @@ export default function HeroSection() {
       setIsSearching(false);
     }
   };
-
+ 
   return (
     <section className="hero-section d-flex align-items-center hero-banner">
       <div className="hero-overlay"></div>
@@ -132,15 +135,18 @@ export default function HeroSection() {
             </h1>
             <p className="hero-subtitle mt-3 text-start">
               At Su Stylo, we are dedicated to the timeless art of barbering.
-              Our passion drives us to deliver precision, style, and an unmatched grooming experience.
+              Our passion drives us to deliver precision, style, and an
+              unmatched grooming experience.
             </p>
-
+ 
             <form onSubmit={handleSearch}>
               <div className="sreach_input">
                 <div className="d-flex align-items-center justify-content-between bg-white p-2 shadow rounded-1">
-
+ 
                   <div className="flex-column flex-grow-1 me-3 text-start">
-                    <label className="fw-bold text-orange mb-1 ps-3">Service Name</label>
+                    <label className="fw-bold text-orange mb-1 ps-3">
+                      Service Name
+                    </label>
                     <div className="input-group">
                       <input
                         type="text"
@@ -156,9 +162,11 @@ export default function HeroSection() {
                       </span>
                     </div>
                   </div>
-
+ 
                   <div className="flex-column flex-grow-1 me-3 text-start">
-                    <label className="fw-bold text-orange mb-1 ps-3">Address</label>
+                    <label className="fw-bold text-orange mb-1 ps-3">
+                      Address
+                    </label>
                     <div className="input-group">
                       <input
                         type="text"
@@ -174,7 +182,7 @@ export default function HeroSection() {
                       </span>
                     </div>
                   </div>
-
+ 
                   <button
                     type="submit"
                     className="btn btn-warning rounded-2 px-4 d-flex align-items-center"
@@ -192,7 +200,7 @@ export default function HeroSection() {
                       </>
                     )}
                   </button>
-
+ 
                 </div>
               </div>
             </form>
