@@ -129,7 +129,7 @@ export default function Footer() {
                 <h2>Contact</h2>
                 <ul>
                   <li className="d-flex gap-3 align-items-center">
-                    <IoCallOutline
+                    <IoCallOutline 
                       style={{ color: "#fff", fontWeight: "500" }}
                     />
                     <a href="tel:+917297026119" data-replace="+91 72970 26119">

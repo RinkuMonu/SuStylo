@@ -11,6 +11,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
+  const [userMobileNumber, setUserMobileNumber] = useState("");
   const [walletBalance, setwalletBalance] = useState("");
   const menuRef = useRef(null);
 
@@ -61,7 +62,9 @@ export default function Header() {
       try {
         const response = await axiosInstance.get(`/user/get/${userId}`);
         setUserName(response.data.name);
+        setUserMobileNumber(response.data.mobileNumber)
         console.log(response.data.name);
+        console.log("respon user data",response.data.mobileNumber);
         setwalletBalance(response.data.wallet.balance)
       } catch (error) {
         console.error("Failed to fetch user profile", error);
@@ -180,7 +183,7 @@ export default function Header() {
       aria-expanded="false"
     >
       <CgProfile className="me-2" />
-      <span className="user-name">{userName}</span>
+      <span className="user-name">{userMobileNumber}</span>
     </a>
     <ul className="dropdown-menu dropdown-menu-end">
       <li>
