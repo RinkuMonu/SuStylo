@@ -7,7 +7,7 @@ export default function GallerySection() {
                 <div className='container-fluid'>
                     <div className="row">
                         <div className="col-md-12">
-                            <div className="gallery_heading w-50 mx-auto">
+                            <div className="gallery_heading  mx-auto">
                                 <h2 className=''>Crafted with Passion, Styled with Precision</h2>
                                 <p> Relax. Walk out with confidence. Book salon near me today!</p>
                                 {/* <h2>GALLERY</h2> */}
@@ -27,7 +27,7 @@ export default function GallerySection() {
                         <div className="col-md-8">
                             <div className="row">
                                 <div className="col-md-6">
-                                    <div className="de-image-hover" style={{borderTopLeftRadius:"40px"}}>
+                                    <div className="de-image-hover firstimg">
                                         <img
                                             src="./images/gallery/1.jpg"
                                             className="img-fluid img1"
@@ -51,7 +51,7 @@ export default function GallerySection() {
                                     </div>
                                 </div>
                                 <div className="col-md-12 mt-2">
-                                    <div className="de-image-hover" style={{borderBottomLeftRadius:"40px"}}>
+                                    <div className="de-image-hover secondimg">
                                         <img
                                             src="./images/gallery/7.png"
                                             className="img-fluid img2"
@@ -65,7 +65,7 @@ export default function GallerySection() {
                             </div>
                         </div>
                         <div className="col-md-4">
-                            <div className="de-image-hover" style={{ height: "100%", borderTopRightRadius:"40px", borderBottomRightRadius:"40px" }}>
+                            <div className="de-image-hover thridimg" >
                                 <img
                                     src="./images/gallery/3.jpg"
                                     className="img-fluid"

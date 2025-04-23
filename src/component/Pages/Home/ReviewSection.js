@@ -25,7 +25,7 @@ export default function ReviewSection() {
                 <div className='container-fluid'>
                     <div className="row">
                         <div className="col-md-12">
-                            <div className="gallery_heading w-50 mx-auto">
+                            <div className="gallery_heading mx-auto">
                                 <h2 className=''>Customer Feedback</h2>
                                 <p> Real Experiences, Real Results</p>
                                 {/* <h2>GALLERY</h2> */}
@@ -62,7 +62,7 @@ export default function ReviewSection() {
                                         <div className="hero-overlay"></div>
                                         <img src="./images/gallery/R3.jpg" />
 
-                                        <div className="review_text text-center p-5">
+                                        <div className="review_text text-center md-p-5">
                                             <h2 className="fw-bold text-white">Devika Gehlot</h2>
                                             <div className="d-flex gap-2">
                                                 <i className="star bi bi-star-fill"></i>

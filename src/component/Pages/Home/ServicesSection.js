@@ -8,7 +8,7 @@ export default function ServicesSection() {
                 <div className='container-fluid'>
                     <div className="row">
                         <div className="col-md-12">
-                            <div className="gallery_heading w-50 mx-auto">
+                            <div className="gallery_heading  mx-auto">
                                 <h2 className=''>Service Beyond Expectation</h2>
                                 <p>Book your appointment now using the best salon app in India or the barber appointment app to redefine your style!</p>
                                 {/* <h2>GALLERY</h2> */}
