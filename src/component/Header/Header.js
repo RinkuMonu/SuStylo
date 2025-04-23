@@ -182,17 +182,17 @@ export default function Header() {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <CgProfile className="me-2" />
-                    <span className="user-name">{userMobileNumber}</span>
+                    <CgProfile className="me-2" size={20} />
+                    {/* <span className="user-name">{userMobileNumber}</span> */}
                   </a>
                   <ul className="dropdown-menu dropdown-menu-end">
                     <li>
-                      <Link className="dropdown-item d-flex  align-items-center">
+                      <Link to={"/profile"} className="dropdown-item d-flex  align-items-center">
                         <LuUser  className="me-2" />Profile
                       </Link>
                     </li>
                     <li>
-                      <Link className="dropdown-item d-flex  align-items-center">
+                      <Link to={"/profile"} className="dropdown-item d-flex  align-items-center">
                         <BsWallet2  className="me-2" />
                         ₹ {walletBalance}
                       </Link>

@@ -1730,7 +1730,7 @@ p.service-text {
 }
 /* ..................... Profile Css ................. */
 .Profile-section {
-  background: url("/public/images/2971.jpg") no-repeat center center/cover;
+  background: url("/public/images/profile.png") no-repeat center center/cover;
   height: 70vh;
   position: relative;
   color: rgb(5, 5, 5);

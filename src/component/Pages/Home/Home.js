@@ -397,11 +397,9 @@ export default function Home() {
                             alt={salon.salonName}
                           />
                        
-                          <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
-                            {salon.salonName}
-                            
-                          </h3>
+                         
                           <div className="cs-main__card-rating-box">
+                          
                             <span className="cs-mcard-aR">
                               {salon.reviewCount}
                             </span>
@@ -411,8 +409,12 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="cs-main__card-content p-3">
+                        <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
+                            {salon.salonName}
+                            
+                          </h3>
                           <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
-                            {salon.name}
+                            {/* {salon.name} */}
                             <p style={{ fontSize: "12px" }}>
                               <i className="bi bi-star me-1"></i>
                               {salon.reviewCount} Review
