@@ -256,7 +256,7 @@ export default function Home() {
             <div className="container-fluid">
               <div className="row">
                 <div className="col-md-12">
-                  <div className="gallery_heading w-50 mx-auto">
+                  <div className="gallery_heading  mx-auto">
                     <h2 className="text-center">Services & Categories</h2>
                     <p>
                       Book your appointment now using the best salon app in

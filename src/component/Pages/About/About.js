@@ -172,7 +172,7 @@ export default function About() {
                                 <h2 className="my-5 text-white fw-bold">Get In Touch</h2>
                                 <div className="hstack gap-3">
                                     <form className="row" onSubmit={formHendler}>
-                                        <div className="col" style={{ textAlign: "justify" }}>
+                                        <div className="col-md-4 col-sm-12 mb-3" style={{ textAlign: "justify" }}>
                                             <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Name</label>
                                             <input
                                                 type="text"
@@ -183,7 +183,7 @@ export default function About() {
                                             />
                                         </div>
 
-                                        <div className="col" style={{ textAlign: "justify" }}>
+                                        <div className="col-md-4 col-sm-12 mb-3" style={{ textAlign: "justify" }}>
                                             <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Email</label>
                                             <input
                                                 type="email"
@@ -194,7 +194,7 @@ export default function About() {
                                             />
                                         </div>
 
-                                        <div className="col" style={{ textAlign: "justify" }}>
+                                        <div className="col-md-4 col-sm-12 mb-3" style={{ textAlign: "justify" }}>
                                             <label style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>Mobile</label>
                                             <input
                                                 type="number"
@@ -205,7 +205,7 @@ export default function About() {
                                             />
                                         </div>
 
-                                        <div className="col">
+                                        <div className="col-md-4 col-sm-12 mb-3">
                                             {
                                                 loading
                                                     ?

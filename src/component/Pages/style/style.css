@@ -1737,3 +1737,65 @@ p.service-text {
   text-align: center;
   transition: 0.3s ease-in-out;
 }
+/* .................. Gallery Section ............... */
+.firstimg {
+  border-top-left-radius: 40px;
+}
+.secondimg{
+  border-bottom-left-radius: 40px;
+}
+.thridimg{
+border-top-right-radius: 40px;
+border-bottom-right-radius: 40px;
+}
+@media (max-width:768px){
+  .firstimg, .secondimg, .thridimg{
+    border-radius: 0px !important;
+  }
+.aboutsection .right_content .fadeInRight{
+  padding: 0px !important;
+}
+.aboutsection .right_content p{
+  padding: 0px !important;
+}
+.gallery_heading{
+  width: 100% !important;
+}
+.marquee-container-bottom .marquees span{
+  font-size: 4rem !important;
+}
+.marquee-content .d-item-block{
+  transform: translateY(0px);
+}
+.review_section .bg-transit{
+  margin: 0px  !important;
+}
+
+.centerLogo img{
+  width: 100px;
+}
+.content-section{
+  padding-bottom: 0px !important;
+}
+.de-separator{
+  width: 232px;
+}
+.review_section .text-white.fw-bold{
+  font-size: 16px;
+}
+.aboutBG{
+  height:500px;
+}
+}
+@media (max-width:568px){
+  .review_section .review_text{
+    top:4rem !important;
+  }
+  .aboutBG{
+    height:500px;
+  }
+}
+
+.gallery_heading{
+  width: 50% ;
+}

@@ -13,12 +13,12 @@ export default function AboutSection() {
                                 <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
                                     <img
                                         src="./images/10.jpg"
-                                        className="img-fluid"
-                                        style={{ height: "600px" }}
+                                        className="img-fluid aboutimg"
+                                  
                                     />
                                 </SimpleParallax>
                             </div>
-                            <div className='col-md-6'>
+                            <div className='col-md-6 aboutsection'>
                                 <div className="right_content fadeInRight ">
                                     <h2
                                         className="wow fadeInRight animated"
