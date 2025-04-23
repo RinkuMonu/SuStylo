@@ -92,7 +92,6 @@ export default function BookNow() {
     setDate(selectedDate);
 
     let url = `https://sustylo-web.onrender.com/api/schedule/schedule-get?salonId=${id}&date=${selectedDate}`;
-
     try {
       const res = await fetch(url);
       const json = await res.json();
