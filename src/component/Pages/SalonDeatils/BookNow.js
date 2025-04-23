@@ -201,7 +201,6 @@ export default function BookNow() {
   const getSeatClass = (status) => {
     return status === "available" ? "btn-success" : "btn-danger";
   };
-
   return (
     <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
       <section className="bookAppoinment-section d-flex align-items-center">
