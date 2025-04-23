@@ -140,70 +140,73 @@ export default function HeroSection() {
             </p>
  
             <form onSubmit={handleSearch}>
-              <div className="sreach_input">
-                <div className="d-flex align-items-center justify-content-between bg-white p-2 shadow rounded-1">
- 
-                  <div className="flex-column flex-grow-1 me-3 text-start">
-                    <label className="fw-bold text-orange mb-1 ps-3">
-                      Service Name
-                    </label>
-                    <div className="input-group">
-                      <input
-                        type="text"
-                        name="service"
-                        value={searchInput.service}
-                        onChange={handleInputChange}
-                        className="form-control border-0 border-bottom rounded-0"
-                        placeholder="Book your services..."
-                        required
-                      />
-                      <span className="input-group-text bg-white border-0">
-                        <FaSearch />
-                      </span>
-                    </div>
-                  </div>
- 
-                  <div className="flex-column flex-grow-1 me-3 text-start">
-                    <label className="fw-bold text-orange mb-1 ps-3">
-                      Address
-                    </label>
-                    <div className="input-group">
-                      <input
-                        type="text"
-                        name="address"
-                        value={searchInput.address}
-                        onChange={handleInputChange}
-                        className="form-control border-0 border-bottom rounded-0"
-                        placeholder="Where"
-                        required
-                      />
-                      <span className="input-group-text bg-white border-0">
-                        <FaMapMarkerAlt />
-                      </span>
-                    </div>
-                  </div>
- 
-                  <button
-                    type="submit"
-                    className="btn btn-warning rounded-2 px-4 d-flex align-items-center"
-                    disabled={isSearching}
-                  >
-                    {isSearching ? (
-                      <>
-                        <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                        Searching...
-                      </>
-                    ) : (
-                      <>
-                        <span className="me-2 fw-bold">Search</span>
-                        <FaSearch />
-                      </>
-                    )}
-                  </button>
- 
-                </div>
-              </div>
-            </form>
+  <div className="search_input">
+    <div className="d-flex flex-column flex-md-row align-items-stretch align-items-md-center justify-content-between bg-white p-2 shadow rounded-1">
+      {/* Service Name Input */}
+      <div className="flex-column flex-grow-1 me-md-3 mb-3 mb-md-0 text-start">
+        <label className="fw-bold text-orange mb-1 ps-1 ps-md-3">
+          Service Name
+        </label>
+        <div className="input-group">
+          <input
+            type="text"
+            name="service"
+            value={searchInput.service}
+            onChange={handleInputChange}
+            className="form-control border-0 border-bottom rounded-0"
+            placeholder="Book your services..."
+            required
+          />
+          <span className="input-group-text bg-white border-0">
+            <FaSearch />
+          </span>
+        </div>
+      </div>
+
+      {/* Address Input */}
+      <div className="flex-column flex-grow-1 me-md-3 mb-3 mb-md-0 text-start">
+        <label className="fw-bold text-orange mb-1 ps-1 ps-md-3">
+          Address
+        </label>
+        <div className="input-group">
+          <input
+            type="text"
+            name="address"
+            value={searchInput.address}
+            onChange={handleInputChange}
+            className="form-control border-0 border-bottom rounded-0"
+            placeholder="Where"
+            required
+          />
+          <span className="input-group-text bg-white border-0">
+            <FaMapMarkerAlt />
+          </span>
+        </div>
+      </div>
+
+      {/* Search Button */}
+      <div className="d-flex align-items-end">
+        <button
+          type="submit"
+          className="btn btn-warning rounded-2 px-3 px-md-4 py-2 d-flex align-items-center justify-content-center w-100"
+          disabled={isSearching}
+        >
+          {isSearching ? (
+            <>
+              <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              Searching...
+            </>
+          ) : (
+            <>
+              <span className="me-1 me-md-2 fw-bold">Search</span>
+              <FaSearch />
+            </>
+          )}
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
           </div>
         </div>
       </div>

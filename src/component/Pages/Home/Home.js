@@ -106,8 +106,6 @@ export default function Home() {
     getLocation();
   }, []);
 
-
-
   const getLocation = () => {
     console.log("Getting location...");
     if (navigator.geolocation) {
@@ -116,7 +114,7 @@ export default function Home() {
           const { latitude, longitude } = position.coords;
           console.log("Location found.....:", latitude, longitude);
 
-          fetchData(latitude,longitude);
+          fetchData(latitude, longitude);
 
           // Set location state
           setLocation({ latitude: latitude, longitude: longitude });
@@ -137,13 +135,12 @@ export default function Home() {
     }
   };
 
-  const fetchData = async (latitude,longitude) => {
+  const fetchData = async (latitude, longitude) => {
     try {
       const response = await axiosInstance.get("/salon/nearby", {
         params: {
           latitude: latitude,
           longitude: longitude,
-         
         },
       });
 
@@ -190,8 +187,6 @@ export default function Home() {
   };
   console.log("lllllllll", location.latitude);
 
-
-
   useEffect(() => {
     const mostPopularData = async () => {
       try {
@@ -205,7 +200,6 @@ export default function Home() {
 
     mostPopularData();
   }, []);
-
 
   useEffect(() => {
     new WOW().init();
@@ -241,7 +235,7 @@ export default function Home() {
         ref={domRef}
       >
         <HeroSection />
-       
+
         <section className="content-section">
           <ServicesSlider />
           <GallerySection />
@@ -292,13 +286,26 @@ export default function Home() {
                   <h3>Most Popular Salon</h3>
                 </div>
                 <Swiper
-                  slidesPerView={4}
                   spaceBetween={20}
                   centeredSlides={false}
                   pagination={false}
                   navigation={true}
                   modules={[Navigation, FreeMode]}
                   className="mySwiper"
+                  breakpoints={{
+      
+                    576: {
+                      slidesPerView: 2,
+                    },
+            
+                    768: {
+                      slidesPerView: 3,
+                    },
+              
+                    992: {
+                      slidesPerView: 4,
+                    },
+                  }}
                 >
                   {popularSalonData.map((salon) => (
                     <SwiperSlide key={salon._id} className="">
@@ -308,12 +315,11 @@ export default function Home() {
                         className="cs-main__card-box text-decoration-none"
                       >
                         <div className="cs-main__card-img">
-                        <img
-  src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg"
-  className="img-fluid"
-  alt={salon.salonName}
- 
-/>
+                          <img
+                            src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg"
+                            className="img-fluid"
+                            alt={salon.salonName}
+                          />
                           {/* <img
                             src="https://sustylo-web.onrender.com/uploads/salonPhotos/1745230383388-73864633.jpg"
                             alt="Salon"
@@ -375,13 +381,26 @@ export default function Home() {
                   <h3>Near By Salon</h3>
                 </div>
                 <Swiper
-                  slidesPerView={4}
                   spaceBetween={20}
                   centeredSlides={false}
                   pagination={false}
                   navigation={true}
                   modules={[Navigation, FreeMode]}
                   className="mySwiper"
+                  breakpoints={{
+                 
+                    576: {
+                      slidesPerView: 2,
+                    },
+                  
+                    768: {
+                      slidesPerView: 3,
+                    },
+                    
+                    992: {
+                      slidesPerView: 4,
+                    },
+                  }}
                 >
                   {salonData.map((salon) => (
                     <SwiperSlide key={salon.id} className="">
@@ -396,10 +415,8 @@ export default function Home() {
                             className="img-fluid"
                             alt={salon.salonName}
                           />
-                       
-                         
+
                           <div className="cs-main__card-rating-box">
-                          
                             <span className="cs-mcard-aR">
                               {salon.reviewCount}
                             </span>
@@ -409,9 +426,8 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="cs-main__card-content p-3">
-                        <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
+                          <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
                             {salon.salonName}
-                            
                           </h3>
                           <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
                             {/* {salon.name} */}
