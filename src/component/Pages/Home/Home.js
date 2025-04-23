@@ -154,7 +154,7 @@ export default function Home() {
     }
   };
   const getAddressFromCoords = async (latitude, longitude) => {
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDZW0zTKDKdxBG1eC5ACKsR1Gp9PcduvKo`;
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyCklkVV3ho7yawqRP-imgtd1OtfbrH_akU`;
 
     try {
       const response = await fetch(url);

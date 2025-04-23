@@ -44,7 +44,7 @@ export default function HeroSection() {
   const getAddressFromCoords = async (latitude, longitude) => {
     try {
       const response = await fetch(
-        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDZW0zTKDKdxBG1eC5ACKsR1Gp9PcduvKo`
+        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyCklkVV3ho7yawqRP-imgtd1OtfbrH_akU`
       );
       const data = await response.json();
  
@@ -61,7 +61,7 @@ export default function HeroSection() {
   const getCoordsFromAddress = async (address) => {
     try {
       const response = await fetch(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=AIzaSyDZW0zTKDKdxBG1eC5ACKsR1Gp9PcduvKo`
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=AIzaSyCklkVV3ho7yawqRP-imgtd1OtfbrH_akU`
       );
       const data = await response.json();
       if (data.status === "OK" && data.results.length > 0) {
