@@ -1,90 +1,73 @@
-import React from "react";
-import { Container, Row, Col, Card, Table } from "react-bootstrap";
-
+import React, { useState, useEffect, useRef } from "react";
+import AOS from "aos";
+import WOW from "wow.js";
+import '../style/style.css';
 export default function Profile() {
+    useEffect(() => {
+        new WOW().init();
+    }, []);
+    useEffect(() => {
+        AOS.init({ duration: 1000 });
+    }, []);
+    const [isVisible, setVisible] = useState(false);
+    const domRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => setVisible(entry.isIntersecting));
+        });
+
+        if (domRef.current) observer.observe(domRef.current);
+
+        return () => {
+            if (domRef.current) observer.unobserve(domRef.current);
+        };
+    }, []);
     return (
-        <div>
-            <Container fluid className="employee-dashboard py-4">
-                <Row>
-                    {/* Left Section: Employee Info */}
-                    <Col md={4}>
-                        <Card className="profile-card">
-                            <Card.Body>
-                                <div className="text-center">
-                                    <img
-                                        src="https://via.placeholder.com/100" // Replace with actual image URL
-                                        alt="Profile"
-                                        className="profile-img"
-                                    />
-                                    <h5 className="mt-2">Nicholas Swatz</h5>
-                                    <p className="text-muted">#ERD246534</p>
+        <>
+            <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
+                <section className="Profile-section d-flex align-items-center">
+                    <div className="hero-overlay"></div>
+
+                    <div className="container text-center position-relative">
+                        <h2 className="hero-title fw-bold">Profile</h2>
+                        <div className="de-separator" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
+                    </div>
+                </section>
+                <div className="container mt-5">
+                    <div className="card shadow p-4">
+                        <div className="row">
+                            {/* Profile Image */}
+                            <div className="col-md-4 text-center">
+                                <img
+                                    src="https://via.placeholder.com/150"
+                                    alt="Profile"
+                                    className="img-fluid rounded-circle mb-3"
+                                    style={{ width: '150px', height: '150px' }}
+                                />
+                                <h4 className="fw-bold">John Doe</h4>
+                                <p className="text-muted">Frontend Developer</p>
+
+                                {/* Social Icons */}
+                                <div className="mt-3">
+                                    <a href="#" className="text-dark me-3">
+                                        <i className="fab fa-github fa-lg"></i>
+                                    </a>
+                                    <a href="#" className="text-primary me-3">
+                                        <i className="fab fa-linkedin fa-lg"></i>
+                                    </a>
+                                    <a href="#" className="text-info">
+                                        <i className="fab fa-twitter fa-lg"></i>
+                                    </a>
                                 </div>
+                            </div>
 
-                                <hr />
-                                <h6>About</h6>
-                                <p><i className="fa-solid fa-phone"></i> (629) 555-0123</p>
-                                <p><i className="fa-solid fa-envelope"></i> nicholasswatz@gmail.com</p>
-
-                                <hr />
-                                <h6>Address</h6>
-                                <p><i className="fa-solid fa-map-marker-alt"></i> 390 Market Street, Suite 200</p>
-                                <p><i className="fa-solid fa-city"></i> San Francisco, CA</p>
-                                <p><i className="fa-solid fa-map-pin"></i> 94102</p>
-
-                                <hr />
-                                <h6>Employee Details</h6>
-                                <p><i className="fa-solid fa-calendar"></i> DOB: Sep 26, 1988</p>
-                                <p><i className="fa-solid fa-id-card"></i> National ID: GER10654</p>
-                                <p><i className="fa-solid fa-briefcase"></i> Title: Project Manager</p>
-                                <p><i className="fa-solid fa-calendar-check"></i> Hire Date: Jan 05, 2023</p>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-
-                    {/* Right Section: Job Info & Compensation */}
-                    <Col md={8}>
-                        <Card className="info-card">
-                            <Card.Body>
-                                <h5>Job Information</h5>
-                                <Table striped bordered hover size="sm">
-                                    <thead>
-                                        <tr>
-                                            <th>Department</th>
-                                            <th>Division</th>
-                                            <th>Manager</th>
-                                            <th>Hire Date</th>
-                                            <th>Location</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Creative Associate</td>
-                                            <td>Project Management</td>
-                                            <td>Alex Foster</td>
-                                            <td>May 13, 2024</td>
-                                            <td>Metro DC</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Marketing Team</td>
-                                            <td>Leadership</td>
-                                            <td>Jack Danniel</td>
-                                            <td>Sep 05, 2024</td>
-                                            <td>Bergen, NJ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Team Lead</td>
-                                            <td>Creator</td>
-                                            <td>Alina Skazka</td>
-                                            <td>Jun 08, 2023</td>
-                                            <td>Miami, FL</td>
-                                        </tr>
-                                    </tbody>
-                                </Table>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+                            {/* Profile Details */}
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
     )
 }
