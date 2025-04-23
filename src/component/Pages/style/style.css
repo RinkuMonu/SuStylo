@@ -1728,3 +1728,12 @@ p.service-text {
 .form-control:focus {
   box-shadow: none !important;
 }
+/* ..................... Profile Css ................. */
+.Profile-section {
+  background: url("/public/images/profile.png") no-repeat center center/cover;
+  height: 70vh;
+  position: relative;
+  color: rgb(5, 5, 5);
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
