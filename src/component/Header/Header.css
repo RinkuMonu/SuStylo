@@ -55,9 +55,12 @@ li {
     font-weight: bold;
     transition: color 0.3s;
   }
-  
+  .fixed-top{
+    background-color: #fb88078a;
+  }
   .navbar .nav-link {
     color: white !important;
+    font-weight: 600;
     transition: color 0.3s;
   }
   .nav-link:focus, .nav-link:hover {

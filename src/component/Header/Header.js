@@ -5,6 +5,7 @@ import { CgProfile } from "react-icons/cg";
 import { TbLogout } from "react-icons/tb";
 import axiosInstance from "../config/axiosInstance";
 import { BsWallet2 } from "react-icons/bs";
+import { LuUser } from "react-icons/lu";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -64,7 +65,7 @@ export default function Header() {
         setUserName(response.data.name);
         setUserMobileNumber(response.data.mobileNumber)
         console.log(response.data.name);
-        console.log("respon user data",response.data.mobileNumber);
+        console.log("respon user data", response.data.mobileNumber);
         setwalletBalance(response.data.wallet.balance)
       } catch (error) {
         console.error("Failed to fetch user profile", error);
@@ -76,9 +77,8 @@ export default function Header() {
   return (
     <>
       <nav
-        className={`navbar navbar-expand-lg fixed-top ${
-          isScrolled ? "scrolled" : ""
-        }`}
+        className={`navbar navbar-expand-lg fixed-top ${isScrolled ? "scrolled" : ""
+          }`}
         ref={menuRef}
       >
         <div className="container">
@@ -174,51 +174,57 @@ export default function Header() {
                 </Link>
               </li>
               {isLoggedIn ? (
-  <li className="nav-item dropdown">
-    <a 
-      className="nav-link dropdown-toggle d-flex align-items-center" 
-      href="#" 
-      role="button" 
-      data-bs-toggle="dropdown" 
-      aria-expanded="false"
-    >
-      <CgProfile className="me-2" />
-      <span className="user-name">{userMobileNumber}</span>
-    </a>
-    <ul className="dropdown-menu dropdown-menu-end">
-      <li>
-        <Link
-          className="dropdown-item d-flex justify-content-between align-items-center"
-          to="#"
-          onClick={() => {
-            localStorage.removeItem("token");
-            localStorage.removeItem("id");
-            setIsLoggedIn(false);
-          }}
-        >
-          Logout
-          <TbLogout />
-        </Link>
-      </li>
-      <li>
-        <div className="dropdown-item d-flex justify-content-between align-items-center">
-          <BsWallet2 />
-        {walletBalance}
-        </div>
-      </li>
-    </ul>
-  </li>
-) : (
-  <li className="nav-item">
-    <Link
-      className="nav-link d-flex align-items-center"
-      to="/login"
-      onClick={handleLinkClick}
-    >
-      Login <span className="ms-1">→</span>
-    </Link>
-  </li>
-)}
+                <li className="nav-item dropdown">
+                  <a
+                    className="nav-link dropdown-toggle d-flex align-items-center"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <CgProfile className="me-2" size={20} />
+                    {/* <span className="user-name">{userMobileNumber}</span> */}
+                  </a>
+                  <ul className="dropdown-menu dropdown-menu-end">
+                    <li>
+                      <Link to={"/profile"} className="dropdown-item d-flex  align-items-center">
+                        <LuUser  className="me-2" />Profile
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to={"/profile"} className="dropdown-item d-flex  align-items-center">
+                        <BsWallet2  className="me-2" />
+                        ₹ {walletBalance}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        className="dropdown-item d-flex align-items-center"
+                        to="#"
+                        onClick={() => {
+                          localStorage.removeItem("token");
+                          localStorage.removeItem("id");
+                          setIsLoggedIn(false);
+                        }}
+                      >
+                        <TbLogout className="me-2" />
+                        Logout
+                      </Link>
+                    </li>
+
+                  </ul>
+                </li>
+              ) : (
+                <li className="nav-item">
+                  <Link
+                    className="nav-link d-flex align-items-center"
+                    to="/login"
+                    onClick={handleLinkClick}
+                  >
+                    Login <span className="ms-1">→</span>
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>

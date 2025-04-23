@@ -43,3 +43,102 @@
     text-align: right;
   }
   
+
+  .cdk-overlay-container {
+    position: fixed !important;
+    overflow: auto;
+    z-index: 9999;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    display: table !important;
+}
+
+.cdk-overlay-backdrop {
+    background: rgba(0, 0, 0, 0.7);
+    inset: 0;
+    position: fixed;
+}
+
+.mat-dialog-container {
+    display: inline-block !important;
+    overflow: initial !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+.form-header {
+    background-color: #ff9e31;
+    border-radius: 20px !important;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    margin-bottom: -30px;
+    height: 116px;
+    color: #fff;
+    animation: _ngcontent-wes-c87_upperAnimKey .6s 1 forwards;
+}
+@keyframes  _ngcontent-wes-c87_upperAnimKey{
+    0% {
+        transform: translateY(80px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+    
+}
+.sidetabs{
+    font-size: 16px !important;
+    margin: 0px 0px 10px;
+    color: #000;
+}
+.form-header .form-head {
+    padding: 30px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+.directaddmoney {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 4px 20px;
+    font-size: 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid #000;
+}
+.cls{
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: transparent;
+    border: 0;
+    color: #fff;
+}
+.directaddmoney:hover {
+    border: 1px solid #000;
+
+}
+
+.form-body {
+    padding: 35px 36px;
+    background: #ffffff;
+    border-radius: 20px !important;
+    position: relative;
+    z-index: 2;
+    animation: _ngcontent-wes-c87_zoomOutKey .6s 1;
+    animation-fill-mode: forwards;
+}
+.form-body .btn-primary{
+    background-color: #ff9e31;
+    border-color: #ff9e31;
+}
+@keyframes _ngcontent-wes-c87_zoomOutKey {
+0% {
+    transform: translateY(-10px);
+}
+
+100% {
+    transform: translateY(0);
+}
+}

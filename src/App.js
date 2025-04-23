@@ -25,7 +25,6 @@ import Hair from './component/Pages/Services/Hair.js';
 import SearchResults from './component/Pages/Home/SearchResults.js';
  
  
- 
 const seoData = {
   "/": {
     title: "Book Salons & Beauty Services | Grow Your Business",
@@ -58,6 +57,7 @@ const router = createBrowserRouter([
       { path: "/cancellationrefundpolicy", element: <CancellationRefund /> },
       { path: "/privacypolicy", element: <PrivacyPolicy /> },
       { path: "/womenservices", element: <WomenServices /> },
+      { path: "/profile", element: <Profile /> },
    
       { path: "/hair", element: <Hair /> },
       { path: "/search-results", element: <SearchResults /> },

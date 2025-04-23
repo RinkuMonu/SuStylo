@@ -154,7 +154,7 @@ export default function Home() {
     }
   };
   const getAddressFromCoords = async (latitude, longitude) => {
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDZW0zTKDKdxBG1eC5ACKsR1Gp9PcduvKo`;
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyCklkVV3ho7yawqRP-imgtd1OtfbrH_akU`;
 
     try {
       const response = await fetch(url);
@@ -397,11 +397,9 @@ export default function Home() {
                             alt={salon.salonName}
                           />
                        
-                          <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
-                            {salon.salonName}
-                            
-                          </h3>
+                         
                           <div className="cs-main__card-rating-box">
+                          
                             <span className="cs-mcard-aR">
                               {salon.reviewCount}
                             </span>
@@ -411,8 +409,12 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="cs-main__card-content p-3">
+                        <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
+                            {salon.salonName}
+                            
+                          </h3>
                           <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
-                            {salon.name}
+                            {/* {salon.name} */}
                             <p style={{ fontSize: "12px" }}>
                               <i className="bi bi-star me-1"></i>
                               {salon.reviewCount} Review
