@@ -249,7 +249,6 @@ export default function BookNow() {
             ))}
           </div>
         </div>
-
         <div className="container mt-4 text-white" data-aos="zoom-in-up">
           <div className="row">
             <div className="col-md-5">
