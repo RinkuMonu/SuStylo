@@ -176,7 +176,7 @@ export default function HeroSection() {
             onChange={handleInputChange}
             className="form-control border-0 border-bottom rounded-0"
             placeholder="Where"
-            required
+            required 
           />
           <span className="input-group-text bg-white border-0">
             <FaMapMarkerAlt />

@@ -27,7 +27,7 @@ export default function Blog() {
   };
  
   if (loading) {
-    return <div className="text-center py-5">Loading blogs...</div>;
+    return <div className="text-center py-5"><span class="loaders"></span></div>;
   }
  
   return (
@@ -92,9 +92,9 @@ export default function Blog() {
                 </div>
                 <div className="col-md-6">
                   <div className="blog_content">
-                    <h3>{blog.title}</h3>
-                    <p className="text-muted">{blog.category}</p>
-                    <p>{blog.content}</p>
+                    <h3>{blog?.title}</h3>
+                    <p className="text-muted">{blog?.category}</p>
+                    <p>{blog?.content}</p>
                     <Link
                       to={`/blogdetail/${blog._id}`}
                       className="custom-btn btn-8 mt-5 ms-1"
