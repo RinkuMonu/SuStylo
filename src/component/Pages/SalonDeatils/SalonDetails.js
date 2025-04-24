@@ -19,10 +19,10 @@ export default function SalonDetails() {
   const [salonDetails, setSalonDetails] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const idToUse = salonId?._id || userId;
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const idToUse = salonId?._id || userId;
       
       if (!idToUse) {
         console.error("No ID available for fetching salon data");
@@ -278,7 +278,7 @@ export default function SalonDetails() {
                                   </p>
                                 </div>
                                 <Link
-                                  to={`/bookappoinment/${userId}`}
+                                  to={`/bookappoinment/${idToUse}`}
                                   className="BookAppBtn custom-btn btn-8"
                                 >
                                   Book

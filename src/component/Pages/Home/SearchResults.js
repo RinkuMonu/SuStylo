@@ -60,7 +60,7 @@ export default function SearchResults() {
               <p className="text-muted mt-2">{salons.length} salons found</p>
             )}
           </div>
-
+ 
           {/* Results grid */}
           {salons.length === 0 ? (
             <div className="text-center py-5">
@@ -111,7 +111,7 @@ export default function SearchResults() {
                         View Details
                       </button>
                     </div>
-                  </Link>
+                  </Link> 
                 </div>
               ))}
             </div>

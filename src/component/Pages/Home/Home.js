@@ -333,10 +333,10 @@ export default function Home() {
 
                           {/* {console.log("saloon photos", salon.salonPhotos[0])} */}
                           <div className="cs-main__card-rating-box">
-                            {/* <span className="cs-mcard-aR">{salon.rating}</span> */}
-                            {/* <span className="cs-mcard-aText">
-                              <span>{salon.reviews}</span> ratings
-                            </span> */}
+                            <span className="cs-mcard-aR">{parseFloat(salon?.avgRating).toFixed(1)}</span>
+                            <span className="cs-mcard-aText">
+                              <span></span> ratings
+                            </span>
                           </div>
                         </div>
                         <div className="cs-main__card-content p-3">
@@ -353,11 +353,11 @@ export default function Home() {
                               {salon.salonAddress}
                             </p>
                           </div>
-                          <ul className="cs-main__card-list my-0 list-unstyled">
+                          {/* <ul className="cs-main__card-list my-0 list-unstyled">
                             <li className="cs-main__card-list-item d-flex align-items-center">
                               <FaRoute className="icon me-2" /> {salon.distance}
                             </li>
-                          </ul>
+                          </ul> */}
                         </div>
                       </Link>
                     </SwiperSlide>
@@ -417,11 +417,11 @@ export default function Home() {
                           />
 
                           <div className="cs-main__card-rating-box">
-                            <span className="cs-mcard-aR">
+                            {/* <span className="cs-mcard-aR">
                               {salon.reviewCount}
-                            </span>
+                            </span> */}
                             <span className="cs-mcard-aText">
-                              <span>{salon.reviewCount}</span> ratings
+                              <span>{parseFloat(salon.reviewCount).toFixed(1)}</span> ratings
                             </span>
                           </div>
                         </div>
