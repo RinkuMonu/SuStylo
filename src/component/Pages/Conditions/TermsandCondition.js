@@ -41,7 +41,7 @@ export default function TermsandCondition() {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <div className="gallery_heading text-center">
+                            <div className="gallery_heading text-center mx-auto">
                                 <h2>Terms and Conditions</h2>
                             </div>
                             <div className="de-separator" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>

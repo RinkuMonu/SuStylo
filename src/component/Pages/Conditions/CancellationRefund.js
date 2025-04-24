@@ -41,7 +41,7 @@ export default function CancellationRefund() {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <div className="gallery_heading text-center">
+                            <div className="gallery_heading text-center mx-auto">
                                 <h2>Cancellation & Refund Policy
                                 </h2>
                             </div>
@@ -98,8 +98,8 @@ export default function CancellationRefund() {
                                 <p>For any clarification regarding the refund policy, please contact us at:</p>
                                 <div className="definition_list mt-4">
                                     <ul>
-                                        <li><i class="bi bi-envelope me-2" style={{ color: "#ffb792" }}></i><Link style={{color:"#fff"}} href="mailto:info@sustylo.com">info@sustylo.com</Link></li>
-                                        <li><i class="bi bi-telephone me-2" style={{ color: "#ffb792" }}></i><Link style={{color:"#fff"}} href="tel:7297026119">7297026119</Link></li>
+                                        <li><i class="bi bi-envelope me-2" style={{ color: "#ffb792" }}></i><Link style={{color:"#000"}} href="mailto:info@sustylo.com">info@sustylo.com</Link></li>
+                                        <li><i class="bi bi-telephone me-2" style={{ color: "#ffb792" }}></i><Link style={{color:"#000"}} href="tel:7297026119">7297026119</Link></li>
                                     </ul>
                                 </div>
                             </div>
