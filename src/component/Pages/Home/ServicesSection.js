@@ -42,11 +42,11 @@ export default function ServicesSection() {
                                         premium aftercare.
                                     </p>
                                 </div>
-                                <div className="bookBtn">
-                                    <Link to={"/bookappoinment"} className="custom-btn btn-8">
+                                {/* <div className="bookBtn">
+                                    <Link  className="custom-btn btn-8">
                                         <span>Book Now</span>
                                     </Link>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className="col-md-3">
@@ -63,11 +63,11 @@ export default function ServicesSection() {
                                         beard.
                                     </p>
                                 </div>
-                                <div className="bookBtn">
-                                    <Link to={"/bookappoinment"} className="custom-btn btn-8">
+                                {/* <div className="bookBtn">
+                                    <Link  className="custom-btn btn-8">
                                         <span>Book Now</span>
                                     </Link>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className="col-md-3">
@@ -87,11 +87,11 @@ export default function ServicesSection() {
                                         well-groomed look.
                                     </p>
                                 </div>
-                                <div className="bookBtn">
-                                    <Link to={"/bookappoinment"} className="custom-btn btn-8">
+                                {/* <div className="bookBtn">
+                                    <Link  className="custom-btn btn-8">
                                         <span>Book Now</span>
                                     </Link>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className="col-md-3">
@@ -111,11 +111,11 @@ export default function ServicesSection() {
                                         complements your look.
                                     </p>
                                 </div>
-                                <div className="bookBtn">
-                                    <Link to={"/bookappoinment"} className="custom-btn btn-8">
+                                {/* <div className="bookBtn">
+                                    <Link  className="custom-btn btn-8">
                                         <span>Book Now</span>
                                     </Link>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

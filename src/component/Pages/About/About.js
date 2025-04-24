@@ -15,11 +15,12 @@ export default function About() {
     const formHendler = async (event) => {
         event.preventDefault();
         setLoading(true)
-        const { name, email, number } = event.target;
+        const { name, email, number,type } = event.target;
         const userData = {
             name: name.value,
             email: email.value,
             mobile: number.value,
+            type: type.value,
         }
         try {
             const response = await axiosInstance.post('/get-in-touch', userData);
@@ -84,7 +85,7 @@ export default function About() {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <div className="gallery_heading text-center">
+                            <div className="gallery_heading mx-auto text-center">
                                 <h2>What Is SU Stylo</h2>
                             </div>
                             <div className="de-separator" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
@@ -204,6 +205,14 @@ export default function About() {
                                                 aria-label="Last name"
                                             />
                                         </div>
+                                        <div className="col-md-4 col-sm-12 mb-3" style={{ textAlign: "justify" }}>
+                                            <label   htmlFor="userType"  style={{ fontWeight: "600", fontSize: "16px", marginBottom: "10px" }}>User Type</label>
+                                            <select id="type"  className="form-control placeholder-white border-white">
+                                            <option value="">Select User Type</option>            
+                                            <option value="user">User</option>            
+                                            <option value="salonOwner">Salon Owner</option>
+                                            </select>
+                                        </div>
 
                                         <div className="col-md-4 col-sm-12 mb-3">
                                             {
@@ -233,7 +242,7 @@ export default function About() {
                 <div className="container my-5">
                     <div className="row">
                         <div className="col-md-12">
-                            <div className="gallery_heading text-center">
+                            <div className="gallery_heading mx-auto text-center">
                                 <h2>Browse Area</h2>
                             </div>
                             <div className="de-separator" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>

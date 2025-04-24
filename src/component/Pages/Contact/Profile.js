@@ -132,7 +132,7 @@ export default function Profile() {
     };
 
     if (isLoading) {
-        return <div className="text-center py-5">Loading profile...</div>;
+        return <div className="text-center py-5"><span class="loaders"></span></div>;
     }
 
     return (
@@ -280,10 +280,10 @@ export default function Profile() {
                                                     style={{ width: '40px', height: '40px' }}
                                                 >
                                                          {txn.type === 'credit' ? (
-                                                        <FaArrowDown className="text-danger" />
+                                                        <FaArrowDown className="text-success" />
                                                        
                                                     ) : (
-                                                        <FaArrowUp className="text-success" />
+                                                        <FaArrowUp className="text-danger" />
                                                     )}
                                                 </div>
                                             </div>
