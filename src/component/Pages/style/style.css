@@ -1694,6 +1694,9 @@ p.service-text {
     flex: 1 1 calc(50% - 15px);
     /* 2 items per row on small screens */
   }
+  .cancellationRefund-section, .termscondition-section, .privacy-section{
+    background-position: left;
+  }
 
   .right_content h2 {
     font-size: 30px;
