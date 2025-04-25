@@ -232,18 +232,18 @@ export default function Home() {
           `/salon/nearby?latitude=26.799739&longitude=75.869721&category=${category}`
         );
         setSalons(response.data.salons);
-        console.log("saloon category:-",response.data.salons);
+        console.log("saloon category:-", response.data.salons);
         setError(null);
       } catch (err) {
         setError(err.message);
-        console.log("slon not found",err.message);
+        console.log("slon not found", err.message);
       } finally {
         setLoading(false);
       }
     };
 
     searchByCategory();
-  }, [category]); 
+  }, [category]);
   // search dropdown
   return (
     <>
@@ -286,79 +286,88 @@ export default function Home() {
               </div>
             </div>
             {/* Category Filter Section */}
-            <div className="container my-5">
-  <div className="row justify-content-center">
-    <div className="col-12 col-md-8 col-lg-6">
-      <div className="category-filter d-flex justify-content-between gap-2 mb-4">
-        {['all', 'premium', 'general'].map((type) => (
-          <button
-            key={type}
-            className={`btn flex-grow-1 ${category === type ? 'btn-primary' : 'btn-outline-primary'}`}
-            onClick={() => setCategory(type)}
-            aria-pressed={category === type}
-            aria-label={`Filter by ${type === 'all' ? 'all salons' : type + ' salons'}`}
-          >
-            {type === 'all' 
-              ? 'All Salons' 
-              : type.charAt(0).toUpperCase() + type.slice(1) + ' Salons'}
-          </button>
-        ))}
-      </div>
-    </div>
-  </div>
-</div>
-    
-            {/* Salon Listings */}
-    {loading ? (
-      <div className="text-center py-5">
-        <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    ) : error ? (
-      <div className="alert alert-danger text-center">{error}</div>
-    ) : (
-      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
-        {salons.map((salon) => (
-          <div key={salon._id} className="col">
-            <div className="card h-100 border-0 shadow-sm">
-              <div className="position-relative">
-                <img
-                  src={salon.salonPhotos?.[0] || "https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg"}
-                  className="card-img-top"
-                  alt={salon.salonName}
-                  style={{ height: '200px', objectFit: 'cover' }}
-                />
-                <div className="position-absolute top-0 end-0 bg-white px-2 py-1 m-2 rounded">
-                  <small className="text-warning">
-                    <i className="bi bi-star-fill"></i> {parseFloat(salon.avgRating || 0).toFixed(1)}
-                  </small>
-                </div>
-              </div>
-              <div className="card-body">
-                <h5 className="card-title text-truncate">{salon.salonName}</h5>
-                <div className="d-flex align-items-center mb-2">
-                  <FaMapMarkerAlt className="text-muted me-2" />
-                  <small className="text-muted text-truncate">{salon.salonAddress}</small>
-                </div>
-                <div className="d-flex justify-content-between align-items-center">
-                  <small className="text-muted">
-                    <FaRoute className="me-1" /> {parseFloat(salon.distance || 0).toFixed(2)} km
-                  </small>
-                  <Link 
-                    to={`/salondetails`} 
-                    state={{ userId: salon._id }}
-                    className="btn btn-sm btn-outline-primary"
-                  >
-                    View
-                  </Link>
+            <div className="container">
+              <div className="row justify-content-center">
+                <div className="col-12 col-md-8 col-lg-6">
+                  <div className="category-filter d-flex justify-content-between gap-2 mb-4">
+                    <select class="form-select" aria-label="Default select example" value={category} onChange={(e) => setCategory(e.target.value)}>
+                      {['all', 'premium', 'general'].map((type) => (
+                        <option key={type} value={type}>
+                          {type === 'all' ? 'All Salons' : type.charAt(0).toUpperCase() + type.slice(1) + ' Salons'}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-    )}
+
+            {/* Salon Listings */}
+            {loading ? (
+              <div className="text-center py-5">
+                <div className="spinner-border text-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            ) : error ? (
+              <div className="alert alert-danger text-center">{error}</div>
+            ) : (
+              <div className="container">
+
+                <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-4 g-4 mb-4">
+                  {salons.map((salon) => (
+                    <Link
+                        to={`/salondetails`}
+                        state={{ userId: salon._id }}
+                        key={salon._id}
+                        className="cs-main__card-box text-decoration-none p-0"
+                      >
+                        <div className="cs-main__card-img">
+                          <img
+                            src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg"
+                            className="img-fluid"
+                            alt={salon.salonName}
+                          />
+
+                          <div className="cs-main__card-rating-box">
+                            {/* <span className="cs-mcard-aR">
+                              {salon.reviewCount}
+                            </span> */}
+                            <span className="cs-mcard-aText">
+                              <span>{parseFloat(salon.reviewCount).toFixed(1)}</span> ratings
+                            </span>
+                          </div>
+                        </div>
+                        <div className="cs-main__card-content p-3">
+                          <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
+                            {salon.salonName}
+                          </h3>
+                          {/* <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
+                            {salon.name}
+                            <p style={{ fontSize: "12px" }}>
+                              <i className="bi bi-star me-1"></i>
+                              {salon.reviewCount} Review
+                            </p>
+                          </h3> */}
+                          <div className="cs-main__card-location d-flex align-items-start">
+                            <FaMapMarkerAlt className="icon mt-1 me-2" />
+                            <p className="cs-main__card-location-text text-truncate">
+                              {salon.salonAddress}
+                            </p>
+                          </div>
+                          <ul className="cs-main__card-list my-0 list-unstyled">
+                            <li className="cs-main__card-list-item d-flex align-items-center">
+                              <FaRoute className="icon me-2" />{" "}
+                              {parseFloat(salon.distance).toFixed(2)} km
+                            </li>
+                          </ul>
+                        </div>
+                      </Link>
+                  ))}
+
+                </div>
+              </div>
+            )}
             <div className="container">
               <div className="row mb-4">
                 <div
@@ -384,15 +393,15 @@ export default function Home() {
                   modules={[Navigation, FreeMode]}
                   className="mySwiper"
                   breakpoints={{
-      
+
                     576: {
                       slidesPerView: 2,
                     },
-            
+
                     768: {
                       slidesPerView: 3,
                     },
-              
+
                     992: {
                       slidesPerView: 4,
                     },
@@ -411,18 +420,6 @@ export default function Home() {
                             className="img-fluid"
                             alt={salon.salonName}
                           />
-                          {/* <img
-                            src="https://sustylo-web.onrender.com/uploads/salonPhotos/1745230383388-73864633.jpg"
-                            alt="Salon"
-                            style={{
-                              width: "300px",
-                              height: "auto",
-                              border: "2px solid red", // helpful for debugging
-                              display: "block",
-                            }}
-                          /> */}
-
-                          {/* {console.log("saloon photos", salon.salonPhotos[0])} */}
                           <div className="cs-main__card-rating-box">
                             <span className="cs-mcard-aR">{parseFloat(salon?.avgRating).toFixed(1)}</span>
                             <span className="cs-mcard-aText">
@@ -433,10 +430,6 @@ export default function Home() {
                         <div className="cs-main__card-content p-3">
                           <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
                             {salon.salonName}
-                            {/* <p style={{ fontSize: "12px" }}>
-                              <i className="bi bi-star me-1"></i>
-                              {salon.rating} Review
-                            </p> */}
                           </h3>
                           <div className="cs-main__card-location d-flex align-items-start">
                             <FaMapMarkerAlt className="icon mt-1 me-2" />
@@ -444,11 +437,6 @@ export default function Home() {
                               {salon.salonAddress}
                             </p>
                           </div>
-                          {/* <ul className="cs-main__card-list my-0 list-unstyled">
-                            <li className="cs-main__card-list-item d-flex align-items-center">
-                              <FaRoute className="icon me-2" /> {salon.distance}
-                            </li>
-                          </ul> */}
                         </div>
                       </Link>
                     </SwiperSlide>
@@ -479,15 +467,15 @@ export default function Home() {
                   modules={[Navigation, FreeMode]}
                   className="mySwiper"
                   breakpoints={{
-                 
+
                     576: {
                       slidesPerView: 2,
                     },
-                  
+
                     768: {
                       slidesPerView: 3,
                     },
-                    
+
                     992: {
                       slidesPerView: 4,
                     },
