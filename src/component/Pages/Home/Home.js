@@ -10,16 +10,11 @@ import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import {
-  EffectCoverflow,
-  Autoplay,
-  Pagination,
   Navigation,
   FreeMode,
 } from "swiper/modules";
 import { Link } from "react-router-dom";
-import { Form, InputGroup, Dropdown, DropdownButton } from "react-bootstrap";
-import { FaSearch } from "react-icons/fa";
-import { FaMapMarkerAlt, FaClock, FaRoute } from "react-icons/fa";
+import { FaMapMarkerAlt, FaRoute } from "react-icons/fa";
 import axiosInstance from "../../config/axiosInstance";
 import HeroSection from "./HeroSection";
 import ServicesSlider from "./ServicesSlider";
@@ -95,7 +90,8 @@ export default function Home() {
   const [fulladdress, setfulladdress] = useState("");
   const [nearbySalons, setNearbySalons] = useState([]);
   const [popularSalonData, setpopularSalonData] = useState([]);
-
+  const [category, setCategory] = useState('all');
+  const [salons, setSalons] = useState([]);
   const [data, setData] = useState({
     location: "",
     category: "",
@@ -227,6 +223,27 @@ export default function Home() {
     }
   }, [location.latitude, location.longitude]);
 
+
+  useEffect(() => {
+    const searchByCategory = async () => {
+      try {
+        setLoading(true);
+        const response = await axiosInstance.get(
+          `/salon/nearby?latitude=26.799739&longitude=75.869721&category=${category}`
+        );
+        setSalons(response.data.salons);
+        console.log("saloon category:-",response.data.salons);
+        setError(null);
+      } catch (err) {
+        setError(err.message);
+        console.log("slon not found",err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    searchByCategory();
+  }, [category]); 
   // search dropdown
   return (
     <>
@@ -268,6 +285,80 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            {/* Category Filter Section */}
+            <div className="container my-5">
+  <div className="row justify-content-center">
+    <div className="col-12 col-md-8 col-lg-6">
+      <div className="category-filter d-flex justify-content-between gap-2 mb-4">
+        {['all', 'premium', 'general'].map((type) => (
+          <button
+            key={type}
+            className={`btn flex-grow-1 ${category === type ? 'btn-primary' : 'btn-outline-primary'}`}
+            onClick={() => setCategory(type)}
+            aria-pressed={category === type}
+            aria-label={`Filter by ${type === 'all' ? 'all salons' : type + ' salons'}`}
+          >
+            {type === 'all' 
+              ? 'All Salons' 
+              : type.charAt(0).toUpperCase() + type.slice(1) + ' Salons'}
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+    
+            {/* Salon Listings */}
+    {loading ? (
+      <div className="text-center py-5">
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    ) : error ? (
+      <div className="alert alert-danger text-center">{error}</div>
+    ) : (
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+        {salons.map((salon) => (
+          <div key={salon._id} className="col">
+            <div className="card h-100 border-0 shadow-sm">
+              <div className="position-relative">
+                <img
+                  src={salon.salonPhotos?.[0] || "https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg"}
+                  className="card-img-top"
+                  alt={salon.salonName}
+                  style={{ height: '200px', objectFit: 'cover' }}
+                />
+                <div className="position-absolute top-0 end-0 bg-white px-2 py-1 m-2 rounded">
+                  <small className="text-warning">
+                    <i className="bi bi-star-fill"></i> {parseFloat(salon.avgRating || 0).toFixed(1)}
+                  </small>
+                </div>
+              </div>
+              <div className="card-body">
+                <h5 className="card-title text-truncate">{salon.salonName}</h5>
+                <div className="d-flex align-items-center mb-2">
+                  <FaMapMarkerAlt className="text-muted me-2" />
+                  <small className="text-muted text-truncate">{salon.salonAddress}</small>
+                </div>
+                <div className="d-flex justify-content-between align-items-center">
+                  <small className="text-muted">
+                    <FaRoute className="me-1" /> {parseFloat(salon.distance || 0).toFixed(2)} km
+                  </small>
+                  <Link 
+                    to={`/salondetails`} 
+                    state={{ userId: salon._id }}
+                    className="btn btn-sm btn-outline-primary"
+                  >
+                    View
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
             <div className="container">
               <div className="row mb-4">
                 <div
