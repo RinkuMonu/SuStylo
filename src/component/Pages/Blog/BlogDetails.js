@@ -123,7 +123,7 @@ function BlogsDetails() {
        
         <div className="container text-center position-relative">
           <h2 className="hero-title">Blog</h2>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          <p>Welcome to the Su Stylo Blog, your go-to source for the latest trends, expert grooming tips, and salon industry insights.</p>
         </div>
       </section>
      
@@ -136,8 +136,8 @@ function BlogsDetails() {
                   <img src={blog.image || "https://framerusercontent.com/images/y6h3MUMisOe3SS8MABsJ8tKikA.jpeg"} className="img-fluid" alt={blog.title} />
                 </div>
                 <div className="blog-user">
-                  <a href="#"><i className="bi bi-person me-2"></i>by {blog.author || 'admin'}</a>
-                  <a href="#"><i className="bi bi-calendar-event me-2"></i>{blog.date || 'July 5, 2024'}</a>
+                  <a><i className="bi bi-person me-2"></i>by {blog.author || 'admin'}</a>
+                  <a><i className="bi bi-calendar-event me-2"></i>{blog.date || 'July 5, 2024'}</a>
                 </div>
                 <div className="blog-main_content">
                   <b className="bold-heading">{blog.title || 'Unraveling the Enduring Charm and Evolution of Barbershops as Societal and Cultural Hubs'}</b>

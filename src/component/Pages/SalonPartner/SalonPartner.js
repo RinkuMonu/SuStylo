@@ -8,11 +8,11 @@ import Swal from "sweetalert2";
 
 export default function SalonPartner() {
   const [formData, setFormData] = useState({
-    ownerName: "",
+    name: "",
     salonName: "",
-    mobile: "",
+    mobileNumber: "",
     email: "",
-    salonAddress: "",
+    address: "",
   }); 
 
   const handleChange = (e) => {
@@ -21,7 +21,7 @@ export default function SalonPartner() {
 
     const handleSubmit = async () => {
       try {
-          const response = await axiosInstance.post('/salon/lead', formData);
+          const response = await axiosInstance.post('/user/salon-lead', formData);
           Swal.fire({
               icon: 'success',
               title: 'Success!',
@@ -31,11 +31,11 @@ export default function SalonPartner() {
 
        
           setFormData({
-              ownerName: "",
+              name: "",
               salonName: "",
-              mobile: "",
+              mobileNumber: "",
               email: "",
-              salonAddress: ""
+              address: ""
           });
       } catch (error) {
           if (error.response && error.response.status === 400) {
@@ -53,12 +53,12 @@ export default function SalonPartner() {
  
   const handleCancel = () => {
     setFormData({
-      ownerName: "",
+      name: "",
       salonName: "",
-      mobile: "",
+      mobileNumber: "",
       email: "",
-      salonAddress: "",
-    });
+      address: ""
+  });
   };
 
   useEffect(() => {
@@ -160,15 +160,15 @@ export default function SalonPartner() {
                     </div>
                     <div className="col-md-6">
                       <div className="mb-3">
-                        <label htmlFor="ownerName" className="form-label">
+                        <label htmlFor="name" className="form-label">
                           Salon Owner Name
                         </label>
                         <input
                           type="text"
                           className="form-control"
-                          id="ownerName"
-                          name="ownerName"
-                          value={formData.ownerName}
+                          id="name"
+                          name="name"
+                          value={formData.name}
                           onChange={handleChange}
                           placeholder="Salon Owner Name"
                         />
@@ -176,15 +176,15 @@ export default function SalonPartner() {
                     </div>
                     <div className="col-md-6">
                       <div className="mb-3">
-                        <label htmlFor="mobile" className="form-label">
+                        <label htmlFor="mobileNumber" className="form-label">
                           Mobile Number
                         </label>
                         <input
                           type="number"
                           className="form-control"
-                          id="mobile"
-                          name="mobile"
-                          value={formData.mobile}
+                          id="mobileNumber"
+                          name="mobileNumber"
+                          value={formData.mobileNumber}
                           onChange={handleChange}
                           placeholder="Enter Number"
                         />
@@ -208,14 +208,15 @@ export default function SalonPartner() {
                     </div>
                     <div className="col-md-12">
                       <div className="mb-3">
-                        <label htmlFor="salonAddress" className="form-label">
+                        <label htmlFor="address" className="form-label">
                           Address
                         </label>
                         <textarea
                           className="form-control"
-                          id="salonAddress"
-                          name="salonAddress"
-                          value={formData.salonAddress}
+                          id="address"
+                          name="address"
+                          placeholder="Address....."
+                          value={formData.address}
                           onChange={handleChange}
                           rows={4}
                         ></textarea>
