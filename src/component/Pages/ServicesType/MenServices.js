@@ -4,15 +4,16 @@ import WOW from "wow.js";
 import '../style/style.css';
 import { Link } from "react-router-dom";
 import SimpleParallax from "simple-parallax-js";
-import { Pagination, Autoplay, Navigation } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation, FreeMode } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
+
 export default function MenServices() {
     useEffect(() => {
         new WOW().init();
     }, []);
-    useEffect(() => {
+    useEffect(() => { 
         AOS.init({ duration: 1000 });
     }, []);
     const [isVisible, setVisible] = useState(false);
@@ -53,15 +54,26 @@ export default function MenServices() {
                         <div className="row mb-4">
                             <div className="col-md-12">
                                 <Swiper
-                                    slidesPerView={4}
-                                    spaceBetween={30}
-                                    pagination={false}
-                                    modules={[Pagination, Autoplay]}
-                                    autoplay={{
-                                        delay: 5000,
-                                        disableOnInteraction: false,
-                                    }}
-                                    className="mySwiper"
+                                     spaceBetween={20}
+                  centeredSlides={false}
+                  pagination={false}
+                  navigation={true}
+                  modules={[Navigation, FreeMode]}
+                  className="mySwiper"
+                  breakpoints={{
+
+                    576: {
+                      slidesPerView: 2,
+                    },
+
+                    768: {
+                      slidesPerView: 3,
+                    },
+
+                    992: {
+                      slidesPerView: 4,
+                    },
+                  }}
                                 >
                                     <SwiperSlide>
                                         <div className="card text-white border-0 position-relative" style={{ borderRadius: "12px", overflow: "hidden" }}>
