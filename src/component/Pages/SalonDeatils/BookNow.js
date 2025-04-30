@@ -209,7 +209,6 @@ export default function BookNow() {
           <h2 className="hero-title">BOOK APPOINTMENT</h2>
         </div>
       </section>
-
       <div className="content-section">
         <div className="container">
           <div className="row">
