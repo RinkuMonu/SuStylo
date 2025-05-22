@@ -2,67 +2,173 @@ import React, { useState, useEffect, useRef } from "react";
 import AOS from "aos";
 import WOW from "wow.js";
 import "../style/style.css";
-import { BiSolidHot } from "react-icons/bi";
-import { Link } from "react-router-dom";
-import { Form, InputGroup, Dropdown, DropdownButton } from "react-bootstrap";
-import { FaSearch } from "react-icons/fa";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import {
-  EffectCoverflow,
-  Autoplay,
-  Pagination,
-  Navigation,
-  FreeMode,
-} from "swiper/modules";
-import { FaMapMarkerAlt, FaClock, FaRoute } from "react-icons/fa";
-import { FaPercentage } from "react-icons/fa";
-import { TbHours24 } from "react-icons/tb";
-import { BiSolidOffer } from "react-icons/bi";
-import { Container, Row, Col } from "react-bootstrap";
+
+import SimpleParallax from "simple-parallax-js";
 
 // More Services
-const services = [
+const serviceData = [
   {
-    icon: "./images/services/AromaTherapy.jpg",
-    title: "Aroma Therapy",
+    title: "Hair Care Services",
     description:
-      "Relax with essential oils and expert techniques in a private, calming space.",
+      "Your hair is a key part of your personal style. At Su Stylo partner salons, experience expert hair services for men and women designed to keep your hair healthy, stylish, and manageable.",
+    image: "./images/new/hairCare.png",
+    services: [
+      "Haircut (Men & Women)",
+      "Hair Styling & Blow Dry",
+      "Hair Spa & Deep Conditioning",
+      "Hair Coloring (Permanent, Semi-Permanent)",
+      "Highlights & Balayage",
+      "Hair Rebonding & Straightening",
+      "Hair Perming & Curling",
+      "Scalp Treatment & Dandruff Control",
+      "Beard Grooming & Trimming",
+      "Hair Extensions & Weaving",
+    ],
   },
   {
-    icon: "./images/services/Waxing.jpg",
-    title: "Waxing",
+    title: "Skin Care & Facial Treatments",
     description:
-      "Enjoy smooth, flawless skin with a painless and hygienic waxing experience.",
+      "Healthy, glowing skin is just a session away. Su Stylo partner salons offer customized skin treatments and facials for every skin type and concern — from acne to anti-aging.",
+    image: "./images/new/skinCare.png",
+    services: [
+      "Classic Facial & Skin Cleanup",
+      "Anti-Aging Facial",
+      "Acne Treatment Facial",
+      "Brightening & Whitening Facial",
+      "De-tan & Bleaching",
+      "Chemical Peel",
+      "Microdermabrasion",
+      "Hydrating Facial",
+      "Skin Tightening Treatments",
+    ],
   },
   {
-    icon: "./images/services/NailManicure.jpg",
-    title: "Nail Manicure",
+    title: "Waxing & Hair Removal",
     description:
-      "Get perfectly groomed nails with classic finishes or trendy nail art.",
+      "Smooth and silky skin made simple. Choose from a range of safe and hygienic waxing and threading services suited for every skin type.",
+    image: "./images/new/waxing.png",
+    services: [
+      "Full Body Waxing",
+      "Bikini & Brazilian Wax",
+      "Underarm Waxing",
+      "Facial Waxing (Upper Lip, Chin, Eyebrows)",
+      "Threading (Eyebrows, Facial Hair)",
+      "Back & Chest Waxing",
+      "Leg & Arm Waxing",
+    ],
   },
   {
-    icon: "./images/services/BodyMassages.jpg",
-    title: "Body Massages",
+    title: "Nail Care Services",
     description:
-      "Rejuvenate with a soothing facial or full-body massage for deep relaxation.",
+      "From basic nail hygiene to premium gel extensions and nail art, Su Stylo salons offer stylish, professional nail care.",
+    image: "./images/new/nailcare.png",
+    services: [
+      "Manicure (Basic, French, Gel)",
+      "Pedicure (Basic, Spa, Gel)",
+      "Nail Art & Designs",
+      "Nail Extensions & Acrylic Nails",
+      "Paraffin Wax Treatment",
+      "Cuticle Care & Nail Repair",
+    ],
+  },
+  {
+    title: "Body Massage & Therapies",
+    description:
+      "Relax, reset, and recharge. Su Stylo partner spas and salons provide therapeutic massage treatments for stress relief, muscle recovery, and full-body wellness.",
+    image: "./images/new/BodyMassage.png",
+    services: [
+      "Swedish Massage",
+      "Deep Tissue Massage",
+      "Aromatherapy Massage",
+      "Hot Stone Massage",
+      "Head, Neck & Shoulder Massage",
+      "Full Body Relaxation Massage",
+      "Foot Reflexology",
+    ],
+  },
+  {
+    title: "Bridal & Special Occasion Services",
+    description:
+      "Look and feel your best on life's most important days. Our experienced makeup artists and stylists specialize in bridal and festive looks.",
+    image: "./images/new/bridal.png",
+    services: [
+      "Bridal Makeup & Hairstyling",
+      "Party & Event Makeup",
+      "Pre-Bridal Skin & Hair Packages",
+      "Mehendi & Traditional Bridal Services",
+      "Saree Draping & Styling",
+      "Grooming Packages for Grooms",
+    ],
+  },
+  {
+    title: "Men's Grooming Services",
+    description:
+      "Grooming made easy and comfortable for today's modern man. Our expert salons ensure you look sharp and feel confident.",
+    image: "https://img.freepik.com/free-photo/handsome-man-barbershop_1303-26241.jpg",
+    services: [
+      "Beard Shaping & Styling",
+      "Haircut & Styling",
+      "Hot Towel Shave",
+      "Facial Treatments for Men",
+      "Hair & Scalp Treatments",
+      "Manicure & Pedicure for Men",
+    ],
+  },
+  {
+    title: "Spa & Wellness",
+    description:
+      "Restore your inner balance and outer glow. Our spa partners provide holistic services that detoxify, de-stress, and rejuvenate your body.",
+    image: "https://img.freepik.com/free-photo/beautiful-woman-enjoying-spa-treatment_1303-27650.jpg",
+    services: [
+      "Aromatherapy",
+      "Detox Treatments",
+      "Body Scrubs & Exfoliation",
+      "Steam Bath & Sauna",
+      "Relaxation Packages",
+      "Wellness Consultations",
+    ],
+  },
+  {
+    title: "Eyelash & Eyebrow Services",
+    description:
+      "Enhance your eyes with precision shaping and advanced lash treatments — from tinting to extensions.",
+    image: "https://img.freepik.com/free-photo/makeup-artist-doing-eyelash-extension_1303-27157.jpg",
+    services: [
+      "Eyebrow Shaping & Tinting",
+      "Eyelash Extensions",
+      "Eyebrow Threading & Waxing",
+      "Eyelash Lifting & Perming",
+      "Lash & Brow Tint",
+    ],
+  },
+  {
+    title: "Makeup Services",
+    description:
+      "Be photo-ready for any occasion. From daily wear to HD and airbrush glam, Su Stylo salons have your makeup needs covered.",
+    image: "https://img.freepik.com/free-photo/visagiste-applying-makeup-model_1303-24296.jpg",
+    services: [
+      "Daily Makeup",
+      "Professional Makeup",
+      "HD Makeup",
+      "Airbrush Makeup",
+      "Makeup Trial Sessions",
+      "Makeup Consultation",
+    ],
   },
 ];
 
 export default function Services() {
-  useEffect(() => {
-    new WOW().init();
-  }, []);
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
   const [isVisible, setVisible] = useState(false);
   const domRef = useRef(null);
 
   useEffect(() => {
+    // Initialize WOW.js
+    new WOW().init();
+    
+    // Initialize AOS
+    AOS.init({ duration: 1000 });
+
+    // Initialize Intersection Observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => setVisible(entry.isIntersecting));
     });
@@ -73,27 +179,6 @@ export default function Services() {
       if (domRef.current) observer.unobserve(domRef.current);
     };
   }, []);
-  // Delas Section Active Class
-  const [activeLink, setActiveLink] = useState(null);
-
-  const links = [
-    { icon: <BiSolidHot />, text: "Deals To Grab" },
-    { icon: <BiSolidOffer />, text: "Choose any, from many" },
-    { icon: <TbHours24 />, text: "Best hours of the day" },
-    { icon: <FaPercentage />, text: "Save Big" },
-  ];
-
-  const Sideservices = [
-    { name: "Packages", img: "./images/services/AromaTherapy.jpg" },
-    { name: "Make your package", img: "./images/services/Waxing.jpg" },
-    { name: "Waxing", img: "./images/services/NailManicure.jpg" },
-    { name: "Facial & cleanup", img: "./images/services/BodyMassages.jpg" },
-    { name: "Pedicure", img: "./images/services/AromaTherapy.jpg" },
-    { name: "Manicure", img: "./images/services/Waxing.jpg" },
-    { name: "Hair care", img: "./images/services/NailManicure.jpg" },
-    { name: "Bleach & detan", img: "./images/services/BodyMassages.jpg" },
-    { name: "Threading & face waxing", img: "./images/services/AromaTherapy.jpg" },
-  ];
 
   return (
     <>
@@ -104,157 +189,122 @@ export default function Services() {
         <section className="services-section d-flex align-items-center">
           <div className="hero-overlay"></div>
           <div className="container text-center position-relative">
-            <h2 className="hero-title">Services & Categories</h2>
+            <h2 className="hero-title">Su Stylo Salon Services & Categories</h2>
             <p className="text-white fw-bold">
               At Su Stylo, we offer a wide range of premium grooming and beauty
               services designed to enhance your style and confidence. Whether
-              you’re looking for a sharp haircut, a relaxing spa treatment, or
-              expert beard grooming, we’ve got you covered!
+              you're looking for a sharp haircut, a relaxing spa treatment, or
+              expert beard grooming, we've got you covered!
             </p>
           </div>
         </section>
       </div>
+      
       <div className="content-section">
         <div className="container-fluid px-3">
           <div className="row">
             <div className="col-md-12">
               <div className="heading">
-                <h2 className="third-color fw-bold text-center">Professional Spa And Beauty Services</h2>
+                <h2 className="third-color fw-bold text-center">Complete Grooming & Beauty Solutions Under One Roof</h2>
               </div>
               <div
                 className="de-separator"
                 style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}
               ></div>
-
             </div>
-            <div className="col-md-3">
-
-              <div className="row text-center sideservices">
-                {Sideservices.map((services, index) => (
-                  <div className="col-4 col-md-4 mb-4  text-center" key={index}>
-                    <div className=" d-flex flex-column align-items-center justify-content-center">
-                      <div
-                        className="rounded shadow-sm"
-                        style={{
-                          cursor: "pointer", border: index === 2 ? "2px solid #000" : "1px solid #ddd", backgroundImage: `url(${services.img})`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                          backgroundRepeat: "no-repeat",
-                          height: "80px", 
-                          width: "80px",
-                        }}
-                      >
-                      </div>
-                      <small>{services.name}</small>
+          </div>
+          
+          <section className="py-5 bg-white">
+            <div className="container">
+              <div className="row g-5">
+                {serviceData.map((category, index) => (
+                  <React.Fragment key={index}>
+                    <div className="row align-items-center mb-5">
+                      {index % 2 === 0 ? (
+                        <>
+                          <div className="col-md-6 mb-3 mb-md-0">
+                            <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
+                              <img 
+                                src={category.image} 
+                                alt={category.title} 
+                                className="img-fluid rounded shadow" 
+                                loading="lazy"
+                              />
+                            </SimpleParallax>
+                          </div>
+                          <div className="col-md-6">
+                            <h2 className="my-3 third-color fs-3 fw-bold">{category.title}</h2>
+                            <p className="mb-2">{category.description}</p>
+                            <ul className="listing ps-3 mb-0">
+                              {category.services.map((service, idx) => (
+                                <li key={idx} className="mb-1">{service}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div className="col-md-6 order-md-2 mb-3 mb-md-0">
+                            <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
+                              <img 
+                                src={category.image} 
+                                alt={category.title} 
+                                className="img-fluid rounded shadow" 
+                                loading="lazy"
+                              />
+                            </SimpleParallax>
+                          </div>
+                          <div className="col-md-6 order-md-1">
+                            <h2 className="my-3 third-color fs-3 fw-bold">{category.title}</h2>
+                            <p className="mb-2">{category.description}</p>
+                            <ul className="listing ps-3 mb-0">
+                              {category.services.map((service, idx) => (
+                                <li key={idx} className="mb-1">{service}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        </>
+                      )}
                     </div>
-
-                  </div>
+                    {index < serviceData.length - 1 && <hr className="my-4" />}
+                  </React.Fragment>
                 ))}
               </div>
             </div>
-            {/* <div className="col-md-1">
-            <hr className="vr p-0 ps-1 rounded-5" />
-
-            </div> */}
-            <div className="col-md-9">
-              <Container className="text-center pb-5">
-                <Row className="mb-4" >
-                  {services.map((service, index) => (
-                    <Col md={3} sm={6} key={index}>
-                      <Link to={'/salondetails/:id'} className="service-card mb-3">
-                        <div className="service-icon">
-                          <img className="img-fluid rounded" src={service.icon} />
-                        </div>
-                        <h5 className="service-title mt-4">{service.title}</h5>
-                        <p className="service-text">{service.description}</p>
-                      </Link>
-                    </Col>
-                  ))}
-                </Row>
-              </Container>
+            
+            {/* Bonus Packages Section */}
+            <div className="mt-5">
+              <h4 className="fw-bold text-center mb-4">Bonus: Su Stylo Exclusive Packages</h4>
+              <p className="text-center mb-3">
+                Enjoy the best of beauty with our curated combo deals and occasion-based offers. 
+                Choose what fits you best or let us design a personalized care plan just for you.
+              </p>
+              <ul className="listing ps-3 col-md-6 offset-md-3 mb-4">
+                <li className="mb-1">Grooming Combo Packages</li>
+                <li className="mb-1">Bridal & Groom Packages</li>
+                <li className="mb-1">Seasonal Offers & Festival Specials</li>
+                <li className="mb-1">Customized Care Plans</li>
+              </ul>
             </div>
-          </div>
 
+            {/* Why Choose Us Section */}
+            <div className="mt-5">
+              <h4 className="fw-bold text-center mb-4">Why Choose Su Stylo Salons?</h4>
+              <ul className="listing ps-3 col-md-6 offset-md-3 mb-4">
+                <li className="mb-1">Verified & Trusted Salon Partners</li>
+                <li className="mb-1">Experienced & Certified Beauty Professionals</li>
+                <li className="mb-1">Strict Hygiene & Safety Standards</li>
+                <li className="mb-1">Transparent Pricing with No Hidden Charges</li>
+                <li className="mb-1">Easy Online Booking, Rescheduling & Secure Payments</li>
+              </ul>
+              <p className="text-center fw-semibold">
+                Whether it's daily care or a special event, Su Stylo ensures you always put your best self forward.
+              </p>
+              <p className="text-center text-muted">Explore. Book. Glow. Only on Su Stylo.</p>
+            </div>
+          </section>
         </div>
-
-        {/* <div className="container px-0 contactus mb-5 pb-5">
-          <div className="row px-5">
-            <div className="col-md-6" style={{ alignSelf: "center" }}>
-              <div className="sideImg">
-                <img src="./images/V1.png" className="img-fluid" />
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div className="sidecontent">
-                <img src="" className="img-fluid" width={100} />
-                <h2 className="mt-3">Find & Book Appoinment</h2>
-                <p>
-                  Find your next appointment and book instantly anytime,
-                  anywhere.
-                </p>
-                <div className="row mt-5">
-                  <div className="col-md-6 mb-3">
-                    <div className="contentImg">
-                      <div className="imgBx">
-                        <img src="./images/woman.svg" width={50} />
-                      </div>
-                      <div class="su__box-cont">
-                        <h5>
-                          <strong>100</strong>+
-                        </h5>
-                        <p className="my-2">Male & Female Services</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6 mb-3">
-                    <div className="contentImg">
-                      <div className="imgBx">
-                        <img src="./images/cut.svg" width={50} />
-                      </div>
-                      <div class="su__box-cont">
-                        <h5>
-                          <strong>20</strong>k+
-                        </h5>
-                        <p className="my-2">Stylists and Professionals</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <hr />
-                <div className="row">
-                  <div className="col-md-6 mb-3">
-                    <div className="contentImg">
-                      <div className="imgBx">
-                        <img src="./images/woman.svg" width={50} />
-                      </div>
-                      <div class="su__box-cont">
-                        <h5>
-                          <strong>100</strong>+
-                        </h5>
-                        <p className="my-2">Male & Female Services</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6 mb-3">
-                    <div className="contentImg">
-                      <div className="imgBx">
-                        <img src="./images/woman.svg" width={50} />
-                      </div>
-                      <div class="su__box-cont">
-                        <h5>
-                          <strong>100</strong>+
-                        </h5>
-                        <p className="my-2">Male & Female Services</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
       </div>
-
     </>
   );
 }

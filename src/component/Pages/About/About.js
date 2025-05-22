@@ -176,11 +176,14 @@ export default function About() {
 
                     {/* Image Section */}
                     <div className="col-lg-5 text-center mt-4 mt-lg-0">
-                      <img
+                    <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
+                    <img
                         src="https://img.freepik.com/free-photo/young-beautiful-woman-choosing-cosmetics-beauty-shop_1303-27656.jpg"
                         alt="About Su Stylo"
                         className="img-fluid "
                       />
+                    </SimpleParallax>
+                     
                     </div>
                   </div>
                 </div>
@@ -377,11 +380,14 @@ export default function About() {
 
       {/* Image Section */}
       <div className="col-lg-6 text-center">
-        <img 
+        <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
+ <img 
           src="https://img.freepik.com/free-photo/young-woman-getting-beauty-treatment-salon_1303-23921.jpg" 
           alt="Happy salon customer"
           className="img-fluid "
         />
+        </SimpleParallax>
+       
       </div>
     </div>
   </div>
