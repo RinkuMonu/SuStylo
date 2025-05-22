@@ -5,18 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import { RxCross2 } from "react-icons/rx";
-
-
-
-import {
-    EffectCoverflow,
-    Autoplay,
-    Pagination,
-    Navigation,
-    FreeMode,
-} from "swiper/modules";
-import { Link } from 'react-router-dom';
+import {Autoplay,Pagination,Navigation,} from "swiper/modules";
 
 export default function ReviewSection() {
     return (
@@ -134,7 +123,7 @@ export default function ReviewSection() {
                                                 Best haircut I've ever had! The barbers are highly skilled
                                                 and listen to exactly what you want. Five-star service!
                                             </p>
-                                        </div>
+                                        </div> 
                                     </SwiperSlide>
                                 </Swiper>
                             </div>

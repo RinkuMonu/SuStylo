@@ -5,7 +5,10 @@ import "./Salon.css";
 import SimpleParallax from "simple-parallax-js";
 import axiosInstance from "../../config/axiosInstance";
 import Swal from "sweetalert2";
-
+import { Link } from "react-router-dom";
+import FAQAccordion from "./FAQ";
+import TrustedByStats from "./TrustedByStats";
+import Feeedback from "./Feedback";
 export default function SalonPartner() {
   const [formData, setFormData] = useState({
     name: "",
@@ -13,52 +16,50 @@ export default function SalonPartner() {
     mobileNumber: "",
     email: "",
     address: "",
-  }); 
+  });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-    const handleSubmit = async () => {
-      try {
-          const response = await axiosInstance.post('/user/salon-lead', formData);
-          Swal.fire({
-              icon: 'success',
-              title: 'Success!',
-              text: 'Your form has been filled successfully!'
-          });
-          console.log('Success:', response.data);
+  const handleSubmit = async () => {
+    try {
+      const response = await axiosInstance.post("/user/salon-lead", formData);
+      Swal.fire({
+        icon: "success",
+        title: "Success!",
+        text: "Your form has been filled successfully!",
+      });
+      console.log("Success:", response.data);
 
-       
-          setFormData({
-              name: "",
-              salonName: "",
-              mobileNumber: "",
-              email: "",
-              address: ""
-          });
-      } catch (error) {
-          if (error.response && error.response.status === 400) {
-              Swal.fire({
-                  icon: 'error',
-                  title: 'Duplicate Entry',
-                  text: 'Your email ID or phone number already exists!'
-              });
-          } else {
-              console.error('Error submitting form:', error);
-          }
+      setFormData({
+        name: "",
+        salonName: "",
+        mobileNumber: "",
+        email: "",
+        address: "",
+      });
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        Swal.fire({
+          icon: "error",
+          title: "Duplicate Entry",
+          text: "Your email ID or phone number already exists!",
+        });
+      } else {
+        console.error("Error submitting form:", error);
       }
+    }
   };
 
- 
   const handleCancel = () => {
     setFormData({
       name: "",
       salonName: "",
       mobileNumber: "",
       email: "",
-      address: ""
-  });
+      address: "",
+    });
   };
 
   useEffect(() => {
@@ -82,6 +83,17 @@ export default function SalonPartner() {
     };
   }, []);
 
+  const cities = [
+    { name: "Malviya Nagar", url: "#" },
+    { name: "Jhotwara", url: "#" },
+    { name: "Civil Lines", url: "#" },
+    { name: "Sitapura", url: "#" },
+    { name: "Mansarover", url: "#" },
+    { name: "Jagatpura", url: "#" },
+    { name: "MI Road", url: "#" },
+    { name: "Vivek Vihar", url: "#" },
+  ];
+
   return (
     <>
       <div
@@ -102,7 +114,7 @@ export default function SalonPartner() {
         <section className="content-section">
           <div className="container Salonpartner_slider">
             <div className="row">
-              <div className="col-md-6">
+              <div className="col-md-6 my-4 orderimg">
                 <h1>
                   Barbershop is More Than Hobby, It's Our{" "}
                   <span class="id-color fw-bold">Destiny!</span>{" "}
@@ -116,10 +128,169 @@ export default function SalonPartner() {
                   create an atmosphere that feels like home.
                 </p>
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 my-4 orderimg2">
                 <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
                   <img src="./images/gallery/R6.jpg" className="img-fluid" />
                 </SimpleParallax>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-6 my-4 orderimg2">
+                <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
+                  <img
+                    src="./images/gallery/R6.jpg"
+                    alt="img"
+                    className="img-fluid"
+                  />
+                </SimpleParallax>
+              </div>
+              <div className="col-md-6 my-4 orderimg">
+                <h1>
+                  Grow Your Salon with SuStylo
+                  {/* <span class="id-color fw-bold">Destiny!</span>{" "} */}
+                </h1>
+                <p>
+                  SuStylo is investing over ₹4 Crore to bring high-value
+                  customers straight to your salon door. Be part of the beauty
+                  industry’s next big movement — starting in Jaipur.
+                </p>
+                <div>
+                  <ul className="listing">
+                    <li className="disc">Reach thousands of local clients every month</li>
+                    <li>Get featured in our launch marketing campaigns</li>
+                    <li>Receive customer bookings directly on your phone</li>
+                    <li>Transparent payouts, no hidden fees</li>
+                    <li>Easy-to-use platform with 24/7 support</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-6 my-4 orderimg">
+                <h1>
+                  Exclusive Benefits for Jaipur Salons
+                  {/* <span class="id-color fw-bold">Destiny!</span>{" "} */}
+                </h1>
+                {/* <p>
+                SuStylo is investing over ₹4 Crore to bring high-value customers straight to your salon door. Be part of the beauty industry’s next big movement — starting in Jaipur.
+                </p> */}
+                <div>
+                  <ul className="listing" style={{ listStyleType: "disc", paddingLeft: "20px" }}>
+                    <li>₹10,000 Performance Bonus: Work hard, earn more</li>
+                    <li>
+                      Golden Partner Certificate: Get recognized as a verified
+                      SuStylo salon
+                    </li>
+                    <li>
+                      Up to ₹1,00,000 Annual Earnings Bonus: Top performers get
+                      rewarded
+                    </li>
+                    <li>Free Registration: No setup or listing fees</li>
+                    <li>
+                      Free Marketing & Promotions: Let us bring customers to
+                      your salon
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col-md-6 my-4 orderimg2">
+                <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
+                  <img
+                    src="./images/gallery/R6.jpg"
+                    alt="img"
+                    className="img-fluid"
+                  />
+                </SimpleParallax>
+              </div>
+            </div>
+
+            <div className="row">
+              
+              <div className="col-md-6 my-4 orderimg2">
+                <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
+                  <img
+                    src="./images/gallery/R6.jpg"
+                    alt="img"
+                    className="img-fluid"
+                  />
+                </SimpleParallax>
+              </div>
+              <div className="col-md-6 my-4 orderimg">
+                <h1>
+                  How It Works
+                  {/* <span class="id-color fw-bold">Destiny!</span>{" "} */}
+                </h1>
+                <div className="fw-bold mt-3">Step 1 Sign Up</div>
+                <div>Fill a short form to show your interest.</div>
+                <div className="fw-bold mt-3">Step 2 Get Verified</div>
+                <div>
+                  Our local team in Jaipur will visit and onboard your salon.
+                </div>
+                <div className="fw-bold mt-3">Step 3: Start Receiving Bookings</div>
+                <div>Start accepting online appointments immediately.</div>
+                <div className="fw-bold mt-3">Step 4: Grow Your Business</div>
+                <div>
+                  {" "}
+                  Track bookings, reviews, earnings, and customer trends from
+                  your dashboard.
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-6 my-4 orderimg">
+                <h1>
+                  Manage Everything With Ease
+                  {/* <span class="id-color fw-bold">Destiny!</span>{" "} */}
+                </h1>
+
+                <div>
+                  <ul className="listing" style={{ listStyleType: "disc", paddingLeft: "20px" }}>
+                    <li>Personalized Salon Dashboard</li>
+                    <li>Multiple Payment Modes: UPI, Wallets, Card, Cash</li>
+                    <li>Monthly Income Reports</li>
+                    <li>Booking Calendar & Customer Details</li>
+                    <li>SuStylo Team Support, 6 Days a Week</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col-md-6 my-4 orderimg2">
+                <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
+                  <img
+                    src="./images/gallery/R6.jpg"
+                    alt="img"
+                    className="img-fluid"
+                  />
+                </SimpleParallax>
+              </div>
+            </div>
+          </div>
+          <FAQAccordion />
+          <TrustedByStats />
+          <Feeedback />
+          <div className="container my-5">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="gallery_heading mx-auto text-center">
+                  <h2>Join the SuStylo Community</h2>
+                </div>
+                <div
+                  className="de-separator"
+                  style={{
+                    backgroundSize: "100%",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                ></div>
+              </div>
+              <div className="row">
+                <div className="col-md-12">
+                  <ul className="cities-container">
+                    {cities.map((city, index) => (
+                      <li key={index} className="cities-lists">
+                        <Link to={city.url}>{city.name}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

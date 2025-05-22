@@ -252,124 +252,9 @@ export default function Home() {
         ref={domRef}
       >
         <HeroSection />
-
-        <section className="content-section">
-          <ServicesSlider />
-          <GallerySection />
-          <AboutSection />
-          <ServicesSection />
-          {/* 
-          
-          
-          */}
-          {/* Near By Search */}
-          <div className="search_result">
-            <div className="container-fluid">
-              <div className="row">
-                <div className="col-md-12">
-                  <div className="gallery_heading  mx-auto">
-                    <h2 className="text-center">Services & Categories</h2>
-                    <p>
-                      Book your appointment now using the best salon app in
-                      India or the barber appointment app to redefine your
-                      style!
-                    </p>
-                  </div>
-                  <div
-                    className="de-separator"
-                    style={{
-                      backgroundSize: "100%",
-                      backgroundRepeat: "no-repeat",
-                    }}
-                  ></div>
-                </div>
-              </div>
-            </div>
-            {/* Category Filter Section */}
-            <div className="container">
-              <div className="row justify-content-center">
-                <div className="col-12 col-md-8 col-lg-6">
-                  <div className="category-filter d-flex justify-content-between gap-2 mb-4">
-                    <select class="form-select" aria-label="Default select example" value={category} onChange={(e) => setCategory(e.target.value)}>
-                      {['all', 'premium', 'general'].map((type) => (
-                        <option key={type} value={type}>
-                          {type === 'all' ? 'All Salons' : type.charAt(0).toUpperCase() + type.slice(1) + ' Salons'}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Salon Listings */}
-            {loading ? (
-              <div className="text-center py-5">
-                <div className="spinner-border text-primary" role="status">
-                  <span className="visually-hidden">Loading...</span>
-                </div>
-              </div>
-            ) : error ? (
-              <div className="alert alert-danger text-center">{error}</div>
-            ) : (
-              <div className="container">
-
-                <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-4 g-4 mb-4">
-                  {salons.map((salon) => (
-                    <Link
-                        to={`/salondetails`}
-                        state={{ userId: salon._id }}
-                        key={salon._id}
-                        className="cs-main__card-box text-decoration-none p-0"
-                      >
-                        <div className="cs-main__card-img">
-                          <img
-                            src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg"
-                            className="img-fluid"
-                            alt={salon.salonName}
-                          />
-
-                          <div className="cs-main__card-rating-box">
-                            {/* <span className="cs-mcard-aR">
-                              {salon.reviewCount}
-                            </span> */}
-                            <span className="cs-mcard-aText">
-                              <span>{parseFloat(salon.reviewCount).toFixed(1)}</span> ratings
-                            </span>
-                          </div>
-                        </div>
-                        <div className="cs-main__card-content p-3">
-                          <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
-                            {salon.salonName}
-                          </h3>
-                          {/* <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
-                            {salon.name}
-                            <p style={{ fontSize: "12px" }}>
-                              <i className="bi bi-star me-1"></i>
-                              {salon.reviewCount} Review
-                            </p>
-                          </h3> */}
-                          <div className="cs-main__card-location d-flex align-items-start">
-                            <FaMapMarkerAlt className="icon mt-1 me-2" />
-                            <p className="cs-main__card-location-text text-truncate">
-                              {salon.salonAddress}
-                            </p>
-                          </div>
-                          <ul className="cs-main__card-list my-0 list-unstyled">
-                            <li className="cs-main__card-list-item d-flex align-items-center">
-                              <FaRoute className="icon me-2" />{" "}
-                              {parseFloat(salon.distance).toFixed(2)} km
-                            </li>
-                          </ul>
-                        </div>
-                      </Link>
-                  ))}
-
-                </div>
-              </div>
-            )}
-            <div className="container">
-              <div className="row mb-4">
+        <div>
+          <div className="container">
+              <div className="row mb-4 mt-3">
                 <div
                   className="deals_heading mb-4 d-flex gap-2"
                   style={{ alignItems: "flex-start" }}
@@ -591,7 +476,117 @@ export default function Home() {
                 </Swiper>
               </div> */}
             </div>
-          </div>
+        </div>
+        <section className="content-section">
+          <ServicesSlider />
+          
+          <AboutSection />
+          <ServicesSection />
+          <GallerySection />
+          {/* 
+          
+          
+          */}
+          {/* Near By Search */}
+          {/* <div className="search_result">
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="gallery_heading  mx-auto">
+                    <h2 className="text-center">Services & Categories</h2>
+                    <p>
+                      Book your appointment now using the best salon app in
+                      India or the barber appointment app to redefine your
+                      style!
+                    </p>
+                  </div>
+                  <div
+                    className="de-separator"
+                    style={{
+                      backgroundSize: "100%",
+                      backgroundRepeat: "no-repeat",
+                    }}
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <div className="container">
+              <div className="row justify-content-center">
+                <div className="col-12 col-md-8 col-lg-6">
+                  <div className="category-filter d-flex justify-content-between gap-2 mb-4">
+                    <select class="form-select" aria-label="Default select example" value={category} onChange={(e) => setCategory(e.target.value)}>
+                      {['all', 'premium', 'general'].map((type) => (
+                        <option key={type} value={type}>
+                          {type === 'all' ? 'All Salons' : type.charAt(0).toUpperCase() + type.slice(1) + ' Salons'}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            {loading ? (
+              <div className="text-center py-5">
+                <div className="spinner-border text-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            ) : error ? (
+              <div className="alert alert-danger text-center">{error}</div>
+            ) : (
+              <div className="container">
+
+                <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-4 g-4 mb-4">
+                  {salons.map((salon) => (
+                    <Link
+                        to={`/salondetails`}
+                        state={{ userId: salon._id }}
+                        key={salon._id}
+                        className="cs-main__card-box text-decoration-none p-0"
+                      >
+                        <div className="cs-main__card-img">
+                          <img
+                            src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg"
+                            className="img-fluid"
+                            alt={salon.salonName}
+                          />
+
+                          <div className="cs-main__card-rating-box">
+                           
+                            <span className="cs-mcard-aText">
+                              <span>{parseFloat(salon.reviewCount).toFixed(1)}</span> ratings
+                            </span>
+                          </div>
+                        </div>
+                        <div className="cs-main__card-content p-3">
+                          <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
+                            {salon.salonName}
+                          </h3>
+                         
+                          <div className="cs-main__card-location d-flex align-items-start">
+                            <FaMapMarkerAlt className="icon mt-1 me-2" />
+                            <p className="cs-main__card-location-text text-truncate">
+                              {salon.salonAddress}
+                            </p>
+                          </div>
+                          <ul className="cs-main__card-list my-0 list-unstyled">
+                            <li className="cs-main__card-list-item d-flex align-items-center">
+                              <FaRoute className="icon me-2" />{" "}
+                              {parseFloat(salon.distance).toFixed(2)} km
+                            </li>
+                          </ul>
+                        </div>
+                      </Link>
+                  ))}
+
+                </div>
+              </div>
+            )}
+            
+          </div> */}
           <ReviewSection />
           <div className="container">
             <div className="row">

@@ -807,7 +807,7 @@ p.cs-main__card-location-text.text-truncate {
   flex-direction: column;
   justify-content: center;
   align-items: anchor-center;
-  gap: 20px;
+  /* gap: 20px; */
   top: 10rem;
 }
 
@@ -1862,4 +1862,16 @@ p.service-text {
   100% {
     transform: rotate(-360deg);
   }
+}
+@media (max-width: 768px) {
+  .orderimg{
+    order: 1;
+  }
+  .orderimg1{
+    order: 2;
+  }
+}
+ul.listing li{
+  list-style-type: disc !important;
+  margin-bottom: 20px;
 }

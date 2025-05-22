@@ -3,7 +3,7 @@ import AOS from "aos";
 import "../style/style.css";
 import { Link } from "react-router-dom";
 import axiosInstance from "../../config/axiosInstance";
- 
+  
  
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
