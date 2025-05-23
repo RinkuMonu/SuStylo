@@ -138,7 +138,7 @@ export default function SalonPartner() {
               <div className="col-md-6 my-4 orderimg2">
                 <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
                   <img
-                    src="./images/gallery/R6.jpg"
+                    src="./images/gallery/8.jpg"
                     alt="img"
                     className="img-fluid"
                   />
@@ -196,7 +196,7 @@ export default function SalonPartner() {
               <div className="col-md-6 my-4 orderimg2">
                 <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
                   <img
-                    src="./images/gallery/R6.jpg"
+                    src="./images/gallery/benifit.jpg"
                     alt="img"
                     className="img-fluid"
                   />
@@ -209,7 +209,7 @@ export default function SalonPartner() {
               <div className="col-md-6 my-4 orderimg2">
                 <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
                   <img
-                    src="./images/gallery/R6.jpg"
+                    src="./images/gallery/howtowork.jpeg"
                     alt="img"
                     className="img-fluid"
                   />
@@ -256,7 +256,7 @@ export default function SalonPartner() {
               <div className="col-md-6 my-4 orderimg2">
                 <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
                   <img
-                    src="./images/gallery/R6.jpg"
+                    src="./images/gallery/manage.jpg"
                     alt="img"
                     className="img-fluid"
                   />
