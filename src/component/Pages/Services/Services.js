@@ -11,7 +11,7 @@ const serviceData = [
     title: "Hair Care Services",
     description:
       "Your hair is a key part of your personal style. At Su Stylo partner salons, experience expert hair services for men and women designed to keep your hair healthy, stylish, and manageable.",
-    image: "./images/new/hairCare.png",
+    image: "./images/new/haircut.jpg",
     services: [
       "Haircut (Men & Women)",
       "Hair Styling & Blow Dry",
@@ -29,7 +29,7 @@ const serviceData = [
     title: "Skin Care & Facial Treatments",
     description:
       "Healthy, glowing skin is just a session away. Su Stylo partner salons offer customized skin treatments and facials for every skin type and concern — from acne to anti-aging.",
-    image: "./images/new/skinCare.png",
+    image: "./images/new/SkinCare.jpg",
     services: [
       "Classic Facial & Skin Cleanup",
       "Anti-Aging Facial",
@@ -46,7 +46,7 @@ const serviceData = [
     title: "Waxing & Hair Removal",
     description:
       "Smooth and silky skin made simple. Choose from a range of safe and hygienic waxing and threading services suited for every skin type.",
-    image: "./images/new/waxing.png",
+    image: "./images/new/waxing.jpg",
     services: [
       "Full Body Waxing",
       "Bikini & Brazilian Wax",
@@ -61,7 +61,7 @@ const serviceData = [
     title: "Nail Care Services",
     description:
       "From basic nail hygiene to premium gel extensions and nail art, Su Stylo salons offer stylish, professional nail care.",
-    image: "./images/new/nailcare.png",
+    image: "./images/new/NailCare.jpg",
     services: [
       "Manicure (Basic, French, Gel)",
       "Pedicure (Basic, Spa, Gel)",
@@ -75,7 +75,7 @@ const serviceData = [
     title: "Body Massage & Therapies",
     description:
       "Relax, reset, and recharge. Su Stylo partner spas and salons provide therapeutic massage treatments for stress relief, muscle recovery, and full-body wellness.",
-    image: "./images/new/BodyMassage.png",
+    image: "./images/new/BodyMassage.jpg",
     services: [
       "Swedish Massage",
       "Deep Tissue Massage",
@@ -90,7 +90,7 @@ const serviceData = [
     title: "Bridal & Special Occasion Services",
     description:
       "Look and feel your best on life's most important days. Our experienced makeup artists and stylists specialize in bridal and festive looks.",
-    image: "./images/new/bridal.png",
+    image: "./images/new/bridal.jpg",
     services: [
       "Bridal Makeup & Hairstyling",
       "Party & Event Makeup",
@@ -104,7 +104,7 @@ const serviceData = [
     title: "Men's Grooming Services",
     description:
       "Grooming made easy and comfortable for today's modern man. Our expert salons ensure you look sharp and feel confident.",
-    image: "https://img.freepik.com/free-photo/handsome-man-barbershop_1303-26241.jpg",
+    image: "./images/new/Grooming.jpg",
     services: [
       "Beard Shaping & Styling",
       "Haircut & Styling",
@@ -118,7 +118,7 @@ const serviceData = [
     title: "Spa & Wellness",
     description:
       "Restore your inner balance and outer glow. Our spa partners provide holistic services that detoxify, de-stress, and rejuvenate your body.",
-    image: "https://img.freepik.com/free-photo/beautiful-woman-enjoying-spa-treatment_1303-27650.jpg",
+    image: "./images/new/Spa.jpg",
     services: [
       "Aromatherapy",
       "Detox Treatments",
@@ -132,7 +132,7 @@ const serviceData = [
     title: "Eyelash & Eyebrow Services",
     description:
       "Enhance your eyes with precision shaping and advanced lash treatments — from tinting to extensions.",
-    image: "https://img.freepik.com/free-photo/makeup-artist-doing-eyelash-extension_1303-27157.jpg",
+    image: "./images/new/Eyebrow.jpg",
     services: [
       "Eyebrow Shaping & Tinting",
       "Eyelash Extensions",
@@ -145,7 +145,7 @@ const serviceData = [
     title: "Makeup Services",
     description:
       "Be photo-ready for any occasion. From daily wear to HD and airbrush glam, Su Stylo salons have your makeup needs covered.",
-    image: "https://img.freepik.com/free-photo/visagiste-applying-makeup-model_1303-24296.jpg",
+    image: "./images/new/MakeupServices.jpg",
     services: [
       "Daily Makeup",
       "Professional Makeup",
@@ -249,7 +249,7 @@ export default function Services() {
                               <img 
                                 src={category.image} 
                                 alt={category.title} 
-                                className="img-fluid rounded shadow" 
+                                className="img-fluid" 
                                 loading="lazy"
                               />
                             </SimpleParallax>
