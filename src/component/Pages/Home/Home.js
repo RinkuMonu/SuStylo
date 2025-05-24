@@ -588,7 +588,7 @@ export default function Home() {
             
           </div> */}
           <ReviewSection />
-          <div className="container">
+          {/* <div className="container">
             <div className="row">
               <div className="col-md-12">
                 <div className="marquee-container-bottom">
@@ -633,7 +633,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <LogoSection />
         </section>
       </div>

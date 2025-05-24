@@ -191,10 +191,7 @@ export default function Services() {
           <div className="container text-center position-relative">
             <h2 className="hero-title">Su Stylo Salon Services & Categories</h2>
             <p className="text-white fw-bold">
-              At Su Stylo, we offer a wide range of premium grooming and beauty
-              services designed to enhance your style and confidence. Whether
-              you're looking for a sharp haircut, a relaxing spa treatment, or
-              expert beard grooming, we've got you covered!
+              Su Stylo offers premium grooming and beauty services to elevate your style and confidence, all in one place.
             </p>
           </div>
         </section>
@@ -273,35 +270,71 @@ export default function Services() {
             </div>
             
             {/* Bonus Packages Section */}
-            <div className="mt-5">
-              <h4 className="fw-bold text-center mb-4">Bonus: Su Stylo Exclusive Packages</h4>
-              <p className="text-center mb-3">
-                Enjoy the best of beauty with our curated combo deals and occasion-based offers. 
-                Choose what fits you best or let us design a personalized care plan just for you.
-              </p>
-              <ul className="listing ps-3 col-md-6 offset-md-3 mb-4">
-                <li className="mb-1">Grooming Combo Packages</li>
-                <li className="mb-1">Bridal & Groom Packages</li>
-                <li className="mb-1">Seasonal Offers & Festival Specials</li>
-                <li className="mb-1">Customized Care Plans</li>
-              </ul>
-            </div>
+            {/* Su Stylo Exclusive Packages */}
+<div className="mt-5">
+  <h4 className="fw-bold text-center mb-4">Bonus: Su Stylo Exclusive Packages</h4>
+  <p className="text-center mb-3">
+    Enjoy the best of beauty with our curated combo deals and occasion-based offers.
+    Choose what fits you best or let us design a personalized care plan just for you.
+  </p>
+  <div className="row text-center justify-content-center g-4 mb-4">
+    <div className="col-md-3">
+      <img src="/images/grooming-combo.jpg" alt="Grooming Combo" className="img-fluid rounded mb-2" />
+      <h6 className="fw-bold">Grooming Combo Packages</h6>
+    </div>
+    <div className="col-md-3">
+      <img src="/images/bridal-groom.jpeg" alt="Bridal Groom Package" className="img-fluid rounded mb-2" />
+      <h6 className="fw-bold">Bridal & Groom Packages</h6>
+    </div>
+    <div className="col-md-3">
+      <img src="/images/festival-offer.png" alt="Festival Specials" className="img-fluid rounded mb-2" />
+      <h6 className="fw-bold">Seasonal & Festival Offers</h6>
+    </div>
+    <div className="col-md-3">
+      <img src="/images/custom-plan.jpg" alt="Customized Plan" className="img-fluid rounded mb-2" />
+      <h6 className="fw-bold">Customized Care Plans</h6>
+    </div>
+  </div>
+</div>
 
-            {/* Why Choose Us Section */}
-            <div className="mt-5">
-              <h4 className="fw-bold text-center mb-4">Why Choose Su Stylo Salons?</h4>
-              <ul className="listing ps-3 col-md-6 offset-md-3 mb-4">
-                <li className="mb-1">Verified & Trusted Salon Partners</li>
-                <li className="mb-1">Experienced & Certified Beauty Professionals</li>
-                <li className="mb-1">Strict Hygiene & Safety Standards</li>
-                <li className="mb-1">Transparent Pricing with No Hidden Charges</li>
-                <li className="mb-1">Easy Online Booking, Rescheduling & Secure Payments</li>
-              </ul>
-              <p className="text-center fw-semibold">
-                Whether it's daily care or a special event, Su Stylo ensures you always put your best self forward.
-              </p>
-              <p className="text-center text-muted">Explore. Book. Glow. Only on Su Stylo.</p>
-            </div>
+{/* Why Choose Us Section */}
+<div className="mt-5">
+  <h4 className="fw-bold text-center mb-4">Why Choose Su Stylo Salons?</h4>
+  <div className="row text-center justify-content-center g-4 mb-4">
+    <div className="col-md-2">
+      <img src="/images/verified-salon.jpg" alt="Verified Partners" className="img-fluid rounded mb-2" />
+      <p className="small fw-semibold">Verified & Trusted Partners</p>
+    </div>
+    <div className="col-md-2">
+      <img src="/images/experienced-beauticians.jpg" alt="Certified Professionals" className="img-fluid rounded mb-2" />
+      <p className="small fw-semibold">Certified Beauty Experts</p>
+    </div>
+    <div className="col-md-2">
+      <img src="/images/hygiene.jpg" alt="Hygiene Standards" className="img-fluid rounded mb-2" />
+      <p className="small fw-semibold">Strict Hygiene Standards</p>
+    </div>
+    <div className="col-md-2">
+      <img src="/images/transparent-booking-women.jpg" alt="Transparent Pricing" className="img-fluid rounded mb-2" />
+      <p className="small fw-semibold">No Hidden Charges</p>
+    </div>
+    <div className="col-md-2">
+      <img src="/images/online-booking.jpg" alt="Easy Booking" className="img-fluid rounded mb-2" />
+      <p className="small fw-semibold">Easy Booking & Secure Payments</p>
+    </div>
+  </div>
+
+  <p className="text-center fw-semibold">
+    Whether it's daily care or a special event, Su Stylo ensures you always put your best self forward.
+  </p>
+  <p className="text-center text-muted">Explore. Book. Glow. Only on Su Stylo.</p>
+
+  {/* Centered Book Now Button */}
+  <div className="text-center">
+    <a href="#booking" className="btn btn-dark px-4 py-2 mt-3">Book Now</a>
+  </div>
+</div>
+
+
           </section>
         </div>
       </div>

@@ -124,11 +124,7 @@ const mensServices = [
           <div className="container text-center position-relative">
             <h2 className="hero-title">Men’s Grooming Services at Su Stylo</h2>
             <p className="text-white fw-bold">
-              Experience expert haircuts, luxury facials, skin treatments, and
-              relaxing massages designed to enhance your natural beauty. From
-              hair coloring to organic skincare, we offer personalized services
-              for a flawless look. Pamper yourself with premium care and step
-              out with confidence!
+             Elevate Your Look with Expert Men’s Grooming Services at Su Stylo
             </p>
           </div>
         </section>
@@ -160,17 +156,14 @@ const mensServices = [
             
 <section className="companydetails">
   <div className="container">
-    <h1 className="fw-bold text-center mb-5 third-color" data-aos="fade-up">Men’s Service Categories</h1>
+    <h1 className="fw-bold text-center mb-5 third-color">Men’s Service Categories</h1>
     <div className="row g-5 mt-3">
       {mensServices.map((category, index) => (
         <React.Fragment key={index}>
           <div className="row align-items-center mb-4">
             {index % 2 === 0 ? (
               <>
-                <div
-                  className="col-md-6 mb-3 mb-md-0"
-                  data-aos="fade-right"
-                >
+                <div className="col-md-6 mb-3 mb-md-0">
                   <SimpleParallax orientation="down" scale={1.8} delay={1}>
                     <img
                       src={category.image}
@@ -179,10 +172,7 @@ const mensServices = [
                     />
                   </SimpleParallax>
                 </div>
-                <div
-                  className="col-md-6 companydetails -mt-5"
-                  data-aos="fade-left"
-                >
+                <div className="col-md-6 companydetails -mt-5">
                   <h3 className="fw-semibold mb-2 third-color">{category.title}</h3>
                   <p className="mb-2">{category.description}</p>
                   <ul className="listing ps-3 mb-0">
@@ -196,10 +186,7 @@ const mensServices = [
               </>
             ) : (
               <>
-                <div
-                  className="col-md-6 order-md-2 mb-3 mb-md-0"
-                  data-aos="fade-left"
-                >
+                <div className="col-md-6 order-md-2 mb-3 mb-md-0">
                   <SimpleParallax orientation="down" scale={1.8} delay={1}>
                     <img
                       src={category.image}
@@ -208,10 +195,7 @@ const mensServices = [
                     />
                   </SimpleParallax>
                 </div>
-                <div
-                  className="col-md-6 order-md-1 companydetails"
-                  data-aos="fade-right"
-                >
+                <div className="col-md-6 order-md-1 companydetails">
                   <h3 className="fw-semibold mb-2 third-color">{category.title}</h3>
                   <p className="mb-2">{category.description}</p>
                   <ul className="listing ps-3 mb-0">
@@ -225,65 +209,83 @@ const mensServices = [
               </>
             )}
           </div>
-          {index !== mensServices.length - 1 && <hr className="my-4" data-aos="zoom-in" />}
+          {index !== mensServices.length - 1 && <hr className="my-4" />}
         </React.Fragment>
       ))}
     </div>
 
     {/* Signature Services */}
-    <div className="mt-5" data-aos="fade-up">
-      <h4 className="fw-bold text-center mb-4">Signature Services at Su Stylo</h4>
-      <ul className="listing ps-3 col-md-6 offset-md-3 mb-4">
-        <li className="mb-1">
-          Organic Hair Treatment: 100% natural formulas to nourish and repair hair
-        </li>
-        <li className="mb-1">
-          Royal Shave: Hot towel and luxury shave experience with skin-soothing finish
-        </li>
-        <li className="mb-1">
-          Acne Problem Facial: Specialized treatment to fight acne and improve skin texture
-        </li>
-        <li className="mb-1">
-          Glycolic Peel Facial: Advanced exfoliation to brighten skin and unclog pores
-        </li>
-        <li className="mb-1">
-          Luxury Body Massage: Full-body therapy to reduce stress and improve circulation
-        </li>
-      </ul>
+  <section className="py-5">
+  <div className="container">
+    {/* Signature Services */}
+    <h2 className="fw-bold text-center mb-5">Signature Services at Su Stylo</h2>
+    <div className="row text-center g-4 mb-5">
+      <div className="col-md-3">
+        <img src="/images/organic-hair-treatment.jpg" alt="Organic Hair Treatment" className="img-fluid rounded mb-2" />
+        <h6 className="fw-bold">Organic Hair Treatment</h6>
+        <p className="small">100% natural formulas to nourish and repair hair</p>
+      </div>
+      <div className="col-md-3">
+        <img src="/images/royal-shave.jpg" alt="Royal Shave" className="img-fluid rounded mb-2" />
+        <h6 className="fw-bold">Royal Shave</h6>
+        <p className="small">Hot towel and luxury shave experience with skin-soothing finish</p>
+      </div>
+      <div className="col-md-3">
+        <img src="/images/acne-facial.jpg" alt="Acne Problem Facial" className="img-fluid rounded mb-2" />
+        <h6 className="fw-bold">Acne Problem Facial</h6>
+        <p className="small">Specialized treatment to fight acne and improve skin texture</p>
+      </div>
+      <div className="col-md-3">
+        <img src="/images/luxury-massage.jpg" alt="Luxury Body Massage" className="img-fluid rounded mb-2" />
+        <h6 className="fw-bold">Luxury Body Massage</h6>
+        <p className="small">Full-body therapy to reduce stress and improve circulation</p>
+      </div>
     </div>
 
     {/* Why Choose Us */}
-    <div className="mt-5 content-section" data-aos="fade-up">
-      <h4 className="fw-bold text-center mb-4">Why Choose Su Stylo for Men’s Grooming?</h4>
-      <ul className="listing ps-3 col-md-6 offset-md-3 mb-4">
-        <li className="mb-1">Skilled and certified professionals</li>
-        <li className="mb-1">Use of premium, skin-friendly products</li>
-        <li className="mb-1">Hygienic and safe environment</li>
-        <li className="mb-1">Personalized grooming consultations</li>
-        <li className="mb-1">Easy online booking and transparent pricing</li>
-      </ul>
-      <p className="text-center fw-semibold" data-aos="fade-up">
-        Discover The Expertise & Passion Behind Our Salon
-      </p>
-      <p className="text-center" data-aos="fade-up">
-        Our team of grooming specialists combines skill with passion to deliver outstanding results.
-        From precision haircuts and beard styling to luxury facials and organic treatments, every
-        service is tailored to fit your unique style and personality.
-      </p>
-      <p className="text-center fw-semibold" data-aos="fade-up">Ready for a New Look?</p>
-      <p className="text-center mb-4" data-aos="fade-up">
+    <h2 className="fw-bold text-center mb-5">Why Choose Su Stylo for Men’s Grooming?</h2>
+    <div className="row text-center g-4">
+      <div className="col-md-2">
+        <img src="/images/professionals.jpg" alt="Skilled Professionals" className="img-fluid rounded mb-2" />
+        <p className="small fw-semibold">Skilled and certified professionals</p>
+      </div>
+      <div className="col-md-2">
+        <img src="/images/premium-products.jpg" alt="Premium Products" className="img-fluid rounded mb-2" />
+        <p className="small fw-semibold">Use of premium, skin-friendly products</p>
+      </div>
+      <div className="col-md-2">
+        <img src="/images/hygiene.jpg" alt="Hygienic Environment" className="img-fluid rounded mb-2" />
+        <p className="small fw-semibold">Hygienic and safe environment</p>
+      </div>
+      <div className="col-md-2">
+        <img src="/images/consultation.jpg" alt="Consultations" className="img-fluid rounded mb-2" />
+        <p className="small fw-semibold">Personalized grooming consultations</p>
+      </div>
+      <div className="col-md-2">
+        <img src="/images/online-booking.jpg" alt="Online Booking" className="img-fluid rounded mb-2" />
+        <p className="small fw-semibold">Easy online booking and transparent pricing</p>
+      </div>
+    </div>
+
+    {/* CTA */}
+    <div className="text-center mt-5">
+      <h5 className="fw-semibold">Discover The Expertise & Passion Behind Our Salon</h5>
+      <p>
         Book your appointment today and step into a world of sophisticated grooming designed
         exclusively for men. Refresh, rejuvenate, and redefine your style with Su Stylo.
       </p>
-      <div className="text-center" data-aos="zoom-in">
-        <a href="#booking" className="btn-8 custom-btn">Book Now</a>
-      </div>
+      <a href="#booking" className="btn btn-dark px-4 py-2 mt-3">Book Now</a>
     </div>
   </div>
 </section>
 
 
-            <div className="container mb-5">
+  </div>
+</section>
+
+
+
+            {/* <div className="container mb-5">
               <div className="row">
                 <div className="col-md-12">
                   <div className="marquee-container-bottom">
@@ -306,7 +308,7 @@ const mensServices = [
                             {" "}
                             FADED <i class="d-item-block"></i>
                           </span>
-                          {/* Duplicate content for smooth looping */}
+                    
                           <span>
                             {" "}
                             HAIR DRY <i class="d-item-block"></i>
@@ -329,7 +331,7 @@ const mensServices = [
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* <hr className="my-5" /> */}
             {/* <div className="row align-items-center">

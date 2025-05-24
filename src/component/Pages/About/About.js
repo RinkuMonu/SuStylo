@@ -546,7 +546,7 @@ export default function About() {
           </div>
         </div>
         <hr className="mx-5" />
-        <div className="container">
+        {/* <div className="container">
           <div className="row">
             <div className="col-md-12">
               <div className="marquee-container-bottom">
@@ -569,7 +569,7 @@ export default function About() {
                         {" "}
                         FADED <i class="d-item-block"></i>
                       </span>
-                      {/* Duplicate content for smooth looping */}
+                     
                       <span>
                         {" "}
                         HAIR DRY <i class="d-item-block"></i>
@@ -592,7 +592,7 @@ export default function About() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

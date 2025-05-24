@@ -34,8 +34,7 @@ export default function WomenServices() {
   const womensServices = [
     {
       title: "Hair Care & Styling",
-      image:
-        "./images/new/womenhaircare.jpg",
+      image: "./images/new/womenhaircare.jpg",
       description:
         "Give your hair the attention it deserves with precision cuts and expert styling. From nourishing treatments to stylish transformations, our partner salons help you express your personality through your hair.",
       services: [
@@ -49,8 +48,7 @@ export default function WomenServices() {
     },
     {
       title: "Facial Treatments & Skin Care",
-      image:
-        "./images/new/womenfacialcare.jpg",
+      image: "./images/new/womenfacialcare.jpg",
       description:
         "Refresh and renew your skin with facial services designed and delivered by salon partners experienced in skin wellness. Treatments are tailored to your skin type and concern.",
       services: [
@@ -64,8 +62,7 @@ export default function WomenServices() {
     },
     {
       title: "Waxing & Hair Removal",
-      image:
-        "./images/new/womenwaxcare.jpg",
+      image: "./images/new/womenwaxcare.jpg",
       description:
         "Su Stylo partner salons offer clean, hygienic, and gentle waxing services for all skin types. Enjoy smooth results and professional care.",
       services: [
@@ -78,8 +75,7 @@ export default function WomenServices() {
     },
     {
       title: "Nail Care & Beauty",
-      image:
-        "./images/new/womennailcare.jpg",
+      image: "./images/new/womennailcare.jpg",
       description:
         "Enhance your look with perfect nails. From quick cleanups to bold nail art, our salon partners offer services to keep your hands and feet looking elegant.",
       services: [
@@ -92,8 +88,7 @@ export default function WomenServices() {
     },
     {
       title: "Body Massages & Relaxation",
-      image:
-        "./images/new/womenbodymassage.jpg",
+      image: "./images/new/womenbodymassage.jpg",
       description:
         "Relax your body and mind with soothing massage therapies offered by certified spa professionals. Let our salon partners help you release stress and recharge.",
       services: [
@@ -106,8 +101,7 @@ export default function WomenServices() {
     },
     {
       title: "Bridal & Special Occasion Services",
-      image:
-        "./images/new/womenbridal.jpg",
+      image: "./images/new/womenbridal.jpg",
       description:
         "From wedding-day glam to pre-wedding prep, our bridal beauty services are executed by highly experienced Su Stylo salon partners.",
       services: [
@@ -120,8 +114,7 @@ export default function WomenServices() {
     },
     {
       title: "Advanced Skin Treatments",
-      image:
-        "./images/new/advanceskin.jpg",
+      image: "./images/new/advanceskin.jpg",
       description:
         "For specialized skin concerns, trust our partner salons to provide expert consultation and treatment using advanced skincare protocols.",
       services: [
@@ -148,11 +141,7 @@ export default function WomenServices() {
               Women’s Grooming & Beauty Services at Su Stylo
             </h2>
             <p className="text-white fw-bold">
-              Experience expert haircuts, luxury facials, skin treatments, and
-              relaxing massages designed to enhance your natural beauty. From
-              hair coloring to organic skincare, we offer personalized services
-              for a flawless look. Pamper yourself with premium care and step
-              out with confidence!
+            Women’s beauty services available near you in Vaishali Nagar, Malviya Nagar, Jagatpura & more.
             </p>
           </div>
         </section>
@@ -452,107 +441,196 @@ export default function WomenServices() {
               </div>
             </div> */}
             {/* <hr className="my-5" /> */}
-          <section className="py-5" data-aos="fade-up">
-  <div className="container">
-    <h1 className="fw-bold text-center mb-5 third-color" data-aos="fade-up">
-      Women’s Service Categories
-    </h1>
+            <section className="py-5">
+              <div className="container">
+                <h1 className="fw-bold text-center mb-5 third-color">
+                  Women’s Service Categories
+                </h1>
 
-    <div className="row g-5 mt-3">
-      {womensServices.map((category, index) => (
-        <React.Fragment key={index}>
-          <div className="row align-items-center mb-5">
-            {index % 2 === 0 ? (
-              <>
-                <div className="col-md-6 mb-3 mb-md-0" data-aos="fade-right">
-                  <SimpleParallax orientation="down" scale={1.8} delay={1}>
-                    <img
-                      src={category.image}
-                      alt={category.title}
-                      className="img-fluid"
-                    />
-                  </SimpleParallax>
+                <div className="row g-5 mt-3">
+                  {womensServices.map((category, index) => (
+                    <React.Fragment key={index}>
+                      <div className="row align-items-center mb-5">
+                        {index % 2 === 0 ? (
+                          <>
+                            <div className="col-md-6 mb-3 mb-md-0">
+                              <SimpleParallax
+                                orientation="down"
+                                scale={1.8}
+                                delay={1}
+                              >
+                                <img
+                                  src={category.image}
+                                  alt={category.title}
+                                  className="img-fluid"
+                                />
+                              </SimpleParallax>
+                            </div>
+                            <div className="col-md-6 companydetails">
+                              <h3 className="fw-semibold mb-2 third-color">
+                                {category.title}
+                              </h3>
+                              <p className="mb-2">{category.description}</p>
+                              <ul className="listing ps-3 mb-0">
+                                {category.services.map((service, idx) => (
+                                  <li key={idx} className="mb-1">
+                                    {service}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="col-md-6 order-md-2 mb-3 mb-md-0 companydetails">
+                              <SimpleParallax
+                                orientation="down"
+                                scale={1.8}
+                                delay={1}
+                              >
+                                <img
+                                  src={category.image}
+                                  alt={category.title}
+                                  className="img-fluid"
+                                />
+                              </SimpleParallax>
+                            </div>
+                            <div className="col-md-6 order-md-1 companydetails">
+                              <h3 className="fw-semibold mb-2 third-color">
+                                {category.title}
+                              </h3>
+                              <p className="mb-2">{category.description}</p>
+                              <ul className="listing ps-3 mb-0">
+                                {category.services.map((service, idx) => (
+                                  <li key={idx} className="mb-1">
+                                    {service}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </>
+                        )}
+                      </div>
+                      {index !== womensServices.length - 1 && (
+                        <hr className="my-5" />
+                      )}
+                    </React.Fragment>
+                  ))}
                 </div>
-                <div className="col-md-6 companydetails" data-aos="fade-left">
-                  <h3 className="fw-semibold mb-2 third-color">{category.title}</h3>
-                  <p className="mb-2">{category.description}</p>
-                  <ul className="listing ps-3 mb-0">
-                    {category.services.map((service, idx) => (
-                      <li key={idx} className="mb-1">
-                        {service}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="col-md-6 order-md-2 mb-3 mb-md-0 companydetails" data-aos="fade-left">
-                  <SimpleParallax orientation="down" scale={1.8} delay={1}>
-                    <img
-                      src={category.image}
-                      alt={category.title}
-                      className="img-fluid"
-                    />
-                  </SimpleParallax>
-                </div>
-                <div className="col-md-6 order-md-1 companydetails" data-aos="fade-right">
-                  <h3 className="fw-semibold mb-2 third-color">{category.title}</h3>
-                  <p className="mb-2">{category.description}</p>
-                  <ul className="listing ps-3 mb-0">
-                    {category.services.map((service, idx) => (
-                      <li key={idx} className="mb-1">
-                        {service}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </>
-            )}
-          </div>
-          {index !== womensServices.length - 1 && <hr className="my-5" data-aos="zoom-in" />}
-        </React.Fragment>
-      ))}
+
+                {/* Signature Services for Women */}
+<div className="mt-5">
+  <h4 className="fw-bold text-center mb-5">Signature Services at Su Stylo</h4>
+  <div className="row justify-content-center g-4">
+    <div className="col-md-3 text-center">
+      <img src="/images/organic-hair-women.jpg" alt="Organic Hair Treatment" className="img-fluid rounded mb-2" />
+      <h6 className="fw-bold">Organic Hair Treatment</h6>
+      <p className="small">Nourishing treatments using 100% natural ingredients for soft, healthy hair.</p>
     </div>
-
-    {/* Signature Services */}
-    <div className="mt-5" data-aos="fade-up">
-      <h4 className="fw-bold text-center mb-4">Signature Services at Su Stylo</h4>
-      <ul className="listing ps-3 col-md-6 offset-md-3 mb-4">
-        <li className="mb-1">Organic Hair Treatment</li>
-        <li className="mb-1">Aroma Therapy</li>
-        <li className="mb-1">Nail Manicure & Pedicure</li>
-        <li className="mb-1">Body Massage</li>
-        <li className="mb-1">Deep Pore Cleansing Facial</li>
-        <li className="mb-1">Acne Problem Facial</li>
-        <li className="mb-1">Glycolic Peel Facial</li>
-        <li className="mb-1">European Facial</li>
-      </ul>
+    <div className="col-md-3 text-center">
+      <img src="/images/aroma-therapy.jpg" alt="Aroma Therapy" className="img-fluid rounded mb-2" />
+      <h6 className="fw-bold">Aroma Therapy</h6>
+      <p className="small">Relax your senses with essential oils that soothe your body and mind.</p>
     </div>
-
-    {/* Why Choose Us */}
-    <div className="mt-5" data-aos="fade-up">
-      <h4 className="fw-bold text-center mb-4">
-        Discover The Expertise & Passion Behind Su Stylo Partner Salons
-      </h4>
-      <p className="text-center" data-aos="fade-up">
-        At Su Stylo, we curate and onboard top salons known for their hygiene, skill, and professionalism.
-        Every partner salon follows our quality standards to ensure you receive the best care.
-        Our platform empowers you to browse, compare, and book services from trusted beauty experts near you.
-      </p>
-      <h4 className="fw-bold text-center mb-3">Step Inside Our Salon Network — Experience The Magic of Transformation</h4>
-      <p className="text-center" data-aos="fade-up">
-        Su Stylo brings together the best of India’s beauty experts on one seamless platform.
-        Whether you're preparing for a big event or indulging in self-care, our partner salons deliver services
-        that make you feel renewed and radiant.
-      </p>
-      <div className="text-center" data-aos="zoom-in">
-        <Link className="btn-8 custom-btn">Book Now</Link>
-      </div>
+    <div className="col-md-3 text-center">
+      <img src="/images/nail-manicure.jpg" alt="Nail Care" className="img-fluid rounded mb-2" />
+      <h6 className="fw-bold">Nail Manicure & Pedicure</h6>
+      <p className="small">Professional nail care and spa for hands and feet with a polished finish.</p>
+    </div>
+    <div className="col-md-3 text-center">
+      <img src="/images/body-massage-women.jpg" alt="Body Massage" className="img-fluid rounded mb-2" />
+      <h6 className="fw-bold">Body Massage</h6>
+      <p className="small">Full-body massage sessions to detoxify, refresh, and relax.</p>
+    </div>
+    <div className="col-md-3 text-center">
+      <img src="/images/deep-facial-women.jpg" alt="Deep Pore Cleansing" className="img-fluid rounded mb-2" />
+      <h6 className="fw-bold">Deep Pore Cleansing Facial</h6>
+      <p className="small">Thorough facial to remove impurities and leave your skin glowing.</p>
+    </div>
+    <div className="col-md-3 text-center">
+      <img src="/images/acne-facial-women.jpg" alt="Acne Facial" className="img-fluid rounded mb-2" />
+      <h6 className="fw-bold">Acne Problem Facial</h6>
+      <p className="small">Targeted treatment to reduce acne and promote clear skin.</p>
+    </div>
+    <div className="col-md-3 text-center">
+      <img src="/images/glycolic-peel-women.jpg" alt="Glycolic Facial" className="img-fluid rounded mb-2" />
+      <h6 className="fw-bold">Glycolic Peel Facial</h6>
+      <p className="small">Brightens and smoothens skin by gently exfoliating dead layers.</p>
+    </div>
+    <div className="col-md-3 text-center">
+      <img src="/images/european-facial-women.jpg" alt="European Facial" className="img-fluid rounded mb-2" />
+      <h6 className="fw-bold">European Facial</h6>
+      <p className="small">A luxurious treatment that rejuvenates and hydrates all skin types.</p>
     </div>
   </div>
-</section>
+</div>
 
+{/* Why Choose Us for Women */}
+<div className="mt-5">
+  <h4 className="fw-bold text-center mb-5">
+    Why Women Choose Su Stylo Partner Salons
+  </h4>
+  <div className="row text-center justify-content-center g-4">
+    <div className="col-md-3">
+      <img
+        src="/images/hygiene-salon-women.jpg"
+        alt="Hygienic Salon"
+        className="img-fluid rounded mb-2"
+      />
+      <h6 className="fw-bold">Top-Rated Salons</h6>
+      <p className="small">
+        Handpicked salons known for hygiene, professionalism, and expertise.
+      </p>
+    </div>
+    <div className="col-md-3">
+      <img
+        src="/images/expert-team-women.jpg"
+        alt="Expert Beauticians"
+        className="img-fluid rounded mb-2"
+      />
+      <h6 className="fw-bold">Certified Professionals</h6>
+      <p className="small">
+        Experienced beauty experts trained in the latest techniques and trends.
+      </p>
+    </div>
+    <div className="col-md-3">
+      <img
+        src="/images/transparent-booking-women.jpg"
+        alt="Transparent Booking"
+        className="img-fluid rounded mb-2"
+      />
+      <h6 className="fw-bold">Transparent & Easy Booking</h6>
+      <p className="small">
+        Book anytime, anywhere with full pricing visibility — no surprises.
+      </p>
+    </div>
+    <div className="col-md-3">
+      <img
+        src="/images/self-care-women.jpg"
+        alt="Self-Care Relaxation"
+        className="img-fluid rounded mb-2"
+      />
+      <h6 className="fw-bold">Empowering Self-Care</h6>
+      <p className="small">
+        Whether it's a glam-up or me-time, experience care that uplifts you.
+      </p>
+    </div>
+  </div>
+
+  <div className="text-center mt-5">
+    <h4 className="fw-bold mb-3">Step Into a World of Beauty, Wellness & Empowerment</h4>
+    <p className="col-md-8 offset-md-2">
+      Su Stylo connects you with India’s best beauty professionals through a seamless,
+      transparent, and empowering platform. Enjoy luxury and care on your own terms.
+    </p>
+     <a href="#booking" className="btn btn-dark px-4 py-2 mt-3">Book Now</a>
+      
+  </div>
+</div>
+
+
+              </div>
+            </section>
 
             {/* <div className="row align-items-center">
               <div className="col-md-6 mt-5 mb-3">
@@ -761,7 +839,7 @@ export default function WomenServices() {
 
 
                     </div>   */}
-          <div className="container">
+          {/* <div className="container">
             <div className="row">
               <div className="col-md-12">
                 <div className="marquee-container-bottom">
@@ -784,7 +862,7 @@ export default function WomenServices() {
                           {" "}
                           FADED <i class="d-item-block"></i>
                         </span>
-                        {/* Duplicate content for smooth looping */}
+                   
                         <span>
                           {" "}
                           HAIR DRY <i class="d-item-block"></i>
@@ -807,7 +885,7 @@ export default function WomenServices() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
