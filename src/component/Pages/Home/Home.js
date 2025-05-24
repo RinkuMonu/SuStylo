@@ -306,7 +306,7 @@ export default function Home() {
                             alt={salon.salonName}
                           />
                           <div className="cs-main__card-rating-box">
-                            <span className="cs-mcard-aR">{parseFloat(salon?.avgRating).toFixed(1)}</span>
+                            <span className="cs-mcard-aR">{parseFloat(salon?.rating).toFixed(1)}</span>
                             <span className="cs-mcard-aText">
                               <span></span> ratings
                             </span>
