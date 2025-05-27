@@ -90,7 +90,6 @@ export default function Footer() {
                   </li>
                 </ul>
               </div>
-
               <div className="navLinks">
                 <h2>Services</h2>
                 <ul>
