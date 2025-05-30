@@ -5,13 +5,15 @@ export default function ServicesSection() {
     return (
         <>
             <div className="service_section">
-                <div className='container-fluid'>
+                <div className="container-fluid">
                     <div className="row">
                         <div className="col-md-12">
-                            <div className="gallery_heading  mx-auto">
-                                <h2 className=''>Service Beyond Expectation</h2>
-                                <p>Book your appointment now using the best salon app in India or the barber appointment app to redefine your style!</p>
-                                {/* <h2>GALLERY</h2> */}
+                            <div className="gallery_heading mx-auto">
+                                <h2>Service Beyond Expectation</h2>
+                                <p>
+                                    Book your appointment now using the best salon app in India or the
+                                    barber appointment app to redefine your style!
+                                </p>
                             </div>
                             <div
                                 className="de-separator"
@@ -23,14 +25,17 @@ export default function ServicesSection() {
                         </div>
                     </div>
                 </div>
-                <div className='container'>
-                    <div className='row'>
-                        <div className="col-md-3">
-                            <div className="servicesBx">
+
+                <div className="container px-3">
+                    <div className="row g-3">
+                        {/* Shaving */}
+                        <div className="col-12 col-md-6 col-lg-3 mb-3">
+                            <div className="servicesBx h-100">
                                 <div className="icon_center">
                                     <img
                                         src="./images/shave.svg"
                                         className="img-fluid fw-bold mt-5"
+                                        alt="Shaving"
                                     />
                                 </div>
                                 <div className="service_title">
@@ -38,21 +43,23 @@ export default function ServicesSection() {
                                 </div>
                                 <div className="services_content">
                                     <p>
-                                        Experience a irritation-free shave with experts and
+                                        Experience an irritation-free shave with experts and
                                         premium aftercare.
                                     </p>
                                 </div>
-                                {/* <div className="bookBtn">
-                                    <Link  className="custom-btn btn-8">
-                                        <span>Book Now</span>
-                                    </Link>
-                                </div> */}
                             </div>
                         </div>
-                        <div className="col-md-3">
-                            <div className="servicesBx">
+
+                        {/* Styling */}
+                        <div className="col-12 col-md-6 col-lg-3 mb-3">
+                            <div className="servicesBx h-100">
                                 <div className="icon_center">
-                                    <img src="./images/style.svg" className="img-fluid mt-5" width={60} />
+                                    <img
+                                        src="./images/style.svg"
+                                        className="img-fluid mt-5"
+                                        width={60}
+                                        alt="Styling"
+                                    />
                                 </div>
                                 <div className="service_title">
                                     <h3>STYLING</h3>
@@ -63,19 +70,17 @@ export default function ServicesSection() {
                                         beard.
                                     </p>
                                 </div>
-                                {/* <div className="bookBtn">
-                                    <Link  className="custom-btn btn-8">
-                                        <span>Book Now</span>
-                                    </Link>
-                                </div> */}
                             </div>
                         </div>
-                        <div className="col-md-3">
-                            <div className="servicesBx">
+
+                        {/* Trimming */}
+                        <div className="col-12 col-md-6 col-lg-3 mb-3">
+                            <div className="servicesBx h-100">
                                 <div className="icon_center">
                                     <img
                                         src="./images/trim.svg"
                                         className="img-fluid fw-bold mt-5"
+                                        alt="Trimming"
                                     />
                                 </div>
                                 <div className="service_title">
@@ -87,19 +92,18 @@ export default function ServicesSection() {
                                         well-groomed look.
                                     </p>
                                 </div>
-                                {/* <div className="bookBtn">
-                                    <Link  className="custom-btn btn-8">
-                                        <span>Book Now</span>
-                                    </Link>
-                                </div> */}
                             </div>
                         </div>
-                        <div className="col-md-3">
-                            <div className="servicesBx">
+
+                        {/* Haircut */}
+                        <div className="col-12 col-md-6 col-lg-3 mb-3">
+                            <div className="servicesBx h-100">
                                 <div className="icon_center">
                                     <img
                                         src="./images/hair-cut.svg"
-                                        className="img-fluid mt-5" width={60}
+                                        className="img-fluid mt-5"
+                                        width={60}
+                                        alt="Haircut"
                                     />
                                 </div>
                                 <div className="service_title">
@@ -111,16 +115,12 @@ export default function ServicesSection() {
                                         complements your look.
                                     </p>
                                 </div>
-                                {/* <div className="bookBtn">
-                                    <Link  className="custom-btn btn-8">
-                                        <span>Book Now</span>
-                                    </Link>
-                                </div> */}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </>
-    )
+    );
 }
+

@@ -1,87 +1,96 @@
-import React from 'react'
+import React from 'react';
 
 export default function GallerySection() {
     return (
-        <>
-            <div className="Gallery_section" >
-                <div className='container-fluid'>
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="gallery_heading  mx-auto">
-                                <h2 className=''>Crafted with Passion, Styled with Precision</h2>
-                                <p> Relax. Walk out with confidence. Book salon near me today!</p>
-                                {/* <h2>GALLERY</h2> */}
-                            </div>
-                            <div
-                                className="de-separator"
+        <div className="app-promo-section py-5">
+            <div className="container">
+                <div className="row g-5 align-items-center">
+                    {/* Left Side - Image */}
+                    <div className="col-lg-5 text-center">
+                        <img
+                            src="/images/cheerful-confident-attractive-brunette-girl-yellow-t-shirt-holding-smartphone-pointing-mobile-screen-smiling-recommend-awesome-phone-application-give-link-promo-code-giveaway-removebg-preview.png"
+                            alt="App Promo"
+                            className="img-fluid"
+                            style={{
+                                maxHeight: '650px',
+                                maxWidth: '100%',
+                                objectFit: 'contain',
+                            }}
+                        />
+                    </div>
+
+                    {/* Right Side - Content */}
+                    <div className="col-lg-7">
+                        <h1 className="mb-3" style={{ color: '#fb8807' }}>
+                            Get the App – SuStylo
+                        </h1>
+                        <h6 className="mb-4 text-muted">
+                            We will send you a link. Open it on your phone to download the app.
+                        </h6>
+
+                        {/* Input + Button */}
+                        <div className="d-flex align-items-center mb-3 flex-wrap">
+                            <input
+                                type="tel"
+                                className="form-control me-2 mb-2 mb-md-0"
+                                placeholder="Enter your mobile number"
+                                style={{ maxWidth: '300px' }}
+                            />
+                            <button
+                                className="btn"
                                 style={{
-                                    backgroundSize: "100%",
-                                    backgroundRepeat: "no-repeat",
+                                    backgroundColor: 'rgb(173 46 33)',
+                                    color: '#fff',
+                                    fontSize: '1rem',
+                                    padding: '6px 12px',
+                                    whiteSpace: 'nowrap',
+                                    border: 'none',
                                 }}
-                            ></div>
+                            >
+                                Share App Link
+                            </button>
                         </div>
+
+                        {/* Paragraph after input */}
+                        <p className="mb-3">Download the app from</p>
+
+                        {/* Download Buttons */}
+                        <div className="d-flex flex-wrap gap-3 mb-3">
+                            <a
+                                href="#"
+                                className="btn btn-dark d-flex align-items-center"
+                                style={{
+                                    padding: '10px 16px',
+                                    fontSize: '0.9rem',
+                                    borderRadius: '8px',
+                                    fontWeight: '500',
+                                }}
+                            >
+                                <i className="bi bi-google-play me-2"></i>
+                                Get it on Google Play
+                            </a>
+                            <a
+                                href="#"
+                                className="btn btn-dark d-flex align-items-center"
+                                style={{
+                                    padding: '10px 16px',
+                                    fontSize: '0.9rem',
+                                    borderRadius: '8px',
+                                    fontWeight: '500',
+                                }}
+                            >
+                                <i className="bi bi-apple me-2"></i>
+                                Download on App Store
+                            </a>
+                        </div>
+
+                        {/* Paragraph after store buttons */}
+                        <h6 className="text-muted">
+                            Enjoy seamless booking and beauty services through our mobile app.
+                        </h6>
                     </div>
                 </div>
-                <div className='container'>
-                    <div className='row mx-5'>
-                        <div className="col-md-8">
-                            <div className="row">
-                                <div className="col-md-6">
-                                    <div className="de-image-hover firstimg">
-                                        <img
-                                            src="./images/gallery/1.jpg"
-                                            className="img-fluid img1"
-                                        />
-                                        <span className="dih-title-wrap">
-                                            <span className="dih-title">Gallery Title</span>
-                                        </span>
-                                        <span className="dih-overlay"></span>
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="de-image-hover">
-                                        <img
-                                            src="./images/gallery/6.jpg"
-                                            className="img-fluid img1"
-                                        />
-                                        <span className="dih-title-wrap">
-                                            <span className="dih-title">Gallery Title</span>
-                                        </span>
-                                        <span className="dih-overlay"></span>
-                                    </div>
-                                </div>
-                                <div className="col-md-12 mt-2">
-                                    <div className="de-image-hover secondimg">
-                                        <img
-                                            src="./images/gallery/7.png"
-                                            className="img-fluid img2"
-                                        />
-                                        <span className="dih-title-wrap">
-                                            <span className="dih-title">Gallery Title</span>
-                                        </span>
-                                        <span className="dih-overlay"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-4">
-                            <div className="de-image-hover thridimg" >
-                                <img
-                                    src="./images/gallery/3.jpg"
-                                    className="img-fluid"
-                                    style={{ height: "100%" }}
-                                />
-                                <span className="dih-title-wrap">
-                                    <span className="dih-title">Gallery Title</span>
-                                </span>
-                                <span className="dih-overlay"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
             </div>
-        </>
-    )
+        </div>
+    );
 }

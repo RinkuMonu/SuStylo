@@ -23,6 +23,7 @@ import ServicesSection from "./ServicesSection";
 import GallerySection from "./GallerySection";
 import ReviewSection from "./ReviewSection";
 import LogoSection from "./LogoSection";
+import SEO from "../../SEO";
 const salons = [
   {
     id: 1,
@@ -246,7 +247,9 @@ export default function Home() {
   }, [category]);
   // search dropdown
   return (
+
     <>
+    <SEO/>
       <div
         className={`fade-in-section ${isVisible ? "is-visible" : ""}`}
         ref={domRef}
@@ -478,8 +481,9 @@ export default function Home() {
             </div>
         </div>
         <section className="content-section">
-          <ServicesSlider />
           
+          <ServicesSlider />
+          <ReviewSection />
           <AboutSection />
           <ServicesSection />
           <GallerySection />
@@ -587,7 +591,7 @@ export default function Home() {
             )}
             
           </div> */}
-          <ReviewSection />
+         
           {/* <div className="container">
             <div className="row">
               <div className="col-md-12">

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import AOS from "aos";
 import WOW from "wow.js";
 import "../style/style.css";
+import SEO from "../../SEO";
 
 import SimpleParallax from "simple-parallax-js";
 
@@ -10,128 +11,123 @@ const serviceData = [
   {
     title: "Hair Care Services",
     description:
-      "Your hair is a key part of your personal style. At Su Stylo partner salons, experience expert hair services for men and women designed to keep your hair healthy, stylish, and manageable.",
+      "Your hair is more than just one style - this is the reflection of your personality. At the SU Style Partner Salon, we provide specialist hair care services for both men and women. Whether you are looking for a fashionable haircut, nutritious spa treatment, or a bold new color, our stylists are here to keep your hair healthy, stylish, and easy to manage.",
     image: "./images/new/haircut.jpg",
     services: [
-      "Haircut (Men & Women)",
-      "Hair Styling & Blow Dry",
-      "Hair Spa & Deep Conditioning",
-      "Hair Coloring (Permanent, Semi-Permanent)",
-      "Highlights & Balayage",
-      "Hair Rebonding & Straightening",
-      "Hair Perming & Curling",
-      "Scalp Treatment & Dandruff Control",
-      "Beard Grooming & Trimming",
-      "Hair Extensions & Weaving",
+      "Haircuts for men and women",
+      "Hair styling and blow-dry",
+      "Hair spa and deep conditioning",
+      "Hair coloring (permanent and semi-stable)",
+      "Reciprocity",
+      "Hair permission and curling",
+      "Child extensions and weaving",
     ],
   },
   {
-    title: "Skin Care & Facial Treatments",
+    title: " Skin care and facial treatment",
     description:
-      "Healthy, glowing skin is just a session away. Su Stylo partner salons offer customized skin treatments and facials for every skin type and concern — from acne to anti-aging.",
+      "Glow, healthy skin is just one session away. SU Stylo's salon partners provide adapted skin treatment and facials using modern techniques and soft, effective products. Whether you are working with acne, dullness, or aging, our experts help you get smooth, bright skin.",
     image: "./images/new/SkinCare.jpg",
     services: [
-      "Classic Facial & Skin Cleanup",
-      "Anti-Aging Facial",
-      "Acne Treatment Facial",
-      "Brightening & Whitening Facial",
-      "De-tan & Bleaching",
-      "Chemical Peel",
-      "Microdermabrasion",
-      "Hydrating Facial",
-      "Skin Tightening Treatments",
+      "Classic face and skin cleaning",
+      "Anti-aging facials",
+      "Acne treatment facial",
+      "Bright and white colored facials",
+      "D-tan and bleaching",
+      "chemical peels",
+      
     ],
   },
   {
-    title: "Waxing & Hair Removal",
+    title: " Waxing and hair removal",
     description:
-      "Smooth and silky skin made simple. Choose from a range of safe and hygienic waxing and threading services suited for every skin type.",
+      "Say goodbye to unwanted hair with our safe, clean, and accurate hair removal services. Designed for all types of skin, waxing and threading services of SUstylo partner focus on comfort and hygiene to leave your skin smooth and irritation-free.",
     image: "./images/new/waxing.jpg",
     services: [
-      "Full Body Waxing",
-      "Bikini & Brazilian Wax",
-      "Underarm Waxing",
-      "Facial Waxing (Upper Lip, Chin, Eyebrows)",
-      "Threading (Eyebrows, Facial Hair)",
-      "Back & Chest Waxing",
-      "Leg & Arm Waxing",
+      "Full body waxing",
+      "Bikini and Brazilian wax",
+      "Underarm waxing",
+      "Facial waxing (upper lips, chin, eyebrows)",
+      "Threading (eyebrows and facial hair)",
+      "Back and chest waxing",
+      
     ],
   },
   {
-    title: "Nail Care Services",
+    title: "Nail care services",
     description:
-      "From basic nail hygiene to premium gel extensions and nail art, Su Stylo salons offer stylish, professional nail care.",
+      "From clean and classic to bold and artistic, our nail care services help you express your personal style. Pamper your hands and feet with fresh treatment and beautifully designed nail art, distributed by expert technicians.",
     image: "./images/new/NailCare.jpg",
     services: [
-      "Manicure (Basic, French, Gel)",
-      "Pedicure (Basic, Spa, Gel)",
-      "Nail Art & Designs",
-      "Nail Extensions & Acrylic Nails",
-      "Paraffin Wax Treatment",
-      "Cuticle Care & Nail Repair",
+      "Manicure (Basic, French, Jail)",
+      "Pedicure (basic, spa, jail)",
+      "Nail art and custom designs",
+      "Nail Extensions and Acrylic Nails",
+      "Paraffin wax therapy",
+      "Cuticle care and nail repair",
     ],
   },
   {
-    title: "Body Massage & Therapies",
+    title: " Body massage and treatment",
     description:
-      "Relax, reset, and recharge. Su Stylo partner spas and salons provide therapeutic massage treatments for stress relief, muscle recovery, and full-body wellness.",
+      "Relaxation begins here. Our massage physicians offer a series of remedies designed to relieve stress, relieve muscle stress, and promote overall well-being. Recharge your body and mind with cool, restorative sessions.",
     image: "./images/new/BodyMassage.jpg",
     services: [
-      "Swedish Massage",
-      "Deep Tissue Massage",
-      "Aromatherapy Massage",
-      "Hot Stone Massage",
-      "Head, Neck & Shoulder Massage",
-      "Full Body Relaxation Massage",
+      "Swedish massage",
+      "deep tissue massage",
+      "aromatherapy",
+      "Hot stone therapy",
+      "Massage the head, neck, and shoulders",
+      "Full body rest massage",
       "Foot Reflexology",
     ],
   },
   {
-    title: "Bridal & Special Occasion Services",
+    title: "Bride and special opportunity services",
     description:
-      "Look and feel your best on life's most important days. Our experienced makeup artists and stylists specialize in bridal and festive looks.",
+      "See your best in the most important days of life. Whether it is your wedding or a grand celebration, Su Stylo, professional makeup artist and stylist, crafts elegant, memorable looks that conform to your program and personal style.",
     image: "./images/new/bridal.jpg",
     services: [
-      "Bridal Makeup & Hairstyling",
-      "Party & Event Makeup",
-      "Pre-Bridal Skin & Hair Packages",
-      "Mehendi & Traditional Bridal Services",
-      "Saree Draping & Styling",
-      "Grooming Packages for Grooms",
+      "Bride's makeup and hairstyling",
+      "Party and event makeup",
+      "Pre-Bridal Skin and Hair Package",
+      "Mehndi and traditional bride services",
+      "Sari draping and style",
+      "The package is operated for the groom",
     ],
   },
   {
-    title: "Men's Grooming Services",
+    title: "Men’s Grooming Services",
     description:
-      "Grooming made easy and comfortable for today's modern man. Our expert salons ensure you look sharp and feel confident.",
+      "Effortless grooming for the modern man. From sharp haircuts to rejuvenating facials, Su Stylo partner salons offer a full suite of men’s services to help you look and feel your best.",
     image: "./images/new/Grooming.jpg",
     services: [
-      "Beard Shaping & Styling",
-      "Haircut & Styling",
-      "Hot Towel Shave",
-      "Facial Treatments for Men",
-      "Hair & Scalp Treatments",
-      "Manicure & Pedicure for Men",
+      "Beard Shaping and Styling",
+      "Haircuts and Styling",
+      "Classic Hot Towel Shaves",
+      "Men’s Facial Treatments",
+      "Scalp and Hair Care",
+      "Hand and Foot Grooming",
     ],
   },
   {
-    title: "Spa & Wellness",
+    title: "Spa and Wellness",
     description:
-      "Restore your inner balance and outer glow. Our spa partners provide holistic services that detoxify, de-stress, and rejuvenate your body.",
+      "Recharge your body and restore inner balance with holistic spa treatments. Su Stylo’s wellness services are designed to detoxify, relax, and renew — leaving you refreshed from head to toe.",
     image: "./images/new/Spa.jpg",
     services: [
-      "Aromatherapy",
-      "Detox Treatments",
-      "Body Scrubs & Exfoliation",
-      "Steam Bath & Sauna",
-      "Relaxation Packages",
-      "Wellness Consultations",
+      "Aromatherapy Treatments",
+      "Detox and Cleansing Sessions",
+      "Body Scrubs and Exfoliation",
+      "Steam Bath and Sauna",
+      "Relaxation and Rejuvenation Packages",
+      "Personalized Wellness Consultations",
     ],
   },
   {
-    title: "Eyelash & Eyebrow Services",
+    title: "Eyelash and Eyebrow Services",
     description:
-      "Enhance your eyes with precision shaping and advanced lash treatments — from tinting to extensions.",
+      "Bring attention to your eyes with beautifully defined lashes and brows. Su Stylo salons offer precision treatments including shaping, tinting, lifting, and extensions — tailored for a naturally enhanced look.",
     image: "./images/new/Eyebrow.jpg",
     services: [
       "Eyebrow Shaping & Tinting",
@@ -147,12 +143,12 @@ const serviceData = [
       "Be photo-ready for any occasion. From daily wear to HD and airbrush glam, Su Stylo salons have your makeup needs covered.",
     image: "./images/new/MakeupServices.jpg",
     services: [
-      "Daily Makeup",
-      "Professional Makeup",
-      "HD Makeup",
+      "Everyday Makeup",
+      "Professional Makeup Looks",
+      "High Definition (HD) Makeup",
       "Airbrush Makeup",
       "Makeup Trial Sessions",
-      "Makeup Consultation",
+      "Personalized Makeup Consultation",
     ],
   },
 ];
@@ -182,6 +178,7 @@ export default function Services() {
 
   return (
     <>
+    <SEO></SEO>
       <div
         className={`fade-in-section ${isVisible ? "is-visible" : ""}`}
         ref={domRef}
@@ -189,7 +186,7 @@ export default function Services() {
         <section className="services-section d-flex align-items-center">
           <div className="hero-overlay"></div>
           <div className="container text-center position-relative">
-            <h2 className="hero-title">Su Stylo Salon Services & Categories</h2>
+            <h2 className="hero-title">SuStylo Salon Services & Categories</h2>
             <p className="text-white fw-bold">
               Su Stylo offers premium grooming and beauty services to elevate your style and confidence, all in one place.
             </p>
@@ -272,61 +269,61 @@ export default function Services() {
             {/* Bonus Packages Section */}
             {/* Su Stylo Exclusive Packages */}
 <div className="mt-5">
-  <h4 className="fw-bold text-center mb-4">Bonus: Su Stylo Exclusive Packages</h4>
+  <h4 className="fw-bold text-center mb-4">Bonus: Su Style Exclusive Package</h4>
   <p className="text-center mb-3">
-    Enjoy the best of beauty with our curated combo deals and occasion-based offers.
-    Choose what fits you best or let us design a personalized care plan just for you.
+   Enjoy the best of beauty with our curated combo deals and opportunity-based proposals. Choose what you like best or just design a personal care plan for you.
+
   </p>
   <div className="row text-center justify-content-center g-4 mb-4">
     <div className="col-md-3">
       <img src="/images/grooming-combo.jpg" alt="Grooming Combo" className="img-fluid rounded mb-2" />
-      <h6 className="fw-bold">Grooming Combo Packages</h6>
+      <h6 className="fw-bold">Preparation of combo package</h6>
     </div>
     <div className="col-md-3">
       <img src="/images/bridal-groom.jpeg" alt="Bridal Groom Package" className="img-fluid rounded mb-2" />
-      <h6 className="fw-bold">Bridal & Groom Packages</h6>
+      <h6 className="fw-bold">Bride & Bride package</h6>
     </div>
     <div className="col-md-3">
       <img src="/images/festival-offer.png" alt="Festival Specials" className="img-fluid rounded mb-2" />
-      <h6 className="fw-bold">Seasonal & Festival Offers</h6>
+      <h6 className="fw-bold">Seasonal proposal & festival special</h6>
     </div>
     <div className="col-md-3">
       <img src="/images/custom-plan.jpg" alt="Customized Plan" className="img-fluid rounded mb-2" />
-      <h6 className="fw-bold">Customized Care Plans</h6>
+      <h6 className="fw-bold">Customized care plans</h6>
     </div>
   </div>
 </div>
 
 {/* Why Choose Us Section */}
 <div className="mt-5">
-  <h4 className="fw-bold text-center mb-4">Why Choose Su Stylo Salons?</h4>
+  <h4 className="fw-bold text-center mb-4">Why Choose Su Stylo Salon Partners?</h4>
   <div className="row text-center justify-content-center g-4 mb-4">
     <div className="col-md-2">
       <img src="/images/verified-salon.jpg" alt="Verified Partners" className="img-fluid rounded mb-2" />
-      <p className="small fw-semibold">Verified & Trusted Partners</p>
+      <p className="small fw-semibold">Verified and reliable salon partner</p>
     </div>
     <div className="col-md-2">
       <img src="/images/experienced-beauticians.jpg" alt="Certified Professionals" className="img-fluid rounded mb-2" />
-      <p className="small fw-semibold">Certified Beauty Experts</p>
+      <p className="small fw-semibold">Experienced and certified beauty professional</p>
     </div>
     <div className="col-md-2">
       <img src="/images/hygiene.jpg" alt="Hygiene Standards" className="img-fluid rounded mb-2" />
-      <p className="small fw-semibold">Strict Hygiene Standards</p>
+      <p className="small fw-semibold">Strict hygiene and safety standards</p>
     </div>
     <div className="col-md-2">
       <img src="/images/transparent-booking-women.jpg" alt="Transparent Pricing" className="img-fluid rounded mb-2" />
-      <p className="small fw-semibold">No Hidden Charges</p>
+      <p className="small fw-semibold">Transparent pricing with no hidden fee</p>
     </div>
     <div className="col-md-2">
       <img src="/images/online-booking.jpg" alt="Easy Booking" className="img-fluid rounded mb-2" />
-      <p className="small fw-semibold">Easy Booking & Secure Payments</p>
+      <p className="small fw-semibold">Easy online booking, resurrection</p>
     </div>
   </div>
 
   <p className="text-center fw-semibold">
-    Whether it's daily care or a special event, Su Stylo ensures you always put your best self forward.
+   Whether it’s daily care or a special event, Su Stylo ensures you always put your best self forward.
   </p>
-  <p className="text-center text-muted">Explore. Book. Glow. Only on Su Stylo.</p>
+  <p className="text-center text-muted">Explore.   Book.    Glow.    Only on Su Stylo.</p>
 
   {/* Centered Book Now Button */}
   <div className="text-center">

@@ -3,7 +3,7 @@ import AOS from "aos";
 import "../style/style.css";
 import { Link } from "react-router-dom";
 import axiosInstance from "../../config/axiosInstance";
-  
+import SEO from "../../SEO";
  
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
@@ -32,6 +32,7 @@ export default function Blog() {
  
   return (
     <div ref={domRef}>
+      <SEO />
       <section className="blog-section d-flex align-items-center">
         <div className="hero-overlay"></div>
         <div className="container text-center position-relative">

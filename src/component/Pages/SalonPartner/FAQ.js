@@ -14,7 +14,7 @@ const FAQAccordion = () => {
           </h2>
           <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
             <div className="accordion-body">
-              No. Registration and onboarding are 100% free.
+               No. Registration and onboarding are completely free of cost.
             </div>
           </div>
         </div>
@@ -28,7 +28,7 @@ const FAQAccordion = () => {
           </h2>
           <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
             <div className="accordion-body">
-              Just your salon license, ID proof, and some basic details.
+               Your salon license, identity proof, and a few basic business details.
             </div>
           </div>
         </div>
@@ -42,7 +42,7 @@ const FAQAccordion = () => {
           </h2>
           <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
             <div className="accordion-body">
-              Every week, directly to your bank account.
+               Payments are processed weekly and sent directly to your bank account.
             </div>
           </div>
         </div>
@@ -51,12 +51,12 @@ const FAQAccordion = () => {
         <div className="accordion-item">
           <h2 className="accordion-header" id="headingFour">
             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
-              How is SuStylo different from others?
+              What makes SuStylo different from other platforms?
             </button>
           </h2>
           <div id="collapseFour" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
             <div className="accordion-body">
-              We focus on building long-term partnerships with personalized support, not just listings.
+              We offer personalized support, exclusive local promotions, and performance-based bonuses — not just basic listings.
             </div>
           </div>
         </div>

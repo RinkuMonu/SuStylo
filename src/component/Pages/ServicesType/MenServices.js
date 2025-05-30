@@ -8,6 +8,7 @@ import { Navigation, FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+import SEO from "../../SEO";
 
 export default function MenServices() {
   useEffect(() => {
@@ -33,87 +34,88 @@ export default function MenServices() {
 
 const mensServices = [
   {
-    title: "Haircut & Styling",
+    title: "Hair cut and style",
     image: "./images/new/menhairCut.jpg",
     description:
-      "Give your hair the attention it deserves with our precision cuts and expert styling. From classic looks to trendy fades, our stylists tailor every haircut to your face shape and lifestyle.",
+      "Search for skilled barbers and stylists who personalize every cut to match your personality and lifestyle. Book immediately through Su Stylo and walk into a salon that knows the style.",
     services: [
-      "Classic Haircuts",
-      "Modern & Trendy Cuts",
-      "Fade & Taper Haircuts",
-      "Hair Styling & Blow Dry",
-      "Hair Wash & Scalp Massage",
-      "Beard Shaping & Styling",
+      "Classic haircuts",
+      "Trendy and modern styles",
+      "Faded and taper cut",
+      "Blow-dry and hairstyle",
+      "Wash hair and massage skull",
+      "Beard size and design",
     ],
   },
   {
-    title: "Beard Grooming & Shaving",
+    title: " Beard grooming and shaving",
     image: "./images/new/beardSaving.jpg",
     description:
-      "Shape, refine, and maintain your beard with expert techniques and luxurious products. Whether you prefer a clean shave or bold beard design, our grooming artists deliver comfort and style with every stroke.",
+      "Whether you want a clean beard or bold, style beard, su styleo connects you by adding artists that provide a look with accurate and comfort.",
     services: [
-      "Beard Trimming & Shaping",
-      "Royal Shave with Hot Towels",
-      "Clean Shave & Precision Line-Up",
-      "Beard Conditioning Treatment",
-      "Mustache Styling",
+      "Beard trimming and styling",
+      "Royal beard with hot towels",
+      "Clean beard with line-up",
+      "Beard conditioning and hydration",
+      "Mustache style",
     ],
   },
   {
-    title: "Facial Treatments for Men",
+    title: " Facial treatment for men",
     image: "./images/new/facialTreatment.jpg",
     description:
-      "Revive dull skin, treat acne, or reduce signs of aging with our dermatologist-approved facials. Each session is customized to suit men’s skin types and concerns, ensuring visible results and complete skin wellness.",
+      "Partner salons on su styles provide specially designed expert skin treatment for men. From cleaning acne to reducing signs of fatigue, find out facial services to suit the needs of your skin.",
     services: [
-      "Signature Deep Cleansing Facial",
-      "Acne & Blemish Treatment",
-      "Anti-Aging Facial",
-      "Glycolic Peel & Exfoliation",
-      "Hydrating & Brightening Facials",
-      "Deep Pore Cleansing",
+      "Deep cleaning signature face",
+      "Acne and defect control",
+      "Finger-thali therapy",
+      "Glycolic peel and exfoliation",
+      "Hydrating and brighting facials",
+      "Pore ​​refinement treatment",
     ],
   },
   {
-    title: "Hair Care Treatments",
+    title: "Hair Care Treatment",
     image: "./images/new/hairCare.jpg",
     description:
-      "Rebuild and rejuvenate your hair with targeted treatments designed for men. From tackling dandruff to promoting growth, our hair care therapies focus on restoring strength, shine, and scalp health.",
+      "Set up hair fall, dandruff, or dullness with advanced hair and skull treatments provided by the salon partners of Su stylo. Take care that your hair type and goals are right.",
     services: [
-      "Organic Hair Spa & Nourishment",
-      "Anti-Dandruff Treatment",
-      "Hair Fall Control Therapy",
-      "Scalp Detox & Rejuvenation",
-      "Hair Coloring & Highlights",
+      "Organic hair spa and nutritious mask",
+      "Russian control treatment",
+      "Hair Fall Prevention Therapy",
+      "Scalp detox and rejuvenation",
+      "Hair color and natural highlights",
     ],
   },
   {
-    title: "Massage & Relaxation",
+    title: "Massage and relax",
     image: "./images/new/massage.jpg",
     description:
-      "Recharge your mind and body with stress-relieving massage techniques. Our therapists specialize in full-body, deep tissue, and aromatherapy massages that offer deep relaxation and muscle recovery.",
+      "Recharge with a stress massage booked through SU style. Partner salons and spas provide a cool environment and specialist physicians for complete body welfare.",
     services: [
-      "Full Body Relaxation Massage",
-      "Head, Neck & Shoulder Massage",
-      "Aromatherapy for Stress Relief",
-      "Deep Tissue Massage",
+      "Full body comfort massage",
+      "Head, neck, and shoulder therapy",
+      "Aromatherapy for mental clarity",
+      "Deep tissue muscle recovery",
     ],
   },
   {
-    title: "Additional Grooming Services",
+    title: "Additional grooming is necessary",
     image: "./images/new/additionalgrooming.jpg",
     description:
-      "Perfect your grooming game with finishing touches that matter. From clean nails and shaped brows to smooth skin and an even tone, we cover the essentials for a well-groomed appearance.",
+      "From hand and leg care to clean skin and barking style, fellow salons handle the finishing touch that defines a well-prepared look.",
     services: [
-      "Manicure & Pedicure for Men",
-      "Eyebrow Threading & Shaping",
-      "Waxing (Chest, Back, Arms, Legs)",
-      "Skin Brightening & Whitening",
+      "Manicure and pedicure for men",
+      "Eyebrow threading and grooming",
+      "Waxing (chest, back, arms, legs)",
+      "Skin glow and toning",
     ],
   },
 ];
 
   return (
     <>
+    <SEO></SEO>
       <div
         className={`fade-in-section ${isVisible ? "is-visible" : ""}`}
         ref={domRef}
@@ -122,7 +124,7 @@ const mensServices = [
           <div className="hero-overlay"></div>
 
           <div className="container text-center position-relative">
-            <h2 className="hero-title">Men’s Grooming Services at Su Stylo</h2>
+            <h2 className="hero-title">Men's grooming services on SuStylo</h2>
             <p className="text-white fw-bold">
              Elevate Your Look with Expert Men’s Grooming Services at Su Stylo
             </p>
@@ -133,7 +135,7 @@ const mensServices = [
             <div className="row">
               <div className="col-md-12 text-center">
                 <div className="heading mb-2">
-                  <h2>Crafting Confidence, One Cut at a Time</h2>
+                  <h2>Build confidence, a cut at a time</h2>
                 </div>
                 <div
                   className="de-separator"
@@ -145,18 +147,13 @@ const mensServices = [
               </div>
             </div>
             <div>
-              At Su Stylo, we understand that men’s grooming is more than just a
-              routine — it’s a statement. Our expert stylists and skincare
-              professionals offer a comprehensive range of premium services
-              tailored specifically for men. Whether you want a sharp haircut,
-              flawless skin, or a relaxing massage, our salon is your
-              destination for all-around grooming excellence.
+             Sustylo is not just a salon- it is India's reliable digital platform for the discovery of top-rated grooming services. Through our exclusive network of verified partner salons, we connect you with expert professionals who provide experience in modern, high-quality men's grooming. Whether you are looking for a quick haircut or a full grooming upgrade, the stable partner is ready to serve the salon service.
             </div>
 
             
 <section className="companydetails">
   <div className="container">
-    <h1 className="fw-bold text-center mb-5 third-color">Men’s Service Categories</h1>
+    <h1 className="fw-bold text-center mb-5 third-color">Explore men's grooming services through Su Style Partner Salon</h1>
     <div className="row g-5 mt-3">
       {mensServices.map((category, index) => (
         <React.Fragment key={index}>
@@ -218,61 +215,61 @@ const mensServices = [
   <section className="py-5">
   <div className="container">
     {/* Signature Services */}
-    <h2 className="fw-bold text-center mb-5">Signature Services at Su Stylo</h2>
+    <h2 className="fw-bold text-center mb-5">Signature Men’s Services on Su Stylo</h2>
     <div className="row text-center g-4 mb-5">
       <div className="col-md-3">
         <img src="/images/organic-hair-treatment.jpg" alt="Organic Hair Treatment" className="img-fluid rounded mb-2" />
-        <h6 className="fw-bold">Organic Hair Treatment</h6>
-        <p className="small">100% natural formulas to nourish and repair hair</p>
+        <h6 className="fw-bold">Organic Hair Therapy</h6>
+        <p className="small">Plant-based nutrition for strong, shiny hair</p>
       </div>
       <div className="col-md-3">
         <img src="/images/royal-shave.jpg" alt="Royal Shave" className="img-fluid rounded mb-2" />
-        <h6 className="fw-bold">Royal Shave</h6>
-        <p className="small">Hot towel and luxury shave experience with skin-soothing finish</p>
+        <h6 className="fw-bold">The Royal Shave</h6>
+        <p className="small">Hot Taulia Risual and Premium Grooming Experience</p>
       </div>
       <div className="col-md-3">
         <img src="/images/acne-facial.jpg" alt="Acne Problem Facial" className="img-fluid rounded mb-2" />
-        <h6 className="fw-bold">Acne Problem Facial</h6>
-        <p className="small">Specialized treatment to fight acne and improve skin texture</p>
+        <h6 className="fw-bold">Men's Acne Facials</h6>
+        <p className="small">: Clear, Advanced Care for Smooth Skin</p>
       </div>
       <div className="col-md-3">
         <img src="/images/luxury-massage.jpg" alt="Luxury Body Massage" className="img-fluid rounded mb-2" />
-        <h6 className="fw-bold">Luxury Body Massage</h6>
-        <p className="small">Full-body therapy to reduce stress and improve circulation</p>
+        <h6 className="fw-bold">Glycolic peel treatment</h6>
+        <p className="small"> gentle exfoliation for bright, bright skin</p>
       </div>
     </div>
 
     {/* Why Choose Us */}
-    <h2 className="fw-bold text-center mb-5">Why Choose Su Stylo for Men’s Grooming?</h2>
+    <h2 className="fw-bold text-center mb-5">Why book men's services on SuStylo?</h2>
     <div className="row text-center g-4">
       <div className="col-md-2">
         <img src="/images/professionals.jpg" alt="Skilled Professionals" className="img-fluid rounded mb-2" />
-        <p className="small fw-semibold">Skilled and certified professionals</p>
+        <p className="small fw-semibold">Curated a network of verified and trained salon partners</p>
       </div>
       <div className="col-md-2">
         <img src="/images/premium-products.jpg" alt="Premium Products" className="img-fluid rounded mb-2" />
-        <p className="small fw-semibold">Use of premium, skin-friendly products</p>
+        <p className="small fw-semibold">Premium products and techniques are used in services</p>
       </div>
       <div className="col-md-2">
         <img src="/images/hygiene.jpg" alt="Hygienic Environment" className="img-fluid rounded mb-2" />
-        <p className="small fw-semibold">Hygienic and safe environment</p>
+        <p className="small fw-semibold">Transparent pricing and zero hidden fees</p>
       </div>
       <div className="col-md-2">
         <img src="/images/consultation.jpg" alt="Consultations" className="img-fluid rounded mb-2" />
-        <p className="small fw-semibold">Personalized grooming consultations</p>
+        <p className="small fw-semibold">Flexible booking through the web or app</p>
       </div>
       <div className="col-md-2">
         <img src="/images/online-booking.jpg" alt="Online Booking" className="img-fluid rounded mb-2" />
-        <p className="small fw-semibold">Easy online booking and transparent pricing</p>
+        <p className="small fw-semibold">Hygienic, professional, and customer-focused salons</p>
       </div>
     </div>
 
     {/* CTA */}
     <div className="text-center mt-5">
-      <h5 className="fw-semibold">Discover The Expertise & Passion Behind Our Salon</h5>
+      <h5 className="fw-semibold">Redefine Your Grooming Routine with Su Stylo</h5>
       <p>
-        Book your appointment today and step into a world of sophisticated grooming designed
-        exclusively for men. Refresh, rejuvenate, and redefine your style with Su Stylo.
+       When you choose Su Stylo, you’re not just booking a service — you’re stepping into a curated grooming journey. Our partner salons across Jaipur (and soon across India) are ready to deliver the sharpest haircuts, smoothest shaves, and most refreshing facials tailored for today’s man.
+
       </p>
       <a href="#booking" className="btn btn-dark px-4 py-2 mt-3">Book Now</a>
     </div>
