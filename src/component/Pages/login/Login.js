@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./login.css";
 import axiosInstance from "../../config/axiosInstance";
 import Swal from "sweetalert2";
+import SEO from "../../SEO";
 
 const Login = () => {
   const [otp, setOtp] = useState("");
@@ -121,6 +122,8 @@ console.log("Login data",response.data)
   };
 
   return (
+    <>
+    <SEO />
     <div className="login-container">
       <div className="login-wrapper">
         <div className="login-image-section">
@@ -246,6 +249,7 @@ console.log("Login data",response.data)
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -8,6 +8,7 @@ import { Pagination, Autoplay, Navigation, FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+import SEO from "../../SEO";
 
 export default function WomenServices() {
   useEffect(() => {
@@ -33,102 +34,103 @@ export default function WomenServices() {
 
   const womensServices = [
     {
-      title: "Hair Care & Styling",
+      title: " Hair care and style",
       image: "./images/new/womenhaircare.jpg",
       description:
-        "Give your hair the attention it deserves with precision cuts and expert styling. From nourishing treatments to stylish transformations, our partner salons help you express your personality through your hair.",
+        "Change your hair with expert cuts, nutritious treatment and customized style. Whether it is a new form or a regular trim, our fellow salons ensure that your hair is healthy and fashionable.",
       services: [
-        "Precision Haircuts & Layering",
-        "Hair Styling & Blow Dry",
-        "Hair Coloring, Highlights & Balayage",
-        "Hair Spa & Deep Conditioning",
-        "Keratin & Straightening Treatments",
-        "Organic Hair Repair & Nourishment",
+        "Accurate haircuts and layering",
+        "Hair styling and blow-dry",
+        "Hair Coloring, Highlights and Balayage",
+        "Hair spa and deep conditioning",
+        "Keratin and Hair Direct Treatment",
+        "Organic hair repair and nutrition",
       ],
     },
     {
-      title: "Facial Treatments & Skin Care",
+      title: "Facial treatment and skin care",
       image: "./images/new/womenfacialcare.jpg",
       description:
-        "Refresh and renew your skin with facial services designed and delivered by salon partners experienced in skin wellness. Treatments are tailored to your skin type and concern.",
+        "Get glowing, shining skin with skin-type-specific facials provided by skilled aesthetics from our salon network. SU Stylo connects you with facial experts who personalize every treatment for maximum results.",
       services: [
-        "Signature Deep Cleansing Facial",
-        "Acne & Blemish Control Facial",
-        "Glycolic Peel & Exfoliation",
-        "European Facial for Hydration & Glow",
-        "Anti-Aging & Brightening Treatments",
-        "Deep Pore Cleansing & Detox",
+        "Deep cleaning signature face",
+        "Acne and Blemish Control Treatment",
+        "Glycolic peel and skin exfoliation",
+        "European water-related faces",
+        "Anti-aging and brightening treatment",
+        "Tight cleaning and detox therapy",
       ],
     },
     {
-      title: "Waxing & Hair Removal",
+      title: "Waxing and hair removal",
       image: "./images/new/womenwaxcare.jpg",
       description:
-        "Su Stylo partner salons offer clean, hygienic, and gentle waxing services for all skin types. Enjoy smooth results and professional care.",
+        "Book a soft and hygienic waxing session from SU Stylo's trusted companion salon. Services are tailored to all types of skin, which focuses on comfort and long-lasting lubricating.",
       services: [
-        "Full Body Waxing",
-        "Bikini & Brazilian Wax",
-        "Facial Waxing (Eyebrows, Upper Lip, Chin)",
-        "Underarm & Leg Waxing",
-        "Gentle, Painless Hair Removal",
+        "Full body waxing",
+        "Bikini and Brazilian waxing",
+        "Facial waxing (eyebrows, upper lips, chin)",
+        "Underarm and leg waxing",
+        
       ],
     },
     {
-      title: "Nail Care & Beauty",
+      title: " Nail care and beauty",
       image: "./images/new/womennailcare.jpg",
       description:
-        "Enhance your look with perfect nails. From quick cleanups to bold nail art, our salon partners offer services to keep your hands and feet looking elegant.",
+        "Maintain elegant nails with professional manicure and pedicure services. If you want a classic nail care or creative nail art, our salon partners provide everything to your style.",
       services: [
-        "Classic Manicure & Pedicure",
-        "Gel & French Manicure",
-        "Nail Art & Designs",
-        "Nail Extensions & Acrylic Nails",
-        "Paraffin Wax Treatment for Hands & Feet",
+        "Classic manicure and pedicure",
+        "Jail and French Manicure",
+        "Nail art and designer finish",
+        "Nail extension and acrylic application",
+        "Paraffin wax treatment for soft skin",
       ],
     },
     {
-      title: "Body Massages & Relaxation",
+      title: "Body Massage and Relaxation Therapies",
       image: "./images/new/womenbodymassage.jpg",
       description:
-        "Relax your body and mind with soothing massage therapies offered by certified spa professionals. Let our salon partners help you release stress and recharge.",
+        "Relax, unwind, and de-stress with massage services from certified therapists at Su Stylo partner salons. Restore your energy and feel refreshed from head to toe. Services offered by partner salons",
       services: [
         "Aromatherapy Massage with Essential Oils",
-        "Swedish & Deep Tissue Massage",
-        "Hot Stone Therapy",
+        "Swedish and Deep Tissue Massage",
+        "Hot Stone Massage Therapy",
         "Full Body Relaxation Massage",
-        "Stress Relief & Muscle Relaxation",
+        "Stress and Muscle Relief Sessions",
       ],
     },
     {
-      title: "Bridal & Special Occasion Services",
+      title: " Bridal and Special Occasion Services",
       image: "./images/new/womenbridal.jpg",
       description:
-        "From wedding-day glam to pre-wedding prep, our bridal beauty services are executed by highly experienced Su Stylo salon partners.",
+        "Make your big day unforgettable with premium bridal services offered by seasoned professionals across Su Stylo’s salon network. Look radiant, elegant, and confident for every event.",
       services: [
-        "Bridal Hair & Makeup Packages",
-        "Pre-Bridal Skin & Hair Care",
-        "Party & Event Makeup",
-        "Mehendi & Traditional Styling",
-        "Grooming Packages for Brides & Bridesmaids",
+        "Bridal Hair and Makeup Packages",
+        "Pre-Bridal Skin and Hair Treatments",
+        "Event and Party Makeup",
+        "Mehendi and Traditional Styling",
+        "Grooming Packages for Brides and Bridesmaids",
       ],
     },
     {
-      title: "Advanced Skin Treatments",
+      title: " Advanced Skin Treatments",
       image: "./images/new/advanceskin.jpg",
       description:
-        "For specialized skin concerns, trust our partner salons to provide expert consultation and treatment using advanced skincare protocols.",
+        "For deeper skin concerns, choose advanced treatments offered by qualified professionals on the Su Stylo platform. Each service is performed with modern skincare techniques and equipment.",
       services: [
-        "Chemical Peels & Skin Rejuvenation",
+        "Chemical Peels and Skin Rejuvenation",
         "Microdermabrasion",
-        "Skin Brightening & Whitening",
+        "Skin Brightening and Whitening",
         "Anti-Pigmentation Therapy",
-        "Scar & Stretch Mark Reduction",
+       
       ],
     },
   ];
 
   return (
     <>
+    <SEO></SEO>
       <div
         className={`fade-in-section ${isVisible ? "is-visible" : ""}`}
         ref={domRef}
@@ -138,10 +140,10 @@ export default function WomenServices() {
 
           <div className="container text-center position-relative">
             <h2 className="hero-title">
-              Women’s Grooming & Beauty Services at Su Stylo
+              SU Stylo grooming and beauty services
             </h2>
             <p className="text-white fw-bold">
-            Women’s beauty services available near you in Vaishali Nagar, Malviya Nagar, Jagatpura & more.
+              Women’s beauty services available near you in Vaishali Nagar, Malviya Nagar, Jagatpura & more.
             </p>
           </div>
         </section>
@@ -150,7 +152,7 @@ export default function WomenServices() {
             <div className="row">
               <div className="col-md-12 text-center">
                 <div className="heading mb-2">
-                  <h2>Empowering Beauty, One Service at a Time</h2>
+                  <h2>Empowering beauty, one service at a time</h2>
                 </div>
                 <div
                   className="de-separator"
@@ -162,14 +164,9 @@ export default function WomenServices() {
               </div>
             </div>
             <div className="row mb-4">
-              Su Stylo is not a traditional salon — it’s a digital salon service
-              platform where professional beauty services are delivered by our
-              verified salon partners. Every service listed here is offered
-              directly by trusted local salons who have joined hands with Su
-              Stylo to bring world-class grooming experiences to your
-              fingertips. Our platform connects you with top-rated beauty
-              experts in your area who are trained, certified, and committed to
-              exceptional service.
+              SU Stylo is not your specific salon- it is a digital platform that connects you to the top-rated local salon, which offers you professional, salon-grade beauty services. Each service on SU Styles is distributed by certified and verified salon partners who meet our high standards to meet high standards of quality, hygiene and customer satisfaction.
+              From hairstyle to bridal makeup, our platform brings a wide range of services grooming on your fingers, making beauty care convenient, reliable and personal, just for you.
+
             </div>
             {/* <div className="row mb-4">
               <div className="col-md-12">
@@ -519,114 +516,114 @@ export default function WomenServices() {
                 </div>
 
                 {/* Signature Services for Women */}
-<div className="mt-5">
-  <h4 className="fw-bold text-center mb-5">Signature Services at Su Stylo</h4>
-  <div className="row justify-content-center g-4">
-    <div className="col-md-3 text-center">
-      <img src="/images/organic-hair-women.jpg" alt="Organic Hair Treatment" className="img-fluid rounded mb-2" />
-      <h6 className="fw-bold">Organic Hair Treatment</h6>
-      <p className="small">Nourishing treatments using 100% natural ingredients for soft, healthy hair.</p>
-    </div>
-    <div className="col-md-3 text-center">
-      <img src="/images/aroma-therapy.jpg" alt="Aroma Therapy" className="img-fluid rounded mb-2" />
-      <h6 className="fw-bold">Aroma Therapy</h6>
-      <p className="small">Relax your senses with essential oils that soothe your body and mind.</p>
-    </div>
-    <div className="col-md-3 text-center">
-      <img src="/images/nail-manicure.jpg" alt="Nail Care" className="img-fluid rounded mb-2" />
-      <h6 className="fw-bold">Nail Manicure & Pedicure</h6>
-      <p className="small">Professional nail care and spa for hands and feet with a polished finish.</p>
-    </div>
-    <div className="col-md-3 text-center">
-      <img src="/images/body-massage-women.jpg" alt="Body Massage" className="img-fluid rounded mb-2" />
-      <h6 className="fw-bold">Body Massage</h6>
-      <p className="small">Full-body massage sessions to detoxify, refresh, and relax.</p>
-    </div>
-    <div className="col-md-3 text-center">
-      <img src="/images/deep-facial-women.jpg" alt="Deep Pore Cleansing" className="img-fluid rounded mb-2" />
-      <h6 className="fw-bold">Deep Pore Cleansing Facial</h6>
-      <p className="small">Thorough facial to remove impurities and leave your skin glowing.</p>
-    </div>
-    <div className="col-md-3 text-center">
-      <img src="/images/acne-facial-women.jpg" alt="Acne Facial" className="img-fluid rounded mb-2" />
-      <h6 className="fw-bold">Acne Problem Facial</h6>
-      <p className="small">Targeted treatment to reduce acne and promote clear skin.</p>
-    </div>
-    <div className="col-md-3 text-center">
-      <img src="/images/glycolic-peel-women.jpg" alt="Glycolic Facial" className="img-fluid rounded mb-2" />
-      <h6 className="fw-bold">Glycolic Peel Facial</h6>
-      <p className="small">Brightens and smoothens skin by gently exfoliating dead layers.</p>
-    </div>
-    <div className="col-md-3 text-center">
-      <img src="/images/european-facial-women.jpg" alt="European Facial" className="img-fluid rounded mb-2" />
-      <h6 className="fw-bold">European Facial</h6>
-      <p className="small">A luxurious treatment that rejuvenates and hydrates all skin types.</p>
-    </div>
-  </div>
-</div>
+                <div className="mt-5">
+                  <h4 className="fw-bold text-center mb-5">Signature Services on Su Stylo (Available via Certified Partner Salons)</h4>
+                  <div className="row justify-content-center g-4">
+                    <div className="col-md-3 text-center">
+                      <img src="/images/organic-hair-women.jpg" alt="Organic Hair Treatment" className="img-fluid rounded mb-2" />
+                      <h6 className="fw-bold">Organic Hair Treatment</h6>
+                      <p className="small">Nourishing treatments using 100% natural ingredients for soft, healthy hair.</p>
+                    </div>
+                    <div className="col-md-3 text-center">
+                      <img src="/images/aroma-therapy.jpg" alt="Aroma Therapy" className="img-fluid rounded mb-2" />
+                      <h6 className="fw-bold">Aromatherapy Massage</h6>
+                      <p className="small">Relax your senses with essential oils that soothe your body and mind.</p>
+                    </div>
+                    <div className="col-md-3 text-center">
+                      <img src="/images/nail-manicure.jpg" alt="Nail Care" className="img-fluid rounded mb-2" />
+                      <h6 className="fw-bold">Professional Manicure and Pedicure</h6>
+                      <p className="small">Professional nail care and spa for hands and feet with a polished finish.</p>
+                    </div>
+                    <div className="col-md-3 text-center">
+                      <img src="/images/body-massage-women.jpg" alt="Body Massage" className="img-fluid rounded mb-2" />
+                      <h6 className="fw-bold">Full Body Massage</h6>
+                      <p className="small">Full-body massage sessions to detoxify, refresh, and relax.</p>
+                    </div>
+                    <div className="col-md-3 text-center">
+                      <img src="/images/deep-facial-women.jpg" alt="Deep Pore Cleansing" className="img-fluid rounded mb-2" />
+                      <h6 className="fw-bold">Deep Pore Cleansing Facial</h6>
+                      <p className="small">Thorough facial to remove impurities and leave your skin glowing.</p>
+                    </div>
+                    <div className="col-md-3 text-center">
+                      <img src="/images/acne-facial-women.jpg" alt="Acne Facial" className="img-fluid rounded mb-2" />
+                      <h6 className="fw-bold">Acne Treatment Facial</h6>
+                      <p className="small">Targeted treatment to reduce acne and promote clear skin.</p>
+                    </div>
+                    <div className="col-md-3 text-center">
+                      <img src="/images/glycolic-peel-women.jpg" alt="Glycolic Facial" className="img-fluid rounded mb-2" />
+                      <h6 className="fw-bold">Glycolic Peel Therapy</h6>
+                      <p className="small">Brightens and smoothens skin by gently exfoliating dead layers.</p>
+                    </div>
+                    <div className="col-md-3 text-center">
+                      <img src="/images/european-facial-women.jpg" alt="European Facial" className="img-fluid rounded mb-2" />
+                      <h6 className="fw-bold">European Hydration Facial</h6>
+                      <p className="small">A luxurious treatment that rejuvenates and hydrates all skin types.</p>
+                    </div>
+                  </div>
+                </div>
 
-{/* Why Choose Us for Women */}
-<div className="mt-5">
-  <h4 className="fw-bold text-center mb-5">
-    Why Women Choose Su Stylo Partner Salons
-  </h4>
-  <div className="row text-center justify-content-center g-4">
-    <div className="col-md-3">
-      <img
-        src="/images/hygiene-salon-women.jpg"
-        alt="Hygienic Salon"
-        className="img-fluid rounded mb-2"
-      />
-      <h6 className="fw-bold">Top-Rated Salons</h6>
-      <p className="small">
-        Handpicked salons known for hygiene, professionalism, and expertise.
-      </p>
-    </div>
-    <div className="col-md-3">
-      <img
-        src="/images/expert-team-women.jpg"
-        alt="Expert Beauticians"
-        className="img-fluid rounded mb-2"
-      />
-      <h6 className="fw-bold">Certified Professionals</h6>
-      <p className="small">
-        Experienced beauty experts trained in the latest techniques and trends.
-      </p>
-    </div>
-    <div className="col-md-3">
-      <img
-        src="/images/transparent-booking-women.jpg"
-        alt="Transparent Booking"
-        className="img-fluid rounded mb-2"
-      />
-      <h6 className="fw-bold">Transparent & Easy Booking</h6>
-      <p className="small">
-        Book anytime, anywhere with full pricing visibility — no surprises.
-      </p>
-    </div>
-    <div className="col-md-3">
-      <img
-        src="/images/self-care-women.jpg"
-        alt="Self-Care Relaxation"
-        className="img-fluid rounded mb-2"
-      />
-      <h6 className="fw-bold">Empowering Self-Care</h6>
-      <p className="small">
-        Whether it's a glam-up or me-time, experience care that uplifts you.
-      </p>
-    </div>
-  </div>
+                {/* Why Choose Us for Women */}
+                <div className="mt-5">
+                  <h4 className="fw-bold text-center mb-5">
+                    Why Women Choose Su Stylo Partner Salons
+                  </h4>
+                  <div className="row text-center justify-content-center g-4">
+                    <div className="col-md-3">
+                      <img
+                        src="/images/hygiene-salon-women.jpg"
+                        alt="Hygienic Salon"
+                        className="img-fluid rounded mb-2"
+                      />
+                      <h6 className="fw-bold">Top-Rated Salons</h6>
+                      <p className="small">
+                        Handpicked salons known for hygiene, professionalism, and expertise.
+                      </p>
+                    </div>
+                    <div className="col-md-3">
+                      <img
+                        src="/images/expert-team-women.jpg"
+                        alt="Expert Beauticians"
+                        className="img-fluid rounded mb-2"
+                      />
+                      <h6 className="fw-bold">Certified Professionals</h6>
+                      <p className="small">
+                        Experienced beauty experts trained in the latest techniques and trends.
+                      </p>
+                    </div>
+                    <div className="col-md-3">
+                      <img
+                        src="/images/transparent-booking-women.jpg"
+                        alt="Transparent Booking"
+                        className="img-fluid rounded mb-2"
+                      />
+                      <h6 className="fw-bold">Transparent & Easy Booking</h6>
+                      <p className="small">
+                        Book anytime, anywhere with full pricing visibility — no surprises.
+                      </p>
+                    </div>
+                    <div className="col-md-3">
+                      <img
+                        src="/images/self-care-women.jpg"
+                        alt="Self-Care Relaxation"
+                        className="img-fluid rounded mb-2"
+                      />
+                      <h6 className="fw-bold">Empowering Self-Care</h6>
+                      <p className="small">
+                        Whether it's a glam-up or me-time, experience care that uplifts you.
+                      </p>
+                    </div>
+                  </div>
 
-  <div className="text-center mt-5">
-    <h4 className="fw-bold mb-3">Step Into a World of Beauty, Wellness & Empowerment</h4>
-    <p className="col-md-8 offset-md-2">
-      Su Stylo connects you with India’s best beauty professionals through a seamless,
-      transparent, and empowering platform. Enjoy luxury and care on your own terms.
-    </p>
-     <a href="#booking" className="btn btn-dark px-4 py-2 mt-3">Book Now</a>
-      
-  </div>
-</div>
+                  <div className="text-center mt-5">
+                    <h4 className="fw-bold mb-3">Step Into the Su Stylo Network — Experience Beauty, Effortlessly</h4>
+                    <p className="col-md-8 offset-md-2">
+                      Su Stylo empowers you to compare, choose, and book beauty services from Jaipur’s top salons — all in one place. Whether it’s a simple beauty fix or full bridal preparation, our platform ensures convenience, trust, and style with every appointment.
+
+                    </p>
+                    <a href="#booking" className="btn btn-dark px-4 py-2 mt-3">Book Now</a>
+
+                  </div>
+                </div>
 
 
               </div>

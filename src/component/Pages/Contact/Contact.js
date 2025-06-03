@@ -1,47 +1,140 @@
 import React, { useState, useEffect, useRef } from "react";
 import AOS from "aos";
 import WOW from "wow.js";
-import Swal from 'sweetalert2'
-import '../style/style.css';
+import Swal from "sweetalert2";
+import "../style/style.css";
 import { Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import axiosInstance from "../../config/axiosInstance";
+import SEO from "../../SEO";
+
 export default function Contact() {
-    // formHendler start
     const [loading, setLoading] = useState(false);
-    const formHendler = async (event) => {
-        event.preventDefault();
-        setLoading(true)
-        const userData = {
-            fullName: event.target.username.value,
-            email: event.target.email.value,
-            mobile: event.target.mobile.value,
-            message: event.target.message.value
+    const [errors, setErrors] = useState({
+        fullName: "",
+        email: "",
+        mobile: "",
+        message: ""
+    });
+
+    const [formData, setFormData] = useState({
+        fullName: "",
+        email: "",
+        mobile: "",
+        message: ""
+    });
+
+    // Validation functions
+    const validateName = (name) => {
+        const nameRegex = /^[a-zA-Z\s]{2,}$/;
+        if (!name) return "Name is required and must contain only letters";
+        if (!nameRegex.test(name)) return "Name must contain only letters and spaces";
+        return "";
+    };
+
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email) return "Email is required";
+        if (!emailRegex.test(email)) return "Invalid email format";
+        return "";
+    };
+
+    const validateMobile = (mobile) => {
+        const mobileRegex = /^[6-9]\d{9}$/;
+        if (!mobile) return "Mobile number is required";
+        if (!mobileRegex.test(mobile)) return "Mobile must be 10 digits and start with 6-9";
+        return "";
+    };
+
+    const validateMessage = (message) => {
+        if (!message.trim()) return "Message is required";
+        return "";
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+
+        let sanitizedValue = value;
+
+        if (name === "fullName") {
+            sanitizedValue = value.replace(/[^a-zA-Z\s]/g, "");
+        } else if (name === "mobile") {
+            sanitizedValue = value.replace(/\D/g, "").slice(0, 10);
         }
+
+        setFormData((prev) => ({
+            ...prev,
+            [name]: sanitizedValue
+        }));
+
+        // Update validation
+        const errorMessages = {
+            fullName: validateName(formData.fullName),
+            email: validateEmail(formData.email),
+            mobile: validateMobile(formData.mobile),
+            message: validateMessage(formData.message)
+        };
+
+        setErrors({
+            ...errors,
+            [name]: errorMessages[name]
+        });
+    };
+
+    const formHandler = async (event) => {
+        event.preventDefault();
+
+        // Validate all fields
+        const newErrors = {
+            fullName: validateName(formData.fullName),
+            email: validateEmail(formData.email),
+            mobile: validateMobile(formData.mobile),
+            message: validateMessage(formData.message)
+        };
+
+        setErrors(newErrors);
+
+        const hasErrors = Object.values(newErrors).some((error) => error !== "");
+        if (hasErrors) return;
+
+        setLoading(true);
+
         try {
-            const response = await axiosInstance.post('/contact', userData)
+            const response = await axiosInstance.post("/contact", formData);
             if (response.status === 201) {
                 Swal.fire({
-                    title: "God job !",
+                    title: "Success!",
                     text: response.data.message,
                     icon: "success"
                 });
-                setLoading(false)
-                event.target.reset();
+                setFormData({
+                    fullName: "",
+                    email: "",
+                    mobile: "",
+                    message: ""
+                });
+                setErrors({
+                    fullName: "",
+                    email: "",
+                    mobile: "",
+                    message: ""
+                });
             }
         } catch (error) {
-            console.log('error', error);
-            setLoading(false)
+            Swal.fire({
+                title: "Error!",
+                text: "Failed to submit the form. Please try again.",
+                icon: "error"
+            });
+        } finally {
+            setLoading(false);
         }
-
-    }
+    };
 
     useEffect(() => {
         new WOW().init();
-    }, []);
-    useEffect(() => {
         AOS.init({ duration: 1000 });
     }, []);
+
     const [isVisible, setVisible] = useState(false);
     const domRef = useRef(null);
 
@@ -56,115 +149,132 @@ export default function Contact() {
             if (domRef.current) observer.unobserve(domRef.current);
         };
     }, []);
+
     return (
-        <>
-            <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
-                <section className="contact-section d-flex align-items-center">
-                    <div className="hero-overlay"></div>
+        <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
+            <SEO />
+            <section className="contact-section d-flex align-items-center">
+                <div className="hero-overlay"></div>
+                <div className="container text-center position-relative">
+                    <h2 className="hero-title">Contact Us</h2>
+                    <div className="de-separator"></div>
+                </div>
+            </section>
 
-                    <div className="container text-center position-relative">
-                        <h2 className="hero-title">Contact Us</h2>
-                        <div className="de-separator" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
-                    </div>
-                </section>
-                <div className="content-section">
-                    <Container>
-                        <Row className="text-center">
-                            {/* Address Section */}
-                            <Col md={4}>
-                                <div className="contact-item">
-                                    <div className="icon-box">
-                                        <i className="fa-solid fa-location-dot"></i>
-                                    </div>
-                                    <h5>Our Address</h5>
-                                    <p><strong className="highlight">P.NO 97, Dakshinpuri Shri Kishanpura</strong></p>
-                                </div>
-                            </Col>
+            <div className="content-section">
+                <Container>
+                    <Row className="text-center">
+                        <Col md={4}>
+                            <div className="contact-item">
+                                <div className="icon-box"><i className="fa-solid fa-location-dot"></i></div>
+                                <h5>Our Address</h5>
+                                <p><strong className="highlight">P.NO 97, Dakshinpuri Shri Kishanpura</strong></p>
+                            </div>
+                        </Col>
+                        <Col md={4}>
+                            <div className="contact-item">
+                                <div className="icon-box"><i className="fa-solid fa-phone"></i></div>
+                                <h5>Phone Number</h5>
+                                <p><a href="tel:+917297026119" className="highlight">+91 7297026119</a></p>
+                            </div>
+                        </Col>
+                        <Col md={4}>
+                            <div className="contact-item">
+                                <div className="icon-box"><i className="fa-solid fa-envelope"></i></div>
+                                <h5>Email Address</h5>
+                                <p><a href="mailto:info@sustylo.com" className="highlight">info@sustylo.com</a></p>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
 
-                            {/* Phone Number Section */}
-                            <Col md={4}>
-                                <div className="contact-item">
-                                    <div className="icon-box">
-                                        <i className="fa-solid fa-phone"></i>
-                                    </div>
-                                    <h5>Phone Number</h5>
-                                    <p><Link href="tel:+917297026119" className="highlight">+91 7297026119</Link></p>
-                                </div>
-                            </Col>
-
-                            {/* Email Address Section */}
-                            <Col md={4}>
-                                <div className="contact-item">
-                                    <div className="icon-box">
-                                        <i className="fa-solid fa-envelope"></i>
-                                    </div>
-                                    <h5>Email Address</h5>
-                                    <p><Link href="mailto:info@info@sustylo.com" className="highlight">info@sustylo.com</Link></p>
-                                </div>
-                            </Col>
-                        </Row>
-                    </Container>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-12">
-                                <div className="contact_frm bookingfrm" >
-                                    <form onSubmit={formHendler}>
-                                        <div className="row">
-
-                                            <div className="col-md-6">
-                                                <div class="mb-3">
-                                                    <label for="username" class="form-label">Name</label>
-                                                    <input name="username" type="text" class="form-control" id="username" placeholder="Your Full Name" />
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="exampleFormControlInput1" class="form-label">Email</label>
-                                                    <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="mobile" class="form-label">Mobile</label>
-                                                    <input name="mobile" type="number" class="form-control" id="mobile" placeholder="01234567896" />
-                                                </div>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <div class="mb-3">
-                                                    <label for="usermsg" class="form-label">Your Message</label>
-                                                    <textarea name="message" class="form-control" id="usermsg" rows="9" placeholder="Type Here.."></textarea>
-                                                </div>
-                                            </div>
-                                            <div className="col-md-12">
-                                                {
-                                                    loading
-                                                        ?
-                                                        <div className="btn-8 custom-btn ms-0 mt-5 ">Please Wait...</div>
-                                                        :
-                                                        <button className="btn-8 custom-btn ms-0 mt-5" type="submit"><span>Submit</span></button>
-                                                }
-                                            </div>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <form onSubmit={formHandler} className="contact_frm bookingfrm">
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <div className="mb-3">
+                                            <label htmlFor="fullName">Name</label>
+                                            <input
+                                                name="fullName"
+                                                type="text"
+                                                className={`form-control ${errors.fullName ? "is-invalid" : ""}`}
+                                                value={formData.fullName}
+                                                onChange={handleInputChange}
+                                                placeholder="Your Full Name"
+                                            />
+                                            {errors.fullName && <div className="invalid-feedback">{errors.fullName}</div>}
                                         </div>
-                                    </form>
-
+                                        <div className="mb-3">
+                                            <label htmlFor="email">Email</label>
+                                            <input
+                                                name="email"
+                                                type="email"
+                                                className={`form-control ${errors.email ? "is-invalid" : ""}`}
+                                                value={formData.email}
+                                                onChange={handleInputChange}
+                                                placeholder="name@example.com"
+                                            />
+                                            {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+                                        </div>
+                                        <div className="mb-3">
+                                            <label htmlFor="mobile">Mobile</label>
+                                            <input
+                                                name="mobile"
+                                                type="tel"
+                                                className={`form-control ${errors.mobile ? "is-invalid" : ""}`}
+                                                value={formData.mobile}
+                                                onChange={handleInputChange}
+                                                placeholder="0123456789"
+                                            />
+                                            {errors.mobile && <div className="invalid-feedback">{errors.mobile}</div>}
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <div className="mb-3">
+                                            <label htmlFor="message">Message</label>
+                                            <textarea
+                                                name="message"
+                                                className={`form-control ${errors.message ? "is-invalid" : ""}`}
+                                                rows="9"
+                                                placeholder="Type Here.."
+                                                value={formData.message}
+                                                onChange={handleInputChange}
+                                            ></textarea>
+                                            {errors.message && <div className="invalid-feedback">{errors.message}</div>}
+                                        </div>
+                                    </div>
+                                    <div className="col-md-12">
+                                        {loading ? (
+                                            <div className="btn-8 custom-btn ms-0 mt-5">Please Wait...</div>
+                                        ) : (
+                                            <button className="btn-8 custom-btn ms-0 mt-5" type="submit">
+                                                <span>Submit</span>
+                                            </button>
+                                        )}
+                                    </div>
                                 </div>
-
-                            </div>
-                            <div className="col-md-12" >
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3561.264701407029!2d75.869785!3d26.799699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDQ3JzU4LjkiTiA3NcKwNTInMTEuMiJF!5e0!3m2!1sen!2sin!4v1724749044503!5m2!1sen!2sin"
-                                    style={{
-                                        width: "100%",
-                                        height: "100%",
-                                        border: "none",
-                                        borderRadius: "10px",
-                                    }}
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
-                                    allowFullScreen
-                                />
-                            </div>
+                            </form>
                         </div>
-
+                        <div className="col-md-12 mt-4">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=..."
+                                style={{
+                                    width: "100%",
+                                    height: "450px",
+                                    border: "none",
+                                    borderRadius: "10px"
+                                }}
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                allowFullScreen
+                                title="Google Map"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-        </>
-    )
+        </div>
+    );
 }

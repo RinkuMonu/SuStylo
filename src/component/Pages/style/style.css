@@ -1153,7 +1153,6 @@ p.cs-main__card-location-text.text-truncate {
 
 .aboutBG {
   background: url("/public/images/rating-3.jpg") no-repeat center center/cover;
-  height: 70vh;
   position: relative;
   color: rgb(10, 10, 10);
   text-align: center;
@@ -1162,6 +1161,7 @@ p.cs-main__card-location-text.text-truncate {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 40px 0px 30px 0px;
 }
 
 .aboutBG .hstack {
@@ -1792,16 +1792,10 @@ p.service-text {
   .review_section .text-white.fw-bold {
     font-size: 16px;
   }
-  .aboutBG {
-    height: 500px;
-  }
 }
 @media (max-width: 568px) {
   .review_section .review_text {
     top: 4rem !important;
-  }
-  .aboutBG {
-    height: 500px;
   }
 }
 
