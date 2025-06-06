@@ -4,6 +4,8 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { IoCallOutline } from "react-icons/io5";
 import { CiLinkedin, CiMail } from "react-icons/ci";
+import { FaFacebook } from "react-icons/fa";
+
 import { GoClock } from "react-icons/go";
 import { IoIosSend } from "react-icons/io";
 import { FaInstagram, FaXTwitter } from "react-icons/fa6";
@@ -201,8 +203,11 @@ export default function Footer() {
                     <Link to="https://www.linkedin.com/in/su-stylo-salon-5a8a002a1/">
                       <CiLinkedin size={28} color="#FB8807" />
                     </Link>
-                    <Link to="https://www.instagram.com/?hl=en">
+                    <Link to="https://www.instagram.com/sustylo_salon/?hl=en">
                       <FaInstagram size={25} color="#FB8807" />
+                    </Link>
+                    <Link to="https://www.facebook.com/profile.php?id=61574258022641">
+                      <FaFacebook size={25} color="#FB8807" />
                     </Link>
                     {/* <img src="/images/youtube-logo.png" alt="YouTube" className="social-logo" width={34} /> */}
                   </div>
