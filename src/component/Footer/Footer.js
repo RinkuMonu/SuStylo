@@ -216,7 +216,7 @@ export default function Footer() {
                 className="mb-0 text-white position-relative text-center"
                 style={{ zIndex: "99" }}
               >
-                © 2025 Su Stylo. All Rights Reserved.
+                © 2025 SU Stylo. All Rights Reserved.
               </p>
             </div>
           </div>
