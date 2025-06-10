@@ -271,7 +271,7 @@ const mensServices = [
        When you choose Su Stylo, you’re not just booking a service — you’re stepping into a curated grooming journey. Our partner salons across Jaipur (and soon across India) are ready to deliver the sharpest haircuts, smoothest shaves, and most refreshing facials tailored for today’s man.
 
       </p>
-      <a href="#booking" className="btn btn-dark px-4 py-2 mt-3">Book Now</a>
+      <Link to="/search-results" className="btn btn-dark px-4 py-2 mt-3">Book Now</Link>
     </div>
   </div>
 </section>
