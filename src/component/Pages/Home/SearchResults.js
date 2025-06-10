@@ -1,126 +1,234 @@
-import React, { useState, useEffect, useRef } from "react";
-import AOS from "aos";
-import WOW from "wow.js";
-import { FaMapMarkerAlt, FaRoute, FaSearch } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { FaStar } from "react-icons/fa";
+import { HiAdjustments } from "react-icons/hi";
 
-export default function SearchResults() {
-  const location = useLocation();
-  const {
-    salons = [],
-    searchQuery = "",
-    location: userLocation = "",
-  } = location.state || {};
-
-  console.log("Data from navigate:", location.state);
-
-  useEffect(() => {
-    new WOW().init();
-  }, []);
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
-  const [isVisible, setVisible] = useState(false);
-  const domRef = useRef(null);
+const Main = () => {
+  const [filters, setFilters] = useState({
+    gender: "",
+    sortBy: "",
+    rating: 0,
+    pricing: [100, 5000],
+    amenities: [],
+    offers: false,
+    category: "",
+    location: "",
+  });
 
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => setVisible(entry.isIntersecting));
-    });
-
-    if (domRef.current) observer.observe(domRef.current);
-
-    return () => {
-      if (domRef.current) observer.unobserve(domRef.current);
-    };
+    getLocation();
   }, []);
+
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          const locationText = `${latitude.toFixed(4)}, ${longitude.toFixed(4)}`;
+          setFilters((prev) => ({ ...prev, location: locationText }));
+        },
+        () => {
+          setFilters((prev) => ({ ...prev, location: "Unable to fetch" }));
+        }
+      );
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    if (name === "amenities") {
+      setFilters((prev) => ({
+        ...prev,
+        amenities: checked
+          ? [...prev.amenities, value]
+          : prev.amenities.filter((item) => item !== value),
+      }));
+    } else if (type === "checkbox") {
+      setFilters((prev) => ({ ...prev, [name]: checked }));
+    } else {
+      setFilters((prev) => ({ ...prev, [name]: value }));
+    }
+  };
+
+  const handleStarRating = (value) => {
+    setFilters((prev) => ({ ...prev, rating: value }));
+  };
+
   return (
-    <div className="">
-      {/* Search header with breadcrumb */}
-      <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
-        <section className="Profile-section d-flex align-items-center">
-          <div className="hero-overlay"></div>
-
-          <div className="container text-center position-relative">
-            <h2 className="hero-title fw-bold">Salon List</h2>
-            <div className="de-separator" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
-          </div>
-        </section>
-        <div className="container mt-4">
-          <div className="bg-light p-4 rounded mb-4">
-            <h2 className="mb-3">
-              <FaSearch className="me-2" />
-              Search Results
-            </h2>
-            <p className="lead mb-0">
-              Showing results for "<strong>{searchQuery}</strong>" near "
-              <strong>{userLocation}</strong>"
-            </p>
-            {salons.length > 0 && (
-              <p className="text-muted mt-2">{salons.length} salons found</p>
-            )}
-          </div>
- 
-          {/* Results grid */}
-          {salons.length === 0 ? (
-            <div className="text-center py-5">
-              <div className="display-4 text-muted mb-4">😕</div>
-              <h3>No salons found</h3>
-              <p className="lead">
-                We couldn't find any salons matching your search criteria.
-              </p>
-              <Link to="/" className="btn btn-primary">
-                Try a different search
-              </Link>
-            </div>
-          ) : (
-            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-              {salons.map((salon) => (
-                <div className="col" key={salon._id}>
-                  <Link
-                    to={`/salondetails`}
-                    state={{ salonId: salon }}
-                    className="card h-100 text-decoration-none hover-shadow"
-                  >
-                    <div className="card-img-top overflow-hidden" style={{ height: "200px" }}>
-                      <img
-                        src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg"
-                        className="img-fluid h-100 w-100 object-fit-cover"
-                        alt={salon.salonName}
-                        onError={(e) => {
-                          e.target.src = "/placeholder.jpg";
-                        }}
-                      />
-                      {/* src={salon.salonPhotos?.[0] || "/placeholder.jpg"} */}
-                    </div>
-                    <div className="card-body">
-                      <h3 className="h5 card-title text-truncate">{salon.salonName}</h3>
-                      <div className="d-flex align-items-start mb-2">
-                        <FaMapMarkerAlt className="text-muted mt-1 me-2" />
-                        <p className="card-text text-muted text-truncate mb-0">
-                          {salon.salonAddress}
-                        </p>
-                      </div>
-                      <div className="d-flex align-items-center">
-                        <FaRoute className="text-muted me-2" />
-                        <span className="text-muted">{salon.distance?.toFixed(2)} km away</span>
-                      </div>
-                    </div>
-                    <div className="card-footer bg-transparent border-top-0">
-                      <button className="btn btn btn-warning w-100 text-white">
-                        View Details
-                      </button>
-                    </div>
-                  </Link> 
-                </div>
-              ))}
-            </div>
-          )}
+    <div className="d-flex" style={{ paddingTop: "6rem" }}>
+      <aside className="border-end bg-light p-4" style={{ width: "300px", minHeight: "100vh" }}>
+        <h4 className="mb-4" style={{ color: "rgb(251, 136, 7)" }}>Filters</h4>
+        {/* Gender */}
+        <div className="mb-4">
+          <label className="fw-semibold mb-2 d-block">Gender</label>
+          <select
+            name="gender"
+            value={filters.gender}
+            onChange={handleChange}
+            className="form-select"
+          >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="unisex">Unisex</option>
+          </select>
         </div>
 
-        {/* Search summary */}
+        {/* Sort By */}
+        <div className="mb-4">
+          <label className="fw-semibold mb-2 d-block">Sort By</label>
+          <select
+            name="sortBy"
+            value={filters.sortBy}
+            onChange={handleChange}
+            className="form-select"
+          >
+           
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+          </select>
+        </div>
 
-      </div>
+        {/* Star Rating */}
+        <div className="mb-4">
+          <label className="fw-semibold mb-2 d-block">Rating</label>
+          <div className="d-flex align-items-center gap-2">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <FaStar
+                key={star}
+                size={20}
+                style={{ cursor: "pointer" }}
+                color={filters.rating >= star ? "#f59e0b" : "#e5e7eb"}
+                onClick={() => handleStarRating(star)}
+              />
+            ))}
+          </div>
+          <small className="text-muted">Selected: {filters.rating}★ & up</small>
+        </div>
+
+        {/* Pricing Range (Updated UI) */}
+        <div className="mb-4">
+          <label className="fw-semibold mb-2 d-block">Pricing Range (₹)</label>
+          <div className="d-flex gap-2 align-items-center">
+            <input
+              type="number"
+              min="100"
+              max={filters.pricing[1]}
+              value={filters.pricing[0]}
+              onChange={(e) =>
+                setFilters((prev) => ({
+                  ...prev,
+                  pricing: [Number(e.target.value), prev.pricing[1]],
+                }))
+              }
+              className="form-control"
+              style={{ width: "45%" }}
+              placeholder="Min"
+            />
+            <span>–</span>
+            <input
+              type="number"
+              min={filters.pricing[0]}
+              max="5000"
+              value={filters.pricing[1]}
+              onChange={(e) =>
+                setFilters((prev) => ({
+                  ...prev,
+                  pricing: [prev.pricing[0], Number(e.target.value)],
+                }))
+              }
+              className="form-control"
+              style={{ width: "45%" }}
+              placeholder="Max"
+            />
+          </div>
+          <small className="text-muted">
+            ₹{filters.pricing[0]} – ₹{filters.pricing[1]}
+          </small>
+        </div>
+
+        {/* Amenities */}
+        <div className="mb-4">
+          <label className="fw-semibold mb-2 d-block">Amenities</label>
+          {["ac", "parking", "hygiene"].map((amenity) => (
+            <div key={amenity} className="form-check">
+              <input
+                type="checkbox"
+                name="amenities"
+                value={amenity}
+                onChange={handleChange}
+                checked={filters.amenities.includes(amenity)}
+                className="form-check-input"
+              />
+              <label className="form-check-label text-capitalize">{amenity}</label>
+            </div>
+          ))}
+        </div>
+
+        {/* Offers */}
+        <div className="mb-4">
+          <label className="fw-semibold mb-2 d-block">Offers</label>
+          <div className="form-check">
+            <input
+              type="checkbox"
+              name="offers"
+              checked={filters.offers}
+              onChange={handleChange}
+              className="form-check-input"
+            />
+            <label className="form-check-label">Show Only with Offers</label>
+          </div>
+        </div>
+
+        {/* Category */}
+        <div className="mb-4">
+          <label className="fw-semibold mb-2 d-block">Category</label>
+          <select
+            name="category"
+            value={filters.category}
+            onChange={handleChange}
+            className="form-select"
+          >
+            
+            <option value="premium">Premium</option>
+            <option value="general">General</option>
+          </select>
+        </div>
+
+        {/* Location Input */}
+        <div className="mb-4">
+          <label className="fw-semibold mb-2 d-block">Location</label>
+          <input
+            type="text"
+            className="form-control"
+            name="location"
+            value={filters.location}
+            onChange={handleChange}
+            placeholder="Enter location"
+          />
+        </div>
+
+        {/* Apply Filters Button */}
+        <button
+          className="btn btn-sm d-flex align-items-center gap-2"
+          style={{
+            backgroundColor: "#FB8807",
+            borderColor: "#FB8807",
+            color: "white",
+            borderRadius: "8px",
+            padding: "0.4rem 0.8rem",
+            fontWeight: "500",
+            width: "auto",
+          }}
+        >
+          <HiAdjustments size={18} /> Apply Filters
+        </button>
+      </aside>
+
+      <main className="flex-grow-1 p-4">
+        <h2 className="mb-4">Salon Listings</h2>
+        <p className="text-muted">Filtered results will appear here based on selected options.</p>
+      </main>
     </div>
   );
-}
+};
+
+export default Main;
