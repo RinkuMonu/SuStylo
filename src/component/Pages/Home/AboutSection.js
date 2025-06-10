@@ -37,7 +37,7 @@ export default function AboutSection() {
                                     Step into a place where comfort meets class, and let the SuStylo bring out the best version of you.
 
                                 </p>
-                                <Link className="btn-8 custom-btn">
+                                <Link to="/search-results" className="btn-8 custom-btn">
                                     <span>Book Now</span>
                                 </Link>
                             </div>

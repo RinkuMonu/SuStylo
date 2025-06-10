@@ -23,6 +23,7 @@ import WomenServices from './component/Pages/ServicesType/WomenServices.js';
 import Login from './component/Pages/login/Login.js';
 import Hair from './component/Pages/Services/Hair.js';
 import SearchResults from './component/Pages/Home/SearchResults.js';
+import Main from './component/Pages/Filters/Main.js';
  
  
 const seoData = {
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
       { path: "/privacypolicy", element: <PrivacyPolicy /> },
       { path: "/womenservices", element: <WomenServices /> },
       { path: "/profile", element: <Profile /> },
-   
+      { path: "/main", element: <Main /> },
       { path: "/hair", element: <Hair /> },
       { path: "/search-results", element: <SearchResults /> },
     ],
