@@ -3,16 +3,60 @@ import { FaStar } from "react-icons/fa";
 import { HiAdjustments } from "react-icons/hi";
 
 const Main = () => {
-  const [filters, setFilters] = useState({
-    gender: "",
-    sortBy: "",
-    rating: 0,
-    pricing: [100, 5000],
-    amenities: [],
-    offers: false,
-    category: "",
-    location: "",
-  });
+ const [filters, setFilters] = useState({
+  gender: "",
+  sortBy: "",
+  rating: 0,
+  pricing: [100, 5000],
+  amenities: [],
+  services: [], // ✅ Add this
+  offers: false,
+  category: "",
+  location: "",
+});
+
+
+
+  // Dummy services data by gender
+ const serviceData = {
+  male: [
+    "Beard Trim",
+    "Haircut",
+    "Facial",
+    "Head Massage",
+    "Hair Spa",
+    "Shaving",
+    "Hair Coloring",
+    "Body Scrub",
+    "Manicure",
+    "Pedicure"
+  ],
+  female: [
+    "Hair Spa",
+    "Manicure",
+    "Pedicure",
+    "Facial",
+    "Threading",
+    "Waxing",
+    "Hair Coloring",
+    "Makeup",
+    "Body Polishing",
+    "Henna Application"
+  ],
+  unisex: [
+    "Massage",
+    "Hair Color",
+    "Body Spa",
+    "Detan Treatment",
+    "Foot Massage",
+    "Body Wrap",
+    "Aromatherapy",
+    "Scalp Treatment",
+    "Rejuvenation Therapy",
+    "Steam Bath"
+  ]
+};
+
 
   useEffect(() => {
     getLocation();
@@ -33,21 +77,23 @@ const Main = () => {
     }
   };
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    if (name === "amenities") {
-      setFilters((prev) => ({
-        ...prev,
-        amenities: checked
-          ? [...prev.amenities, value]
-          : prev.amenities.filter((item) => item !== value),
-      }));
-    } else if (type === "checkbox") {
-      setFilters((prev) => ({ ...prev, [name]: checked }));
-    } else {
-      setFilters((prev) => ({ ...prev, [name]: value }));
-    }
-  };
+const handleChange = (e) => {
+  const { name, value, type, checked } = e.target;
+
+  if (name === "amenities" || name === "services") {
+    setFilters((prev) => ({
+      ...prev,
+      [name]: checked
+        ? [...prev[name], value]
+        : prev[name].filter((item) => item !== value),
+    }));
+  } else if (type === "checkbox") {
+    setFilters((prev) => ({ ...prev, [name]: checked }));
+  } else {
+    setFilters((prev) => ({ ...prev, [name]: value }));
+  }
+};
+
 
   const handleStarRating = (value) => {
     setFilters((prev) => ({ ...prev, rating: value }));
@@ -57,20 +103,49 @@ const Main = () => {
     <div className="d-flex" style={{ paddingTop: "6rem" }}>
       <aside className="border-end bg-light p-4" style={{ width: "300px", minHeight: "100vh" }}>
         <h4 className="mb-4" style={{ color: "rgb(251, 136, 7)" }}>Filters</h4>
+
         {/* Gender */}
         <div className="mb-4">
           <label className="fw-semibold mb-2 d-block">Gender</label>
-          <select
-            name="gender"
-            value={filters.gender}
-            onChange={handleChange}
-            className="form-select"
-          >
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="unisex">Unisex</option>
-          </select>
+         <select
+  name="gender"
+  value={filters.gender}
+  onChange={(e) => {
+    handleChange(e);
+    setFilters((prev) => ({ ...prev, services: [] })); // Clear previous services
+  }}
+  className="form-select"
+>
+  <option value="">Select Gender</option>
+  <option value="male">Male</option>
+  <option value="female">Female</option>
+  <option value="unisex">Unisex</option>
+</select>
+
+
+          {/* Services as checkboxes */}
+          {filters.gender && (
+            <div className="mt-3">
+              <h6 className="fw-semibold">
+                Services for {filters.gender.charAt(0).toUpperCase() + filters.gender.slice(1)}:
+              </h6>
+              {serviceData[filters.gender]?.map((service, idx) => (
+                <div className="form-check" key={idx}>
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    name="services"
+                    value={service}
+                    onChange={handleChange}
+                    checked={filters.services.includes(service)}
+                  />
+                  <label className="form-check-label">{service}</label>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
+
 
         {/* Sort By */}
         <div className="mb-4">
@@ -81,7 +156,7 @@ const Main = () => {
             onChange={handleChange}
             className="form-select"
           >
-           
+            <option value="">Select</option>
             <option value="low">Price: Low to High</option>
             <option value="high">Price: High to Low</option>
           </select>
@@ -104,7 +179,7 @@ const Main = () => {
           <small className="text-muted">Selected: {filters.rating}★ & up</small>
         </div>
 
-        {/* Pricing Range (Updated UI) */}
+        {/* Pricing Range */}
         <div className="mb-4">
           <label className="fw-semibold mb-2 d-block">Pricing Range (₹)</label>
           <div className="d-flex gap-2 align-items-center">
@@ -148,7 +223,7 @@ const Main = () => {
         {/* Amenities */}
         <div className="mb-4">
           <label className="fw-semibold mb-2 d-block">Amenities</label>
-          {["ac", "parking", "hygiene"].map((amenity) => (
+          {["ac", "parking", "hygiene", "Sanitized Tools and Equipment ", "CCTV for Security ","Comfortable Seating Area ", "Wi-Fi Access" , "Kids Play Area ","Private Treatment Rooms "].map((amenity) => (
             <div key={amenity} className="form-check">
               <input
                 type="checkbox"
@@ -187,13 +262,13 @@ const Main = () => {
             onChange={handleChange}
             className="form-select"
           >
-            
+            <option value="">Select</option>
             <option value="premium">Premium</option>
             <option value="general">General</option>
           </select>
         </div>
 
-        {/* Location Input */}
+        {/* Location */}
         <div className="mb-4">
           <label className="fw-semibold mb-2 d-block">Location</label>
           <input

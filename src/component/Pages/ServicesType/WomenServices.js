@@ -620,8 +620,7 @@ export default function WomenServices() {
                       Su Stylo empowers you to compare, choose, and book beauty services from Jaipur’s top salons — all in one place. Whether it’s a simple beauty fix or full bridal preparation, our platform ensures convenience, trust, and style with every appointment.
 
                     </p>
-                    <a href="#booking" className="btn btn-dark px-4 py-2 mt-3">Book Now</a>
-
+                    <Link to="/search-results" className="btn btn-dark px-4 py-2 mt-3">Book Now</Link>
                   </div>
                 </div>
 
