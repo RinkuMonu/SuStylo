@@ -206,7 +206,7 @@ export default function BookNow() {
       <section className="bookAppoinment-section d-flex align-items-center">
         <div className="hero-overlay"></div>
         <div className="container text-center position-relative">
-          <h2 className="hero-title">BOOK APPOINTMENT</h2>
+          <h1 className="hero-title">BOOK APPOINTMENT</h1>
         </div>
       </section>
       <div className="content-section">

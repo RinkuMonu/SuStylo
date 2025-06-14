@@ -224,8 +224,8 @@ export default function SalonPartner() {
         <section className="Salon-section d-flex align-items-center">
           <div className="hero-overlay"></div>
           <div className="container text-center position-relative">
-            <h2 className="hero-title">SALON PARTNER</h2>
-            <p className="hero-subtitle-partner fw-bold">
+            <h1 className="hero-title">SALON PARTNER</h1>
+            <p className="text-white fw-bold">
               Established with a passion for the art of barbering, we take great
               pride in our craft and strive to create an atmosphere that feels
               like home.
@@ -248,7 +248,7 @@ export default function SalonPartner() {
               </div>
               <div className="col-md-6 my-4 orderimg2">
                 <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
-                  <img src="./images/gallery/R6.jpg" className="img-fluid" />
+                  <img src="./images/gallery/R6.jpg" className="img-fluid pt-5" />
                 </SimpleParallax>
               </div>
             </div>
@@ -258,7 +258,7 @@ export default function SalonPartner() {
                   <img
                     src="./images/gallery/8.jpg"
                     alt="img"
-                    className="img-fluid"
+                    className="img-fluid pt-5"
                   />
                 </SimpleParallax>
               </div>

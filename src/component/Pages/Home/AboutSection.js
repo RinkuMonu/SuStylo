@@ -13,7 +13,7 @@ export default function AboutSection() {
                                 <img
                                     src="./images/10.jpg"
                                     className="img-fluid aboutimg"
-                                    alt="About Su Stylo"
+                                    alt="About SuStylo"
                                     style={{
                                         height: '600px',
                                         objectFit: 'cover',

@@ -226,7 +226,7 @@ export default function Profile() {
         <section className="Profile-section d-flex align-items-center">
           <div className="hero-overlay"></div>
           <div className="container text-center position-relative">
-            <h2 className="hero-title fw-bold">Profile</h2>
+            <h1 className="hero-title">Profile</h1>
             <div
               className="de-separator"
               style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}

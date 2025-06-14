@@ -37,7 +37,7 @@ const mensServices = [
     title: "Hair cut and style",
     image: "./images/new/menhairCut.jpg",
     description:
-      "Search for skilled barbers and stylists who personalize every cut to match your personality and lifestyle. Book immediately through Su Stylo and walk into a salon that knows the style.",
+      "Search for skilled barbers and stylists who personalize every cut to match your personality and lifestyle. Book immediately through SuStylo and walk into a salon that knows the style.",
     services: [
       "Classic haircuts",
       "Trendy and modern styles",
@@ -78,7 +78,7 @@ const mensServices = [
     title: "Hair Care Treatment",
     image: "./images/new/hairCare.jpg",
     description:
-      "Set up hair fall, dandruff, or dullness with advanced hair and skull treatments provided by the salon partners of Su stylo. Take care that your hair type and goals are right.",
+      "Set up hair fall, dandruff, or dullness with advanced hair and skull treatments provided by the salon partners of SuStylo. Take care that your hair type and goals are right.",
     services: [
       "Organic hair spa and nutritious mask",
       "Russian control treatment",
@@ -124,9 +124,9 @@ const mensServices = [
           <div className="hero-overlay"></div>
 
           <div className="container text-center position-relative">
-            <h2 className="hero-title">Men's grooming services on SuStylo</h2>
+            <h1 className="hero-title">Men's grooming services on SuStylo</h1>
             <p className="text-white fw-bold">
-             Elevate Your Look with Expert Men’s Grooming Services at Su Stylo
+             Elevate Your Look with Expert Men’s Grooming Services at SuStylo
             </p>
           </div>
         </section>
@@ -215,7 +215,7 @@ const mensServices = [
   <section className="py-5">
   <div className="container">
     {/* Signature Services */}
-    <h2 className="fw-bold text-center mb-5">Signature Men’s Services on Su Stylo</h2>
+    <h2 className="fw-bold text-center mb-5">Signature Men’s Services on SuStylo</h2>
     <div className="row text-center g-4 mb-5">
       <div className="col-md-3">
         <img src="/images/organic-hair-treatment.jpg" alt="Organic Hair Treatment" className="img-fluid rounded mb-2" />
@@ -266,9 +266,9 @@ const mensServices = [
 
     {/* CTA */}
     <div className="text-center mt-5">
-      <h5 className="fw-semibold">Redefine Your Grooming Routine with Su Stylo</h5>
+      <h5 className="fw-semibold">Redefine Your Grooming Routine with SuStylo</h5>
       <p>
-       When you choose Su Stylo, you’re not just booking a service — you’re stepping into a curated grooming journey. Our partner salons across Jaipur (and soon across India) are ready to deliver the sharpest haircuts, smoothest shaves, and most refreshing facials tailored for today’s man.
+       When you choose SuStylo, you’re not just booking a service — you’re stepping into a curated grooming journey. Our partner salons across Jaipur (and soon across India) are ready to deliver the sharpest haircuts, smoothest shaves, and most refreshing facials tailored for today’s man.
 
       </p>
       <Link to="/search-results" className="btn btn-dark px-4 py-2 mt-3">Book Now</Link>

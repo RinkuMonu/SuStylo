@@ -36,9 +36,9 @@ export default function Blog() {
       <section className="blog-section d-flex align-items-center">
         <div className="hero-overlay"></div>
         <div className="container text-center position-relative">
-          <h2 className="hero-title">Blog</h2>
+          <h1 className="hero-title">Blog</h1>
           <p className="text-white fw-bold">
-            Welcome to the Su Stylo Blog, your go-to source for the latest
+            Welcome to the SuStylo Blog, your go-to source for the latest
             trends, expert grooming tips, and salon industry insights.
           </p>
         </div>

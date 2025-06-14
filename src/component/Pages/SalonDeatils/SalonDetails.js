@@ -128,8 +128,8 @@ export default function SalonDetails() {
             className="container text-center position-relative"
             data-aos="zoom-in"
           >
-            <h2 className="hero-title">{salonDetails?.salon?.salonName}</h2>
-            <p className="hero-subtitle-det text-white fw-bold">
+            <h1 className="hero-title">{salonDetails?.salon?.salonName}</h1>
+            <p className=" text-white fw-bold">
               <FaRoute className="icon" />
               {salonDetails?.salon?.salonAddress}
 

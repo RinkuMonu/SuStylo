@@ -9,6 +9,12 @@ body {
   overflow-x: hidden;
 }
 
+@media (max-width: 768px) {
+ .row{
+  padding-right: 0px !important;
+ }
+}
+
 :root {
   --primary-color: #fb8807;
   --secondary-color: #fba059;

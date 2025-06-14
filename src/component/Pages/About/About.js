@@ -61,14 +61,14 @@ export default function About() {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    
+
     if (name === "name" && !/^[A-Za-z\s]*$/.test(value)) {
       return;
     }
 
-    
+
     if (name === "mobile" && value && !/^[6-9]\d{0,9}$/.test(value)) {
-      return; 
+      return;
     }
 
     setFormValues({ ...formValues, [name]: value });
@@ -176,13 +176,13 @@ export default function About() {
       <div
         className={`fade-in-section ${isVisible ? "is-visible" : ""}`}
         ref={domRef}
-        >
-        <SEO/>
+      >
+        <SEO />
         <section className="about-section d-flex align-items-center">
           <div className="hero-overlay"></div>
           <div className="container text-center position-relative">
-            <h2 className="hero-title">About Su Stylo</h2>
-            <p className="text-white fw-bold fs-4">
+            <h1 className="hero-title">About SuStylo</h1>
+            <p className="text-white fw-bold ">
               India's most trusted <strong>Grooming </strong> partner - from Jaipur to every Indian city
             </p>
           </div>
@@ -193,7 +193,7 @@ export default function About() {
           <div className="row">
             <div className="col-md-12">
               <div className="gallery_heading mx-auto text-center">
-                <h2>What Is SU Stylo</h2>
+                <h2>What Is SUStylo</h2>
               </div>
               <div
                 className="de-separator"
@@ -203,27 +203,32 @@ export default function About() {
                 }}
               ></div>
             </div>
-            <div className="col-md-12">
-              <div className="clearfix companydetails">
-                <img
-                  src="./images/salonbanner.jpg"
-                  className="img-fluid col-md-6 float-md-end mb-3 ms-md-3 img-width mt-5 "
-                  alt="policy img"
-                />
-                <h2 className="my-3 third-color fs-3 fw-bold">SU STYLO</h2>
-                <p className="mb-3">
-                  SU Stylo is changing the way people in India feel about the way of grooming. The beginning of a local innovation in Jaipur is now growing into a national movement to simplify salon booking and redefine beauty and personal care for modern Indians.
-                </p>
-                <p>
-                  Developed by Seven Unique Tech Solution Pvt. Ltd., A major IT company located in Jaipur, reflects the correct mixture of beauty industry insight and digital innovation. With a deep understanding of local business challenges and national market trends, the seven unique tech teams created SuStylo to make real grooming across India and solve salon management problems.
-                </p>
-                <p>
-                  In today's fast-paced life, finding the right salon at the right time should not be a struggle. Whether you are preparing for the last-minute meeting, a celebration, or a weekend's self-care routine, SuStylo makes the best salon easy to discover, checks real-time availability, and immediately books a call, no waiting.
-                </p>
-                <p>
-                  Our platform acts as a digital bridge between customers and salon professionals, providing a smooth, transparent and rewarding experience for both. We bring facilities, quality and trust in every beauty appointment.
-                </p>
-              </div>
+            <div className="row ">
+              <div className="col-lg-6 text-center my-auto ">
+                <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
+                  <img
+                    src="./images/salonbanner.jpg"
+                    alt="About SuStylo"
+                    className="img-fluid "
+                  />
+                </SimpleParallax>
+                 </div>
+                <div className="col-lg-6 companydetails">
+                  <h2 className="my-3 third-color fs-3 fw-bold">SUSTYLO</h2>
+                  <p className="mb-3">
+                    SUStylo is changing the way people in India feel about the way of grooming. The beginning of a local innovation in Jaipur is now growing into a national movement to simplify salon booking and redefine beauty and personal care for modern Indians.
+                  </p>
+                  <p>
+                    Developed by SevenUnique Tech Solution Pvt. Ltd., A major IT company located in Jaipur, reflects the correct mixture of beauty industry insight and digital innovation. With a deep understanding of local business challenges and national market trends, the SevenUnique tech teams created SuStylo to make real grooming across India and solve salon management problems.
+                  </p>
+                  <p>
+                    In today's fast-paced life, finding the right salon at the right time should not be a struggle. Whether you are preparing for the last-minute meeting, a celebration, or a weekend's self-care routine, SuStylo makes the best salon easy to discover, checks real-time availability, and immediately books a call, no waiting.
+                  </p>
+                  <p>
+                    Our platform acts as a digital bridge between customers and salon professionals, providing a smooth, transparent and rewarding experience for both. We bring facilities, quality and trust in every beauty appointment.
+                  </p>
+                </div>
+             
               <hr className="mt-5" />
               <section className="py-5" id="who-we-are">
                 <div className="container">
@@ -243,12 +248,12 @@ export default function About() {
                         This vision became <strong>SuStylo powerful </strong> , easy-to-use mobile platform designed to please the salon owners and delight customers.
                       </p>
                     </div>
-                    <div className="col-lg-5 text-center mt-4 mt-lg-0">
+                    <div className="col-lg-5 mt-4 mt-lg-0">
                       <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
                         <img
                           src="https://img.freepik.com/free-photo/young-beautiful-woman-choosing-cosmetics-beauty-shop_1303-27656.jpg"
-                          alt="About Su Stylo"
-                          className="img-fluid "
+                          alt="About SuStylo"
+                          className="img-fluid p-5 "
                         />
                       </SimpleParallax>
                     </div>
@@ -296,7 +301,7 @@ export default function About() {
             <div className="container">
               <div className="row">
                 <div className="col-lg-12 mx-auto text-center companydetails">
-                  <h2 className="h4 fw-bold mb-4 fs-3 " style={{color:"#fb8807"}}>Why did we start in Jaipur</h2>
+                  <h2 className="h4 fw-bold mb-4 fs-3 " style={{ color: "#fb8807" }}>Why did we start in Jaipur</h2>
                   <p className="">
                     We chose Jaipur as our launch city as it is a mixture of tradition and modernity. The beauty industry here is full of potential-from family-run parlors to high-level grooming lounges. But we paid attention to general challenges: unarmed booking, walk-in overload, irregular payment, and low online visibility.
                   </p>
@@ -307,7 +312,7 @@ export default function About() {
                     We spent months meeting salon owners, listening to their problems, and designing a solution that worked for them. At the same time, we spoke to hundreds of customers frustrated by lack of transparency, cleanliness concerns, and long waiting times.
                   </p>
                   <p className=" mb-4">
-                    <strong>Su Stylo</strong> were created as a reaction to these real world needs-and the results are proofs:
+                    <strong>SuStylo</strong> were created as a reaction to these real world needs-and the results are proofs:
                   </p>
                   <div className="row text-start">
                     <div className="col-sm-6 col-md-3 mb-3">
@@ -342,7 +347,7 @@ export default function About() {
               </div>
             </div>
           </section>
-          <hr/>
+          <hr />
           <div className="row align-items-center">
             <div className="col-md-6 mt-5 mb-3">
               <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
@@ -405,7 +410,7 @@ export default function About() {
               </p>
             </div>
           </div>
-          <hr/>
+          <hr />
           <section className="py-5" id="customer-love">
             <div className="container">
               <div className="row align-items-center">
@@ -429,8 +434,8 @@ export default function About() {
                 </div>
                 <div className="col-lg-6 text-center">
                   <SimpleParallax orientation={"down"} scale={1.8} delay={1}>
-                    <img 
-                      src="./images/new/facialTreatment.jpg" 
+                    <img
+                      src="./images/new/facialTreatment.jpg"
                       alt="Happy salon customer"
                       className="img-fluid "
                     />
@@ -618,7 +623,7 @@ export default function About() {
                   <ul className="cities-container">
                     {cities.map((city, index) => (
                       <li key={index} className="cities-lists">
-                        <Link to={city.url}>{city.name}</Link>
+                        <Link to="/search-results">{city.name}</Link>
                       </li>
                     ))}
                   </ul>

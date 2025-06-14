@@ -146,24 +146,24 @@ function BlogsDetails() {
   }
 
   return (
-    <div className={` ${isVisible ? "is-visible" : ""}`} ref={domRef}>
+    <div className={` ${isVisible ? "is-visible overflow-hidden" : "overflow-hidden"}`} ref={domRef}>
       <section className="blog-section d-flex align-items-center">
         <div className="hero-overlay"></div>
 
         <div className="container text-center position-relative">
-          <h2 className="hero-title">Blog</h2>
-          <p>
-            Welcome to the Su Stylo Blog, your go-to source for the latest trends, expert grooming tips, and salon
+          <h1 className="hero-title">Blog</h1>
+          <p className="text-white fw-bold">
+            Welcome to the SuStylo Blog, your go-to source for the latest trends, expert grooming tips, and salon
             industry insights.
           </p>
         </div>
       </section>
 
       <div className="content-section">
-        <div className="blogs_deatils">
+        <div className="blogs_deatils mb-0">
           <div className="container">
             <div className="row">
-              <div className="col-md-8 col-sm-12 mb-3">
+              <div className="col-md-8 col-sm-12 ">
                 <div className="title-img">
                   <img
                     src={blog.image || "https://framerusercontent.com/images/y6h3MUMisOe3SS8MABsJ8tKikA.jpeg"}
@@ -217,9 +217,9 @@ function BlogsDetails() {
                           <span>{formatDate(comment.createdAt)}</span>
                           <p>{comment.message}</p>
                         </div>
-                        <div className="reply-Btn">
+                        {/* <div className="reply-Btn">
                           <a href="#">Reply</a>
-                        </div>
+                        </div> */}
                       </div>
                     ))
                   ) : (
@@ -341,7 +341,7 @@ function BlogsDetails() {
                   <div className="recentPost">
                     <p>Recent Post</p>
                     <hr />
-                    <div className="recent-post-item mt-5">
+                    <div className="recent-post-item mt-5 d-block d-lg-flex">
                       <div className="post-img">
                         <img src="./images/2149230917.jpg" alt="" />
                       </div>
@@ -355,7 +355,7 @@ function BlogsDetails() {
                       </div>
                     </div>
 
-                    <div className="recent-post-item mt-5">
+                    <div className="recent-post-item mt-5 d-block d-lg-flex">
                       <div className="post-img">
                         <img src="./images/2149230917.jpg" alt="" />
                       </div>
@@ -369,7 +369,7 @@ function BlogsDetails() {
                       </div>
                     </div>
 
-                    <div className="recent-post-item mt-5">
+                    <div className="recent-post-item mt-5 d-block d-lg-flex">
                       <div className="post-img">
                         <img src="./images/2149230917.jpg" alt="" />
                       </div>

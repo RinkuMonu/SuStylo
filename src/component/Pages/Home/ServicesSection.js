@@ -30,15 +30,15 @@ export default function ServicesSection() {
                     <div className="row g-3">
                         {/* Shaving */}
                         <div className="col-12 col-md-6 col-lg-3 mb-3">
-                            <div className="servicesBx h-100">
+                            <div className="servicesBx ">
                                 <div className="icon_center">
                                     <img
                                         src="./images/shave.svg"
-                                        className="img-fluid fw-bold mt-5"
+                                        className="img-fluid fw-bold mt-3"
                                         alt="Shaving"
                                     />
                                 </div>
-                                <div className="service_title">
+                                <div className="service_title mt-5">
                                     <h3>SHAVING</h3>
                                 </div>
                                 <div className="services_content">
@@ -52,16 +52,16 @@ export default function ServicesSection() {
 
                         {/* Styling */}
                         <div className="col-12 col-md-6 col-lg-3 mb-3">
-                            <div className="servicesBx h-100">
+                            <div className="servicesBx ">
                                 <div className="icon_center">
                                     <img
                                         src="./images/style.svg"
-                                        className="img-fluid mt-5"
+                                        className="img-fluid mt-3"
                                         width={60}
                                         alt="Styling"
                                     />
                                 </div>
-                                <div className="service_title">
+                                <div className="service_title mt-5">
                                     <h3>STYLING</h3>
                                 </div>
                                 <div className="services_content">
@@ -75,15 +75,15 @@ export default function ServicesSection() {
 
                         {/* Trimming */}
                         <div className="col-12 col-md-6 col-lg-3 mb-3">
-                            <div className="servicesBx h-100">
+                            <div className="servicesBx ">
                                 <div className="icon_center">
                                     <img
                                         src="./images/trim.svg"
-                                        className="img-fluid fw-bold mt-5"
+                                        className="img-fluid fw-bold mt-3"
                                         alt="Trimming"
                                     />
                                 </div>
-                                <div className="service_title">
+                                <div className="service_title mt-5">
                                     <h3>TRIMMING</h3>
                                 </div>
                                 <div className="services_content">
@@ -97,16 +97,16 @@ export default function ServicesSection() {
 
                         {/* Haircut */}
                         <div className="col-12 col-md-6 col-lg-3 mb-3">
-                            <div className="servicesBx h-100">
+                            <div className="servicesBx">
                                 <div className="icon_center">
                                     <img
                                         src="./images/hair-cut.svg"
-                                        className="img-fluid mt-5"
+                                        className="img-fluid mt-3"
                                         width={60}
                                         alt="Haircut"
                                     />
                                 </div>
-                                <div className="service_title">
+                                <div className="service_title mt-5">
                                     <h3>HAIRCUT</h3>
                                 </div>
                                 <div className="services_content">

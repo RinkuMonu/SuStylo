@@ -51,7 +51,7 @@ export default function WomenServices() {
       title: "Facial treatment and skin care",
       image: "./images/new/womenfacialcare.jpg",
       description:
-        "Get glowing, shining skin with skin-type-specific facials provided by skilled aesthetics from our salon network. SU Stylo connects you with facial experts who personalize every treatment for maximum results.",
+        "Get glowing, shining skin with skin-type-specific facials provided by skilled aesthetics from our salon network. SuStylo connects you with facial experts who personalize every treatment for maximum results.",
       services: [
         "Deep cleaning signature face",
         "Acne and Blemish Control Treatment",
@@ -65,7 +65,7 @@ export default function WomenServices() {
       title: "Waxing and hair removal",
       image: "./images/new/womenwaxcare.jpg",
       description:
-        "Book a soft and hygienic waxing session from SU Stylo's trusted companion salon. Services are tailored to all types of skin, which focuses on comfort and long-lasting lubricating.",
+        "Book a soft and hygienic waxing session from SuStylo's trusted companion salon. Services are tailored to all types of skin, which focuses on comfort and long-lasting lubricating.",
       services: [
         "Full body waxing",
         "Bikini and Brazilian waxing",
@@ -91,7 +91,7 @@ export default function WomenServices() {
       title: "Body Massage and Relaxation Therapies",
       image: "./images/new/womenbodymassage.jpg",
       description:
-        "Relax, unwind, and de-stress with massage services from certified therapists at Su Stylo partner salons. Restore your energy and feel refreshed from head to toe. Services offered by partner salons",
+        "Relax, unwind, and de-stress with massage services from certified therapists at SuStylo partner salons. Restore your energy and feel refreshed from head to toe. Services offered by partner salons",
       services: [
         "Aromatherapy Massage with Essential Oils",
         "Swedish and Deep Tissue Massage",
@@ -104,7 +104,7 @@ export default function WomenServices() {
       title: " Bridal and Special Occasion Services",
       image: "./images/new/womenbridal.jpg",
       description:
-        "Make your big day unforgettable with premium bridal services offered by seasoned professionals across Su Stylo’s salon network. Look radiant, elegant, and confident for every event.",
+        "Make your big day unforgettable with premium bridal services offered by seasoned professionals across SuStylo’s salon network. Look radiant, elegant, and confident for every event.",
       services: [
         "Bridal Hair and Makeup Packages",
         "Pre-Bridal Skin and Hair Treatments",
@@ -117,7 +117,7 @@ export default function WomenServices() {
       title: " Advanced Skin Treatments",
       image: "./images/new/advanceskin.jpg",
       description:
-        "For deeper skin concerns, choose advanced treatments offered by qualified professionals on the Su Stylo platform. Each service is performed with modern skincare techniques and equipment.",
+        "For deeper skin concerns, choose advanced treatments offered by qualified professionals on the SuStylo platform. Each service is performed with modern skincare techniques and equipment.",
       services: [
         "Chemical Peels and Skin Rejuvenation",
         "Microdermabrasion",
@@ -139,9 +139,9 @@ export default function WomenServices() {
           <div className="hero-overlay"></div>
 
           <div className="container text-center position-relative">
-            <h2 className="hero-title">
-              SU Stylo grooming and beauty services
-            </h2>
+            <h1 className="hero-title">
+              SuStylo grooming and beauty services
+            </h1>
             <p className="text-white fw-bold">
               Women’s beauty services available near you in Vaishali Nagar, Malviya Nagar, Jagatpura & more.
             </p>
@@ -164,7 +164,7 @@ export default function WomenServices() {
               </div>
             </div>
             <div className="row mb-4">
-              SU Stylo is not your specific salon- it is a digital platform that connects you to the top-rated local salon, which offers you professional, salon-grade beauty services. Each service on SU Styles is distributed by certified and verified salon partners who meet our high standards to meet high standards of quality, hygiene and customer satisfaction.
+              SuStylo is not your specific salon- it is a digital platform that connects you to the top-rated local salon, which offers you professional, salon-grade beauty services. Each service on SU Styles is distributed by certified and verified salon partners who meet our high standards to meet high standards of quality, hygiene and customer satisfaction.
               From hairstyle to bridal makeup, our platform brings a wide range of services grooming on your fingers, making beauty care convenient, reliable and personal, just for you.
 
             </div>
@@ -517,7 +517,7 @@ export default function WomenServices() {
 
                 {/* Signature Services for Women */}
                 <div className="mt-5">
-                  <h4 className="fw-bold text-center mb-5">Signature Services on Su Stylo (Available via Certified Partner Salons)</h4>
+                  <h4 className="fw-bold text-center mb-5">Signature Services on SuStylo (Available via Certified Partner Salons)</h4>
                   <div className="row justify-content-center g-4">
                     <div className="col-md-3 text-center">
                       <img src="/images/organic-hair-women.jpg" alt="Organic Hair Treatment" className="img-fluid rounded mb-2" />
@@ -565,7 +565,7 @@ export default function WomenServices() {
                 {/* Why Choose Us for Women */}
                 <div className="mt-5">
                   <h4 className="fw-bold text-center mb-5">
-                    Why Women Choose Su Stylo Partner Salons
+                    Why Women Choose SuStylo Partner Salons
                   </h4>
                   <div className="row text-center justify-content-center g-4">
                     <div className="col-md-3">
@@ -615,9 +615,9 @@ export default function WomenServices() {
                   </div>
 
                   <div className="text-center mt-5">
-                    <h4 className="fw-bold mb-3">Step Into the Su Stylo Network — Experience Beauty, Effortlessly</h4>
+                    <h4 className="fw-bold mb-3">Step Into the SuStylo Network — Experience Beauty, Effortlessly</h4>
                     <p className="col-md-8 offset-md-2">
-                      Su Stylo empowers you to compare, choose, and book beauty services from Jaipur’s top salons — all in one place. Whether it’s a simple beauty fix or full bridal preparation, our platform ensures convenience, trust, and style with every appointment.
+                      SuStylo empowers you to compare, choose, and book beauty services from Jaipur’s top salons — all in one place. Whether it’s a simple beauty fix or full bridal preparation, our platform ensures convenience, trust, and style with every appointment.
 
                     </p>
                     <Link to="/search-results" className="btn btn-dark px-4 py-2 mt-3">Book Now</Link>
@@ -777,7 +777,7 @@ export default function WomenServices() {
                                             <i class="bi bi-star-fill"></i>
                                             <i class="bi bi-star-half"></i>
                                         </div>
-                                        <p>Su Stylo is my go-to salon for the perfect haircut. The staff is professional, and the atmosphere is so welcoming. Highly recommend!</p>
+                                        <p>SuStylo is my go-to salon for the perfect haircut. The staff is professional, and the atmosphere is so welcoming. Highly recommend!</p>
 
                                     </div>
                                 </SwiperSlide>

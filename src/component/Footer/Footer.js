@@ -110,7 +110,7 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link to={"/services"} data-replace="AboHair Cutut">
+                    <Link to={"/services"} data-replace="Hair Cut">
                       <span className="fw-bold">Hair Cut</span>
                     </Link>
                   </li>

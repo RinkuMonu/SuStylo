@@ -156,7 +156,7 @@ export default function Contact() {
             <section className="contact-section d-flex align-items-center">
                 <div className="hero-overlay"></div>
                 <div className="container text-center position-relative">
-                    <h2 className="hero-title">Contact Us</h2>
+                    <h1 className="hero-title">Contact Us</h1>
                     <div className="de-separator"></div>
                 </div>
             </section>
