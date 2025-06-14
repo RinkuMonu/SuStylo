@@ -13,15 +13,15 @@ import SEO from "../../SEO";
 
 export default function SalonPartner() {
   const [formData, setFormData] = useState({
-    name: "",
     salonName: "",
+    salonOwnerName: "",
     mobileNumber: "",
     email: "",
     address: "",
   });
   const [errors, setErrors] = useState({
-    name: "",
     salonName: "",
+    salonOwnerName: "",
     mobileNumber: "",
     email: "",
     address: "",
@@ -68,9 +68,9 @@ export default function SalonPartner() {
     let sanitizedValue = value;
 
     // Sanitize inputs
-    if (name === "name") {
+    if (name === "salonName") {
       sanitizedValue = value.replace(/[^a-zA-Z\s]/g, "");
-    } else if (name === "salonName") {
+    } else if (name === "salonOwnerName") {
       sanitizedValue = value.replace(/[^a-zA-Z0-9\s]/g, "");
     } else if (name === "mobileNumber") {
       sanitizedValue = value.replace(/\D/g, "").slice(0, 10);
@@ -105,8 +105,8 @@ export default function SalonPartner() {
 
     // Validate all fields
     const newErrors = {
-      name: validateName(formData.name),
       salonName: validateSalonName(formData.salonName),
+      salonOwnerName: validateName(formData.salonOwnerName),
       mobileNumber: validateMobile(formData.mobileNumber),
       email: validateEmail(formData.email),
       address: validateAddress(formData.address),
@@ -125,7 +125,7 @@ export default function SalonPartner() {
     }
 
     try {
-      const response = await axiosInstance.post("/user/salon-lead", formData);
+      const response = await axiosInstance.post("/lead", formData);
       Swal.fire({
         icon: "success",
         title: "Success!",
@@ -134,15 +134,15 @@ export default function SalonPartner() {
       console.log("Success:", response.data);
 
       setFormData({
-        name: "",
         salonName: "",
+        salonOwnerName: "",
         mobileNumber: "",
         email: "",
         address: "",
       });
       setErrors({
-        name: "",
         salonName: "",
+      salonOwnerName: "",
         mobileNumber: "",
         email: "",
         address: "",
@@ -167,15 +167,15 @@ export default function SalonPartner() {
 
   const handleCancel = () => {
     setFormData({
-      name: "",
       salonName: "",
+      salonOwnerName: "",
       mobileNumber: "",
       email: "",
       address: "",
     });
     setErrors({
-      name: "",
       salonName: "",
+      salonOwnerName: "",
       mobileNumber: "",
       email: "",
       address: "",
@@ -452,15 +452,15 @@ export default function SalonPartner() {
                         </label>
                         <input
                           type="text"
-                          className={`form-control ${errors.name ? "is-invalid" : ""}`}
-                          id="name"
-                          name="name"
-                          value={formData.name}
+                          className={`form-control ${errors.salonOwnerName ? "is-invalid" : ""}`}
+                          id="salonOwnerName"
+                          name="salonOwnerName"
+                          value={formData.salonOwnerName}
                           onChange={handleChange}
                           placeholder="Salon Owner Name"
                         />
-                        {errors.name && (
-                          <div className="invalid-feedback">{errors.name}</div>
+                        {errors.salonOwnerName && (
+                          <div className="invalid-feedback">{errors.salonOwnerName}</div>
                         )}
                       </div>
                     </div>

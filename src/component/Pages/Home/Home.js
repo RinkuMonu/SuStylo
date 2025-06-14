@@ -9,10 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import {
-  Navigation,
-  FreeMode,
-} from "swiper/modules";
+import { Navigation, FreeMode } from "swiper/modules";
 import { Link } from "react-router-dom";
 import { FaMapMarkerAlt, FaRoute } from "react-icons/fa";
 import axiosInstance from "../../config/axiosInstance";
@@ -91,7 +88,7 @@ export default function Home() {
   const [fulladdress, setfulladdress] = useState("");
   const [nearbySalons, setNearbySalons] = useState([]);
   const [popularSalonData, setpopularSalonData] = useState([]);
-  const [category, setCategory] = useState('all');
+  const [category, setCategory] = useState("all");
   const [salons, setSalons] = useState([]);
   const [data, setData] = useState({
     location: "",
@@ -224,7 +221,6 @@ export default function Home() {
     }
   }, [location.latitude, location.longitude]);
 
-
   useEffect(() => {
     const searchByCategory = async () => {
       try {
@@ -247,9 +243,8 @@ export default function Home() {
   }, [category]);
   // search dropdown
   return (
-
     <>
-    <SEO/>
+      <SEO />
       <div
         className={`fade-in-section ${isVisible ? "is-visible" : ""}`}
         ref={domRef}
@@ -257,171 +252,175 @@ export default function Home() {
         <HeroSection />
         <div>
           <div className="container">
-              <div className="row mb-4 mt-3">
+            <div className="row mb-4 mt-3">
+              <div
+                className="deals_heading mb-4 d-flex gap-2"
+                style={{ alignItems: "flex-start" }}
+              >
                 <div
-                  className="deals_heading mb-4 d-flex gap-2"
-                  style={{ alignItems: "flex-start" }}
-                >
-                  <div
-                    style={{
-                      background: "#fb8807",
-                      padding: "6px 10px",
-                      borderRadius: "8px",
-                    }}
-                  >
-                    <i class="bi bi-graph-up" style={{ color: "#fff" }}></i>
-                  </div>
-                  <h3>Most Popular Salon</h3>
-                </div>
-                <Swiper
-                  spaceBetween={20}
-                  centeredSlides={false}
-                  pagination={false}
-                  navigation={true}
-                  modules={[Navigation, FreeMode]}
-                  className="mySwiper"
-                  breakpoints={{
-
-                    576: {
-                      slidesPerView: 2,
-                    },
-
-                    768: {
-                      slidesPerView: 3,
-                    },
-
-                    992: {
-                      slidesPerView: 4,
-                    },
+                  style={{
+                    background: "#fb8807",
+                    padding: "6px 10px",
+                    borderRadius: "8px",
                   }}
                 >
-                  {popularSalonData.map((salon) => (
-                    <SwiperSlide key={salon._id} className="">
-                      <Link
-                        to={`/salondetails`}
-                        state={{ userId: salon._id }}
-                        className="cs-main__card-box text-decoration-none"
-                      >
-                        <div className="cs-main__card-img">
-                          <img
-                            src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg"
-                            className="img-fluid"
-                            alt={salon.salonName}
-                          />
+                  <i class="bi bi-graph-up" style={{ color: "#fff" }}></i>
+                </div>
+                <h3>Most Popular Salon</h3>
+              </div>
+              <Swiper
+                spaceBetween={20}
+                centeredSlides={false}
+                pagination={false}
+                navigation={true}
+                modules={[Navigation, FreeMode]}
+                className="mySwiper"
+                breakpoints={{
+                  576: {
+                    slidesPerView: 2,
+                  },
+
+                  768: {
+                    slidesPerView: 3,
+                  },
+
+                  992: {
+                    slidesPerView: 4,
+                  },
+                }}
+              >
+                {popularSalonData.map((salon) => (
+                  <SwiperSlide key={salon._id} className="">
+                    <Link
+                      to={`/salondetails`}
+                      state={{ userId: salon._id }}
+                      className="cs-main__card-box text-decoration-none"
+                    >
+                      <div className="cs-main__card-img">
+                        <img
+                          src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg"
+                          className="img-fluid"
+                          alt={salon.salonName}
+                        />
+                        {salon?.rating > 0 && (
                           <div className="cs-main__card-rating-box">
-                            <span className="cs-mcard-aR">{parseFloat(salon?.rating).toFixed(1)}</span>
+                            <span className="cs-mcard-aR">
+                              {parseFloat(salon.rating).toFixed(1)}
+                            </span>
                             <span className="cs-mcard-aText">
                               <span></span> ratings
                             </span>
                           </div>
+                        )}
+                      </div>
+                      <div className="cs-main__card-content p-3">
+                        <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
+                          {salon.salonName}
+                        </h3>
+                        <div className="cs-main__card-location d-flex align-items-start">
+                          <FaMapMarkerAlt className="icon mt-1 me-2" />
+                          <p className="cs-main__card-location-text text-truncate">
+                            {salon.salonAddress}
+                          </p>
                         </div>
-                        <div className="cs-main__card-content p-3">
-                          <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
-                            {salon.salonName}
-                          </h3>
-                          <div className="cs-main__card-location d-flex align-items-start">
-                            <FaMapMarkerAlt className="icon mt-1 me-2" />
-                            <p className="cs-main__card-location-text text-truncate">
-                              {salon.salonAddress}
-                            </p>
-                          </div>
-                        </div>
-                      </Link>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-              <div className="row mb-4">
+                      </div>
+                    </Link>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+            <div className="row mb-4">
+              <div
+                className="deals_heading mb-4 d-flex gap-2"
+                style={{ alignItems: "flex-start" }}
+              >
                 <div
-                  className="deals_heading mb-4 d-flex gap-2"
-                  style={{ alignItems: "flex-start" }}
-                >
-                  <div
-                    style={{
-                      background: "#fb8807",
-                      padding: "6px 10px",
-                      borderRadius: "8px",
-                    }}
-                  >
-                    <i class="bi bi-pin-map" style={{ color: "#fff" }}></i>
-                  </div>
-                  <h3>Near By Salon</h3>
-                </div>
-                <Swiper
-                  spaceBetween={20}
-                  centeredSlides={false}
-                  pagination={false}
-                  navigation={true}
-                  modules={[Navigation, FreeMode]}
-                  className="mySwiper"
-                  breakpoints={{
-
-                    576: {
-                      slidesPerView: 2,
-                    },
-
-                    768: {
-                      slidesPerView: 3,
-                    },
-
-                    992: {
-                      slidesPerView: 4,
-                    },
+                  style={{
+                    background: "#fb8807",
+                    padding: "6px 10px",
+                    borderRadius: "8px",
                   }}
                 >
-                  {salonData.map((salon) => (
-                    <SwiperSlide key={salon.id} className="">
-                      <Link
-                        to={`/salondetails`}
-                        state={{ userId: salon._id }}
-                        className="cs-main__card-box text-decoration-none"
-                      >
-                        <div className="cs-main__card-img">
-                          <img
-                            src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg"
-                            className="img-fluid"
-                            alt={salon.salonName}
-                          />
+                  <i class="bi bi-pin-map" style={{ color: "#fff" }}></i>
+                </div>
+                <h3>Near By Salon</h3>
+              </div>
+              <Swiper
+                spaceBetween={20}
+                centeredSlides={false}
+                pagination={false}
+                navigation={true}
+                modules={[Navigation, FreeMode]}
+                className="mySwiper"
+                breakpoints={{
+                  576: {
+                    slidesPerView: 2,
+                  },
 
+                  768: {
+                    slidesPerView: 3,
+                  },
+
+                  992: {
+                    slidesPerView: 4,
+                  },
+                }}
+              >
+                {salonData.map((salon) => (
+                  <SwiperSlide key={salon.id} className="">
+                    <Link
+                      to={`/salondetails`}
+                      state={{ userId: salon._id }}
+                      className="cs-main__card-box text-decoration-none"
+                    >
+                      <div className="cs-main__card-img">
+                        <img
+                          src="https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?cs=srgb&dl=pexels-delbeautybox-211032-853427.jpg&fm=jpg"
+                          className="img-fluid"
+                          alt={salon.salonName}
+                        />
+
+                        {salon?.reviewCount > 0 && (
                           <div className="cs-main__card-rating-box">
-                            {/* <span className="cs-mcard-aR">
-                              {salon.reviewCount}
-                            </span> */}
                             <span className="cs-mcard-aText">
-                              <span>{parseFloat(salon.reviewCount).toFixed(1)}</span> ratings
+                              <span>
+                                {parseFloat(salon.reviewCount).toFixed(1)}
+                              </span>{" "}
+                              ratings
                             </span>
                           </div>
+                        )}
+                      </div>
+                      <div className="cs-main__card-content p-3">
+                        <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
+                          {salon.salonName}
+                        </h3>
+                        <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
+                          {/* {salon.name} */}
+                          <p style={{ fontSize: "12px" }}>
+                            <i className="bi bi-star me-1"></i>
+                            {salon.reviewCount} Review
+                          </p>
+                        </h3>
+                        <div className="cs-main__card-location d-flex align-items-start">
+                          <FaMapMarkerAlt className="icon mt-1 me-2" />
+                          <p className="cs-main__card-location-text text-truncate">
+                            {salon.salonAddress}
+                          </p>
                         </div>
-                        <div className="cs-main__card-content p-3">
-                          <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
-                            {salon.salonName}
-                          </h3>
-                          <h3 className="cs-main__card-title text-truncate d-flex justify-content-between">
-                            {/* {salon.name} */}
-                            <p style={{ fontSize: "12px" }}>
-                              <i className="bi bi-star me-1"></i>
-                              {salon.reviewCount} Review
-                            </p>
-                          </h3>
-                          <div className="cs-main__card-location d-flex align-items-start">
-                            <FaMapMarkerAlt className="icon mt-1 me-2" />
-                            <p className="cs-main__card-location-text text-truncate">
-                              {salon.salonAddress}
-                            </p>
-                          </div>
-                          <ul className="cs-main__card-list my-0 list-unstyled">
-                            <li className="cs-main__card-list-item d-flex align-items-center">
-                              <FaRoute className="icon me-2" />{" "}
-                              {parseFloat(salon.distance).toFixed(2)} km
-                            </li>
-                          </ul>
-                        </div>
-                      </Link>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-              {/* <div className="row">
+                        <ul className="cs-main__card-list my-0 list-unstyled">
+                          <li className="cs-main__card-list-item d-flex align-items-center">
+                            <FaRoute className="icon me-2" />{" "}
+                            {parseFloat(salon.distance).toFixed(2)} km
+                          </li>
+                        </ul>
+                      </div>
+                    </Link>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+            {/* <div className="row">
                 <div className="deals_heading mb-4 d-flex gap-2" style={{ alignItems: "flex-start" }}>
                   <div style={{ background: "#fb8807", padding: '6px 10px', borderRadius: "8px", }}>
                     <i class="bi bi-tags" style={{ color: "#fff" }}></i>
@@ -478,10 +477,9 @@ export default function Home() {
                   ))}
                 </Swiper>
               </div> */}
-            </div>
+          </div>
         </div>
         <section className="content-section">
-          
           <ServicesSlider />
           <ReviewSection />
           <AboutSection />
@@ -591,7 +589,7 @@ export default function Home() {
             )}
             
           </div> */}
-         
+
           {/* <div className="container">
             <div className="row">
               <div className="col-md-12">

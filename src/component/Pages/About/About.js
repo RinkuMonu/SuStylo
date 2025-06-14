@@ -14,7 +14,7 @@ export default function About() {
   const [formValues, setFormValues] = useState({
     name: "",
     email: "",
-    number: "",
+    mobile: "",
     type: "",
   });
 
@@ -41,13 +41,13 @@ export default function About() {
       }
     }
 
-    if (name === "number") {
+    if (name === "mobile") {
       if (!value) {
-        errors.number = "Mobile number is required";
+        errors.mobile = "Mobile mobile is required";
       } else if (!mobileRegex.test(value)) {
-        errors.number = "Mobile number must be 10 digits starting with 6-9";
+        errors.mobile = "Mobile mobile must be 10 digits starting with 6-9";
       } else if (value.length !== 10) {
-        errors.number = "Mobile number must be exactly 10 digits";
+        errors.mobile = "Mobile mobile must be exactly 10 digits";
       }
     }
 
@@ -67,7 +67,7 @@ export default function About() {
     }
 
     
-    if (name === "number" && value && !/^[6-9]\d{0,9}$/.test(value)) {
+    if (name === "mobile" && value && !/^[6-9]\d{0,9}$/.test(value)) {
       return; 
     }
 
@@ -94,10 +94,10 @@ export default function About() {
       errors.email = "Invalid email format";
     }
 
-    if (!data.number) {
-      errors.number = "Mobile number is required";
-    } else if (!mobileRegex.test(data.number)) {
-      errors.number = "Mobile number must be 10 digits starting with 6-9";
+    if (!data.mobile) {
+      errors.mobile = "Mobile mobile is required";
+    } else if (!mobileRegex.test(data.mobile)) {
+      errors.mobile = "Mobile mobile must be 10 digits starting with 6-9";
     }
 
     if (!data.type) {
@@ -124,7 +124,7 @@ export default function About() {
             icon: "success",
           });
           setLoading(false);
-          setFormValues({ name: "", email: "", number: "", type: "" });
+          setFormValues({ name: "", email: "", mobile: "", type: "" });
           setFormErrors({});
         }
       } catch (error) {
@@ -526,17 +526,17 @@ export default function About() {
                         </label>
                         <input
                           type="tel"
-                          name="number"
-                          value={formValues.number}
+                          name="mobile"
+                          value={formValues.mobile}
                           onChange={handleInputChange}
-                          className={`form-control placeholder-white border-white ${formErrors.number ? 'is-invalid' : ''}`}
+                          className={`form-control placeholder-white border-white ${formErrors.mobile ? 'is-invalid' : ''}`}
                           placeholder="0123456789"
                           aria-label="Last name"
                           maxLength="10"
                         />
-                        {formErrors.number && (
+                        {formErrors.mobile && (
                           <div style={{ color: "red", fontSize: "14px", marginTop: "5px" }}>
-                            {formErrors.number}
+                            {formErrors.mobile}
                           </div>
                         )}
                       </div>

@@ -18,7 +18,7 @@ export default function Footer() {
       email: event.target.email.value,
     };
     try {
-      const response = await axiosInstance.post("/subscribe", emailData);
+      const response = await axiosInstance.post("subscribe/subscribe", emailData);
       if (response.status === 200) {
         Swal.fire({
           text: response.data.message,
