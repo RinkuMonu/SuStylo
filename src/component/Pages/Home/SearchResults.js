@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { FaStar, FaMapMarkerAlt, FaPhone, FaClock } from "react-icons/fa"
 import { HiAdjustments } from "react-icons/hi"
+import { Link } from "react-router-dom"
 
 const SalonSearch = () => {
   const [filters, setFilters] = useState({
@@ -156,27 +157,14 @@ const SalonSearch = () => {
     }
   }
 
+  // MODIFIED: Only send latitude and longitude to API
   const buildApiUrl = () => {
     const baseUrl = "http://localhost:5000/api/salon/nearby"
     const params = new URLSearchParams()
 
-    // Required parameters
+    // Only send coordinates - ignore all other filters
     params.append("latitude", filters.latitude.toString())
     params.append("longitude", filters.longitude.toString())
-    params.append("search", filters.search)
-    params.append("maxDistance", filters.maxDistance.toString())
-    params.append("sortBy", filters.sortBy)
-    params.append("sortOrder", filters.sortOrder)
-
-    // Optional parameters
-    if (filters.category) params.append("category", filters.category)
-    if (filters.gender) params.append("gender", filters.gender)
-    if (filters.services.length > 0) {
-      params.append("serviceTitle", filters.services[0]) // Use first selected service
-      params.append("serviceDescription", filters.services.join(","))
-    }
-    if (filters.pricing[0] > 100) params.append("minRate", filters.pricing[0].toString())
-    if (filters.pricing[1] < 5000) params.append("maxRate", filters.pricing[1].toString())
 
     return `${baseUrl}?${params.toString()}`
   }
@@ -236,6 +224,20 @@ const SalonSearch = () => {
     return Array.from({ length: 5 }, (_, index) => (
       <FaStar key={index} size={14} color={index < rating ? "#f59e0b" : "#e5e7eb"} />
     ))
+  }
+
+  // Helper function to get current day's opening hours
+  const getTodaysHours = (openingHours) => {
+    if (!openingHours || typeof openingHours !== 'object') return 'Hours not available'
+    
+    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+    const today = days[new Date().getDay()]
+    
+    if (openingHours[today]) {
+      return openingHours[today] === 'Closed' ? 'Closed' : openingHours[today]
+    }
+    
+    return 'Hours not available'
   }
 
   return (
@@ -496,51 +498,56 @@ const SalonSearch = () => {
         ) : (
           <div className="row">
             {salons.map((salon, index) => (
-              <div key={salon.id || index} className="col-md-6 col-lg-4 mb-4">
+              <div key={salon._id || index} className="col-md-6 col-lg-4 mb-4">
                 <div className="card h-100 shadow-sm">
                   <div className="card-body">
-                    <h5 className="card-title text-truncate">{salon.name || "Salon Name"}</h5>
+                    {/* Use salonName or salonTitle from API */}
+                    <h5 className="card-title text-truncate">{salon.salonName || salon.salonTitle || "Salon Name"}</h5>
 
                     <div className="d-flex align-items-center mb-2">
-                      <div className="d-flex me-2">{renderStars(salon.rating || 4)}</div>
+                      <div className="d-flex me-2">{renderStars(salon.averageRating || salon.rating || 0)}</div>
                       <span className="text-muted small">
-                        ({salon.rating || 4}.0) • {salon.reviewCount || 0} reviews
+                        ({(salon.averageRating || salon.rating || 0).toFixed(1)}) • {salon.reviewCount || 0} reviews
                       </span>
                     </div>
 
+                    {/* Use salonAddress from API */}
                     <div className="d-flex align-items-center mb-2 text-muted small">
                       <FaMapMarkerAlt className="me-1" />
                       <span className="text-truncate">
-                        {salon.address || salon.location || "Address not available"}
+                        {salon.salonAddress || "Address not available"}
                       </span>
                     </div>
 
-                    {salon.phone && (
+                    {/* Use mobile from API */}
+                    {salon.mobile && (
                       <div className="d-flex align-items-center mb-2 text-muted small">
                         <FaPhone className="me-1" />
-                        <span>{salon.phone}</span>
+                        <span>{salon.mobile}</span>
                       </div>
                     )}
 
+                    {/* Use openingHours from API */}
                     {salon.openingHours && (
                       <div className="d-flex align-items-center mb-2 text-muted small">
                         <FaClock className="me-1" />
-                        <span>{salon.openingHours}</span>
+                        <span>Today: {getTodaysHours(salon.openingHours)}</span>
                       </div>
                     )}
 
                     <div className="mb-2">
+                      {/* Use category from API */}
                       <span className="badge bg-secondary me-1">{salon.category || "General"}</span>
-                      {salon.gender && <span className="badge bg-info">{salon.gender}</span>}
                     </div>
 
+                    {/* Use services array from API */}
                     {salon.services && salon.services.length > 0 && (
                       <div className="mb-2">
                         <small className="text-muted">Services:</small>
                         <div className="mt-1">
                           {salon.services.slice(0, 3).map((service, idx) => (
                             <span key={idx} className="badge bg-light text-dark me-1 mb-1">
-                              {service.name || service}
+                              {service.title || service.name || 'Service'}
                             </span>
                           ))}
                           {salon.services.length > 3 && (
@@ -552,11 +559,15 @@ const SalonSearch = () => {
 
                     <div className="d-flex justify-content-between align-items-center mt-3">
                       <div>
+                        {/* Use minServicePrice from API and calculate max */}
                         <span className="fw-bold text-success">
-                          ₹{salon.minPrice || salon.price || 200} - ₹{salon.maxPrice || salon.price + 500 || 1000}
+                          ₹{salon.minServicePrice || 200} - ₹{salon.services && salon.services.length > 0 
+                            ? Math.max(...salon.services.map(s => s.rate || 0)) 
+                            : (salon.minServicePrice ? salon.minServicePrice + 500 : 1000)}
                         </span>
                       </div>
-                      <button
+                      <Link
+                      to={`/salondetails/${salon._id}`}
                         className="btn btn-sm"
                         style={{
                           backgroundColor: "#FB8807",
@@ -565,9 +576,10 @@ const SalonSearch = () => {
                         }}
                       >
                         Book Now
-                      </button>
+                      </Link>
                     </div>
 
+                    {/* Use distance from API */}
                     {salon.distance && <small className="text-muted">{salon.distance.toFixed(1)} km away</small>}
                   </div>
                 </div>

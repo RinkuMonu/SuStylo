@@ -6,7 +6,7 @@ import { FaRoute } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { FaYoutube } from "react-icons/fa";
-import { Link ,useLocation } from "react-router-dom";
+import { Link ,useLocation, useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import axiosInstance from "../../config/axiosInstance";
 
@@ -14,12 +14,15 @@ export default function SalonDetails() {
   const location = useLocation();
   const { userId } = location.state || {};
   const { salonId } = location.state || {};
+  const {_id} = useParams()
 
 
   const [salonDetails, setSalonDetails] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const idToUse = salonId?._id || userId;
+
+  const idToUse = salonId?._id || userId || _id;
+  console.log("idToUseeeeee",idToUse)
   useEffect(() => {
     const fetchData = async () => {
       try {
