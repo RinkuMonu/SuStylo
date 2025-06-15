@@ -3,7 +3,7 @@ import React from 'react'
 export default function LogoSection() {
     return (
         <>
-            <div className="container-fluid logo_section">
+            <div className="container-fluid logo_section my-2">
                 <div className="row">
                     <div className="col-md-4">
                         <div className="startLine">

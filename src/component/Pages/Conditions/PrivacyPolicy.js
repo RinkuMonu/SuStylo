@@ -55,7 +55,7 @@ export default function PrivacyPolicy() {
                                     alt="policy img"
                                 />
                                 <h2 className="my-3">1. SCOPE OF THIS POLICY</h2>
-                                <p className="mb-3">This Privacy Policy is an electronic record in the form of an electronic contract formed under applicable laws. It does not require any physical, electronic, or digital signature. This Privacy Policy is a legally binding document between you ("Visitor"/ "User"/ "Client"/ "You"/ "Your"/ "Yourself") and Su Stylo ("Company"/ "We"/ "Our"/ "Us"/ "Ourselves"). We collect and process your personal data, sensitive personal data, and third-party data carefully, only for the purposes described in this policy and the associated Terms and Conditions ("T&Cs"), and only to the extent necessary as defined herein and within the scope of applicable legal regulations.
+                                <p className="mb-3">This Privacy Policy is an electronic record in the form of an electronic contract formed under applicable laws. It does not require any physical, electronic, or digital signature. This Privacy Policy is a legally binding document between you ("Visitor"/ "User"/ "Client"/ "You"/ "Your"/ "Yourself") and SuStylo ("Company"/ "We"/ "Our"/ "Us"/ "Ourselves"). We collect and process your personal data, sensitive personal data, and third-party data carefully, only for the purposes described in this policy and the associated Terms and Conditions ("T&Cs"), and only to the extent necessary as defined herein and within the scope of applicable legal regulations.
                                 </p>
                                 <p>Please read this Privacy Policy carefully before accessing or using our website/mobile application (collectively referred to as the "Platform"). By accessing or using the Platform, including our services, you agree to and accept the terms of this Policy, and you understand and agree to the collection, use, sharing, and processing of personal information as described herein. If you do not agree with the terms of this Policy, please do not use this Platform.</p>
                                 <h2 className="mb-3 mt-4">2. CONSENT</h2>
@@ -285,7 +285,7 @@ export default function PrivacyPolicy() {
                                     <h2>16. CHANGE OF OWNERSHIP</h2>
                                 </div>
                                 <div className="de-separator" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat", margin: "0px", marginTop: "16px", marginBottom: "25px" }}></div>
-                                <p>In the event of a merger, acquisition, or change of ownership of Su Stylo, your personal and business data may be transferred to the new entity. We will ensure that the new owner continues to honor the commitments made under this Privacy Policy.</p>
+                                <p>In the event of a merger, acquisition, or change of ownership of SuStylo, your personal and business data may be transferred to the new entity. We will ensure that the new owner continues to honor the commitments made under this Privacy Policy.</p>
                                 <hr className="mt-5" />
                                 <div className="gallery_heading text-left mb-2">
                                     <h2>17. LEGAL RIGHTS AND CHOICES OF USERS</h2>
@@ -308,7 +308,7 @@ export default function PrivacyPolicy() {
                                     <h2>18. LINKS TO OTHER WEBSITES</h2>
                                 </div>
                                 <div className="de-separator" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat", margin: "0px", marginTop: "16px", marginBottom: "25px" }}></div>
-                                <p>Our platform may contain links to external websites not operated by Su Stylo. We are not responsible for the privacy policies, security measures, or data collection practices of third-party websites. Users should review the privacy policies of any third-party site they visit through our platform.</p>
+                                <p>Our platform may contain links to external websites not operated by SuStylo. We are not responsible for the privacy policies, security measures, or data collection practices of third-party websites. Users should review the privacy policies of any third-party site they visit through our platform.</p>
                                 <hr className="mt-5" />
                                 <div className="gallery_heading text-left mb-2">
                                     <h2>19. REASONABLE SECURITY PRACTICES AND PROCEDURES</h2>
@@ -341,13 +341,13 @@ export default function PrivacyPolicy() {
                                     <h2>22. SIGNATURE CLAUSE</h2>
                                 </div>
                                 <div className="de-separator" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat", margin: "0px", marginTop: "16px", marginBottom: "25px" }}></div>
-                                <p>References to "We," "Us," and "Our" in this Privacy Policy refer to Su Stylo. As the controller of user data, Su Stylo determines the type of data collected and how it is processed in accordance with the services offered on our platform.</p>
+                                <p>References to "We," "Us," and "Our" in this Privacy Policy refer to SuStylo. As the controller of user data, SuStylo determines the type of data collected and how it is processed in accordance with the services offered on our platform.</p>
                                 <hr className="mt-5" />
                                 <div className="gallery_heading text-left mb-2">
                                     <h2>23. UPDATE TO THE PRIVACY POLICY</h2>
                                 </div>
                                 <div className="de-separator" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat", margin: "0px", marginTop: "16px", marginBottom: "25px" }}></div>
-                                <p>Su Stylo reserves the right to update this Privacy Policy at any time. Any significant changes will be communicated to users through appropriate channels. The latest version of this policy will always be available under the "Privacy Policy" section on our platform.</p>
+                                <p>SuStylo reserves the right to update this Privacy Policy at any time. Any significant changes will be communicated to users through appropriate channels. The latest version of this policy will always be available under the "Privacy Policy" section on our platform.</p>
                                 <hr className="mt-5" />
                                 <div className="gallery_heading text-left mb-2">
                                     <h2>24. FURTHER INFORMATION</h2>

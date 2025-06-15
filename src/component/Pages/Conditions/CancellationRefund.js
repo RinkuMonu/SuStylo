@@ -54,8 +54,8 @@ export default function CancellationRefund() {
                                     className="img-fluid col-md-6 float-md-end mb-3 ms-md-3 img-width mt-5"
                                     alt="policy img"
                                 />
-                                <h2 className="my-3">SU STYLO</h2>
-                                <p className="mb-3"> At Su Stylo, customer satisfaction is our top priority. To ensure a hassle-free experience, we have implemented a simple and transparent cancellation policy.
+                                <h2 className="my-3">SuStylo</h2>
+                                <p className="mb-3"> At SuStylo, customer satisfaction is our top priority. To ensure a hassle-free experience, we have implemented a simple and transparent cancellation policy.
                                 </p>
                                 <p className="mb-5">A cancellation fee may be applied when a customer cancels a booking on the platform. The fee will depend on the time of cancellation after confirming the appointment.</p>
                                 <b >Case 1: When Booking Is Not Confirmed</b>
@@ -89,11 +89,11 @@ export default function CancellationRefund() {
                                 <b>Case 3: No-Show Policy</b>
                                 <p>If a customer does not cancel the booking and also fails to show up at the partner salon, the refund will be subject to the partner’s discretion and policies.</p>
                                 <b>Case 4: Cancellation by Partner</b>
-                                <p>Su Stylo salon partners and beauty professionals may cancel an appointment in advance. However, if the scheduled appointment is within 2 hours, they are required to complete the service unless prevented by unavoidable circumstances beyond their control.</p>
+                                <p>SuStylo salon partners and beauty professionals may cancel an appointment in advance. However, if the scheduled appointment is within 2 hours, they are required to complete the service unless prevented by unavoidable circumstances beyond their control.</p>
                                 <b>Why is a Cancellation Fee Charged?</b>
                                 <p>The cancellation fee is applied to compensate for the reserved slot, time, and effort put into processing an appointment exclusively for you.</p>
                                 <b>How is the Cancellation Fee Charged?</b>
-                                <p>The cancellation fee is deducted from the amount paid for the canceled service. Su Stylo reserves the right to modify or waive the cancellation fee at its discretion. The fee will be quoted in Indian Rupees, and users must comply with all applicable laws for making payments to Su Stylo or its salon partners.</p>
+                                <p>The cancellation fee is deducted from the amount paid for the canceled service. SuStylo reserves the right to modify or waive the cancellation fee at its discretion. The fee will be quoted in Indian Rupees, and users must comply with all applicable laws for making payments to SuStylo or its salon partners.</p>
                                 <b>Contact Information</b>
                                 <p>For any clarification regarding the refund policy, please contact us at:</p>
                                 <div className="definition_list mt-4">

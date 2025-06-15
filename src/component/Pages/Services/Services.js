@@ -5,6 +5,7 @@ import "../style/style.css";
 import SEO from "../../SEO";
 
 import SimpleParallax from "simple-parallax-js";
+import { Link } from "react-router-dom";
 
 // More Services
 const serviceData = [
@@ -26,7 +27,7 @@ const serviceData = [
   {
     title: " Skin care and facial treatment",
     description:
-      "Glow, healthy skin is just one session away. SU Stylo's salon partners provide adapted skin treatment and facials using modern techniques and soft, effective products. Whether you are working with acne, dullness, or aging, our experts help you get smooth, bright skin.",
+      "Glow, healthy skin is just one session away. SuStylo's salon partners provide adapted skin treatment and facials using modern techniques and soft, effective products. Whether you are working with acne, dullness, or aging, our experts help you get smooth, bright skin.",
     image: "./images/new/SkinCare.jpg",
     services: [
       "Classic face and skin cleaning",
@@ -85,7 +86,7 @@ const serviceData = [
   {
     title: "Bride and special opportunity services",
     description:
-      "See your best in the most important days of life. Whether it is your wedding or a grand celebration, Su Stylo, professional makeup artist and stylist, crafts elegant, memorable looks that conform to your program and personal style.",
+      "See your best in the most important days of life. Whether it is your wedding or a grand celebration, SuStylo, professional makeup artist and stylist, crafts elegant, memorable looks that conform to your program and personal style.",
     image: "./images/new/bridal.jpg",
     services: [
       "Bride's makeup and hairstyling",
@@ -99,7 +100,7 @@ const serviceData = [
   {
     title: "Men’s Grooming Services",
     description:
-      "Effortless grooming for the modern man. From sharp haircuts to rejuvenating facials, Su Stylo partner salons offer a full suite of men’s services to help you look and feel your best.",
+      "Effortless grooming for the modern man. From sharp haircuts to rejuvenating facials, SuStylo partner salons offer a full suite of men’s services to help you look and feel your best.",
     image: "./images/new/Grooming.jpg",
     services: [
       "Beard Shaping and Styling",
@@ -113,7 +114,7 @@ const serviceData = [
   {
     title: "Spa and Wellness",
     description:
-      "Recharge your body and restore inner balance with holistic spa treatments. Su Stylo’s wellness services are designed to detoxify, relax, and renew — leaving you refreshed from head to toe.",
+      "Recharge your body and restore inner balance with holistic spa treatments. SuStylo’s wellness services are designed to detoxify, relax, and renew — leaving you refreshed from head to toe.",
     image: "./images/new/Spa.jpg",
     services: [
       "Aromatherapy Treatments",
@@ -127,7 +128,7 @@ const serviceData = [
   {
     title: "Eyelash and Eyebrow Services",
     description:
-      "Bring attention to your eyes with beautifully defined lashes and brows. Su Stylo salons offer precision treatments including shaping, tinting, lifting, and extensions — tailored for a naturally enhanced look.",
+      "Bring attention to your eyes with beautifully defined lashes and brows. SuStylo salons offer precision treatments including shaping, tinting, lifting, and extensions — tailored for a naturally enhanced look.",
     image: "./images/new/Eyebrow.jpg",
     services: [
       "Eyebrow Shaping & Tinting",
@@ -140,7 +141,7 @@ const serviceData = [
   {
     title: "Makeup Services",
     description:
-      "Be photo-ready for any occasion. From daily wear to HD and airbrush glam, Su Stylo salons have your makeup needs covered.",
+      "Be photo-ready for any occasion. From daily wear to HD and airbrush glam, SuStylo salons have your makeup needs covered.",
     image: "./images/new/MakeupServices.jpg",
     services: [
       "Everyday Makeup",
@@ -186,9 +187,9 @@ export default function Services() {
         <section className="services-section d-flex align-items-center">
           <div className="hero-overlay"></div>
           <div className="container text-center position-relative">
-            <h2 className="hero-title">SuStylo Salon Services & Categories</h2>
+            <h1 className="hero-title">SuStylo Salon Services & Categories</h1>
             <p className="text-white fw-bold">
-              Su Stylo offers premium grooming and beauty services to elevate your style and confidence, all in one place.
+              SuStylo offers premium grooming and beauty services to elevate your style and confidence, all in one place.
             </p>
           </div>
         </section>
@@ -221,14 +222,14 @@ export default function Services() {
                               <img 
                                 src={category.image} 
                                 alt={category.title} 
-                                className="img-fluid rounded shadow" 
+                                className="img-fluid rounded shadow pt-5" 
                                 loading="lazy"
                               />
                             </SimpleParallax>
                           </div>
                           <div className="col-md-6">
                             <h2 className="my-3 third-color fs-3 fw-bold">{category.title}</h2>
-                            <p className="mb-2">{category.description}</p>
+                            <p className="mb-2 fs-5">{category.description}</p>
                             <ul className="listing ps-3 mb-0">
                               {category.services.map((service, idx) => (
                                 <li key={idx} className="mb-1">{service}</li>
@@ -250,7 +251,7 @@ export default function Services() {
                           </div>
                           <div className="col-md-6 order-md-1">
                             <h2 className="my-3 third-color fs-3 fw-bold">{category.title}</h2>
-                            <p className="mb-2">{category.description}</p>
+                            <p className="mb-2 fs-5">{category.description}</p>
                             <ul className="listing ps-3 mb-0">
                               {category.services.map((service, idx) => (
                                 <li key={idx} className="mb-1">{service}</li>
@@ -267,7 +268,7 @@ export default function Services() {
             </div>
             
             {/* Bonus Packages Section */}
-            {/* Su Stylo Exclusive Packages */}
+            {/* SuStylo Exclusive Packages */}
 <div className="mt-5">
   <h4 className="fw-bold text-center mb-4">Bonus: Su Style Exclusive Package</h4>
   <p className="text-center mb-3">
@@ -296,7 +297,7 @@ export default function Services() {
 
 {/* Why Choose Us Section */}
 <div className="mt-5">
-  <h4 className="fw-bold text-center mb-4">Why Choose Su Stylo Salon Partners?</h4>
+  <h4 className="fw-bold text-center mb-4">Why Choose SuStylo Salon Partners?</h4>
   <div className="row text-center justify-content-center g-4 mb-4">
     <div className="col-md-2">
       <img src="/images/verified-salon.jpg" alt="Verified Partners" className="img-fluid rounded mb-2" />
@@ -321,13 +322,13 @@ export default function Services() {
   </div>
 
   <p className="text-center fw-semibold">
-   Whether it’s daily care or a special event, Su Stylo ensures you always put your best self forward.
+   Whether it’s daily care or a special event, SuStylo ensures you always put your best self forward.
   </p>
-  <p className="text-center text-muted">Explore.   Book.    Glow.    Only on Su Stylo.</p>
+  <p className="text-center text-muted">Explore.   Book.    Glow.    Only on SuStylo.</p>
 
   {/* Centered Book Now Button */}
   <div className="text-center">
-    <a href="#booking" className="btn btn-dark px-4 py-2 mt-3">Book Now</a>
+    <Link to="/search-results" className="btn btn-dark px-4 py-2 mt-3">Book Now</Link>
   </div>
 </div>
 

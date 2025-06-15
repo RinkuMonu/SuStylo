@@ -6,7 +6,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 // import required modules
-import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from 'swiper/modules';
 
 export default function ServicesSlider() {
 
@@ -27,7 +27,7 @@ export default function ServicesSlider() {
     const middleSlideIndex = Math.floor(numSlides / 2);
     return (
         <>
-           
+
             <section className="container-fluid  ">
                 <Swiper
                     cssMode={true}
@@ -35,10 +35,15 @@ export default function ServicesSlider() {
                     pagination={false}
                     mousewheel={true}
                     keyboard={true}
-                    modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+                    modules={[Navigation, Pagination, Mousewheel, Keyboard, Autoplay]}
                     className="mySwiper px-5"
                     slidesPerView={6}
-                    slidesPerGroup={6}
+                    slidesPerGroup={1}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }}
+                    loop={false}
                     breakpoints={{
                         1024: {
                             slidesPerView: 4,

@@ -123,7 +123,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="hero-section d-flex align-items-center hero-banner">
+    <section className="hero-section d-flex align-items-center hero-banner overflow-hidden">
       <div className="hero-overlay"></div>
       <div className="container position-relative pt-5">
         <div className="row">
@@ -131,8 +131,8 @@ export default function HeroSection() {
             <h1 className="hero-title text-start">
               List Your Salon & Start Receiving Online Appointments
             </h1>
-            <p className="hero-subtitle mt-3 text-start">
-              At Su Stylo, we are dedicated to the timeless art of barbering.
+            <p className="text-white fw-bold mt-3 text-start">
+              At SuStylo, we are dedicated to the timeless art of barbering.
               Our passion drives us to deliver precision, style, and an
               unmatched grooming experience.
             </p>

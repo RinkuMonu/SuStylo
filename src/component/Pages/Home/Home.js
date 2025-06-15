@@ -246,7 +246,7 @@ export default function Home() {
     <>
       <SEO />
       <div
-        className={`fade-in-section ${isVisible ? "is-visible" : ""}`}
+        className={`fade-in-section ${isVisible ? "is-visible  overflow-hidden" : " overflow-hidden"}`}
         ref={domRef}
       >
         <HeroSection />
