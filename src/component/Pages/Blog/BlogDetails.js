@@ -48,7 +48,7 @@ function BlogsDetails() {
 
       setCommentsLoading(true)
       try {
-        const response = await axiosInstance.get(`/blogs/${id}/comments`)
+        const response = await axiosInstance.get(`/blogs/comments/approved/${id}`)
         setComments(response.data || [])
       } catch (err) {
         console.error("Error fetching comments:", err)
