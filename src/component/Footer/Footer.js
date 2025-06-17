@@ -10,7 +10,6 @@ import { GoClock } from "react-icons/go";
 import { IoIosSend } from "react-icons/io";
 import { FaInstagram, FaXTwitter } from "react-icons/fa6";
 import axiosInstance from "../config/axiosInstance";
-
 export default function Footer() {
   const emailHendler = async (event) => {
     event.preventDefault();
