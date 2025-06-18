@@ -159,7 +159,7 @@ const SalonSearch = () => {
 
   // MODIFIED: Only send latitude and longitude to API
   const buildApiUrl = () => {
-    const baseUrl = "http://localhost:5000/api/salon/nearby"
+    const baseUrl = "https://api.sustylo.com/api/salon/nearby"
     const params = new URLSearchParams()
 
     // Only send coordinates - ignore all other filters
@@ -248,7 +248,7 @@ const SalonSearch = () => {
         </h4>
 
         {/* Mobile Number Input */}
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <label className="fw-semibold mb-2 d-block">Mobile Number</label>
           <input
             type="text"
@@ -257,7 +257,7 @@ const SalonSearch = () => {
             onChange={(e) => setMobileNumber(e.target.value)}
             placeholder="Enter mobile number"
           />
-        </div>
+        </div> */}
 
         {/* Gender */}
         <div className="mb-4">
