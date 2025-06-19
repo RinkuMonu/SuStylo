@@ -4,14 +4,18 @@ import { useState, useEffect, useRef } from "react"
 import AOS from "aos"
 import WOW from "wow.js"
 import "./Blogdetails.css"
-import { useNavigate, useParams } from "react-router-dom"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
 import axiosInstance from "../../config/axiosInstance"
 import { Helmet } from "react-helmet";
 function BlogsDetails() {
-  const { id } = useParams()
+    const location = useLocation();
+  const { blog } = location.state || {};
+  const id = blog._id
+
+
   const navigate = useNavigate()
   const domRef = useRef(null)
-  const [blog, setBlog] = useState(null)
+  const [blogs, setBlog] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [isVisible, setVisible] = useState(false)
@@ -21,10 +25,11 @@ function BlogsDetails() {
     number: "",
     message: "",
   })
-  console.log("blogdetailsssss,",blog)
+  console.log("blogdetailsssss,",blogs)
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [comments, setComments] = useState([])
   const [commentsLoading, setCommentsLoading] = useState(true)
+  
 
   useEffect(() => {
     new WOW().init()
@@ -41,7 +46,7 @@ function BlogsDetails() {
     }
   }, [])
 
-  // Fetch comments for the blog post
+  // Fetch comments for the blogs post
   useEffect(() => {
     const fetchComments = async () => {
       if (!id) return
@@ -95,9 +100,9 @@ function BlogsDetails() {
         }
         setBlog(response.data)
       } catch (err) {
-        console.error("Error fetching blog details:", err)
-        setError(err.message || "Failed to load blog details")
-        navigate("/blog")
+        console.error("Error fetching blogs details:", err)
+        setError(err.message || "Failed to load blogs details")
+        navigate("/blogs")
       } finally {
         setLoading(false)
       }
@@ -120,18 +125,18 @@ function BlogsDetails() {
     return (
       <div className="text-center py-5">
         <div className="alert alert-danger">{error}</div>
-        <button className="btn btn-primary mt-3" onClick={() => navigate("/blog")}>
+        <button className="btn btn-primary mt-3" onClick={() => navigate("/blogs")}>
           Back to Blog List
         </button>
       </div>
     )
   }
 
-  if (!blog) {
+  if (!blogs) {
     return (
       <div className="text-center py-5">
         <div className="alert alert-warning">Blog not found</div>
-        <button className="btn btn-primary mt-3" onClick={() => navigate("/blog")}>
+        <button className="btn btn-primary mt-3" onClick={() => navigate("/blogs")}>
           Back to Blog List
         </button>
       </div>
@@ -149,21 +154,21 @@ function BlogsDetails() {
     <>
     {/* SEO Meta Tags */}
     <Helmet>
-      <title>{blog?.metaTitle || blog?.title || "Blog - SuStylo"}</title>
+      <title>{blogs?.metaTitle || blogs?.title || "Blog - SuStylo"}</title>
       <meta
         name="description"
         content={
-          blog?.metaDescription ||
-          blog?.summary ||
-          blog?.content?.replace(/<[^>]+>/g, '').slice(0, 150)
+          blogs?.metaDescription ||
+          blogs?.summary ||
+          blogs?.content?.replace(/<[^>]+>/g, '').slice(0, 150)
         }
       />
-      {blog?.metaKeywords?.length > 0 && (
-        <meta name="keywords" content={blog.metaKeywords.join(", ")} />
+      {blogs?.metaKeywords?.length > 0 && (
+        <meta name="keywords" content={blogs.metaKeywords.join(", ")} />
       )}
     </Helmet>
     <div className={` ${isVisible ? "is-visible overflow-hidden" : "overflow-hidden"}`} ref={domRef}>
-      <section className="blog-section d-flex align-items-center">
+      <section className="blogs-section d-flex align-items-center">
         <div className="hero-overlay"></div>
 
         <div className="container text-center position-relative">
@@ -182,28 +187,28 @@ function BlogsDetails() {
               <div className="col-md-8 col-sm-12 ">
                 <div className="title-img">
                   <img
-                    src={blog.imageUrl }
+                    src={blogs.imageUrl }
                     className="img-fluid"
-                    alt={blog.title}
+                    alt={blogs.title}
                   />
                 </div>
-                <div className="blog-user">
+                <div className="blogs-user">
                   <a>
-                    <i className="bi bi-person me-2"></i>by {blog.author || "admin"}
+                    <i className="bi bi-person me-2"></i>by {blogs.author || "admin"}
                   </a>
                   <a>
                     <i className="bi bi-calendar-event me-2"></i>
-                    {blog.date || "July 5, 2024"}
+                    {blogs.date || "July 5, 2024"}
                   </a>
                 </div>
-                <div className="blog-main_content">
+                <div className="blogs-main_content">
                   <b className="bold-heading">
-                    {blog.title ||
+                    {blogs.title ||
                       "Unraveling the Enduring Charm and Evolution of Barbershops as Societal and Cultural Hubs"}
                   </b>
                   <div 
-      className="blog-content" 
-      dangerouslySetInnerHTML={{ __html: blog.content }} 
+      className="blogs-content" 
+      dangerouslySetInnerHTML={{ __html: blogs.content }} 
     />
                 </div>
 
@@ -363,7 +368,7 @@ function BlogsDetails() {
                         <span>
                           <i className="bi bi-calendar-event me-2"></i> July 5, 2024
                         </span>
-                        <div className="blog-title">
+                        <div className="blogs-title">
                           <h6>AEPS: Transforming Digital Banking in India</h6>
                         </div>
                       </div>
@@ -377,7 +382,7 @@ function BlogsDetails() {
                         <span>
                           <i className="bi bi-calendar-event me-2"></i> July 5, 2024
                         </span>
-                        <div className="blog-title">
+                        <div className="blogs-title">
                           <h6>BBPS: The Future of Digital Bill Payments in India</h6>
                         </div>
                       </div>
@@ -391,7 +396,7 @@ function BlogsDetails() {
                         <span>
                           <i className="bi bi-calendar-event me-2"></i> July 5, 2024
                         </span>
-                        <div className="blog-title">
+                        <div className="blogs-title">
                           <h6>Six 'what ifs' that could transformdigital agency</h6>
                         </div>
                       </div>

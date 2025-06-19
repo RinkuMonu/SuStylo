@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import AOS from "aos";
+import "aos/dist/aos.css";
 import "../style/style.css";
 import { Link } from "react-router-dom";
 import axiosInstance from "../../config/axiosInstance";
@@ -26,30 +27,29 @@ export default function Blog() {
     }
   };
 
-  // Function to extract plain text summary from HTML content
   const getSummary = (html, maxLength = 150) => {
-    const div = document.createElement('div');
+    const div = document.createElement("div");
     div.innerHTML = html;
-    const text = div.textContent || div.innerText || '';
-    return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+    const text = div.textContent || div.innerText || "";
+    return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+  };
+
+  const slugify = (title) => {
+    return title
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-");
   };
 
   if (loading) {
     return (
       <div className="text-center py-5">
-        <span class="loaders"></span>
+        <span className="loaders"></span>
       </div>
     );
   }
-  const slugify = (title) => {
-  return title
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
-    .replace(/\s+/g, '-')         // Replace spaces with dashes
-    .replace(/-+/g, '-');         // Remove extra dashes
-};
-
 
   return (
     <div ref={domRef}>
@@ -85,51 +85,52 @@ export default function Blog() {
           {blogs.length === 0 ? (
             <div className="text-center py-5">No blogs available</div>
           ) : (
-            blogs.map((blog) => (
-              <div className="row mt-5" key={blog._id} data-aos="fade-up">
-                <div className="col-md-1">
-                  <div className="blogBx">
-                    <div className="blog_date">
-                      <div className="b_month">
-                        {new Date(blog.createdAt)
-                          .toLocaleString("en-US", { month: "short" })
-                          .toUpperCase()}
+            <div className="row gx-3">
+              {blogs.map((blog) => (
+                <div className="col-md-4 mb-4" key={blog._id} data-aos="fade-up">
+                  <Link
+                    to={{
+                      pathname: `/blogdetail/${slugify(blog.title)}`,
+                    }}
+                    state={{ blog }}
+                    className="text-decoration-none"
+                  >
+                    <div
+                      className="border shadow-lg h-100 blog-card"
+                      style={{ cursor: "pointer", transition: "transform 0.3s" }}
+                    >
+                      <div className="blog_img text-center pt-2">
+                        <img
+                          src={blog.imageUrl}
+                          className="img-fluid"
+                          alt={blog.title}
+                          onError={(e) => {}}
+                          style={{
+                            maxHeight: "200px",
+                            objectFit: "cover",
+                            width: "100%",
+                          }}
+                        />
                       </div>
-                      <div className="b_date">
-                        {new Date(blog.createdAt).getDate()}
+                      <div className="pt-4">
+                        <div className="blog_content px-3 text-black">
+                          <h3>{blog?.title}</h3>
+                          <p className="text-muted">
+                            {blog?.category} |{" "}
+                            {new Date(blog.createdAt)
+                              .toLocaleString("en-US", { month: "short" })
+                              .toUpperCase()}{" "}
+                            {new Date(blog.createdAt).getDate()} | by{" "}
+                            {blog.author || "admin"}
+                          </p>
+                          <p className="blog-summary">{getSummary(blog.content)}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
-                <div className="col-md-5">
-                  <div className="blog_img">
-                    <img
-                      src={blog.imageUrl}
-                      className="img-fluid"
-                      alt={blog.title}
-                      onError={(e) => {
-                       
-                      }}
-                    />
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="blog_content">
-                    <h3>{blog?.title}</h3>
-                    <p className="text-muted">{blog?.category}</p>
-                    <p className="blog-summary">
-                      {getSummary(blog.content)}
-                    </p>
-                    <Link
-                        to={`/blogdetail/${blog._id}/${slugify(blog.title)}`}
-                      className="custom-btn btn-8 mt-5 ms-1"
-                    >
-                      <span>READ MORE</span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))
+              ))}
+            </div>
           )}
         </div>
       </div>
