@@ -6,12 +6,11 @@ import WOW from "wow.js"
 import "./Blogdetails.css"
 import { useNavigate, useParams } from "react-router-dom"
 import axiosInstance from "../../config/axiosInstance"
-
+import { Helmet } from "react-helmet";
 function BlogsDetails() {
   const { id } = useParams()
   const navigate = useNavigate()
   const domRef = useRef(null)
-
   const [blog, setBlog] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -22,6 +21,7 @@ function BlogsDetails() {
     number: "",
     message: "",
   })
+  console.log("blogdetailsssss,",blog)
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [comments, setComments] = useState([])
   const [commentsLoading, setCommentsLoading] = useState(true)
@@ -146,6 +146,22 @@ function BlogsDetails() {
   }
 
   return (
+    <>
+    {/* SEO Meta Tags */}
+    <Helmet>
+      <title>{blog?.metaTitle || blog?.title || "Blog - SuStylo"}</title>
+      <meta
+        name="description"
+        content={
+          blog?.metaDescription ||
+          blog?.summary ||
+          blog?.content?.replace(/<[^>]+>/g, '').slice(0, 150)
+        }
+      />
+      {blog?.metaKeywords?.length > 0 && (
+        <meta name="keywords" content={blog.metaKeywords.join(", ")} />
+      )}
+    </Helmet>
     <div className={` ${isVisible ? "is-visible overflow-hidden" : "overflow-hidden"}`} ref={domRef}>
       <section className="blog-section d-flex align-items-center">
         <div className="hero-overlay"></div>
@@ -166,7 +182,7 @@ function BlogsDetails() {
               <div className="col-md-8 col-sm-12 ">
                 <div className="title-img">
                   <img
-                    src={blog.image || "https://framerusercontent.com/images/y6h3MUMisOe3SS8MABsJ8tKikA.jpeg"}
+                    src={blog.imageUrl }
                     className="img-fluid"
                     alt={blog.title}
                   />
@@ -185,12 +201,10 @@ function BlogsDetails() {
                     {blog.title ||
                       "Unraveling the Enduring Charm and Evolution of Barbershops as Societal and Cultural Hubs"}
                   </b>
-                  <p>
-                    {blog.content ||
-                      "Lorem ipsum labore aliqua tempor quis amet dolor duis reprehenderit exercitation in mollit esse anim reprehenderit velit voluptate consequat nisi in occaecat veniam enim officia sit et excepteur ullamco veniam quis aute voluptate tempor officia qui.".repeat(
-                        3,
-                      )}
-                  </p>
+                  <div 
+      className="blog-content" 
+      dangerouslySetInnerHTML={{ __html: blog.content }} 
+    />
                 </div>
 
                 <hr />
@@ -390,6 +404,7 @@ function BlogsDetails() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
