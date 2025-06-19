@@ -6,7 +6,9 @@ import WOW from "wow.js"
 import "./Blogdetails.css"
 import { useNavigate, useParams } from "react-router-dom"
 import axiosInstance from "../../config/axiosInstance"
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+
+
 function BlogsDetails() {
   const { id } = useParams()
   const navigate = useNavigate()
