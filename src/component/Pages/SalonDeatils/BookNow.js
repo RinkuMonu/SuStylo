@@ -37,14 +37,29 @@ export default function BookNow() {
 
   // Complete services data structure
 
-  const Gender = localStorage.getItem("gender")
+  const Gender = localStorage.getItem("gender");
   const services = [
     {
       category: "Haircuts",
       options: [
-        { name: "Regular Haircut", price: 200, duration: "30 min", gender: Gender },
-        { name: "Scissors Haircut", price: 300, duration: "45 min", gender: Gender },
-        { name: "Kids Haircut", price: 150, duration: "30 min", gender: Gender }
+        {
+          name: "Regular Haircut",
+          price: 200,
+          duration: "30 min",
+          gender: Gender,
+        },
+        {
+          name: "Scissors Haircut",
+          price: 300,
+          duration: "45 min",
+          gender: Gender,
+        },
+        {
+          name: "Kids Haircut",
+          price: 150,
+          duration: "30 min",
+          gender: Gender,
+        },
       ],
     },
     {
@@ -52,29 +67,94 @@ export default function BookNow() {
       options: [
         { name: "Head Shave", price: 250, duration: "30 min", gender: Gender },
         { name: "Royal Shave", price: 400, duration: "45 min", gender: Gender },
-        { name: "Royal Head Shave", price: 500, duration: "45 min", gender: Gender },
-        { name: "Beard Trim No Shave", price: 200, duration: "30 min", gender: Gender },
-        { name: "Beard Trim Shave", price: 300, duration: "30 min", gender: Gender },
-        { name: "Beard Shave Up", price: 250, duration: "30 min", gender: Gender }
+        {
+          name: "Royal Head Shave",
+          price: 500,
+          duration: "45 min",
+          gender: Gender,
+        },
+        {
+          name: "Beard Trim No Shave",
+          price: 200,
+          duration: "30 min",
+          gender: Gender,
+        },
+        {
+          name: "Beard Trim Shave",
+          price: 300,
+          duration: "30 min",
+          gender: Gender,
+        },
+        {
+          name: "Beard Shave Up",
+          price: 250,
+          duration: "30 min",
+          gender: Gender,
+        },
       ],
     },
     {
       category: "Facial",
       options: [
-        { name: "Deep Pore Cleansing", price: 800, duration: "60 min", gender: Gender },
-        { name: "Aromatherapy Facial", price: 1000, duration: "60 min", gender: Gender },
-        { name: "Acne Problem Facial", price: 1200, duration: "75 min", gender: Gender },
-        { name: "European Facial", price: 1500, duration: "90 min", gender: Gender },
-        { name: "Glycolic Peel Facial", price: 1800, duration: "90 min", gender: Gender }
+        {
+          name: "Deep Pore Cleansing",
+          price: 800,
+          duration: "60 min",
+          gender: Gender,
+        },
+        {
+          name: "Aromatherapy Facial",
+          price: 1000,
+          duration: "60 min",
+          gender: Gender,
+        },
+        {
+          name: "Acne Problem Facial",
+          price: 1200,
+          duration: "75 min",
+          gender: Gender,
+        },
+        {
+          name: "European Facial",
+          price: 1500,
+          duration: "90 min",
+          gender: Gender,
+        },
+        {
+          name: "Glycolic Peel Facial",
+          price: 1800,
+          duration: "90 min",
+          gender: Gender,
+        },
       ],
     },
     {
       category: "Package",
       options: [
-        { name: "Haircut + Shave", price: 500, duration: "60 min", gender: Gender },
-        { name: "Haircut + Beard Trim", price: 450, duration: "60 min", gender: Gender },
-        { name: "Haircut + Beard Trim Shave", price: 550, duration: "60 min", gender: Gender },
-        { name: "Haircut + Beard Shape Up", price: 600, duration: "60 min", gender: Gender }
+        {
+          name: "Haircut + Shave",
+          price: 500,
+          duration: "60 min",
+          gender: Gender,
+        },
+        {
+          name: "Haircut + Beard Trim",
+          price: 450,
+          duration: "60 min",
+          gender: Gender,
+        },
+        {
+          name: "Haircut + Beard Trim Shave",
+          price: 550,
+          duration: "60 min",
+          gender: Gender,
+        },
+        {
+          name: "Haircut + Beard Shape Up",
+          price: 600,
+          duration: "60 min",
+          gender: Gender,
+        },
       ],
     },
   ];
@@ -83,7 +163,9 @@ export default function BookNow() {
     if (isChecked) {
       setSelectedServices([...selectedServices, service]);
     } else {
-      setSelectedServices(selectedServices.filter(s => s.name !== service.name));
+      setSelectedServices(
+        selectedServices.filter((s) => s.name !== service.name)
+      );
     }
   };
 
@@ -115,7 +197,7 @@ export default function BookNow() {
 
   const handleBooking = async (seatNumber) => {
     const storedUserId = localStorage.getItem("id");
-    
+
     if (!storedUserId) {
       window.location.href = "/login";
       return;
@@ -150,20 +232,20 @@ export default function BookNow() {
 
     try {
       const response = await axios.post(
-        "https://sustylo-web.onrender.com/api/booking/create",
+        "https://api.sustylo.com/api/booking/create",
         {
           salonId: id,
           userId: storedUserId,
           date: date,
           timeSlot: selectedTime,
           seatNumber: seatNumber,
-          services: selectedServices.map(service => ({
+          services: selectedServices.map((service) => ({
             name: service.name,
             price: service.price,
             duration: service.duration,
             discount: 0,
-            gender: service.gender
-          }))
+            gender: service.gender,
+          })),
         }
       );
 
@@ -172,7 +254,7 @@ export default function BookNow() {
           title: "Booking Successful!",
           text: "Your appointment has been confirmed",
           icon: "success",
-          confirmButtonText: "OK"
+          confirmButtonText: "OK",
         }).then(() => {
           // Optionally redirect or refresh data
           window.location.reload();
@@ -181,12 +263,13 @@ export default function BookNow() {
     } catch (error) {
       console.error("Booking failed:", error);
       let errorMessage = "Booking failed. Please try again.";
-      
+
       if (error.response) {
         if (error.response.status === 400) {
           errorMessage = error.response.data.error || errorMessage;
         } else if (error.response.status === 409) {
-          errorMessage = "This slot is already booked. Please choose another time.";
+          errorMessage =
+            "This slot is already booked. Please choose another time.";
         }
       }
 
@@ -202,7 +285,10 @@ export default function BookNow() {
     return status === "available" ? "btn-success" : "btn-danger";
   };
   return (
-    <div className={`fade-in-section ${isVisible ? "is-visible" : ""}`} ref={domRef}>
+    <div
+      className={`fade-in-section ${isVisible ? "is-visible" : ""}`}
+      ref={domRef}
+    >
       <section className="bookAppoinment-section d-flex align-items-center">
         <div className="hero-overlay"></div>
         <div className="container text-center position-relative">
@@ -234,9 +320,14 @@ export default function BookNow() {
                           className="form-check-input book-checkbox"
                           type="checkbox"
                           id={`service-${index}-${idx}`}
-                          onChange={(e) => handleServiceSelection(option, e.target.checked)}
+                          onChange={(e) =>
+                            handleServiceSelection(option, e.target.checked)
+                          }
                         />
-                        <label className="form-check-label" htmlFor={`service-${index}-${idx}`}>
+                        <label
+                          className="form-check-label"
+                          htmlFor={`service-${index}-${idx}`}
+                        >
                           {option.name} (₹{option.price}, {option.duration})
                         </label>
                       </div>
@@ -256,24 +347,30 @@ export default function BookNow() {
                   type="date"
                   className="form-control border-brown"
                   placeholder="dd-mm-yyyy"
-                  min={new Date().toISOString().split('T')[0]}
+                  min={new Date().toISOString().split("T")[0]}
                   onChange={handleDateChange}
                 />
               </div>
-              
+
               {selectedServices.length > 0 && (
                 <div className="selected-services mb-4">
                   <h5 className="text-uppercase mb-2">Selected Services</h5>
                   <ul className="list-group">
                     {selectedServices.map((service, index) => (
-                      <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
+                      <li
+                        key={index}
+                        className="list-group-item d-flex justify-content-between align-items-center"
+                      >
                         {service.name}
-                        <span className="badge bg-brown rounded-pill">₹{service.price}</span>
+                        <span className="badge bg-brown rounded-pill">
+                          ₹{service.price}
+                        </span>
                       </li>
                     ))}
                   </ul>
                   <div className="mt-2">
-                    <strong>Total Duration:</strong> {calculateTotalDuration()} minutes
+                    <strong>Total Duration:</strong> {calculateTotalDuration()}{" "}
+                    minutes
                   </div>
                 </div>
               )}
@@ -308,27 +405,41 @@ export default function BookNow() {
                               <div className="row">
                                 {slot[time].map((seat, idx) => (
                                   <div key={idx} className="col-md-4 mb-3">
-                                  <div
-      className="card p-3 text-white text-center"
-  style={{
-    backgroundColor: seat.status === "available" 
-      ? "rgba(40, 167, 69, 0.8)" 
-      : "rgba(220, 53, 69, 0.8)",
-    cursor: seat.status === "available" ? "pointer" : "not-allowed",
-    transition: "all 0.3s ease"
-  }}
-    >
-                                    
-                                      <MdOutlineChair className="mb-2 mx-auto" size={24} />
-                                      <p className="m-0 fs-6">Seat {seat.seatNumber}</p>
+                                    <div
+                                      className="card p-3 text-white text-center"
+                                      style={{
+                                        backgroundColor:
+                                          seat.status === "available"
+                                            ? "rgba(40, 167, 69, 0.8)"
+                                            : "rgba(220, 53, 69, 0.8)",
+                                        cursor:
+                                          seat.status === "available"
+                                            ? "pointer"
+                                            : "not-allowed",
+                                        transition: "all 0.3s ease",
+                                      }}
+                                    >
+                                      <MdOutlineChair
+                                        className="mb-2 mx-auto"
+                                        size={24}
+                                      />
+                                      <p className="m-0 fs-6">
+                                        Seat {seat.seatNumber}
+                                      </p>
                                       <button
                                         className={`btn mt-2 ${
-                                          seat.status === "available" ? "btn-light" : "btn-secondary"
+                                          seat.status === "available"
+                                            ? "btn-light"
+                                            : "btn-secondary"
                                         }`}
                                         disabled={seat.status !== "available"}
-                                        onClick={() => handleBooking(seat.seatNumber)}
+                                        onClick={() =>
+                                          handleBooking(seat.seatNumber)
+                                        }
                                       >
-                                        {seat.status === "available" ? "Book Now" : "Booked"}
+                                        {seat.status === "available"
+                                          ? "Book Now"
+                                          : "Booked"}
                                       </button>
                                     </div>
                                   </div>
@@ -343,7 +454,8 @@ export default function BookNow() {
                 ) : date ? (
                   <div className="col-md-12">
                     <div className="alert alert-info">
-                      No available time slots for the selected date. Please choose another date.
+                      No available time slots for the selected date. Please
+                      choose another date.
                     </div>
                   </div>
                 ) : (
