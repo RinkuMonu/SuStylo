@@ -161,7 +161,7 @@ export default function Footer() {
               <div className="rightSide">
                 {/* <span className="logo">BLA<span className="text-warning">X</span>CUT</span> */}
                 <img
-                  src="/images/logo 2.svg"
+                  src="/images/salon 232.svg "
                   className="img-fluid mb-3"
                   width={100}
                 />

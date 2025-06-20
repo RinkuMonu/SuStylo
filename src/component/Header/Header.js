@@ -84,7 +84,7 @@ export default function Header() {
         <div className="container">
           <Link to={"/"} className="navbar-brand" onClick={handleLinkClick}>
             <img
-              src="/images/logo 2.svg"
+              src="/images/salon 232.svg"
               alt="logo"
               className="img-fluid"
               width={70}
