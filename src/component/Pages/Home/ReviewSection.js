@@ -14,7 +14,7 @@ export default function ReviewSection() {
             name: "Nitish Kapoor",
             title: "Excellent platform for growing a customer base",
             stars: 5,
-            description: " We saw a 30% increase in appointments within the first month of using Stostylo. Marketing equipment and customer reminders actually work. In addition, their Jaipur-based support team is very helpful and responsible.",
+            description: " We saw a 30% increase in appointments within the first month of using Sustylo. Marketing equipment and customer reminders actually work. In addition, their Jaipur-based support team is very helpful and responsible.",
             image: "./images/gallery/R2.jpg",
             address: "Mansarover, Jaipur"
         },
@@ -30,7 +30,7 @@ export default function ReviewSection() {
             name: "Vikash Singh",
             title: "Sustylo  made our salon digital",
             stars: 4.5,
-            description: " As the owner of a small salon, I always thought that digital going would be expensive. But Sustiles changed it. It is inexpensive, easy to use, and everything - booking, payment, reviews and even the customer helps manage the records.",
+            description: " As the owner of a small salon, I always thought that digital going would be expensive. But Sustylo changed it. It is inexpensive, easy to use, and everything - booking, payment, reviews and even the customer helps manage the records.",
             image: "./images/gallery/R1.jpg",
             address: "Malviya Nagar, Jaipur"
         }

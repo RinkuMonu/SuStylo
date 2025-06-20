@@ -51,7 +51,7 @@ const mensServices = [
     title: " Beard grooming and shaving",
     image: "./images/new/beardSaving.jpg",
     description:
-      "Whether you want a clean beard or bold, style beard, su styleo connects you by adding artists that provide a look with accurate and comfort.",
+      "Whether you want a clean beard or bold, style beard, sustylo connects you by adding artists that provide a look with accurate and comfort.",
     services: [
       "Beard trimming and styling",
       "Royal beard with hot towels",
@@ -64,7 +64,7 @@ const mensServices = [
     title: " Facial treatment for men",
     image: "./images/new/facialTreatment.jpg",
     description:
-      "Partner salons on su styles provide specially designed expert skin treatment for men. From cleaning acne to reducing signs of fatigue, find out facial services to suit the needs of your skin.",
+      "Partner salons on sustylo provide specially designed expert skin treatment for men. From cleaning acne to reducing signs of fatigue, find out facial services to suit the needs of your skin.",
     services: [
       "Deep cleaning signature face",
       "Acne and defect control",
@@ -91,7 +91,7 @@ const mensServices = [
     title: "Massage and relax",
     image: "./images/new/massage.jpg",
     description:
-      "Recharge with a stress massage booked through SU style. Partner salons and spas provide a cool environment and specialist physicians for complete body welfare.",
+      "Recharge with a stress massage booked through SUstylo. Partner salons and spas provide a cool environment and specialist physicians for complete body welfare.",
     services: [
       "Full body comfort massage",
       "Head, neck, and shoulder therapy",
@@ -153,7 +153,7 @@ const mensServices = [
             
 <section className="companydetails">
   <div className="container">
-    <h1 className="fw-bold text-center mb-5 third-color">Explore men's grooming services through Su Style Partner Salon</h1>
+    <h1 className="fw-bold text-center mb-5 third-color">Explore men's grooming services through SuStylo Partner Salon</h1>
     <div className="row g-5 mt-3">
       {mensServices.map((category, index) => (
         <React.Fragment key={index}>

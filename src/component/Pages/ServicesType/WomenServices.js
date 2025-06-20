@@ -164,7 +164,7 @@ export default function WomenServices() {
               </div>
             </div>
             <div className="row mb-4">
-              SuStylo is not your specific salon- it is a digital platform that connects you to the top-rated local salon, which offers you professional, salon-grade beauty services. Each service on SU Styles is distributed by certified and verified salon partners who meet our high standards to meet high standards of quality, hygiene and customer satisfaction.
+              SuStylo is not your specific salon- it is a digital platform that connects you to the top-rated local salon, which offers you professional, salon-grade beauty services. Each service on SuStylo is distributed by certified and verified salon partners who meet our high standards to meet high standards of quality, hygiene and customer satisfaction.
               From hairstyle to bridal makeup, our platform brings a wide range of services grooming on your fingers, making beauty care convenient, reliable and personal, just for you.
 
             </div>
