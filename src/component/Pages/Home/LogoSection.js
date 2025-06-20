@@ -13,7 +13,7 @@ export default function LogoSection() {
                     <div className="col-md-4">
                         <div className="centerLogo">
                             {/* <span className="logo">BLA<span className="text-warning">X</span>CUT</span> */}
-                            <img src="./images/logo.png" className="img-fluid" />
+                            <img src="./images/logo mm.svg" className="img-fluid" />
                         </div>
                     </div>
 

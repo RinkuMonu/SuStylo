@@ -17,7 +17,10 @@ export default function Footer() {
       email: event.target.email.value,
     };
     try {
-      const response = await axiosInstance.post("subscribe/subscribe", emailData);
+      const response = await axiosInstance.post(
+        "subscribe/subscribe",
+        emailData
+      );
       if (response.status === 200) {
         Swal.fire({
           text: response.data.message,
@@ -129,7 +132,7 @@ export default function Footer() {
                 <h2>Contact</h2>
                 <ul>
                   <li className="d-flex gap-3 align-items-center">
-                    <IoCallOutline 
+                    <IoCallOutline
                       style={{ color: "#fff", fontWeight: "500" }}
                     />
                     <a href="tel:01414511098" data-replace="01414511098">
@@ -147,11 +150,8 @@ export default function Footer() {
                   </li>
                   <li className="d-flex gap-3 align-items-center">
                     <GoClock style={{ color: "#fff", fontWeight: "500" }} />
-                    <a
-                      href="#"
-                      data-replace="Mon-Sun : 08:00 - 17:00"
-                    >
-                     <span className="fw-bold">Mon-Sun : 08:00 - 17:00</span> 
+                    <a href="#" data-replace="Mon-Sun : 08:00 - 17:00">
+                      <span className="fw-bold">Mon-Sun : 08:00 - 17:00</span>
                     </a>
                   </li>
                 </ul>
@@ -161,12 +161,12 @@ export default function Footer() {
               <div className="rightSide">
                 {/* <span className="logo">BLA<span className="text-warning">X</span>CUT</span> */}
                 <img
-                  src="/images/stylo_Logo.png"
+                  src="/images/logo 2.svg"
                   className="img-fluid mb-3"
                   width={100}
                 />
                 <p className="w-100">
-                  Su Stylo revolutionizes salon bookings with seamless, premium
+                  Sustylo revolutionizes salon bookings with seamless, premium
                   grooming services. Effortlessly book top-tier salons, enjoy
                   hassle free appointments, and experience luxury self care all
                   at your convenience. Redefine beauty and grooming with just a
@@ -220,7 +220,9 @@ export default function Footer() {
                 className="mb-0 text-white position-relative text-center"
                 style={{ zIndex: "99" }}
               >
-                © 2025 SU Stylo. All Rights Reserved.
+                © {new Date().getFullYear()} <strong>Sustylo</strong>. A brand
+                of <strong>Sevenunique Tech Solutions Pvt. Ltd.</strong>. All
+                rights reserved.
               </p>
             </div>
           </div>
