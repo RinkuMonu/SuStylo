@@ -1462,7 +1462,7 @@ p.service-text {
 
 .blog_content p {
   font-size: 20px;
-  margin-top: 30px;
+  margin-top: 14px;
 }
 
 /* ....................... Hair Cut Css ......................... */
@@ -1874,4 +1874,13 @@ p.service-text {
 ul.listing li{
   list-style-type: disc !important;
   margin-bottom: 20px;
+}
+
+
+.readmore {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Show 3 lines. Change to 2 if needed */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
