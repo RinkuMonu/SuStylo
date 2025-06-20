@@ -61,7 +61,6 @@ function BlogsDetails() {
         setCommentsLoading(false)
       }
     }
-
     fetchComments()
   }, [id])
 
