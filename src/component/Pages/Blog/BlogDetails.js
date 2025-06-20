@@ -14,6 +14,8 @@ function BlogsDetails() {
   const { blog } = location.state || {};
   const id = blog._id
 
+  console.log("iddddd",id)
+
 
   const navigate = useNavigate()
   const domRef = useRef(null)

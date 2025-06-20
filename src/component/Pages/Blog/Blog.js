@@ -104,9 +104,9 @@ export default function Blog() {
                     >
                       <div className="blog_img text-center pt-2">
                         <img
-                          src={blog.imageUrl}
+                          src={blog?.imageUrl}
                           className="img-fluid"
-                          alt={blog.title}
+                          alt={blog?.title}
                           onError={(e) => {}}
                           style={{
                             maxHeight: "200px",

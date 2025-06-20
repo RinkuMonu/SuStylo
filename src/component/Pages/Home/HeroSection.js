@@ -96,7 +96,7 @@ export default function HeroSection() {
       else if (searchInput.address) {
         const coords = await getCoordsFromAddress(searchInput.address);
         if (coords) {
-          params.latitude = coords.latitude;
+          params.latitude = coords?.latitude;
           params.longitude = coords.longitude;
         } else {
           alert("Unable to find coordinates for the entered address.");
