@@ -6,7 +6,9 @@ import WOW from "wow.js"
 import "./Blogdetails.css"
 import { useLocation, useNavigate, useParams } from "react-router-dom"
 import axiosInstance from "../../config/axiosInstance"
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+
+
 function BlogsDetails() {
     const location = useLocation();
   const { blog } = location.state || {};
@@ -168,7 +170,7 @@ function BlogsDetails() {
     </Helmet>
     <div className={` ${isVisible ? "is-visible overflow-hidden" : "overflow-hidden"}`} ref={domRef}>
       <section className="blogs-section d-flex align-items-center">
-        <div className="hero-overlay"></div>
+        {/* <div className="hero-overlay"></div> */}
 
         <div className="container text-center position-relative">
           <h1 className="hero-title">Blog</h1>
@@ -191,7 +193,7 @@ function BlogsDetails() {
                     alt={blogs.title}
                   />
                 </div>
-                <div className="blogs-user">
+                <div className="blogs-user pt-4">
                   <a>
                     <i className="bi bi-person me-2"></i>by {blogs.author || "admin"}
                   </a>
@@ -200,13 +202,13 @@ function BlogsDetails() {
                     {blogs.date || "July 5, 2024"}
                   </a>
                 </div>
-                <div className="blogs-main_content">
+                <div className="blogs-main_content pt-3">
                   <b className="bold-heading">
                     {blogs.title ||
                       "Unraveling the Enduring Charm and Evolution of Barbershops as Societal and Cultural Hubs"}
                   </b>
                   <div 
-      className="blogs-content" 
+      className="blogs-content pt-3"
       dangerouslySetInnerHTML={{ __html: blogs.content }} 
     />
                 </div>

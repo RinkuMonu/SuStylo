@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import axiosInstance from "../../config/axiosInstance";
 import SEO from "../../SEO";
 
+
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,6 +16,8 @@ export default function Blog() {
     AOS.init({ duration: 1000, once: true });
     handleBlog();
   }, []);
+
+
 
   const handleBlog = async () => {
     try {
@@ -114,8 +117,8 @@ export default function Blog() {
                       </div>
                       <div className="pt-4">
                         <div className="blog_content px-3 text-black">
-                          <h3>{blog?.title}</h3>
-                          <p className="text-muted">
+                          <h3 className="fs-5">{blog?.title}</h3>
+                          <p className="text-muted fs-6">
                             {blog?.category} |{" "}
                             {new Date(blog.createdAt)
                               .toLocaleString("en-US", { month: "short" })
@@ -123,7 +126,8 @@ export default function Blog() {
                             {new Date(blog.createdAt).getDate()} | by{" "}
                             {blog.author || "admin"}
                           </p>
-                          <p className="blog-summary">{getSummary(blog.content)}</p>
+                          <p className="blog-summary readmore fs-6">{getSummary(blog.content)}</p>
+
                         </div>
                       </div>
                     </div>
