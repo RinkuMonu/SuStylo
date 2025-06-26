@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://api.sustylo.com/api/',
+  baseURL: 'http://localhost:4080/api/',
 
   headers: {
     'Content-Type': 'application/json',

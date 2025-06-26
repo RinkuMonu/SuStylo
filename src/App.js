@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       { path: "/contact", element: <Contact /> },
       { path: "/profile", element: <Profile /> },
       { path: "/blog", element: <Blog /> },
-      { path: "/blogdetail/:title", element: <BlogsDetails /> },
+      { path: "/blogdetail/:slug", element: <BlogsDetails /> },
       { path: "/menservices", element: <MenServices /> },
       { path: "/termsandcondition", element: <TermsandCondition /> },
       { path: "/cancellationrefundpolicy", element: <CancellationRefund /> },
