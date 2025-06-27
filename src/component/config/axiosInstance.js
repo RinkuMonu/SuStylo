@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://api.sutylo.com/api/',
+  baseURL: 'https://api.sustylo.com/api/',
 
 
 
