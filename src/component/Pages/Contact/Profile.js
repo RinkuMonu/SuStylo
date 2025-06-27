@@ -93,6 +93,7 @@ export default function Profile() {
       if (domRef.current) observer.unobserve(domRef.current)
     }
   }, [userId])
+   console.log(userId)
 
   const handleChange = (e) => {
     const { id, value } = e.target
@@ -155,44 +156,47 @@ export default function Profile() {
       cancelButtonText: "Cancel",
     })
 
- if (result.isConfirmed) {
-  setIsDeleting(true);
-  try {
-    const token = localStorage.getItem("token");
+    if (result.isConfirmed) {
+      setIsDeleting(true)
+      try {
+        const token = localStorage.getItem("token")
+        const response = await fetch(`/user/${userId}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        })
 
-    const response = await axiosInstance.delete(`/user/${userId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    });
+        if (response.ok) {
+          Swal.fire({
+            title: "Profile Deleted",
+            text: "Your profile has been deleted successfully.",
+            icon: "success",
+            timer: 3000,
+            showConfirmButton: false,
+          })
 
-    Swal.fire({
-      title: "Profile Deleted",
-      text: "Your profile has been deleted successfully.",
-      icon: "success",
-      timer: 3000,
-      showConfirmButton: false,
-    });
-
-    // Clear local storage and redirect to login
-    localStorage.clear();
-    setTimeout(() => {
-      window.location.href = "/login";
-    }, 3000);
-  } catch (error) {
-    console.error("Error deleting profile:", error);
-    Swal.fire({
-      title: "Delete Failed",
-      text: "An error occurred while deleting your profile. Please try again.",
-      icon: "error",
-      showConfirmButton: true,
-    });
-  } finally {
-    setIsDeleting(false);
-  }
-}
-
+          // Clear local storage and redirect to login
+          localStorage.clear()
+          setTimeout(() => {
+            window.location.href = "/login"
+          }, 3000)
+        } else {
+          throw new Error("Failed to delete profile")
+        }
+      } catch (error) {
+        console.error("Error deleting profile:", error)
+        Swal.fire({
+          title: "Delete Failed",
+          text: "An error occurred while deleting your profile. Please try again.",
+          icon: "error",
+          showConfirmButton: true,
+        })
+      } finally {
+        setIsDeleting(false)
+      }
+    }
   }
 
   const handleSubmit = (e) => {
