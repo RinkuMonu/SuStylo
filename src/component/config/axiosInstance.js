@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://api.sustylo.com/api/',
+  baseURL: 'https://api.sutylo.com/api/',
 
-  
+
 
   headers: {
     'Content-Type': 'application/json',
