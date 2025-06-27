@@ -1,28 +1,32 @@
-import React, { useState, useEffect, useRef } from "react";
-import AOS from "aos";
-import WOW from "wow.js";
-import "../style/style.css";
-import "./profile.css";
-import { FaArrowDown, FaArrowUp } from "react-icons/fa";
-import { IoAddOutline } from "react-icons/io5";
-import axiosInstance from "../../config/axiosInstance";
-import Swal from "sweetalert2";
-import axios from "axios";
+"use client"
+
+import { useState, useEffect, useRef } from "react"
+import AOS from "aos"
+import WOW from "wow.js"
+import "../style/style.css"
+import "./profile.css"
+import { FaArrowDown, FaArrowUp } from "react-icons/fa"
+import { IoAddOutline } from "react-icons/io5"
+import axiosInstance from "../../config/axiosInstance"
+import Swal from "sweetalert2"
+import axios from "axios"
+
 export default function Profile() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     mobile: "",
     gender: "male",
-  });
-  const [isMale, setIsMale] = useState(true);
-  const [isVisible, setVisible] = useState(false);
-  const [filter, setFilter] = useState("all");
-  const [showModal, setShowModal] = useState(false);
-  const [amount, setAmount] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-  const domRef = useRef(null);
-  const userId = localStorage.getItem("id");
+  })
+  const [isMale, setIsMale] = useState(true)
+  const [isVisible, setVisible] = useState(false)
+  const [filter, setFilter] = useState("all")
+  const [showModal, setShowModal] = useState(false)
+  const [amount, setAmount] = useState("")
+  const [isLoading, setIsLoading] = useState(true)
+  const [isDeleting, setIsDeleting] = useState(false)
+  const domRef = useRef(null)
+  const userId = localStorage.getItem("id")
 
   const transactions = [
     {
@@ -49,65 +53,63 @@ export default function Profile() {
       status: "Approved",
       amount: 10,
     },
-  ];
+  ]
 
-  const filteredTransactions = transactions.filter((txn) =>
-    filter === "all" ? true : txn.type === filter
-  );
+  const filteredTransactions = transactions.filter((txn) => (filter === "all" ? true : txn.type === filter))
 
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await axiosInstance.get(`/user/get/${userId}`);
-        const userData = response.data;
+        const response = await axiosInstance.get(`/user/get/${userId}`)
+        const userData = response.data
 
         setFormData({
           name: userData.name || "",
           email: userData.email || "",
           mobile: userData.mobileNumber || "",
           gender: userData.gender || "male",
-        });
+        })
 
-        setIsMale(userData.gender === "male");
-        setIsLoading(false);
+        setIsMale(userData.gender === "male")
+        setIsLoading(false)
       } catch (error) {
-        console.error("Error fetching profile:", error);
-        setIsLoading(false);
+        console.error("Error fetching profile:", error)
+        setIsLoading(false)
       }
-    };
+    }
 
-    fetchUserProfile();
+    fetchUserProfile()
 
-    new WOW().init();
-    AOS.init({ duration: 1000 });
+    new WOW().init()
+    AOS.init({ duration: 1000 })
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => setVisible(entry.isIntersecting));
-    });
+      entries.forEach((entry) => setVisible(entry.isIntersecting))
+    })
 
-    if (domRef.current) observer.observe(domRef.current);
+    if (domRef.current) observer.observe(domRef.current)
 
     return () => {
-      if (domRef.current) observer.unobserve(domRef.current);
-    };
-  }, [userId]);
+      if (domRef.current) observer.unobserve(domRef.current)
+    }
+  }, [userId])
 
   const handleChange = (e) => {
-    const { id, value } = e.target;
+    const { id, value } = e.target
     setFormData((prev) => ({
       ...prev,
       [id]: value,
-    }));
-  };
+    }))
+  }
 
   const handleToggle = () => {
-    const newGender = !isMale;
-    setIsMale(newGender);
+    const newGender = !isMale
+    setIsMale(newGender)
     setFormData((prev) => ({
       ...prev,
       gender: newGender ? "male" : "female",
-    }));
-  };
+    }))
+  }
 
   const updateProfile = async () => {
     try {
@@ -116,13 +118,10 @@ export default function Profile() {
         email: formData.email,
         mobile: formData.mobile,
         gender: formData.gender,
-      };
+      }
 
-      const response = await axiosInstance.put(
-        `/user/update-profile/${userId}`,
-        payload
-      );
-      console.log("Profile updated successfully:", response.data);
+      const response = await axiosInstance.put(`/user/update-profile/${userId}`, payload)
+      console.log("Profile updated successfully:", response.data)
 
       if (response.status === 200) {
         Swal.fire({
@@ -131,57 +130,110 @@ export default function Profile() {
           icon: "success",
           timer: 3000,
           showConfirmButton: false,
-        });
+        })
       }
     } catch (error) {
-      console.error("Error updating profile:", error);
+      console.error("Error updating profile:", error)
       Swal.fire({
         title: "Update Failed",
         text: "An error occurred while updating your profile. Please try again.",
         icon: "error",
         showConfirmButton: true,
-      });
+      })
     }
-  };
+  }
+
+  const deleteProfile = async () => {
+    const result = await Swal.fire({
+      title: "Delete Profile",
+      text: "Are you sure you want to delete your profile? This action cannot be undone.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "Cancel",
+    })
+
+ if (result.isConfirmed) {
+  setIsDeleting(true);
+  try {
+    const token = localStorage.getItem("token");
+
+    const response = await axiosInstance.delete(`/user/${userId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    Swal.fire({
+      title: "Profile Deleted",
+      text: "Your profile has been deleted successfully.",
+      icon: "success",
+      timer: 3000,
+      showConfirmButton: false,
+    });
+
+    // Clear local storage and redirect to login
+    localStorage.clear();
+    setTimeout(() => {
+      window.location.href = "/login";
+    }, 3000);
+  } catch (error) {
+    console.error("Error deleting profile:", error);
+    Swal.fire({
+      title: "Delete Failed",
+      text: "An error occurred while deleting your profile. Please try again.",
+      icon: "error",
+      showConfirmButton: true,
+    });
+  } finally {
+    setIsDeleting(false);
+  }
+}
+
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    updateProfile();
-  };
+    e.preventDefault()
+    updateProfile()
+  }
 
-  const openModal = () => setShowModal(true);
-  const closeModal = () => setShowModal(false);
+  const openModal = () => setShowModal(true)
+  const closeModal = () => setShowModal(false)
 
   const handleAmountClick = (value) => {
-    setAmount((prev) => (parseInt(prev || 0) + value).toString());
-  };
+    setAmount((prev) => (Number.parseInt(prev || 0) + value).toString())
+  }
 
   if (isLoading) {
     return (
       <div className="text-center py-5">
-        <span class="loaders"></span>
+        <span className="loaders"></span>
       </div>
-    );
+    )
   }
-  //  payment gateway
+
+  // payment gateway
   const generateReferenceNumber = () => {
-    const timestamp = Date.now();
+    const timestamp = Date.now()
     const randomNum = Math.floor(Math.random() * 10000)
       .toString()
-      .padStart(4, "0");
-    return `${timestamp}-${randomNum}`;
-  };
+      .padStart(4, "0")
+    return `${timestamp}-${randomNum}`
+  }
 
   const handlePayment = async () => {
     if (!amount || isNaN(amount)) {
-      alert("Please enter a valid amount");
-      return;
+      alert("Please enter a valid amount")
+      return
     }
 
-    setIsLoading(true);
-    const reference = generateReferenceNumber();
+    setIsLoading(true)
+    const reference = generateReferenceNumber()
     const token =
-      "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI4IiwianRpIjoiYzNhNWRmMzEwODdkYTY4YzUxN2IwZTRjMGU0NGIyNmFmOWM4ODJlOWJiZWYxZDM3NmY5ZjRiOTcxM2VhZWFmYjZkOTgyMjYxMDYwOGI3ODYiLCJpYXQiOjE3NDQ3MTI2OTguMjIxMzYzLCJuYmYiOjE3NDQ3MTI2OTguMjIxMzY2LCJleHAiOjE3NzYyNDg2OTguMjE4NzY3LCJzdWIiOiIyNDkiLCJzY29wZXMiOltdfQ.VWB2ejh3M4HXA3hAO37qbOV1Ylx5wKZ_NK1GQK7PrgY0S6xAnQwE_MwcNn-ln_aPFt5cz_ZzeTmAKkLmQh9oOJbHXRmA8MFG_WcWm6HPZt_F_JqyfKdtmW9rgv27PuNtozLIpzUUTed8RMXh6ci2wjqRFVng-jVrFkb-IHJB2Ivm3OjO8wH4CHXF8yvtQVKnCCg01r3IyLdcB1KtwK6Q_Rta8iNTimKTsGxJ_FnnOjCuYPETuP1dJLVXB9F_EmxZYK59Z_Cc7NWsDn_fMmRB4sJG3TtG9eSlwl_wJ8pIy4ou8uyiedRqSHMPgHva4Pk6OY8g4lGr4gxb3ry4S5ax5aRxTtmBt64xn0Wgg5tYKxHON8A7_t0F0G-aQeWO1CxcYbF2lfU507e9X9NE8TeGzoexuVI2NGiOptJG9oRlTDNEL981hvucdkSfi6DQVG7vrD7DbFs5XvikbxpPz4ooE7JSPzNnLBPPkj7Yl17DIgWCIgSzrVgEsuW5RcuTURLVrtPRv1qX7lgiXtqxf_TrwAaoOaYnTTinZYoQmP-uyPy8krH0Sr42CtjIRYKYBNWJV0jXzgH36RXVoiOxq8w7rmdGqkbCs4CNDoX6FhJa5dSwjz0tn9t0Dt2NMogyHf4zxQDHdptkSN90sXhoAFUdYUlVRfZ7Z8UUSTXOW2j6Fsw";
+      "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI4IiwianRpIjoiYzNhNWRmMzEwODdkYTY4YzUxN2IwZTRjMGU0NGIyNmFmOWM4ODJlOWJiZWYxZDM3NmY5ZjRiOTcxM2VhZWFmYjZkOTgyMjYxMDYwOGI3ODYiLCJpYXQiOjE3NDQ3MTI2OTguMjIxMzYzLCJuYmYiOjE3NDQ3MTI2OTguMjIxMzY2LCJleHAiOjE3NzYyNDg2OTguMjE4NzY3LCJzdWIiOiIyNDkiLCJzY29wZXMiOltdfQ.VWB2ejh3M4HXA3hAO37qbOV1Ylx5wKZ_NK1GQK7PrgY0S6xAnQwE_MwcNn-ln_aPFt5cz_ZzeTmAKkLmQh9oOJbHXRmA8MFG_WcWm6HPZt_F_JqyfKdtmW9rgv27PuNtozLIpzUUTed8RMXh6ci2wjqRFVng-jVrFkb-IHJB2Ivm3OjO8wH4CHXF8yvtQVKnCCg01r3IyLdcB1KtwK6Q_Rta8iNTimKTsGxJ_FnnOjCuYPETuP1dJLVXB9F_EmxZYK59Z_Cc7NWsDn_fMmRB4sJG3TtG9eSlwl_wJ8pIy4ou8uyiedRqSHMPgHva4Pk6OY8g4lGr4gxb3ry4S5ax5aRxTtmBt64xn0Wgg5tYKxHON8A7_t0F0G-aQeWO1CxcYbF2lfU507e9X9NE8TeGzoexuVI2NGiOptJG9oRlTDNEL981hvucdkSfi6DQVG7vrD7DbFs5XvikbxpPz4ooE7JSPzNnLBPPkj7Yl17DIgWCIgSzrVgEsuW5RcuTURLVrtPRv1qX7lgiXtqxf_TrwAaoOaYnTTinZYoQmP-uyPy8krH0Sr42CtjIRYKYBNWJV0jXzgH36RXVoiOxq8w7rmdGqkbCs4CNDoX6FhJa5dSwjz0tn9t0Dt2NMogyHf4zxQDHdptkSN90sXhoAFUdYUlVRfZ7Z8UUSTXOW2j6Fsw"
 
     try {
       const response = await axios.post(
@@ -200,25 +252,23 @@ export default function Profile() {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
-        }
-      );
+        },
+      )
 
-      const paymentLink = response.data?.data?.payment_link?.replace(/\\/g, "");
+      const paymentLink = response.data?.data?.payment_link?.replace(/\\/g, "")
 
       if (!paymentLink) {
-        throw new Error("No payment link received");
+        throw new Error("No payment link received")
       }
 
-      window.location.href = paymentLink;
+      window.location.href = paymentLink
     } catch (error) {
-      console.error("Payment Error:", error.response?.data || error.message);
-      alert(
-        `Payment failed: ${error.response?.data?.message || error.message}`
-      );
+      console.error("Payment Error:", error.response?.data || error.message)
+      alert(`Payment failed: ${error.response?.data?.message || error.message}`)
     } finally {
-      setIsLoading(false);
+      setIsLoading(false)
     }
-  };
+  }
 
   return (
     <>
@@ -227,10 +277,7 @@ export default function Profile() {
           <div className="hero-overlay"></div>
           <div className="container text-center position-relative">
             <h1 className="hero-title">Profile</h1>
-            <div
-              className="de-separator"
-              style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}
-            ></div>
+            <div className="de-separator" style={{ backgroundSize: "100%", backgroundRepeat: "no-repeat" }}></div>
           </div>
         </section>
 
@@ -320,22 +367,41 @@ export default function Profile() {
                             checked={isMale}
                             onChange={handleToggle}
                           />
-                          <label
-                            className="form-check-label ms-3"
-                            htmlFor="genderSwitch"
-                          >
+                          <label className="form-check-label ms-3" htmlFor="genderSwitch">
                             {isMale ? "Male" : "Female"}
                           </label>
                         </div>
                       </div>
                       <div className="col-md-12">
-                        <button
-                          type="button"
-                          onClick={handleSubmit}
-                          className="btn-8 custom-btn m-0 mt-3"
-                        >
-                          <span>Save Changes</span>
-                        </button>
+                        <div className="d-flex gap-2">
+                          <button
+                            type="button"
+                            onClick={handleSubmit}
+                            className="btn-8 custom-btn m-0 mt-3 flex-grow-1"
+                          >
+                            <span>Save Changes</span>
+                          </button>
+                          <button
+                            type="button"
+                            onClick={deleteProfile}
+                            disabled={isDeleting}
+                            className="btn btn-danger mt-3 px-3"
+                            style={{ minWidth: "120px" }}
+                          >
+                            {isDeleting ? (
+                              <>
+                                <span
+                                  className="spinner-border spinner-border-sm me-2"
+                                  role="status"
+                                  aria-hidden="true"
+                                ></span>
+                                Deleting...
+                              </>
+                            ) : (
+                              "Delete Profile"
+                            )}
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -349,26 +415,19 @@ export default function Profile() {
                   <div className="d-flex justify-content-between align-items-center mb-3">
                     <h5 className="mb-0">
                       Recent Transactions
-                      <button
-                        className="btn border px-4 py-2 rounded-sm btn-sm ms-2 w-auto"
-                        onClick={openModal}
-                      >
+                      <button className="btn border px-4 py-2 rounded-sm btn-sm ms-2 w-auto" onClick={openModal}>
                         <IoAddOutline /> Add
                       </button>
                     </h5>
                     <div className="btn-group">
                       <button
-                        className={`btn btn-danger btn-sm ${
-                          filter === "credit" ? "active" : ""
-                        }`}
+                        className={`btn btn-danger btn-sm ${filter === "credit" ? "active" : ""}`}
                         onClick={() => setFilter("credit")}
                       >
                         Credit
                       </button>
                       <button
-                        className={`btn btn-light btn-sm ${
-                          filter === "debit" ? "active" : ""
-                        }`}
+                        className={`btn btn-light btn-sm ${filter === "debit" ? "active" : ""}`}
                         onClick={() => setFilter("debit")}
                       >
                         Debit
@@ -377,10 +436,7 @@ export default function Profile() {
                   </div>
 
                   {filteredTransactions.map((txn, index) => (
-                    <div
-                      key={index}
-                      className="d-flex align-items-center border-bottom py-3"
-                    >
+                    <div key={index} className="d-flex align-items-center border-bottom py-3">
                       <div className="me-3">
                         <div
                           className={`rounded-circle ${
@@ -400,15 +456,9 @@ export default function Profile() {
                         <div className="text-muted small">
                           {txn.date} • {txn.time}
                         </div>
-                        <span className="badge bg-warning text-dark mt-1">
-                          {txn.status}
-                        </span>
+                        <span className="badge bg-warning text-dark mt-1">{txn.status}</span>
                       </div>
-                      <div
-                        className={`fw-semibold ${
-                          txn.type === "credit" ? "text-success" : "text-danger"
-                        }`}
-                      >
+                      <div className={`fw-semibold ${txn.type === "credit" ? "text-success" : "text-danger"}`}>
                         {txn.type === "credit" ? "+" : "-"}₹{txn.amount}
                       </div>
                     </div>
@@ -422,25 +472,18 @@ export default function Profile() {
 
       {/* Add Money Modal */}
       {showModal && (
-        <div
-          className="modal fade show"
-          style={{ display: "block", backgroundColor: "rgba(0,0,0,0.5)" }}
-        >
+        <div className="modal fade show" style={{ display: "block", backgroundColor: "rgba(0,0,0,0.5)" }}>
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Add Money to Wallet</h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  onClick={closeModal}
-                ></button>
+                <button type="button" className="btn-close" onClick={closeModal}></button>
               </div>
               <div className="modal-body">
                 <form
                   onSubmit={(e) => {
-                    e.preventDefault();
-                    handlePayment();
+                    e.preventDefault()
+                    handlePayment()
                   }}
                 >
                   <div className="mb-3">
@@ -465,27 +508,17 @@ export default function Profile() {
                         key={value}
                         type="button"
                         className="btn directaddmoney me-2"
-                        onClick={() =>
-                          setAmount((prev) => (Number(prev) || 0) + value)
-                        }
+                        onClick={() => setAmount((prev) => (Number(prev) || 0) + value)}
                       >
                         +{value}
                       </button>
                     ))}
                   </div>
 
-                  <button
-                    type="submit"
-                    className="btn btn-primary d-block w-100"
-                    disabled={isLoading}
-                  >
+                  <button type="submit" className="btn btn-primary d-block w-100" disabled={isLoading}>
                     {isLoading ? (
                       <>
-                        <span
-                          className="spinner-border spinner-border-sm me-2"
-                          role="status"
-                          aria-hidden="true"
-                        ></span>
+                        <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
                         Processing...
                       </>
                     ) : (
@@ -499,5 +532,5 @@ export default function Profile() {
         </div>
       )}
     </>
-  );
+  )
 }
