@@ -19,16 +19,16 @@ export default function Blog() {
 
 
 
-  const handleBlog = async () => {
-    try {
-      const response = await axiosInstance.get("/blogs/all");
-      setBlogs(response.data);
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching blogs:", error);
-      setLoading(false);
-    }
-  };
+const handleBlog = async (limit = 6) => {
+  try {
+    const response = await axiosInstance.get(`/blogs/all?limit=${limit}`);
+    setBlogs(response.data);
+    setLoading(false);
+  } catch (error) {
+    console.error("Error fetching blogs:", error);
+    setLoading(false);
+  }
+};
 
   const getSummary = (html, maxLength = 150) => {
     const div = document.createElement("div");
