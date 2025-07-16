@@ -14,28 +14,34 @@ export default function Blog() {
   const [hasMore, setHasMore] = useState(true);
   const domRef = useRef(null);
 const limit = 6; useEffect(() => { AOS.init({ duration: 1000, once: true }); fetchBlogs(1); }, []);
-  const fetchBlogs = async (currentPage = 1) => {
-    setLoading(true);
-    try {
-      const response = await axiosInstance.get(`/blogs/all?page=${currentPage}&limit=${limit}`);
-      console.log("responseresponseresponse",response)
-      const newBlogs = response.data.blogs|| [];
-      const pagination = response.data.page || {};
+const fetchBlogs = async (currentPage = 1) => {
+  setLoading(true);
+  try {
+    const response = await axiosInstance.get(`/blogs/all?page=${currentPage}&limit=${limit}`);
+    console.log("API Response:", response);
 
-      setBlogs((prev) => [...prev, ...newBlogs]);
+    const newBlogs = response.data.blogs || [];
+    const apiCurrentPage = response.data.page;       // ✅ correct
+    const apiTotalPages = response.data.totalPages;  // ✅ correct
 
-      if (pagination.total_pages) {
-        setTotalPages(pagination.total_pages);
-      }
+    setBlogs((prev) => [...prev, ...newBlogs]);
 
-      if (currentPage >= pagination.total_pages) {
+    if (apiTotalPages) {
+      setTotalPages(apiTotalPages);
+
+      if (apiCurrentPage >= apiTotalPages) {
         setHasMore(false);
       }
-    } catch (error) {
-      console.error("Error fetching blogs:", error);
+    } else {
+      setHasMore(false);
     }
-    setLoading(false);
-  };
+  } catch (error) {
+    console.error("Error fetching blogs:", error);
+    setHasMore(false);
+  }
+  setLoading(false);
+};
+
 
   useEffect(() => {
     const handleScroll = () => {
