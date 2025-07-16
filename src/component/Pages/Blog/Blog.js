@@ -6,29 +6,53 @@ import { Link } from "react-router-dom";
 import axiosInstance from "../../config/axiosInstance";
 import SEO from "../../SEO";
 
-
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
   const domRef = useRef(null);
+const limit = 6; useEffect(() => { AOS.init({ duration: 1000, once: true }); fetchBlogs(1); }, []);
+  const fetchBlogs = async (currentPage = 1) => {
+    setLoading(true);
+    try {
+      const response = await axiosInstance.get(`/blogs/all?page=${currentPage}&limit=${limit}`);
+      console.log("responseresponseresponse",response)
+      const newBlogs = response.data.blogs|| [];
+      const pagination = response.data.page || {};
+
+      setBlogs((prev) => [...prev, ...newBlogs]);
+
+      if (pagination.total_pages) {
+        setTotalPages(pagination.total_pages);
+      }
+
+      if (currentPage >= pagination.total_pages) {
+        setHasMore(false);
+      }
+    } catch (error) {
+      console.error("Error fetching blogs:", error);
+    }
+    setLoading(false);
+  };
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
-    handleBlog();
-  }, []);
+    const handleScroll = () => {
+      if (
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 600 &&
+        !loading &&
+        hasMore
+      ) {
+        const nextPage = page + 1;
+        setPage(nextPage);
+        fetchBlogs(nextPage);
+      }
+    };
 
-
-
-const handleBlog = async (limit = 6) => {
-  try {
-    const response = await axiosInstance.get(`/blogs/all?limit=${limit}`);
-    setBlogs(response.data);
-    setLoading(false);
-  } catch (error) {
-    console.error("Error fetching blogs:", error);
-    setLoading(false);
-  }
-};
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [loading, hasMore, page]);
 
   const getSummary = (html, maxLength = 150) => {
     const div = document.createElement("div");
@@ -45,14 +69,6 @@ const handleBlog = async (limit = 6) => {
       .replace(/\s+/g, "-")
       .replace(/-+/g, "-");
   };
-
-  if (loading) {
-    return (
-      <div className="text-center py-5">
-        <span className="loaders"></span>
-      </div>
-    );
-  }
 
   return (
     <div ref={domRef}>
@@ -85,7 +101,7 @@ const handleBlog = async (limit = 6) => {
             </div>
           </div>
 
-          {blogs.length === 0 ? (
+          {blogs.length === 0 && !loading ? (
             <div className="text-center py-5">No blogs available</div>
           ) : (
             <div className="row gx-3">
@@ -107,7 +123,6 @@ const handleBlog = async (limit = 6) => {
                           src={blog?.imageUrl}
                           className="img-fluid"
                           alt={blog?.title}
-                          onError={(e) => {}}
                           style={{
                             maxHeight: "200px",
                             objectFit: "cover",
@@ -127,7 +142,6 @@ const handleBlog = async (limit = 6) => {
                             {blog.author || "admin"}
                           </p>
                           <p className="blog-summary readmore fs-6">{getSummary(blog.content)}</p>
-
                         </div>
                       </div>
                     </div>
@@ -135,6 +149,18 @@ const handleBlog = async (limit = 6) => {
                 </div>
               ))}
             </div>
+          )}
+
+          {loading && (
+            <div className="flex justify-center mt-6">
+              <div className="spinner-border text-warning" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          )}
+
+          {!hasMore && blogs.length > 0 && (
+            <p className="text-center mt-4 text-muted">No more blogs to load</p>
           )}
         </div>
       </div>
