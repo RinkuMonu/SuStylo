@@ -155,9 +155,9 @@ function BlogsDetails() {
   // Error state
   if (error) {
     return (
-      <div className="text-center py-5">
+      <div className="text-center py-5 mt-5 ">
         <div className="alert alert-danger">{error}</div>
-        <button className="btn btn-primary mt-3" onClick={() => navigate("/blogs")}>
+        <button className="btn btn-primary mt-3" onClick={() => navigate("/blog")}>
           Back to Blog List
         </button>
       </div>
@@ -167,9 +167,9 @@ function BlogsDetails() {
   // Blog not found state
   if (!blog) {
     return (
-      <div className="text-center py-5">
+      <div className="text-center py-5 mt-5">
         <div className="alert alert-warning">Blog not found</div>
-        <button className="btn btn-primary mt-3" onClick={() => navigate("/blogs")}>
+        <button className="btn btn-primary mt-3" onClick={() => navigate("/blog")}>
           Back to Blog List
         </button>
       </div>

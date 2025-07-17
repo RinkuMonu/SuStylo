@@ -115,7 +115,7 @@ const fetchBlogs = async (currentPage = 1) => {
                 <div className="col-md-4 mb-4" key={blog._id} data-aos="fade-up">
                   <Link
                     to={{
-                      pathname: `/blogdetail/${slugify(blog.title)}`,
+                      pathname: `/blogdetail/${(blog.slug)}`,
                     }}
                     state={{ blog }}
                     className="text-decoration-none"
