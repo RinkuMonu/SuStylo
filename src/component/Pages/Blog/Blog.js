@@ -13,40 +13,46 @@ export default function Blog() {
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const domRef = useRef(null);
-const limit = 6; useEffect(() => { AOS.init({ duration: 1000, once: true }); fetchBlogs(1); }, []);
-const fetchBlogs = async (currentPage = 1) => {
-  setLoading(true);
-  try {
-    const response = await axiosInstance.get(`/blogs/all?page=${currentPage}&limit=${limit}`);
-    console.log("API Response:", response);
+  const limit = 6;
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+    fetchBlogs(1);
+  }, []);
+  const fetchBlogs = async (currentPage = 1) => {
+    setLoading(true);
+    try {
+      const response = await axiosInstance.get(
+        `/blogs/all?page=${currentPage}&limit=${limit}`
+      );
+      console.log("API Response:", response);
 
-    const newBlogs = response.data.blogs || [];
-    const apiCurrentPage = response.data.page;       // ✅ correct
-    const apiTotalPages = response.data.totalPages;  // ✅ correct
+      const newBlogs = response.data.blogs || [];
+      const apiCurrentPage = response.data.page; // ✅ correct
+      const apiTotalPages = response.data.totalPages; // ✅ correct
 
-    setBlogs((prev) => [...prev, ...newBlogs]);
+      setBlogs((prev) => [...prev, ...newBlogs]);
 
-    if (apiTotalPages) {
-      setTotalPages(apiTotalPages);
+      if (apiTotalPages) {
+        setTotalPages(apiTotalPages);
 
-      if (apiCurrentPage >= apiTotalPages) {
+        if (apiCurrentPage >= apiTotalPages) {
+          setHasMore(false);
+        }
+      } else {
         setHasMore(false);
       }
-    } else {
+    } catch (error) {
+      console.error("Error fetching blogs:", error);
       setHasMore(false);
     }
-  } catch (error) {
-    console.error("Error fetching blogs:", error);
-    setHasMore(false);
-  }
-  setLoading(false);
-};
-
+    setLoading(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
       if (
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 600 &&
+        window.innerHeight + window.scrollY >=
+          document.body.offsetHeight - 600 &&
         !loading &&
         hasMore
       ) {
@@ -64,7 +70,9 @@ const fetchBlogs = async (currentPage = 1) => {
     const div = document.createElement("div");
     div.innerHTML = html;
     const text = div.textContent || div.innerText || "";
-    return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+    return text.length > maxLength
+      ? text.substring(0, maxLength) + "..."
+      : text;
   };
 
   const slugify = (title) => {
@@ -112,17 +120,22 @@ const fetchBlogs = async (currentPage = 1) => {
           ) : (
             <div className="row gx-3">
               {blogs.map((blog) => (
-                <div className="col-md-4 mb-4" key={blog._id} data-aos="fade-up">
+                <div
+                  className="col-md-4 mb-4"
+                  key={blog._id}
+                  data-aos="fade-up"
+                >
                   <Link
-                    to={{
-                      pathname: `/blogdetail/${(blog.slug)}`,
-                    }}
+                    to={`/blogdetail/${encodeURIComponent(blog?.slug)}`}
                     state={{ blog }}
                     className="text-decoration-none"
                   >
                     <div
                       className="border shadow-lg h-100 blog-card"
-                      style={{ cursor: "pointer", transition: "transform 0.3s" }}
+                      style={{
+                        cursor: "pointer",
+                        transition: "transform 0.3s",
+                      }}
                     >
                       <div className="blog_img text-center pt-2">
                         <img
@@ -147,7 +160,9 @@ const fetchBlogs = async (currentPage = 1) => {
                             {new Date(blog.createdAt).getDate()} | by{" "}
                             {blog.author || "admin"}
                           </p>
-                          <p className="blog-summary readmore fs-6">{getSummary(blog.content)}</p>
+                          <p className="blog-summary readmore fs-6">
+                            {getSummary(blog.content)}
+                          </p>
                         </div>
                       </div>
                     </div>
