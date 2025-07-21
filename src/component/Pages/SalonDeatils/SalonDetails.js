@@ -141,14 +141,14 @@ export default function SalonDetails() {
               Sitapura, Jaipur, Rajasthan 302022, India */}
             </p>
             <div className="d-flex justify-content-center gap-3 mt-3 social-icon">
-              <Link>
+              <Link href="https://www.facebook.com/profile.php?id=61574258022641">
                 <FaFacebook className="fs-4" />
               </Link>
-              <Link>
+              <Link href="">
                
                 <BsInstagram className="fs-4" />
               </Link>
-              <Link>
+              <Link href="">
                 <FaYoutube className="fs-4" />
               </Link>
             </div>

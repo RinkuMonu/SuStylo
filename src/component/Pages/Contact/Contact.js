@@ -259,7 +259,7 @@ export default function Contact() {
                         </div>
                         <div className="col-md-12 mt-4">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=..."
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.263182904306!2d75.86723457405208!3d26.799747364938604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc94baba6edad%3A0xd9cda1cfd0d224a!2sSevenUnique%20Tech%20Solutions%20Pvt.%20Ltd.%20%7C%20Web%20%26%20App%20Development.!5e0!3m2!1sen!2sin!4v1752647848453!5m2!1sen!2sin"
                                 style={{
                                     width: "100%",
                                     height: "450px",

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaSearch, FaMapMarkerAlt } from "react-icons/fa";
 import axiosInstance from "../../config/axiosInstance";
 import { useNavigate } from "react-router-dom";
+import { FaInfoCircle } from "react-icons/fa";
 
 export default function HeroSection() {
   const [location, setLocation] = useState({
@@ -31,7 +32,7 @@ export default function HeroSection() {
         },
         (error) => {
           console.error("Error getting location:", error);
-          setSearchInput(prev => ({ ...prev, address: "Allow location access for better results" }));
+          setSearchInput(prev => ({ ...prev, address: "" }));
         }
       );
     } else {
@@ -139,7 +140,8 @@ export default function HeroSection() {
 
             <form onSubmit={handleSearch}>
               <div className="search_input">
-                <div className="d-flex flex-column flex-md-row align-items-stretch align-items-md-center justify-content-between bg-white p-2 shadow rounded-1">
+                <div className="d-flex flex-column flex-md-row align-items-stretch justify-content-between bg-white p-3 shadow rounded-1">
+
                   {/* Service Name Input */}
                   <div className="flex-column flex-grow-1 me-md-3 mb-3 mb-md-0 text-start">
                     <label className="fw-bold text-orange mb-1 ps-1 ps-md-3">
@@ -163,27 +165,52 @@ export default function HeroSection() {
 
                   {/* Address Input */}
                   <div className="flex-column flex-grow-1 me-md-3 mb-3 mb-md-0 text-start">
-                    <label className="fw-bold text-orange mb-1 ps-1 ps-md-3">
-                      Address
-                    </label>
-                    <div className="input-group">
+                    <label className="fw-bold text-orange mb-1 ps-1 ps-md-3">Address</label>
+
+               
+                    <div className="d-flex align-items-center position-relative">
                       <input
                         type="text"
                         name="address"
                         value={searchInput.address}
                         onChange={handleInputChange}
-                        className="form-control border-0 border-bottom rounded-0"
+                        className="form-control border-0 border-bottom rounded-0 pe-5" 
                         placeholder="Where"
-                        required 
+                        required
+                        title={
+                          !navigator.geolocation
+                            ? "Location is not supported in this browser"
+                            : searchInput.address === "" || searchInput.address === "Allow location access for better results"
+                              ? "Allow location access for better results"
+                              : ""
+                        }
                       />
-                      <span className="input-group-text bg-white border-0">
-                        <FaMapMarkerAlt />
-                      </span>
+
+                 
+                      <FaMapMarkerAlt
+                        className="position-absolute"
+                        style={{
+                          right: '10px',
+                          top: '50%',
+                          transform: 'translateY(-50%)',
+                          pointerEvents: 'none',
+                     
+                        }}
+                      />
                     </div>
+
+                    {/* Red warning below input */}
+                    {(searchInput.address === "" || searchInput.address === "Allow location access for better results") && (
+                      <div className="d-flex align-items-center mt-1 ms-1" style={{ fontSize: "0.875rem", color: "red" }}>
+                        <FaInfoCircle className="me-1" />
+                        <span>Allow location access for better results</span>
+                      </div>
+                    )}
                   </div>
 
+
                   {/* Search Button */}
-                  <div className="d-flex align-items-end">
+                  <div className="d-flex align-items-center">
                     <button
                       type="submit"
                       className="btn btn-warning rounded-2 px-3 px-md-4 py-2 d-flex align-items-center justify-content-center w-100"
@@ -205,6 +232,7 @@ export default function HeroSection() {
                 </div>
               </div>
             </form>
+
           </div>
         </div>
       </div>

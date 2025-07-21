@@ -1,9 +1,10 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { FaStar, FaMapMarkerAlt, FaPhone, FaClock } from "react-icons/fa"
+import { FaStar, FaMapMarkerAlt, FaPhone, FaClock, FaInfoCircle } from "react-icons/fa"
 import { HiAdjustments } from "react-icons/hi"
 import { Link } from "react-router-dom"
+
 
 const SalonSearch = () => {
   const [filters, setFilters] = useState({
@@ -105,20 +106,14 @@ const SalonSearch = () => {
       setLocationUpdateStatus("Location updated successfully!")
       console.log("Location update response:", data)
 
-      // Clear status after 3 seconds
-      setTimeout(() => {
-        setLocationUpdateStatus("")
-      }, 3000)
+
 
       return data
     } catch (err) {
       setLocationUpdateStatus("Failed to update location")
       console.error("Error updating location:", err)
 
-      // Clear error status after 3 seconds
-      setTimeout(() => {
-        setLocationUpdateStatus("")
-      }, 3000)
+
     }
   }
 
@@ -142,13 +137,9 @@ const SalonSearch = () => {
         },
         (error) => {
           console.error("Geolocation error:", error)
-          setFilters((prev) => ({ ...prev, location: "Unable to fetch location" }))
+          setFilters((prev) => ({ ...prev, location: "" }))
           setLocationUpdateStatus("Unable to get location")
 
-          // Clear error status after 3 seconds
-          setTimeout(() => {
-            setLocationUpdateStatus("")
-          }, 3000)
         },
       )
     } else {
@@ -212,7 +203,8 @@ const SalonSearch = () => {
     setFilters((prev) => ({ ...prev, rating: value }))
   }
 
-  const handleApplyFilters = () => {
+  const handleApplyFilters = (e) => {
+    e.preventDefault();
     fetchSalons()
   }
 
@@ -229,20 +221,20 @@ const SalonSearch = () => {
   // Helper function to get current day's opening hours
   const getTodaysHours = (openingHours) => {
     if (!openingHours || typeof openingHours !== 'object') return 'Hours not available'
-    
+
     const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
     const today = days[new Date().getDay()]
-    
+
     if (openingHours[today]) {
       return openingHours[today] === 'Closed' ? 'Closed' : openingHours[today]
     }
-    
+
     return 'Hours not available'
   }
 
   return (
     <div className="d-flex" style={{ paddingTop: "6rem" }}>
-      <aside className="border-end bg-light p-4" style={{ width: "300px", minHeight: "100vh" }}>
+      <aside className="border-end bg-light p-4 " style={{ width: "250px", minHeight: "100vh" }}>
         <h4 className="mb-4" style={{ color: "rgb(251, 136, 7)" }}>
           Filters
         </h4>
@@ -331,24 +323,32 @@ const SalonSearch = () => {
           <small className="text-muted">Selected: {filters.rating}★ & up</small>
         </div>
 
+
+
         {/* Pricing Range */}
         <div className="mb-4">
           <label className="fw-semibold mb-2 d-block">Pricing Range (₹)</label>
+
           <div className="d-flex gap-2 align-items-center">
             <input
               type="number"
               min="100"
               max={filters.pricing[1]}
               value={filters.pricing[0]}
-              onChange={(e) =>
+              onChange={(e) => {
+                const min = Number(e.target.value);
                 setFilters((prev) => ({
                   ...prev,
-                  pricing: [Number(e.target.value), prev.pricing[1]],
-                }))
-              }
+                  pricing: [min, Math.max(min, prev.pricing[1])],
+                }));
+              }}
               className="form-control"
-              style={{ width: "45%" }}
               placeholder="Min"
+              style={{
+                width: "45%",
+                appearance: "none",
+                MozAppearance: "textfield",
+              }}
             />
             <span>–</span>
             <input
@@ -356,21 +356,33 @@ const SalonSearch = () => {
               min={filters.pricing[0]}
               max="5000"
               value={filters.pricing[1]}
-              onChange={(e) =>
+              onChange={(e) => {
+                const max = Number(e.target.value);
                 setFilters((prev) => ({
                   ...prev,
-                  pricing: [prev.pricing[0], Number(e.target.value)],
-                }))
-              }
+                  pricing: [prev.pricing[0], max],
+                }));
+              }}
               className="form-control"
-              style={{ width: "45%" }}
               placeholder="Max"
+              style={{
+                width: "45%",
+                appearance: "none",
+                MozAppearance: "textfield",
+              }}
             />
           </div>
-          <small className="text-muted">
+
+          {/* Validation Message */}
+          {filters.pricing[1] < filters.pricing[0] && (
+            <small className="text-danger d-block mt-1">Max must be greater than or equal to Min.</small>
+          )}
+
+          <small className="text-muted d-block mt-1">
             ₹{filters.pricing[0]} – ₹{filters.pricing[1]}
           </small>
         </div>
+
 
         {/* Amenities */}
         <div className="mb-4">
@@ -384,7 +396,7 @@ const SalonSearch = () => {
             "Comfortable Seating Area",
             "Wi-Fi Access",
             "Kids Play Area",
-            "Private Treatment Rooms",
+            "Private Treatment",
           ].map((amenity) => (
             <div key={amenity} className="form-check">
               <input
@@ -412,53 +424,84 @@ const SalonSearch = () => {
         </div>
 
         {/* Location */}
-        <div className="mb-4">
-          <label className="fw-semibold mb-2 d-block">Location</label>
-          <div className="d-flex gap-2">
+        <div className="flex-column flex-grow-1 mb-4 text-start">
+          <label className="fw-semibold mb-2 ps-1">Location</label>
+
+          <div className="d-flex align-items-center position-relative">
             <input
               type="text"
-              className="form-control"
+              className="form-control pe-5 border-0 border-bottom rounded-0"
               name="location"
               value={filters.location}
               onChange={handleChange}
               placeholder="Enter location"
+              title={
+                !navigator.geolocation
+                  ? "Location is not supported in this browser"
+                  : filters.location === "" || filters.location === "Allow location access for better results"
+                    ? "Allow location access for better results"
+                    : ""
+              }
+              required
             />
+
+
+            {/* Location Refresh Button (icon positioned inside input field) */}
             <button
               type="button"
-              className="btn btn-outline-secondary btn-sm"
+              className="btn position-absolute p-0 m-0 bg-transparent border-0"
               onClick={handleRefreshLocation}
               title="Refresh Location"
+              style={{
+                right: '10px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                fontSize: '1.1rem',
+              }}
             >
               📍
             </button>
           </div>
+
           {locationUpdateStatus && (
+
             <small
-              className={`d-block mt-1 ${locationUpdateStatus.includes("success") ? "text-success" : locationUpdateStatus.includes("Failed") || locationUpdateStatus.includes("Unable") ? "text-danger" : "text-info"}`}
+              className={`d-block mt-1 ${locationUpdateStatus.includes("success")
+                ? "text-success"
+                : locationUpdateStatus.includes("Failed") || locationUpdateStatus.includes("Unable")
+                  ? "text-danger"
+                  : "text-info"
+                }`}
             >
-              {locationUpdateStatus}
+              <FaInfoCircle className="me-1" />{locationUpdateStatus}
             </small>
+
           )}
         </div>
 
-        {/* Apply Filters Button */}
-        <button
-          className="btn btn-sm d-flex align-items-center gap-2"
-          style={{
-            backgroundColor: "#FB8807",
-            borderColor: "#FB8807",
-            color: "white",
-            borderRadius: "8px",
-            padding: "0.4rem 0.8rem",
-            fontWeight: "500",
-            width: "100%",
-          }}
-          onClick={handleApplyFilters}
-          disabled={loading}
-        >
-          <HiAdjustments size={18} />
-          {loading ? "Loading..." : "Apply Filters"}
-        </button>
+
+<button
+  type="button" // Add this
+  className="btn btn-sm d-flex align-items-center gap-2 justify-center text-center"
+  style={{
+    backgroundColor: "#FB8807",
+    borderColor: "#FB8807",
+    color: "white",
+    borderRadius: "8px",
+    padding: "0.4rem 0.8rem",
+    fontWeight: "500",
+    width: "200px",
+    transition: "all 0.3s ease",
+  }}
+  onClick={handleApplyFilters}
+  disabled={loading}
+>
+  <HiAdjustments size={18} />
+  <span style={{ transition: "opacity 0.3s" }}>
+    {loading ? "Loading..." : "Apply Filters"}
+  </span>
+</button>
+
       </aside>
 
       <main className="flex-grow-1 p-4">
@@ -561,13 +604,13 @@ const SalonSearch = () => {
                       <div>
                         {/* Use minServicePrice from API and calculate max */}
                         <span className="fw-bold text-success">
-                          ₹{salon.minServicePrice || 200} - ₹{salon.services && salon.services.length > 0 
-                            ? Math.max(...salon.services.map(s => s.rate || 0)) 
+                          ₹{salon.minServicePrice || 200} - ₹{salon.services && salon.services.length > 0
+                            ? Math.max(...salon.services.map(s => s.rate || 0))
                             : (salon.minServicePrice ? salon.minServicePrice + 500 : 1000)}
                         </span>
                       </div>
                       <Link
-                      to={`/salondetails/${salon._id}`}
+                        to={`/salondetails/${salon._id}`}
                         className="btn btn-sm"
                         style={{
                           backgroundColor: "#FB8807",

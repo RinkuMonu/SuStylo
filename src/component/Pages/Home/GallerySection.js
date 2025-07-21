@@ -48,7 +48,10 @@ export default function GallerySection() {
                 placeholder="Enter your mobile number"
                 style={{ maxWidth: '300px' }}
                 value={mobile}
-                onChange={(e) => setMobile(e.target.value)}
+                onChange={(e) => {
+                  const cleaned = e.target.value.replace(/\D/g, '');
+                  setMobile(cleaned);
+                }}
                 maxLength={10}
               />
               <button

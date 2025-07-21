@@ -201,10 +201,10 @@ export default function Footer() {
                     <Link to="https://www.linkedin.com/in/su-stylo-salon-5a8a002a1/">
                       <CiLinkedin size={28} color="#FB8807" />
                     </Link>
-                    <Link to="https://www.instagram.com/sustylo_salon/?hl=en">
+                    <Link to="https://www.instagram.com/sustylo_jaipur/?next=%2F">
                       <FaInstagram size={25} color="#FB8807" />
                     </Link>
-                    <Link to="https://www.facebook.com/profile.php?id=61574258022641">
+                    <Link to="https://www.facebook.com/Sustyloo">
                       <FaFacebook size={25} color="#FB8807" />
                     </Link>
                     {/* <img src="/images/youtube-logo.png" alt="YouTube" className="social-logo" width={34} /> */}

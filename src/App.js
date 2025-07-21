@@ -24,6 +24,7 @@ import Login from "./component/Pages/login/Login.js";
 import Hair from "./component/Pages/Services/Hair.js";
 import SearchResults from "./component/Pages/Home/SearchResults.js";
 import Main from "./component/Pages/Filters/Main.js";
+import NotFound from "./component/Pages/404/404.js";
 
 const seoData = {
   "/": {
@@ -58,6 +59,7 @@ const router = createBrowserRouter([
       { path: "/main", element: <Main /> },
       { path: "/hair", element: <Hair /> },
       { path: "/search-results", element: <SearchResults /> },
+       { path: "*" , element: <NotFound />}
     ],
   },
   { path: "/login", element: <Login /> },

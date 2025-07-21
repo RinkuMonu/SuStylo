@@ -63,7 +63,7 @@ export default function WomenServices() {
     },
     {
       title: "Waxing and hair removal",
-      image: "./images/new/womenwaxcare.jpg",
+      image: "./images/new/waxing.jpg",
       description:
         "Book a soft and hygienic waxing session from SuStylo's trusted companion salon. Services are tailored to all types of skin, which focuses on comfort and long-lasting lubricating.",
       services: [
@@ -76,7 +76,7 @@ export default function WomenServices() {
     },
     {
       title: " Nail care and beauty",
-      image: "./images/new/womennailcare.jpg",
+      image: "./images/new/NailCare.jpg",
       description:
         "Maintain elegant nails with professional manicure and pedicure services. If you want a classic nail care or creative nail art, our salon partners provide everything to your style.",
       services: [
@@ -151,7 +151,7 @@ export default function WomenServices() {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <div className="heading mb-2">
+                <div className="heading mb-2 pt-5">
                   <h2>Empowering beauty, one service at a time</h2>
                 </div>
                 <div
