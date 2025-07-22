@@ -112,7 +112,7 @@ const SalonSearch = () => {
 
       return data
     } catch (err) {
-      setLocationUpdateStatus("Failed to update location")
+      setLocationUpdateStatus("Saloon Not Found")
       console.error("Error updating location:", err)
 
       // Clear error status after 3 seconds
