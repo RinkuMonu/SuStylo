@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import { CgProfile } from "react-icons/cg";
 import { TbLogout } from "react-icons/tb";
 import axiosInstance from "../config/axiosInstance";
 import { BsWallet2 } from "react-icons/bs";
 import { LuUser } from "react-icons/lu";
+import Swal from "sweetalert2";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,6 +16,7 @@ export default function Header() {
   const [userMobileNumber, setUserMobileNumber] = useState("");
   const [walletBalance, setwalletBalance] = useState("");
   const menuRef = useRef(null);
+    const navigate = useNavigate();
 
   // Handle scroll event
   useEffect(() => {
@@ -73,6 +75,9 @@ export default function Header() {
     };
     getUseProfile();
   }, []);
+
+
+
 
   return (
     <>
@@ -191,6 +196,7 @@ export default function Header() {
                         <LuUser  className="me-2" />Profile
                       </Link>
                     </li>
+                    
                     <li>
                       <Link to={"/profile"} className="dropdown-item d-flex  align-items-center">
                         <BsWallet2  className="me-2" />
