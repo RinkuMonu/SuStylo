@@ -163,8 +163,10 @@ export default function Profile() {
 
     if (result.isConfirmed) {
       setIsDeleting(true);
+        console.log("chhhhhhhmmmhhhh",localStorage.getItem('token'))
       try {
         await axiosInstance.delete(`/user/${userId}`);
+        
 
         Swal.fire({
           title: "Profile Deleted",

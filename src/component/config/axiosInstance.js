@@ -2,20 +2,18 @@ import axios from 'axios';
 
 const axiosInstance = axios.create({
   baseURL: 'https://api.sustylo.com/api/',
-
-
-
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${localStorage.getItem('token')}`
   }
 });
 
-
-// Request Interceptor
+// ✅ Request Interceptor to dynamically inject token before each request
 axiosInstance.interceptors.request.use(
   (config) => {
-
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
     return config;
   },
   (error) => {
@@ -23,7 +21,7 @@ axiosInstance.interceptors.request.use(
   }
 );
 
-// Response Interceptor
+// ✅ Response Interceptor
 axiosInstance.interceptors.response.use(
   (response) => {
     return response;
@@ -31,7 +29,8 @@ axiosInstance.interceptors.response.use(
   (error) => {
     if (error.response && error.response.status === 401) {
       console.error('Unauthorized! Redirecting to login...');
-      // Handle unauthorized errors, e.g., redirect to login page
+      // You can auto-redirect if needed
+      // window.location.href = '/login';
     }
     return Promise.reject(error);
   }

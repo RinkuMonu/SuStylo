@@ -175,7 +175,7 @@ export default function Contact() {
                             <div className="contact-item">
                                 <div className="icon-box"><i className="fa-solid fa-phone"></i></div>
                                 <h5>Phone Number</h5>
-                                <p><a href="tel:+917297026119" className="highlight">01414511098</a></p>
+                                <p><a href="tel:01414511098" className="highlight">01414511098</a></p>
                             </div>
                         </Col>
                         <Col md={4}>
