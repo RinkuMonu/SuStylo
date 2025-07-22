@@ -27,7 +27,26 @@ a{
     color: #000;
 }
 
+.spinner-border{
+    
+    top: 50%;
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    border-width: 8px;
+    color: #e85709 !important;
 
+}
+.blog_Section .spinner-border {
+    bottom: -5% !important;
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    border-width: 8px;
+    color: #e85709 !important;
+    top: auto;
+    left: 50%;
+}
 .blogs_deatils .title-img {
     position: relative;
     overflow: hidden;

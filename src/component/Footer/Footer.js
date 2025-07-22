@@ -107,7 +107,7 @@ export default function Footer() {
               </div>
               <div className="navLinks">
                 <h2>Services</h2>
-                <ul>
+                <ul className="gap">
                   <li>
                     <button className="px-0" onClick={() => handleLink("/services")} data-replace="Shaving">
                       <span className="fw-bold">Shaving</span>

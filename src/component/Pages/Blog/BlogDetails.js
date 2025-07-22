@@ -144,7 +144,7 @@ function BlogsDetails() {
   // Loading state
   if (loading) {
     return (
-      <div className="text-center py-5">
+      <div className="text-center py-5  position-relative" style={{height:"70vh"}}>
         <div className="spinner-border text-primary" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>

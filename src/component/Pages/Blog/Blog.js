@@ -99,7 +99,7 @@ export default function Blog() {
       </section>
 
       <div className="content-section">
-        <div className="container blog_Section">
+        <div className="container blog_Section" style={{position:"relative"}}>
           <div className="row">
             <div className="col-md-12" data-aos="fade-up">
               <div className="heading text-center">
