@@ -184,7 +184,7 @@ export default function Services() {
         className={`fade-in-section ${isVisible ? "is-visible" : ""}`}
         ref={domRef}
       >
-        <section className="services-section d-flex align-items-center">
+        <section className="services-section d-flex align-items-center" id="services">
           <div className="hero-overlay"></div>
           <div className="container text-center position-relative">
             <h1 className="hero-title">SuStylo Salon Services & Categories</h1>

@@ -5,12 +5,23 @@ import { Link } from "react-router-dom";
 import { IoCallOutline } from "react-icons/io5";
 import { CiLinkedin, CiMail } from "react-icons/ci";
 import { FaFacebook } from "react-icons/fa";
-
+import { useLocation, useNavigate } from "react-router-dom";
 import { GoClock } from "react-icons/go";
 import { IoIosSend } from "react-icons/io";
 import { FaInstagram, FaXTwitter } from "react-icons/fa6";
 import axiosInstance from "../config/axiosInstance";
+import { Button } from "react-bootstrap";
 export default function Footer() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLink = (path) => {
+    if (location.pathname === path) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate(path);
+    }
+  };
   const emailHendler = async (event) => {
     event.preventDefault();
     const emailData = {
@@ -98,34 +109,31 @@ export default function Footer() {
                 <h2>Services</h2>
                 <ul>
                   <li>
-                    <Link
-                      to={"/services"}
-                      data-replace="Shaving"
-                      className="mt-3"
-                    >
+                    <button className="px-0" onClick={() => handleLink("/services")} data-replace="Shaving">
                       <span className="fw-bold">Shaving</span>
-                    </Link>
+                    </button>
                   </li>
-                  <li>
-                    <Link to={"/services"} data-replace="Hair Spa">
+                   <li>
+                    <button className="px-0" onClick={() => handleLink("/services")} data-replace="Shaving">
                       <span className="fw-bold">Hair Spa</span>
-                    </Link>
+                    </button>
                   </li>
-                  <li>
-                    <Link to={"/services"} data-replace="Hair Cut">
+                   <li>
+                    <button className="px-0" onClick={() => handleLink("/services")} data-replace="Shaving">
                       <span className="fw-bold">Hair Cut</span>
-                    </Link>
+                    </button>
                   </li>
-                  <li>
-                    <Link to={"/services"} data-replace="Facial">
+                   <li>
+                    <button className="px-0" onClick={() => handleLink("/services")} data-replace="Shaving">
                       <span className="fw-bold">Facial</span>
-                    </Link>
+                    </button>
                   </li>
-                  <li>
-                    <Link to={"/services"} data-replace="Trimming">
+                    <li>
+                    <button className="px-0" onClick={() => handleLink("/services")} data-replace="Shaving">
                       <span className="fw-bold">Trimming</span>
-                    </Link>
+                    </button>
                   </li>
+                 
                 </ul>
               </div>
               <div className="navLinks">
